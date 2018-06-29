@@ -179,3 +179,37 @@ blockquote {
 		margin-top: -5px;
 	}
 }
+
+.toc {
+	background-color: #f3f4f8;
+	width: 230px;
+	position: fixed;
+	z-index: 1;
+	top: 80px;
+	right: 10px;
+	overflow-x: hidden;
+	padding: 8px 0;
+
+	h5 {
+		text-align: center;
+	}
+
+	hr {
+		margin: 5px;
+		border-top-color: #777;
+	}
+
+	ul {
+		padding-left: 5px;
+		li {
+			
+			list-style:none;
+			ul {
+				padding-left: 15px;
+				li {
+					list-style:none;
+				}
+			}
+		}
+	}
+}
