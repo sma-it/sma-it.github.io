@@ -3,7 +3,7 @@
 
 ## How do I get started?
 
-Een cheatsheet for Markdown: [link](https://github.com/adam-p/markdown-here/wiki/Markdown-Here-Cheatsheet)
+Een cheatsheet voor Markdown: [link](https://github.com/adam-p/markdown-here/wiki/Markdown-Here-Cheatsheet)
  
 ---
 
