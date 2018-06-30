@@ -250,6 +250,7 @@ PLATFORMS
 
 DEPENDENCIES
   github-pages
+  rouge
   wdm (>= 0.1.0)
 
 BUNDLED WITH
