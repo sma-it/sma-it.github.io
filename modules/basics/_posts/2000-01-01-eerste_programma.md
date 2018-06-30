@@ -18,7 +18,7 @@ Wanneer de installatie gestart is, kan je _Workloads_ kiezen. Voorlopig heb je e
 
 ### Launch
 
-Na het installeren kan je visual studio starten. De eerste keer zal je moeten inloggen. (Je kan dat de eerste maand overslaan, maar daarna niet meer. Dus maak je beter dadelijk een account.) Inloggen moet gebeuren met een Microsoft Account. Als je al een Microsoft account hebt, dan kan je daar mee inloggen. Heb je er geen en wil je geen persoonlijk account, dan kan je je school account gebruiken: loginnaam@smaschool.be.
+Na het installeren kan je visual studio starten. De eerste keer zal je moeten inloggen. _(Je kan dat de eerste maand overslaan, maar daarna niet meer. Dus maak je beter dadelijk een account.)_  Inloggen moet gebeuren met een Microsoft Account. Als je al een Microsoft account hebt, dan kan je daar mee inloggen. Heb je er geen en wil je geen persoonlijk account, dan kan je je school account gebruiken: `loginnaam@smaschool.be`.
 
 ### Problemen?
 
@@ -30,7 +30,7 @@ Om code te kunnen schrijven heb je een project nodig. Afhankelijk van het soort 
 
 ### Een nieuw console project
 
-Kies in het menu bovenaan 'File -> New -> Project'. Kies nu in het menu links 'Installed -> Visual C# -> Get Started -> Console App'.
+Kies in het menu bovenaan _'File -> New -> Project'_. Kies nu in het menu links _'Installed -> Visual C# -> Get Started -> Console App'_.
 
 Voor dat je op OK klikt, pas je best de instellingen van je project aan:
 
@@ -40,23 +40,23 @@ Voor dat je op OK klikt, pas je best de instellingen van je project aan:
 * **Create directory for solution:** Niet aanvinken voor een klein project zoals een oefening.
 * **Create new Git repository**: Niet aanvinken
 
-![Demo](/img/basics/01/01.gif)
+![Demo](/img/basics/eerste_programma/01.gif)
 
 ### Je programma starten
 
-Je kan je programma starten door bovenaan **Start** te kiezen. Je nieuwe programma zal de tekst 'Hello World' op het scherm tonen. Sluit je programma af door op de spatiebalk te duwen.
+Je kan je programma starten door bovenaan **Start** te kiezen. Je nieuwe programma zal de tekst `'Hello World'` op het scherm tonen. Sluit je programma af door op de spatiebalk te duwen.
 
 <div class="note protip">
-<p>Je zal dit jaar heel vaak een programma moeten starten. Dat kan via de button 'Start', maar nog sneller via de functietoets F5.</p>
+<p>Je zal dit jaar heel vaak een programma moeten starten. Dat kan via de button <b>Start</b>, maar nog sneller via de functietoets F5.</p>
 </div>
 
 ### Code Aanpassen
 
 Een programma bestaat uit code. Op dit moment geeft die code je computer de instructie om een console te tonen met daarin een tekst. Je kan deze code ook bekijken.
 
-* Open de Solution Explorer als die nog niet zichtbaar is via 'View -> Solution Explorer'. 
-* In de Solution explorer zie je een boomstructuur met bovenaan je 'Solution'. In die Solution zie je je programma, met daarin alle bestanden die bij je programma horen. 
-* Open het bestand 'Program.cs'.
+* Open de Solution Explorer als die nog niet zichtbaar is via _'View -> Solution Explorer'_. 
+* In de Solution explorer zie je een boomstructuur met bovenaan je _Solution_. In die Solution zie je je programma, met daarin alle bestanden die bij je programma horen. 
+* Open het bestand **Program.cs**.
 * Je ziet de volgende code. Welke regel zorgt er voor dat je een tekst op het scherm toont?
 
 ```csharp
@@ -72,7 +72,6 @@ namespace MijnProgramma
   }
 }
 ```
-
 
 <div class="note oefening">
 <p>Pas de tekst 'Hello World' aan en start het programma opnieuw.</p>
