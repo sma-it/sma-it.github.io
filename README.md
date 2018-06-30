@@ -1,9 +1,9 @@
-# Everything you need to create an online course in a box
+# Everything you need to create an online course
 
 
 ## How do I get started?
 
-Head on over to [howto.p2pu.org](http://howto.p2pu.org). Everything you need to know is over there and once you are done we'll be waiting for you here!
+Een cheatsheet for Markdown: [link](https://github.com/adam-p/markdown-here/wiki/Markdown-Here-Cheatsheet)
  
 ---
 
