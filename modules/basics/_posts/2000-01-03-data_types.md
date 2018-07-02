@@ -10,7 +10,7 @@ Je programma kan gebruik maken van verschillende soorten gegevens. Zo kan je ber
 
 C# maakt gebruik van data types, of gegevenstypes, om met deze verschillende soorten gegevens te werken. Hieronder vind je een overzicht van de gegevenstypes die in de cursus gebruikt zullen worden.
 
-![tabel_datatypes](/img/data_types/tabel_datatypes.PNG)
+![tabel_datatypes](/img/data_types/tabel_datatypes.png)
 
 
 ## Wat is een variabele?
@@ -157,7 +157,7 @@ Aangezien dit een conversie van een lager naar een hoger gegevenstype is, lukt d
 
 In bovenstaand voorbeeld wordt er geprobeerd om de inhoud van een variabele met hoger gegevenstype te plaatsen in een variabele van een lager data type. Dit geeft onderstaande foutmelding:
 
-![foutmelding_conversie](/img/data_types/foutmelding_conversie.PNG)
+![foutmelding_conversie](/img/data_types/foutmelding_conversie.png)
 
 Indien automatische conversie tussen data types niet lukt maar er toch een omzetting nodig is, kan je gebruik maken van de Convert methods die in vorige punt aangehaald werden. Merk hierbij op dat dit een wijziging van gegevens tot gevolg kan hebben.
 
