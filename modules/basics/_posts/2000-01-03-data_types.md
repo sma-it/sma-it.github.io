@@ -78,7 +78,7 @@ Het initialiseren van een variabele houdt in dat je de variabele een waarde geef
        Console.WriteLine("Geef een getal: ");
        getal = Convert.ToInt32(Console.ReadLine()); // Let op de omzetting naar int
      
-       
+      
  ```
 
 Gegevens die ingevoerd worden via het toetsenbord hebben steeds het gegevenstype string. Om deze invoer in variabelen met een ander gegevenstype te plaatsen is er een omzetting (conversie) nodig. In het bovenstaande voorbeeld wordt de omzetting van string naar int gedaan d.m.v. ```Convert.ToInt32()```.
