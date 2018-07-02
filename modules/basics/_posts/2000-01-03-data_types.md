@@ -73,7 +73,7 @@ Het initialiseren van een variabele houdt in dat je de variabele een waarde geef
        
        // Initialisatie
        Console.WriteLine("Geef je naam: ");
-       name=Console.ReadLine(); // z wordt geïnitialiseerd op de invoer van het toetsenbord
+       name=Console.ReadLine(); // name wordt geïnitialiseerd op de invoer van het toetsenbord
 
        Console.WriteLine("Geef een getal: ");
        getal = Convert.ToInt32(Console.ReadLine()); // Let op de omzetting naar int
