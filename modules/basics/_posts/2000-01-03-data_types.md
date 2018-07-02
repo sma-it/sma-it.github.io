@@ -129,7 +129,7 @@ Conversie van een lager gegevenstype naar een hoger gebeurt automatisch. Probeer
 
 Enkele voorbeelden:
 
-* Conversie van double naar int
+* Conversie van int naar double
 
 ```csharp
 
@@ -143,7 +143,7 @@ Enkele voorbeelden:
 
 Aangezien dit een conversie van een lager naar een hoger gegevenstype is, lukt dit probleemloos.
 
-* Conversie van int naar double (met foutmelding!)
+* Conversie van double naar int (met foutmelding!)
 
 ```csharp
 
