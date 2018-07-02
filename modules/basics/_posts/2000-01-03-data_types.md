@@ -96,7 +96,7 @@ Voor de andere data types bestaan er eveneens methods om deze conversie te doen:
        // Initialisatie
        x=7;
        y=10;
-       result=x+y; // De variabele result wordt initialiseert op het resultaat van de bewerking
+       result=x+y; // De variabele result wordt initialiseerd op het resultaat van de bewerking
 
       
  ```
