@@ -81,9 +81,9 @@ Het initialiseren van een variabele houdt in dat je de variabele een waarde geef
       
  ```
 
-Gegevens die ingevoerd worden via het toetsenbord hebben steeds het gegevenstype string. Om deze invoer in variabelen met een ander gegevenstype te plaatsen is er een omzetting (conversie) nodig. In het bovenstaande voorbeeld wordt de omzetting van string naar int gedaan d.m.v. ```Convert.ToInt32()```.
+Gegevens die ingevoerd worden via het toetsenbord hebben steeds het gegevenstype string. Om deze invoer in variabelen met een ander gegevenstype te plaatsen is er een omzetting (conversie) nodig. In het bovenstaande voorbeeld wordt de omzetting van string naar int gedaan d.m.v. `Convert.ToInt32()`.
 
-Voor de andere data types bestaan er eveneens methods om deze conversie te doen: ```Convert.ToFloat()```, ```Convert.ToDouble()```, ```Convert.ToBoolean()```, ```Convert.ToChar()```
+Voor de andere data types bestaan er eveneens methods om deze conversie te doen: ```Convert.ToFloat()```, ```Convert.ToDouble()```, `Convert.ToBoolean()`, `Convert.ToChar()`
 
 
 ### De variabele gelijk stellen aan het resultaat van een bewerking
@@ -161,7 +161,7 @@ In bovenstaand voorbeeld wordt er geprobeerd om de inhoud van een variabele met 
 
 Indien automatische conversie tussen data types niet lukt maar er toch een omzetting nodig is, kan je gebruik maken van de Convert methods die in vorige punt aangehaald werden. Merk hierbij op dat dit een wijziging van gegevens tot gevolg kan hebben.
 
-Indien we de Convert method ```Convert.ToInt32()``` toepassen om de foutmelding bij het vorige voorbeeld te vermijden dan wordt dit:
+Indien we de Convert method `Convert.ToInt32()` toepassen om de foutmelding bij het vorige voorbeeld te vermijden dan wordt dit:
 
 ```csharp
 
@@ -181,12 +181,12 @@ De uitvoer van dit stukje code is:
   De waarde van x: 11
 ```
 
-Zoals je ziet heeft de method ```Convert.ToInt32()``` de waarde van y afgerond op nul decimalen in x geplaatst. Dit is noodzakelijk omdat de integer x geen kommagetal kan bevatten. Het afronden gebeurt op een rekenkundige manier.
+Zoals je ziet heeft de method `Convert.ToInt32()` de waarde van y afgerond op nul decimalen in x geplaatst. Dit is noodzakelijk omdat de integer x geen kommagetal kan bevatten. Het afronden gebeurt op een rekenkundige manier.
 
 
 ## Een variabele op het scherm tonen
 
-D.m.v. ```Console.WriteLine()``` kan je zaken op het scherm laten verschijnen. Dit kan een variabele, letterlijk weer te geven tekst (= string literal) of een combinatie van beiden zijn.
+D.m.v. `Console.WriteLine()` kan je zaken op het scherm laten verschijnen. Dit kan een variabele, letterlijk weer te geven tekst (= string literal) of een combinatie van beiden zijn.
 
 Enkele voorbeelden:
 
@@ -199,7 +199,7 @@ Enkele voorbeelden:
 ```
 
 <div class="note oefening">
-<p>Link naar oefening datatypes-1 toevoegen</p>
+<p>Open het project **Oefening-datatypes** en maak de oefeningenreeks</p>
 </div>
 
 
