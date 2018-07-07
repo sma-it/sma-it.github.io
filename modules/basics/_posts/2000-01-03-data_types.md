@@ -10,6 +10,7 @@ Je programma kan gebruik maken van verschillende soorten gegevens. Zo kan je ber
 
 C# maakt gebruik van data types, of gegevenstypes, om met deze verschillende soorten gegevens te werken. Hieronder vind je een overzicht van de gegevenstypes die in de cursus gebruikt zullen worden.
 
+<table>
 | Keyword       | Bereik   |
 | ------------- |-------------    |
 | bool          | true / false         |
@@ -18,6 +19,7 @@ C# maakt gebruik van data types, of gegevenstypes, om met deze verschillende soo
 | double        | kommagetallen van -1.79769313486232e308 tot 1.79769313486232e308       |
 | char          | één karakter |
 | string        | een tekenreeks  |
+</table>
 
 ## Wat is een variabele?
 
