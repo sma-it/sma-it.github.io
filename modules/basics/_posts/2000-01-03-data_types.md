@@ -35,6 +35,12 @@ Onder declaratie van een variabele verstaan we maken van de variabele. Dit houdt
 
 Kies telkens een betekenisvolle naam voor je variabele en gebruik het correcte data type.
 
+Niet alle karakters kunnen gebruikt worden om een naam van een variabele samen te stellen. Een geldige variabelenaam voldoet aan de volgende eisen:
+* De naam kan letters, cijfers en de underscore (_) bevatten.
+* De naam begint met een letter of een underscore. Een cijfer als eerste karakter is niet toegelaten.
+* De naam is hoofdlettergevoelig. Bijvoorbeeld: de variabele Price is niet dezelfde als de variabele price.
+* Gereserveerde woorden van C# kunnen niet gebruikt worden als naam voor een variabele. Zo kan je bijvoorbeeld geen variabele met de naam int maken aangezien dit woord gereserveerd is in C#.
+
 Enkele voorbeelden van declaraties:
 ```csharp
 
