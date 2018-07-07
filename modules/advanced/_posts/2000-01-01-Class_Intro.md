@@ -20,7 +20,7 @@ namespace MijnProgramma
 }
 ```
 <div class="note protip">
-<p>Je kan een class samen met andere data in een bestand zetten. En bij oefeningen in deze cursus vragen we je dikwijls om dat te doen omdat dat eenvoudiger is om te verbeteren. Maar wanneer je aan een echt programma werkt dan zal je bijna altijd een bestand maken voor elke class, waarbij de bestandsnaam en de class naam dezelfde zijn</p>
+<p>Je kan een class samen met andere data in een bestand zetten. En bij oefeningen in deze cursus vragen we je dikwijls om dat te doen omdat dat eenvoudiger is om te verbeteren. Maar wanneer je aan een echt programma werkt dan zal je bijna altijd een bestand maken voor elke class, waarbij de bestandsnaam en de class naam dezelfde zijn.</p>
 </div>
 
 Met een lege class ben je natuurlijk niet veel. Als voorbeeld gaan we enkele properties toevoegen. Dit zijn de eigenschappen van een persoon die we willen onthouden. We starten met naam, voornaam en leeftijd. _(De namespace laten we vanaf nu achterwege om de voorbeelden kort te houden.)_
@@ -101,7 +101,7 @@ PrintPerson(person2);
 
 ### Functies in een class
 
-Aan het begin van dit hoofdstuk stelden we dat class dienen om zaken samen te zetten die conceptueel bij mekaar horen. Wel, de print functie hierboven dient slechts voor een enkel ding: het tonen van een persoon op het scherm. Daarom zou het beter zijn als deze functie ook een onderdeel was van de class `Person`.
+Aan het begin van dit hoofdstuk stelden we dat classes dienen om zaken samen te zetten die conceptueel bij mekaar horen. Wel, de print functie hierboven dient slechts voor een enkel ding: het tonen van een persoon op het scherm. Daarom zou het beter zijn als deze functie ook een onderdeel was van de class `Person`.
 
 <div class="note waarschuwing">
 <p>Later zal je leren dat GUI functies net niet bij een class horen. De GUI en de rest van je programma moeten steeds gescheiden worden. Maar omdat we nu enkel met de console werken, en om de oefeningen eenvoudig te houden, maken we hier voorlopig een uitzondering.</p>
@@ -138,7 +138,7 @@ person2.Print();
 
 Je leert natuurlijk pas goed met classes werken wanneer je er vaak mee in aanraking komt. Het vorige voorbeeld was zeer concreet: je weet wat een persoon is en je kan er je wel wat eigenschappen bij voorstellen. Maar zo eenvoudig is het niet altijd. Dikwijls representeert een class iets wat meer abstract is. Zo bevat C# classes die een internetverbinding voorstellen, of een JSON bestand, een databaseverbinding, enzovoort.
 
-In dit deel zie je een uitgewerkt voor beeld van een class voor het werken met posities in 2D. De class heeft enkele properties, maar vooral veel functies die het werken met posities eenvoudiger maken. Geef zeker aandacht aan de verschillende manieren waarop functies met argumenten en resultaten kunnen werken.
+In dit deel zie je een uitgewerkt voorbeeld van een class voor het werken met posities in 2D. De class heeft enkele properties, maar vooral veel functies die het werken met posities eenvoudiger maken. Geef zeker aandacht aan de verschillende manieren waarop functies met argumenten en resultaten kunnen werken.
 
 ```csharp
 class Point
