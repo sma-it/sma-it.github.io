@@ -2,11 +2,11 @@
 title: Operators, Expressies en Statements
 ---
 
-## Operators
+### Operators
 
 Operatoren zijn de bouwstenen waarmee code kan opgebouwd worden. Ze worden gebruikt om een actie uit te voeren op operanden. In C# zijn een groot aantal operatoren voorgedefinieerd. In wat volgt worden veelgebruikte operatoren besproken.
 
-### Wiskundige operatoren
+#### Wiskundige operatoren
 
 Onderstaande tabel geeft een overzicht van enkele veelgebruikte wiskundige operatoren:
 
@@ -38,7 +38,7 @@ De berekening van deze waarde gaat als volgt:
 16 - 15 = 1 -> De rest na deling van 16 door 3 is 1
 
 
-### Volgorde van bewerkingen
+#### Volgorde van bewerkingen
 
 De volgorde van de bewerkingen in een berekening is gelijk aan de voorrang die in wiskunde gebruikt wordt. D.m.v. ronde haakjes kan je een andere volgorde van bewerkingen opgeven.
 
@@ -46,7 +46,7 @@ Voorbeeld:
 
 (a + b) x (c + d) is verschillend van a + b x c + d
 
-### Increment en decrement operatoren
+#### Increment en decrement operatoren
 
 | Operator  | Bewerking         | Hoe gebruiken? | Volledige schrijfwijze |
 | --------- |-------------      | -------------- | ---------------------- |
@@ -70,7 +70,7 @@ x=10;
 x--; // x is nu gelijk aan 9.
 ```
 
-### Toekenningsoperator
+#### Toekenningsoperator
 
 In onderstaande statements
 
@@ -91,7 +91,7 @@ Verder bestaan er toekenningsoperatoren die eigenlijk verkorte schrijfwijzen van
 | /=        | a/=2;         | a=a/2;                  |
 {:.tableBorder}
 
-### Vergelijkingsoperatoren
+#### Vergelijkingsoperatoren
 
 Onderstaande tabel geeft een overzicht van de vergelijkinsoperatoren. Een vergelijkingsoperator zal steeds `true` of `false` als resultaat geven.
 
@@ -110,7 +110,7 @@ Onderstaande tabel geeft een overzicht van de vergelijkinsoperatoren. Een vergel
 Zorg ervoor dat je in vergelijkingen steeds de vergelijkingsoperator gebruikt.</p>
 </div>
 
-### Logische operatoren
+#### Logische operatoren
 
 Onderstaande tabel geeft een overzicht van de logische operatoren. Een logische operator gebruik je om voorwaarden samen te voegen. Het resultaat van het geheel zal steeds `true` of `false` zijn.  
 
@@ -218,7 +218,7 @@ De operator levert volgende waarheidstabellen op voor verschillende waarden van 
 {:.tableBorder}
 
 
-## Expressies
+### Expressies
 
 Een expressie is opgebouwd uit operatoren en operanden.
 
@@ -232,7 +232,7 @@ Console.ReadLine(); //Operator: ReadLine() / operand: Console
 (a>b)               //Operator: > / operanden: a en b
 ```
 
-## Statements
+### Statements
 
 Een statement is een volledige instructie, meestal afgesloten met een puntkomma. Een statement is opgebouwd uit één of meerdere expressies.
 

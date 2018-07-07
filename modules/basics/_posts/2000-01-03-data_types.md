@@ -4,7 +4,7 @@ published: true
 ---
 
 
-## Data types
+### Data types
 
 Je programma kan gebruik maken van verschillende soorten gegevens. Zo kan je berekeningen maken met getallen, namen gebruiken, enz.
 
@@ -21,7 +21,7 @@ C# maakt gebruik van data types, of gegevenstypes, om met deze verschillende soo
 | string        | een tekenreeks  |
 {:.tableBorder}
 
-## Wat is een variabele?
+### Wat is een variabele?
 
 Tijdens het uitvoeren van een programma zal het vaak nodig zijn om gegevens bij te houden in het geheugen van de computer. Enkele voorbeelden hiervan zijn invoer van de gebruiker of het resultaat van een berekening.
 
@@ -29,7 +29,7 @@ Om op een handige manier een geheugenplaats aan te kunnen spreken, maken we gebr
 
 Naast een naam, krijgt een variabele ook een data type. Dit gegevenstype bepaalt welk type informatie er in de variabele opgeslagen kan worden en welke bewerkingen er met de variabele kunnen gebeuren. Tevens bepaalt het gekozen gegevenstype hoeveel ruimte er in het geheugen voorzien zal worden om de data op te slaan.
 
-## Declaratie van een variabele
+### Declaratie van een variabele
 
 Onder declaratie van een variabele verstaan we maken van de variabele. Dit houdt in dat er een naam en een data type aan de variabele toegekend worden.
 
@@ -46,11 +46,11 @@ Enkele voorbeelden van declaraties:
 
  ```
 
-## Initialisatie van een variabele
+### Initialisatie van een variabele
 
 Het initialiseren van een variabele houdt in dat je de variabele een waarde geeft. Dit kan op verschillende manieren gebeuren:
 
-### De variabele gelijk stellen aan een waarde
+#### De variabele gelijk stellen aan een waarde
 
 ```csharp
 
@@ -72,7 +72,7 @@ Het initialiseren van een variabele houdt in dat je de variabele een waarde geef
      
  ```
 
-### De variabele gelijk stellen aan invoer van de gebruiker
+#### De variabele gelijk stellen aan invoer van de gebruiker
 
 ```csharp
 
@@ -94,7 +94,7 @@ Gegevens die ingevoerd worden via het toetsenbord hebben steeds het gegevenstype
 Voor de andere data types bestaan er eveneens methods om deze conversie te doen: ```Convert.ToFloat()```, ```Convert.ToDouble()```, `Convert.ToBoolean()`, `Convert.ToChar()`
 
 
-### De variabele gelijk stellen aan het resultaat van een bewerking
+#### De variabele gelijk stellen aan het resultaat van een bewerking
 
 ```csharp
 
@@ -125,7 +125,7 @@ Voor de andere data types bestaan er eveneens methods om deze conversie te doen:
 <p>Een variabele moet steeds geïnitialiseerd zijn voordat hij gebruikt wordt. Een niet-geïnitialiseerde variabele gebruiken (in bijvoorbeeld een bewerking of uitvoer) kan tot onverwachte en foutieve resultaten leiden.</p>
 </div>
 
-## Automatische conversie tussen data types
+### Automatische conversie tussen data types
 
 In bepaalde gevallen zal C# zelf de conversie tussen gegevenstypes doen. De numerieke gegevenstypes hebben onderstaande hiërarchie:
 
@@ -190,7 +190,7 @@ De uitvoer van dit stukje code is:
 Zoals je ziet heeft de method `Convert.ToInt32()` de waarde van y afgerond op nul decimalen in x geplaatst. Dit is noodzakelijk omdat de integer x geen kommagetal kan bevatten. Het afronden gebeurt op een rekenkundige manier.
 
 
-## Een variabele op het scherm tonen
+### Een variabele op het scherm tonen
 
 D.m.v. `Console.WriteLine()` kan je zaken op het scherm laten verschijnen. Dit kan een variabele, letterlijk weer te geven tekst (= string literal) of een combinatie van beiden zijn.
 
