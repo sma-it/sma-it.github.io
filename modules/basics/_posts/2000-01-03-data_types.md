@@ -10,8 +10,14 @@ Je programma kan gebruik maken van verschillende soorten gegevens. Zo kan je ber
 
 C# maakt gebruik van data types, of gegevenstypes, om met deze verschillende soorten gegevens te werken. Hieronder vind je een overzicht van de gegevenstypes die in de cursus gebruikt zullen worden.
 
-![tabel_datatypes](/img/data_types/tabel_datatypes.png)
-
+| Keyword       | Bereik   |
+| ------------- |-------------    |
+| bool          | true / false         |
+| int           | gehele getallen van -2147483648 tot 2147483647   |
+| float         | kommagetallen van -3.402823e38 tot 3.402823e38        |
+| double        | kommagetallen van -1.79769313486232e308 tot 1.79769313486232e308       |
+| char          | één karakter |
+| string        | een tekenreeks  |
 
 ## Wat is een variabele?
 
@@ -34,7 +40,7 @@ Enkele voorbeelden van declaraties:
        string name;         // Inhoud: een tekenreeks
        float price;         // Inhoud: een kommagetal
        double averageSpeed; // Inhoud: een kommagetal
-       char teken;          // Inhoud: 1 karakter
+       char c;              // Inhoud: 1 karakter
 
  ```
 
@@ -51,15 +57,15 @@ Het initialiseren van een variabele houdt in dat je de variabele een waarde geef
        string name;     
        float price; 
        double averageSpeed;
-       char teken;
+       char c;
 
        // Initialisatie
        x=7;
        name="voorbeeld";  // Tekst plaats je tussen dubbele aanhalingstekens
-       price=2.99F;       // Gebruik een punt bij het kommagetal. 
-                          // Bij een float variabele laat je het getal volgen door de letter F
+       price=2.99F;       // Gebruik een punt bij het kommagetal. Bij een float variabele laat 
+                          //je het getal volgen door de letter F.
        averageSpeed=52.36;
-       teken='C';         //Het karakter plaats je tussen enkele aanhalingstekens
+       c='A';             //Het karakter plaats je tussen enkele aanhalingstekens
 
      
  ```
@@ -69,14 +75,14 @@ Het initialiseren van een variabele houdt in dat je de variabele een waarde geef
 ```csharp
 
       string name;
-      int getal;              
+      int number;              
        
        // Initialisatie
        Console.WriteLine("Geef je naam: ");
        name=Console.ReadLine(); // name wordt geïnitialiseerd op de invoer van het toetsenbord
 
        Console.WriteLine("Geef een getal: ");
-       getal = Convert.ToInt32(Console.ReadLine()); // Let op de omzetting naar int
+       number = Convert.ToInt32(Console.ReadLine()); // Let op de omzetting naar int
      
       
  ```
@@ -104,8 +110,8 @@ Voor de andere data types bestaan er eveneens methods om deze conversie te doen:
  Hetzelfde voorbeeld maar dan toegepast in een functie:
 
  ```csharp
-    public static int Som(int a, int b)  // Declaratie van x en y.
-                                          //Initialisatie gebeurt bij de aanroep van de functie.
+    public static int calcSum(int a, int b)   // Declaratie van x en y in de argumentenlijst.
+                                              //Initialisatie gebeurt bij de aanroep van de functie.
     {
       int result;
       result = x + y;
@@ -155,9 +161,7 @@ Aangezien dit een conversie van een lager naar een hoger gegevenstype is, lukt d
  
 ```
 
-In bovenstaand voorbeeld wordt er geprobeerd om de inhoud van een variabele met hoger gegevenstype te plaatsen in een variabele van een lager data type. Dit geeft onderstaande foutmelding:
-
-![foutmelding_conversie](/img/data_types/foutmelding_conversie.png)
+In bovenstaand voorbeeld wordt er geprobeerd om de inhoud van een variabele met hoger gegevenstype te plaatsen in een variabele van een lager data type. Dit geeft een foutmelding.
 
 Indien automatische conversie tussen data types niet lukt maar er toch een omzetting nodig is, kan je gebruik maken van de Convert methods die in vorige punt aangehaald werden. Merk hierbij op dat dit een wijziging van gegevens tot gevolg kan hebben.
 
