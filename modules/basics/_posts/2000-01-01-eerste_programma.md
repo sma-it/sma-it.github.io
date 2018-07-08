@@ -2,13 +2,15 @@
 title: Je Eerste Programma
 ---
 
+# Je Eerste Programma
+
 ## Visual Studio Installeren
 
 Wanneer je een tekst wil schrijven, dan kan je dat doen met eender welk programma waar je in kan typen. Notepad is al voldoende. Toch zal je werk wellicht vlotter gaan als je een programma gebruikt dat specifiek bedoeld is voor het schrijven van teksten, zoals OpenOffice of Microsoft Word.
 
 Ook programmeren kan simpelweg in Notepad, maar ook hier geldt dat je het jezelf een stuk makkelijker maakt met een programma dat speciaal gemaakt is voor programmeurs. En voor de programmeertaal die je gebruikt. In deze cursus gebruiken we C# om te leren programmeren. Daarom gebruiken we ook een editor die zeer geschikt is voor C#: Microsoft Visual Studio. _Omdat we software ontwikkelen, noemen we dit ook wel een 'ontwikkelomgeving'._
 
-### Download & Installatie
+## Download & Installatie
 
 Indien Visual Studio nog niet op je computer staat, dan moet je dit programma eerst downloaden. Ga naar de [Visual Studio Website](https://visualstudio.microsoft.com/vs/community/) en download VS Community 2017. 
 

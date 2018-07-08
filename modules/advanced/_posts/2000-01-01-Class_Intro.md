@@ -2,11 +2,13 @@
 title: Classes
 ---
 
+# Classes
+
 Een `class` is een verzameling van data en functies die conceptueel bij mekaar horen. In de vorige hoofdstukken maakte je al kennis met classes in C#. `Console` is bijvoorbeeld een class, maar ook `String` en `DateTime` zijn classes. En zelfs de `Main` functie in een programma maakt deel uit van een class.
 
 Neem bijvoorbeeld de class `DateTime`. Deze class heeft properties, zoals `Day`, `Minute`, `Year`, `DayOfWeek`, enzovoort. En daarnaast voorziet de class of functies, zoals `AddDays()`, `CompareTo()` en `ToLocalTime()`. Als we zeggen dat deze functies en properties conceptueel bij mekaar horen, dan bedoelen we dat ze allemaal met het concept *tijd* te maken. Die samenhang is heel belangrijk om een programma of een software library overzichtelijk te houden: als iets niet duidelijk verwant is, dan plaatsen we het niet in dezelfde class.
 
-### Een class maken
+## Een class maken
 
 Tot hiertoe gebruikte je af en toe bestaande classes. Nu leer je hoe je zelf nieuwe classes maakt. Wanneer een programma groter wordt, dan is het bijna onmogelijk om het overzicht te bewaren zonder je eigen code in classes te plaatsen. Wanneer je bijvoorbeeld gegevens over personen moet verwerken in je programma, dan zou het logisch zijn dat je een class maakt waarin je gegevens over die persoon kan opslaan. De definitie van een class kan bijna overal, maar moet wel binnen een namespace zitten:
 
@@ -45,7 +47,7 @@ Een property bestaat dus uit de volgende onderdelen:
 </div>
 
 
-### Een class gebruiken
+## Een class gebruiken
 
 Wanneer je een `class` maakt, dan vertel je de compiler hoe een object eruit ziet. Je maakt eigenlijk een definitie, of een blueprint. Maar om de class te gebruiken zal je een _instance_, of een object, moeten maken van de class. Je kent dit principe al, want ook `DateTime` verwacht dat je een object maakt:
 
@@ -99,7 +101,7 @@ PrintPerson(person2);
 <p>Open het project **Oefening_Classes1** (TODO: link toevoegen) via github en maak oefenreeks 1.</p>
 </div>
 
-### Functies in een class
+## Functies in een class
 
 Aan het begin van dit hoofdstuk stelden we dat classes dienen om zaken samen te zetten die conceptueel bij mekaar horen. Wel, de print functie hierboven dient slechts voor een enkel ding: het tonen van een persoon op het scherm. Daarom zou het beter zijn als deze functie ook een onderdeel was van de class `Person`.
 
@@ -134,7 +136,7 @@ person2.Print();
 <p>Open het project **Oefening_Classes1** en maak oefenreeks 2.</p>
 </div>
 
-### Voorbeeld: class Point
+## Voorbeeld: class Point
 
 Je leert natuurlijk pas goed met classes werken wanneer je er vaak mee in aanraking komt. Het vorige voorbeeld was zeer concreet: je weet wat een persoon is en je kan er je wel wat eigenschappen bij voorstellen. Maar zo eenvoudig is het niet altijd. Dikwijls representeert een class iets wat meer abstract is. Zo bevat C# classes die een internetverbinding voorstellen, of een JSON bestand, een databaseverbinding, enzovoort.
 
