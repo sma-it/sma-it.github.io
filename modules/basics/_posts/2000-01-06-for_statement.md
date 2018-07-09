@@ -32,7 +32,7 @@ Bespreking:
 #### Voorbeeld 1: For-lus toont de getallen 0 tot en met 9 op het scherm.
 
 ```csharp
-for(int i=0 ; i<10 ; i++)
+for (int i = 0; i < 10; i++)
 {
     Console.WriteLine(i);
 }
@@ -53,10 +53,10 @@ First instruction after the for loop
 ```
 Bespreking:
 De parameters tussen haakjes zijn:
-* Initialisatie: int i=0
-* Voorwaarde: i<10
+* Initialisatie: int i = 0
+* Voorwaarde: i < 10
 * Stap: i++
-    * Belangrijk: voluit geschreven is dit i=i+1.
+    * Belangrijk: voluit geschreven is dit i = i + 1.
     * We kunnen het verloop van de for-lus dus als volgt beschrijven: de teller i wordt geïnitialiseerd op 0 en gaat in stappen van 1 omhoog. Als i de waarde 10 bereikt stopt de for-lus en wordt het instructieblok niet meer uitgevoerd.
 Het instructieblok toont de waarde van de teller i, bijgevolg verschijnen de getallen 0 tot en met 9 op het scherm.
 Het getal 10 verschijnt niet omdat het instructieblok niet uitgevoerd wordt van zodra de teller i de waarde 10 bereikt heeft.
@@ -65,7 +65,7 @@ Als de for-lus afgelopen is, vervolgt het programma met de code die na de lus ko
 #### Voorbeeld 2: For-lus met char teller
 
 ```csharp
-for(char c='a' ; c<='z' ; c++)
+for (char c = 'a'; c <= 'z'; c++)
 {
     Console.WriteLine(c);
 }
@@ -91,7 +91,7 @@ Bespreking:
 #### Voorbeeld 3: Beginwaarde teller verschillend van 0 en stapgrootte verschillend van 1
 
 ```csharp
-for(int i=10 ; i<100 ; i+=2)
+for (int i = 10; i < 100; i += 2)
 {
     Console.WriteLine(i);
 }
@@ -116,8 +116,8 @@ Bespreking:
 #### Voorbeeld 4: Variabele in de voorwaarde
 
 ```csharp
-int max=40;
-for(int i=0 ; i<max ; i+=2)
+int max = 40;
+for (int i = 0; i < max; i += 2)
 {
     Console.WriteLine(i);
 }
@@ -141,10 +141,10 @@ In de voorwaarde wordt er gebruik gemaakt van de variabele max. Vanzelfsprekend 
 #### Voorbeeld 5: Break statement
 
 ```csharp
-for(int i=0 ; i<10 ; i++)
+for (int i = 0; i < 10; i++)
 {
     Console.WriteLine(i);
-    if(i==5)
+    if (i == 5)
     {
         Console.WriteLine("We make the loop end at number 5!");
         break;
@@ -171,9 +171,9 @@ Bespreking:
 #### Voorbeeld 6: Continue statement
 
 ```csharp
-for (int i=0; i<10; i++)
+for (int i = 0; i < 10; i++)
 {
-    if (i<8)
+    if (i < 8)
     {
         continue;
     }
