@@ -50,8 +50,8 @@ Voorbeeld:
 
 | Operator  | Bewerking         | Hoe gebruiken? | Volledige schrijfwijze |
 | --------- |-------------      | -------------- | ---------------------- |
-| ++        | verhoog met 1     | i++;           | i=i+1;                 |
-| -\-       | verminder met 1   | i--;           | i=i-1;                 |
+| ++        | verhoog met 1     | i++;           | i = i + 1;             |
+| -\-       | verminder met 1   | i--;           | i = i - 1;             |
 {:.tableBorder}
 
 Onderstaande voorbeelden tonen aan hoe deze operatoren gebruikt worden:
