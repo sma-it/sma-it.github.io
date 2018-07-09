@@ -13,7 +13,7 @@ Een programmeerstructuur die een stuk code meerdere keren uitvoert, noemt met ee
 De algemene syntax van een for-lus ziet er als volgt uit:
 
 ```csharp
-for(initialisatie;voorwaarde;stap)
+for (initialisatie; voorwaarde; stap)
 {
     te herhalen instructieblok
 }
