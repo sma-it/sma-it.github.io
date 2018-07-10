@@ -260,7 +260,7 @@ if(int a == 10)
 }
 else
 {
-    Console.WriteLine("Het ingegeven getal is verschillende van 10);
+    Console.WriteLine("Het ingegeven getal is verschillende van 10");
 }
 ```
 
