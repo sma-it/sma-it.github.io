@@ -44,11 +44,11 @@ Niet alle karakters kunnen gebruikt worden om een naam van een variabele samen t
 Enkele voorbeelden van declaraties:
 ```csharp
 
-       int x;               // Inhoud: een geheel getal
-       string name;         // Inhoud: een tekenreeks
-       float price;         // Inhoud: een kommagetal
-       double averageSpeed; // Inhoud: een kommagetal
-       char c;              // Inhoud: 1 karakter
+int x;               // Inhoud: een geheel getal
+string name;         // Inhoud: een tekenreeks
+float price;         // Inhoud: een kommagetal
+double averageSpeed; // Inhoud: een kommagetal
+char c;              // Inhoud: 1 karakter
 
  ```
 
@@ -60,40 +60,36 @@ Het initialiseren van een variabele houdt in dat je de variabele een waarde geef
 
 ```csharp
 
-       // Declaratie  
-       int minimum;           
-       string name;     
-       float price; 
-       double averageSpeed;
-       char c;
+// Declaratie  
+int minimum;           
+string name;     
+float price; 
+double averageSpeed;
+char c;
 
-       // Initialisatie
-       x=7;
-       name="voorbeeld";  // Tekst plaats je tussen dubbele aanhalingstekens
-       price=2.99F;       // Gebruik een punt bij het kommagetal. Bij een float variabele laat 
-                          //je het getal volgen door de letter F.
-       averageSpeed=52.36;
-       c='A';             //Het karakter plaats je tussen enkele aanhalingstekens
-
-     
- ```
+// Initialisatie
+x = 7;
+name = "voorbeeld";  // Tekst plaats je tussen dubbele aanhalingstekens
+price = 2.99F;       // Gebruik een punt bij het kommagetal. Bij een float variabele laat 
+                     // je het getal volgen door de letter F.
+averageSpeed = 52.36;
+c = 'A';             //Het karakter plaats je tussen enkele aanhalingstekens
+```
 
 #### De variabele gelijk stellen aan invoer van de gebruiker
 
 ```csharp
-
-      string name;
-      int number;              
-       
-       // Initialisatie
-       Console.WriteLine("Geef je naam: ");
-       name=Console.ReadLine(); // name wordt geïnitialiseerd op de invoer van het toetsenbord
-
-       Console.WriteLine("Geef een getal: ");
-       number = Convert.ToInt32(Console.ReadLine()); // Let op de omzetting naar int
+// Declaratie
+string name;
+int number;              
      
-      
- ```
+// Initialisatie
+Console.WriteLine("Geef je naam: ");
+name = Console.ReadLine(); // name wordt geïnitialiseerd op de invoer van het toetsenbord
+
+Console.WriteLine("Geef een getal: ");
+number = Convert.ToInt32(Console.ReadLine()); // Let op de omzetting naar int
+```
 
 Gegevens die ingevoerd worden via het toetsenbord hebben steeds het gegevenstype string. Om deze invoer in variabelen met een ander gegevenstype te plaatsen is er een omzetting (conversie) nodig. In het bovenstaande voorbeeld wordt de omzetting van string naar int gedaan d.m.v. `Convert.ToInt32()`.
 
@@ -104,27 +100,26 @@ Voor de andere data types bestaan er eveneens methods om deze conversie te doen:
 
 ```csharp
 
-       // Declaratie  
-       int x, y, result;   // Variabelen met hetzelfde data type kan je op 1 lijn declareren                 
+// Declaratie  
+int x, y, result;   // Variabelen met hetzelfde data type kan je op 1 lijn declareren                 
        
-       // Initialisatie
-       x=7;
-       y=10;
-       result=x+y; // De variabele result wordt geïnitialiseerd op het resultaat van de bewerking
-
-      
- ```
+// Initialisatie
+x = 7;
+y = 10;
+result = x + y; // result wordt geïnitialiseerd op het resultaat van de bewerking  
+```
 
  Hetzelfde voorbeeld maar dan toegepast in een functie:
 
  ```csharp
-    public static int calcSum(int a, int b)   // Declaratie van x en y in de argumentenlijst.
-                                              //Initialisatie gebeurt bij de aanroep van de functie.
-    {
-      int result;
-      result = x + y;
-      return result;
-    }
+// Declaratie van x en y in de argumentenlijst.
+// Initialisatie gebeurt bij de aanroep van de functie.
+public static int calcSum(int a, int b)   
+{
+  int result;
+  result = x + y;
+  return result;
+}
 ```
 
 <div class="note waarschuwing">
@@ -147,11 +142,11 @@ Enkele voorbeelden:
 
 ```csharp
 
-  int x;  
-  double y;
+int x;  
+double y;
 
-  x = 10;
-  y = x;  // Automatische conversie van int naar double
+x = 10;
+y = x;  // Automatische conversie van int naar double
  
 ```
 
@@ -161,11 +156,11 @@ Aangezien dit een conversie van een lager naar een hoger gegevenstype is, lukt d
 
 ```csharp
 
-  int x;  
-  double y;
+int x;  
+double y;
 
-  y = 10.99;
-  x = y;  // Automatische conversie van double naar int is niet mogelijk
+y = 10.99;
+x = y;  // Automatische conversie van double naar int is niet mogelijk
  
 ```
 
@@ -177,20 +172,20 @@ Indien we de Convert method `Convert.ToInt32()` toepassen om de foutmelding bij 
 
 ```csharp
 
-  int x;  
-  double y;
+int x;  
+double y;
 
-  y = 10.99;
-  x = Convert.ToInt32(y);
-  Console.WriteLine("De waarde van y: " + y);
-  Console.WriteLine("De waarde van x: " + x);
+y = 10.99;
+x = Convert.ToInt32(y);
+Console.WriteLine("De waarde van y: " + y);
+Console.WriteLine("De waarde van x: " + x);
  
 ```
 De uitvoer van dit stukje code is:
 
 ```csharp
-  De waarde van y: 10.99
-  De waarde van x: 11
+De waarde van y: 10.99
+De waarde van x: 11
 ```
 
 Zoals je ziet heeft de method `Convert.ToInt32()` de waarde van y afgerond op nul decimalen in x geplaatst. Dit is noodzakelijk omdat de integer x geen kommagetal kan bevatten. Het afronden gebeurt op een rekenkundige manier.
@@ -203,11 +198,11 @@ D.m.v. `Console.WriteLine()` kan je zaken op het scherm laten verschijnen. Dit k
 Enkele voorbeelden:
 
 ```csharp
-  // De inhoud van de variabele y wordt getoond
-  Console.WriteLine(y);
+// De inhoud van de variabele y wordt getoond
+Console.WriteLine(y);
 
-  // Er wordt een combinatie van een string literal en de inhoud van een variabele getoond.
-  Console.WriteLine("De prijs is: " + price + " euro");   
+// Er wordt een combinatie van een string literal en de inhoud van een variabele getoond.
+Console.WriteLine("De prijs is: " + price + " euro");   
 ```
 
 <div class="note oefening">
