@@ -34,20 +34,12 @@ Bespreking:
 ```csharp
 for (int i = 0; i < 10; i++)
 {
-    Console.WriteLine(i);
+    Console.Write("{0} ", i);
 }
-Console.WriteLine("First instruction after the for loop");
+Console.WriteLine("\nFirst instruction after the for loop");
 
 /* Output
-1
-2
-3
-4
-5
-6
-7
-8
-9
+1 2 3 4 5 6 7 8 9
 First instruction after the for loop
 */
 ```
@@ -67,18 +59,12 @@ Als de for-lus afgelopen is, vervolgt het programma met de code die na de lus ko
 ```csharp
 for (char c = 'a'; c <= 'z'; c++)
 {
-    Console.WriteLine(c);
+    Console.Write("{0} ", c);
 }
-Console.WriteLine("First instruction after the for loop");
+Console.WriteLine("\nFirst instruction after the for loop");
 
 /* Output
-a
-b
-c
-...
-x
-y
-z
+a b c ... x y z
 First instruction after the for loop
 */
 ```
@@ -93,18 +79,12 @@ Bespreking:
 ```csharp
 for (int i = 10; i < 100; i += 2)
 {
-    Console.WriteLine(i);
+    Console.Write("{0} ", i);
 }
-Console.WriteLine("First instruction after the for loop");
+Console.WriteLine("\nFirst instruction after the for loop");
 
 /* Output
-10
-12
-14
-16
-...
-96
-98
+10 12 14 16 ... 96 98
 First instruction after the for loop
 */
 ```
@@ -119,18 +99,12 @@ Bespreking:
 int max = 40;
 for (int i = 0; i < max; i += 2)
 {
-    Console.WriteLine(i);
+    Console.Write("{0} ", i);
 }
-Console.WriteLine("First instruction after the for loop");
+Console.WriteLine("\nFirst instruction after the for loop");
 
 /* Output
-0
-2
-4
-6
-...
-36
-38
+0 2 4 6 ... 36 38
 First instruction after the for loop
 */
 ```
@@ -143,22 +117,19 @@ In de voorwaarde wordt er gebruik gemaakt van de variabele max. Vanzelfsprekend 
 ```csharp
 for (int i = 0; i < 10; i++)
 {
-    Console.WriteLine(i);
+    Console.Write("{0} ", i);
     if (i == 5)
     {
-        Console.WriteLine("We make the loop end at number 5!");
+        Console.WriteLine("\nWe make the loop end at number 5!");
         break;
+        }
     }
+    Console.WriteLine("First instruction after the for loop");
 }
-Console.WriteLine("First instruction after the for loop");
 
 /* Output
-0
-1
-2
-3
-4
-5
+0 1 2 3 4 5
+We make the loop end at number 5!
 First instruction after the for loop
 */
 ```
