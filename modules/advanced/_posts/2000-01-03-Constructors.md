@@ -2,7 +2,7 @@
 title: Constructors
 ---
 
-#Constructors
+# Constructors
 
 Wanneer je een object maakt van een class, dan wil je meestal zeker zijn van de waarden waar je mee werkt. In het volgende voorbeeld is dat niet zo duidelijk.
 
