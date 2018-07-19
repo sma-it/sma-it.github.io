@@ -289,3 +289,4 @@ public class Square {
 }
 ```
 Je kan ook combinaties maken. `Set` en `Get` moeten niet dezelfde schrijfwijze volgen.
+
