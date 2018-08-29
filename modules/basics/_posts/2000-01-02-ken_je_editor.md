@@ -43,6 +43,15 @@ Via een double-click op de foutmelding brengt Visual Studio je naar de bestand e
 
 ![ErrorList](/img/basics/ken_je_editor/error.gif)
 
+
+Het is uiterst belangrijk dat je de foutmelding grondig leest en interpreteert. Vaak kan je aan de hand van de foutmelding de oplossing al achterhalen. Neem steeds het initiatief om zelf fouten in je code trachten op te lossen, zelfredzaamheid is immers een belangrijke attitude voor een informaticus. Indien het je echt niet lukt het probleem te verhelpen, kan je de leerkracht steeds om hulp vragen.
+
+<div class="note protip">
+<p>Lees en interpreteer foutmeldingen! Ze zetten je vaak op weg om de oplossing voor een probleem in je code te vinden.</p>
+</div>
+
+Nadat je je programma gestart hebt met `start` of `F5` kan het zijn dat je het volgende dialoogvenster ziet verschijnen: `There were some build errors. Would you like to continue and run the last successful build?`. De antwoordmogelijkheden zijn `Yes` en `No`. Aangezien deze boodschap duidt op fouten in je code, kies je natuurlijk voor `No`. Je kan ook kiezen voor de optie `Always choose this option` om te voorkomen dat je dit venster opnieuw ziet. 
+
 ### C# Interactive
 
 Via ``View -> Other Windows`` vind je ook ``C# Interactive``. Dit is een console interface waarin je code kan uitproberen. C# Interactive is niet bedoeld om echt programma's in te schrijven, maar kan van pas komen wanneer je snel iets wil testen. Naast kennis van C# heb je ook enkele commando's nodig:
@@ -188,32 +197,7 @@ Ook voor collega's waarmee je samenwerkt aan een project of die later aanpassing
 <p>Voorzie je code van commentaar. Je maakt het jezelf en je collega's makkelijker door dit te doen.</p>
 </div>
 
-### Interpreteren van foutmeldingen
-
-#### Foutmeldingen tijdens het ingeven van code
-
-Reeds tijdens het ingeven van code krijg je reeds aanduidingen van mogelijke fouten. Het deel van de code waar de mogelijke fout zich bevindt, wordt onderlijnd. Hiervoor worden kunnen twee kleuren gebruikt worden:
-
-* Een rode, gekartelde lijn: er bevindt zich op deze plaats een fout tegen de syntax (schrijfwijze). Dit kan bijvoorbeeld een vergeten punt-komma op het einde van een instructie zijn.
-* Een groene, gekartelde lijn: dit duidt op een waarschuwing. Je declareerde bijvoorbeeld een variabele (zie hoofdstuk data_types), maar je gebruikt deze nergens. Er wordt door deze variabele dus onnodige geheugenruimte ingenomen. Door deze variabele in het groen te onderlijnen word je hier attent op gemaakt.
-
-Door de cursor op het onderlijnde stuk code te plaatsen krijg je extra informatie over de fout.
-
-<div class="note protip">
-<p>Negeer de foutmeldingen die reeds aangegeven worden bij het ingeven van je code niet! Bekijk je code kritisch en los eventuele problemen op.</p>
-</div>
-
-#### Foutmeldingen tijdens het builden
-
-Nadat je je programma gestart hebt met `start` of `F5` kan het zijn dat je het volgende dialoogvenster ziet verschijnen: `There were some build errors. Would you like to continue and run the last successful build?`. De antwoordmogelijkheden zijn `Yes` en `No`. Aangezien deze boodschap duidt op fouten in je code, kies je natuurlijk voor `No`.
-
-Je weet nu dat je programma fouten bevat en het is aan jou om deze op te lossen. Onderaan het venster kan je de `Error list` opvragen. Je krijg daar een overzicht en verklaring van alle gevonden fouten. Door te dubbelklikken op de fout ga je naar de lijn code die de fout veroorzaakt heeft. Het is uiterst belangrijk dat je de foutmelding grondig leest en interpreteert. Vaak kan je aan de hand van de foutmelding de oplossing al achterhalen. Neem steeds het initiatief om zelf fouten in je code trachten op te lossen, zelfredzaamheid is immers een belangrijke attitude voor een informaticus. Indien het je echt niet lukt het probleem te verhelpen, kan je de leerkracht steeds om hulp vragen.
-
-<div class="note protip">
-<p>Lees en interpreteer foutmeldingen! Ze zetten je vaak op weg om de oplossing voor een probleem in je code te vinden.</p>
-</div>
-
-### Het gebruik van onderbrekingspunten
+## Breakpoints
 
 
 
