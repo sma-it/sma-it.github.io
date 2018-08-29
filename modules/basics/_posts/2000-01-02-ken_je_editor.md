@@ -130,6 +130,10 @@ Nadat je je programma gestart hebt met `start` of `F5` kan het zijn dat je het v
 
 Je weet nu dat je programma fouten bevat en het is aan jou om deze op te lossen. Onderaan het venster kan je de `Error list` opvragen. Je krijg daar een overzicht en verklaring van alle gevonden fouten. Door te dubbelklikken op de fout ga je naar de lijn code die de fout veroorzaakt heeft. Het is uiterst belangrijk dat je de foutmelding grondig leest en interpreteert. Vaak kan je aan de hand van de foutmelding de oplossing al achterhalen. Neem steeds het initiatief om zelf fouten in je code trachten op te lossen, zelfredzaamheid is immers een belangrijke attitude voor een informaticus. Indien het je echt niet lukt het probleem te verhelpen, kan je de leerkracht steeds om hulp vragen.
 
+<div class="note protip">
+<p>Lees en interpreteer foutmeldingen! Ze zetten je vaak op weg om de oplossing voor een probleem in je code te vinden.</p>
+</div>
+
 ### Het gebruik van onderbrekingspunten
 
 
