@@ -199,7 +199,13 @@ Ook voor collega's waarmee je samenwerkt aan een project of die later aanpassing
 
 ## Breakpoints
 
+Soms werkt je code, maar geeft die niet het gewenste resultaat. Je kan zeker goed naar je code kijken om te zien wat er scheelt, maar ook hier kan de code editor je helpen: Je kan ``breakpoints`` toevoegen aan je code om het programma te pauseren waar je wil, door te dubbelklikken in de marge. Dat laat je toe de waarde van elke variabele te controleren.
 
+Ook kan je op dat moment de code regel voor regel verder uitvoeren via de shortcut ``F10``. 
+
+Hieronder verwacht ik als resultaat van een deling 25, maar het programma toont enkel 20 op het scherm. Via een breakpoint leer ik dat het mis gaat bij de deling. _(Later leer je waarom.)_
+
+![Breakpoints](/img/basics/ken_je_editor/breakpoint.gif)
 
 ## Een Project Downloaden via Github
 
