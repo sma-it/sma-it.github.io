@@ -56,7 +56,7 @@ Ranged10_20.Maximum = 100; // Ik lette niet op en wilde Number aanpassen
 Na lang zoeken zal je de fout wel vinden, maar zou het niet veel beter zijn als het niet mogelijk was om deze fout te maken? En wat als je zou vergeten om de range in te stellen? Dan zijn minimum en maximum beiden nul, een situatie die we willen voorkomen.
 
 ## Wat is een constructor?
-Een constructor is een speciale functie die enkel uitgevoerd wordt op het moment dat je een object maakt van je class. Deze functie __de naam van de class__ en heeft __geen resultaat__. Het aantal argumenten kan je wel zelf kiezen. Bovendien moet de constructor __public__ zijn. De class `RangedNumber` zou wel een constructor kunnen gebruiken:
+Een constructor is een speciale functie die enkel uitgevoerd wordt op het moment dat je een object maakt van je class. Deze functie heeft __de naam van de class__ en heeft __geen resultaat__. Het aantal argumenten kan je wel zelf kiezen. Bovendien moet de constructor __public__ zijn. De class `RangedNumber` zou wel een constructor kunnen gebruiken:
 
 ```csharp
 public class RangedNumber {
@@ -160,7 +160,7 @@ public RangedNumber(int maximum = 100, int minimum = 0) {
 }
 ```
 
-Bij die laatste versie moet je wel uitkijken. In het hoofdstuk functies heb je geleerd wat optionele argumenten zijn. In dit geval zijn alle argumenten optioneel, dus de functie is ook bruikbaar als default constructor. Je kan dus niet ook nog eens een lege constructor toevoegen. Met deze laatste constructor zou je een object kunnen declareren om verschillende manieren:
+Bij die laatste versie moet je wel uitkijken. In het hoofdstuk functies heb je geleerd wat optionele argumenten zijn. In dit geval zijn alle argumenten optioneel, dus de functie is ook bruikbaar als default constructor. Je kan dus niet ook nog eens een lege constructor toevoegen. Met deze laatste constructor zou je een object kunnen declareren op verschillende manieren:
 
 ```csharp
 var n1 = new RangedNumber(); // 0 - 100
