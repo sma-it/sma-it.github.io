@@ -14,7 +14,7 @@ Ook programmeren kan simpelweg in Notepad, maar ook hier geldt dat je het jezelf
 
 Indien Visual Studio nog niet op je computer staat, dan moet je dit programma eerst downloaden. Ga naar de [Visual Studio Website](https://visualstudio.microsoft.com/vs/community/) en download VS Community 2017. 
 
-Eens gedownload moet je het installatieprogramma uitvoeren. Je kan akkoord gaan met de standaard opties bij het installeren. Kies zeker voor de community versie: de profesional en enterprise versies heb je echt niet nodig, en bovendien zijn die niet gratis.
+Eens gedownload moet je het installatieprogramma uitvoeren. Je kan akkoord gaan met de standaard opties bij het installeren. Kies zeker voor de community versie: de professional en enterprise versies heb je echt niet nodig, en bovendien zijn die niet gratis.
 
 Wanneer de installatie gestart is, kan je _Workloads_ kiezen. Voorlopig heb je enkel de _.NET Desktop development_ workload nodig. Later in de cursus gebruiken we ook andere workloads, maar op dat moment is het eenvoudig om die toe te voegen.
 
