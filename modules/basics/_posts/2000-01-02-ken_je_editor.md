@@ -209,3 +209,32 @@ Hieronder verwacht ik als resultaat van een deling 25, maar het programma toont 
 
 ## Een Project Downloaden via Github
 
+Github is een website waar softwareontwikkelaars samen aan code kunnen werken. Een belangrijke functie van Github is dat iedereen die code ook kan downloaden. Elke oefenreeks in deze cursus is een Github project. Wanneer je een oefening wil maken, dan volg je een link in de cursus naar het bijhorende Github project. [Dit](https://github.com/sma-it/oefening-datatypes-1) is bijvoorbeeld een link naar de oefenreeks bij het volgende hoofdstuk.
+
+Op de project pagina heb je rechts een groene knop ``Clone or download``. Via die knop kan je een link kopieren waarmee je je project in Visual Studio kan openen. _Het is mogelijk dat er ook een optie zichtbaar is ``Open in Visual Studio``, maar die is niet altijd aanwezig._
+
+![Github](/img/basics/ken_je_editor/github.gif)
+
+Nu de link in het geheugen van je computer zit, open je the ``Team Explorer`` in visual studio. Meestal vind je die in een side-panel, achter de Solution Explorer. Vind je hem niet, dan kan je de Team Explorer steeds openen via het ``View`` menu. In dit menu kies je de optie ``Clone``. Je Plakt de github locatie in het eerste veld. Eventueel kan je ook aangeven waar je dit project wil bewaren. _(In de klas kan je niet aan je C-Schijf, dus je kiest een locatie op de D-schrijf.)_
+
+![Clone](/img/basics/ken_je_editor/clone.gif)
+
+Nu je een lokale kopie van de oefenreeks hebt, kan je de ``solution``, met daarin het project met oefeningen, openen in Visual Studio. Dit doe je door het nieuw toegevoegde project te dubbelklikken en vervolgens te dubbelklikken op de solution. Daarna kan je overschakelen naar de Solution Explorer.
+
+![Open](/img/basics/ken_je_editor/open_solution.gif)
+
+## Je werk opslaan
+
+Telkens je je project probeert uit te voeren, of het nu fouten bevat of niet, zal Visual Studio je wijzigingen opslaan. Zolang je dus regelmatig test, zal je je werk dus niet verliezen. Maar wat als je je werk mee naar huis wil nemen, bijvoorbeeld door het hele project te mailen naar jezelf of door het op te slaan op een USB stick?
+
+Het eerste dat je moet weten is dat broncode op zich niet veel plaats in beslag neemt. Het gecompileerde programma doet dat echter wel. Als je dus zonder meer je project overzet naar een USB-stick of naar het internet, dan kan dat wel eens heel lang duren. Maar dat gecompileerde programma heb je eigenlijk niet nodig. Je kan dat op elk moment terug genereren vanuit je code. Het eerste wat je daarom doet wanneer je je project wil meenemen, is een ``Clean`` uitvoeren. 
+
+Dat kan eenvoudig via het right-click menu dat verschijnt wanneer je op de solution klikt.
+
+![Clean](/img/basics/ken_je_editor/clean.gif)
+
+Daarna kan je de projectlocatie openen in de file explorer. Ook dat kan eenvoudig via de solution explorer. Je verwijderd dan nog best de folder ``packages``. Ook die kan erg groot zijn, en visual studio maakt die folder opnieuw aan wanneer die ontbreekt. Van de overige inhoud kan je dan een zipfile maken.
+
+![Zip](/img/basics/ken_je_editor/zip.gif)
+
+_Bij een klein project, zoals deze oefenreeksen, kan je ook enkel de ``.cs`` bestanden selecteren en bewaren. Je kan dan achteraf het project opnieuw downloaden via Github en de ``.cs`` bestanden vervangen._
