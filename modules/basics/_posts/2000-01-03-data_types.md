@@ -206,7 +206,7 @@ Console.WriteLine("De prijs is: " + price + " euro");
 ```
 
 <div class="note oefening">
-<p>Open het project **Oefening-datatypes1** en maak de oefeningenreeks</p>
+<p>Open het project [Oefening datatypes 1](https://github.com/sma-it/oefening-datatypes-1) en maak de oefeningenreeks</p>
 </div>
 
 

@@ -219,5 +219,5 @@ class Point
 ```
 
 <div class="note oefening">
-<p>Open het project **Oefening_Classes1** en maak oefenreeks 3.</p>
+<p>Open het project [Oefening Classes](https://github.com/sma-it/oefening-classes-1) en maak oefenreeks 3.</p>
 </div>
