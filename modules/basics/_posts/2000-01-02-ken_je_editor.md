@@ -65,7 +65,7 @@ Hieronder zie je een heel korte demo. Later in de cursus zullen we C# Interactiv
 
 ## De Code Editor
 
-Het ingeven va code in Visual Studio is vrij vanzelfsprekend. Er zijn echter een aantal punten die het werken met de editor en het debuggen van je programma makkelijker kunnen maken.
+Het ingeven van code in Visual Studio is vrij vanzelfsprekend. Er zijn echter een aantal punten die het werken met de editor en het debuggen van je programma makkelijker kunnen maken.
 
 ### Indents
 
@@ -106,7 +106,7 @@ Console.ReadKey();
 Je merkt dadelijk dat de tweede versie, zonder de tabs, een onduidelijker beeld geeft van wat bij welk onderdeel hoort.
 
 <div class="note protip">
-<p>Maak steeds gebruik van tabs om je code een duidelijke structuur te geven.</p>
+<p>Maak steeds gebruik van indents (tabs) om je code een duidelijke structuur te geven.</p>
 </div>
 
 Tijdens het werken met Visual Studio zal je merken dat de editor je code meestal vanzelf juist schikt. Op het moment dat de editor dat niet meer doet, zit je meestal al met fouten in je code. Je lost dan best eerst je fouten op, voor je verder werkt. 
@@ -117,7 +117,7 @@ Toch zal je door aan je code te werken (toevoegen, aanpassen, verwijderen) deze 
 * CTRL-K-F: schik het geselecteerde deel van de code
 
 <div class="note protip">
-<p>Maak gebruik van de shortcuts om de indentatie van je code (of een deel ervan) opnieuw in te stellen.</p>
+<p>Maak gebruik van de shortcuts om de indents van je code (of een deel ervan) opnieuw in te stellen.</p>
 </div>
 
 ### Intellisense
