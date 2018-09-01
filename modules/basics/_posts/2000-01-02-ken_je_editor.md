@@ -8,7 +8,7 @@ In dit hoofdstuk overlopen we enkele belangrijke functies van Visual Studio. Daa
 ## Views
 Views zijn windows binnen een programma. Eenvoudige programma's tonen dikwijls maar een view op elk moment. Maar Visual Studio bevat heel wat __Views__, en je kan er verschillende tegelijk tonen. Een view kan in het midden van je scherm staan, links, rechts of onderaan. En elke view kan je verplaatsen, sluiten en opnieuw openen. Vele views heb je alleen nodig voor heel specifieke doeleinden die op dit moment nog niet relevant zijn. Maar er zijn ook views die je nu al kan gebruiken.
 
-Een overzicht van mogelijke Views vind je in het menu ``View``. Onderaan de lijst met beschikbare views vind je ook nog een uitklapemenu ``Other Windows`` met nog meer mogelijkheden.
+Een overzicht van mogelijke Views vind je in het menu ``View``. Onderaan de lijst met beschikbare views vind je ook nog een uitklapmenu ``Other Windows`` met nog meer mogelijkheden.
 
 ### De Solution Explorer
 Wanneer je een project opent, dan toont Visual Studio de Solution Explorer. Een __Solution__ is een verzameling van code, afbeeldingen enzovoort die je samen wil gebruiken. Voorlopig zullen we slechts een project per Solution nodig hebben, maar dat wordt later meer.
