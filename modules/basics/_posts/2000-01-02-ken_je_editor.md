@@ -215,7 +215,7 @@ Op de project pagina heb je rechts een groene knop ``Clone or download``. Via di
 
 ![Github](/img/basics/ken_je_editor/github.gif)
 
-Nu de link in het geheugen van je computer zit, open je the ``Team Explorer`` in visual studio. Meestal vind je die in een side-panel, achter de Solution Explorer. Vind je hem niet, dan kan je de Team Explorer steeds openen via het ``View`` menu. In dit menu kies je de optie ``Clone``. Je Plakt de github locatie in het eerste veld. Eventueel kan je ook aangeven waar je dit project wil bewaren. _(In de klas kan je niet aan je C-Schijf, dus je kiest een locatie op de D-schrijf.)_
+Nu de link in het geheugen van je computer zit, open je the ``Team Explorer`` in visual studio. Meestal vind je die in een side-panel, achter de Solution Explorer. Vind je hem niet, dan kan je de Team Explorer steeds openen via het ``View`` menu. In dit menu kies je de optie ``Clone``. Je plakt de github locatie in het eerste veld. Eventueel kan je ook aangeven waar je dit project wil bewaren. _(In de klas kan je niet aan je C-Schijf, dus je kiest een locatie op de D-schrijf.)_
 
 ![Clone](/img/basics/ken_je_editor/clone.gif)
 
@@ -233,7 +233,7 @@ Dat kan eenvoudig via het right-click menu dat verschijnt wanneer je op de solut
 
 ![Clean](/img/basics/ken_je_editor/clean.gif)
 
-Daarna kan je de projectlocatie openen in de file explorer. Ook dat kan eenvoudig via de solution explorer. Je verwijderd dan nog best de folder ``packages``. Ook die kan erg groot zijn, en visual studio maakt die folder opnieuw aan wanneer die ontbreekt. Van de overige inhoud kan je dan een zipfile maken.
+Daarna kan je de projectlocatie openen in de file explorer. Ook dat kan eenvoudig via de solution explorer. Je verwijdert dan nog best de folder ``packages``. Ook die kan erg groot zijn, en visual studio maakt die folder opnieuw aan wanneer die ontbreekt. Van de overige inhoud kan je dan een zipfile maken.
 
 ![Zip](/img/basics/ken_je_editor/zip.gif)
 
