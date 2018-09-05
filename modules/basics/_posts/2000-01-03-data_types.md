@@ -93,7 +93,7 @@ number = Convert.ToInt32(Console.ReadLine()); // Let op de omzetting naar int
 
 Gegevens die ingevoerd worden via het toetsenbord hebben steeds het gegevenstype string. Om deze invoer in variabelen met een ander gegevenstype te plaatsen is er een omzetting (conversie) nodig. In het bovenstaande voorbeeld wordt de omzetting van string naar int gedaan d.m.v. `Convert.ToInt32()`.
 
-Voor de andere data types bestaan er eveneens methods om deze conversie te doen: ```Convert.ToFloat()```, ```Convert.ToDouble()```, `Convert.ToBoolean()`, `Convert.ToChar()`
+Voor de andere data types bestaan er eveneens methods om deze conversie te doen: ```Convert.ToSingle()``` (dit doet een conversie naar float), ```Convert.ToDouble()```, `Convert.ToBoolean()`, `Convert.ToChar()`
 
 
 ## De variabele gelijk stellen aan het resultaat van een bewerking
@@ -117,9 +117,29 @@ result = x + y; // result wordt geïnitialiseerd op het resultaat van de bewerki
 public static int calcSum(int a, int b)   
 {
   int result;
-  result = x + y;
+  result = a + b;
   return result;
 }
+```
+
+Als je een progamma start, wordt steeds de functie `Main` gestart. Vanuit `Main` kan je de functie `calcSum`als volgt aanroepen:
+
+```csharp
+static void Main(string[] args)
+  {
+    int x = 10;
+    int y = 2;
+    int res;
+    // Hieronder wordt de functie calcSum aangeroepen. Het argument a krijgt de waarde van x,
+    // het argument b krijgt de waarde van y. Op die manier kan er binnen de functie met de  
+    // daar gekende variabelen a en b gewerkt worden die dezelfde waarde gekregen hebben 
+    // als x en y (twee variabelen uit Main).
+    // Je leert meer hierover in het hoofdstuk Functies.
+    res = calcSum(x, y); 
+    Console.WriteLine("Het resultaat van de berekening is: " + res);
+
+    System.Console.ReadKey();
+  }
 ```
 
 <div class="note waarschuwing">
