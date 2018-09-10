@@ -210,6 +210,15 @@ De waarde van x: 11
 
 Zoals je ziet heeft de method `Convert.ToInt32()` de waarde van y afgerond op nul decimalen in x geplaatst. Dit is noodzakelijk omdat de integer x geen kommagetal kan bevatten. Het afronden gebeurt op een rekenkundige manier.
 
+## Van char naar string
+De conversie van een char naar een string is minder vanzelfsprekend. Dat komt omdat je een char, zoals 'a', ook als een cijfer in de ASCII tabel kan zien. De conversie Convert.ToString(a), zal de char omzetten naar een string. Wat ook werkt is de functie `.ToString()` van de char. Maar wanneer je twee chars optelt, en het resultaat is groter dan 127, dan wordt het resultaat vanzelf een integer. 
+
+```
+char teken = 'a';
+string s1 = Convert.ToString(teken + teken); // s1 = "196"
+string s2 = Convert.ToString(teken) + Convert.ToString(teken); // s2 = "aa"
+string s3 = teken.ToString() + teken.ToString(); // s3 = "aa"
+```
 
 # Een variabele op het scherm tonen
 
