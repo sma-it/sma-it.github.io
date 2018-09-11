@@ -166,5 +166,5 @@ Bespreking:
 * Het `continue` statement stopt de huidige iteratie van de lus. Dit betekent dat alle instructies binnen de lus die volgen op `continue` niet meer uitgevoerd worden. De lus stopt echter niet volledig, de teller wordt met de stapgrootte verhoogd en de volgende iteratie van de lus start.
 
 <div class="note oefening">
-<p>Open het project [Oefening for](https://github.com/sma-it/oefening-for-1) en maak de oefeningenreeks</p>
+    <p>Open het project <a href="https://github.com/sma-it/oefening-for-1">oefening-for-1</a> en maak de oefeningenreeks</p>
 </div>
