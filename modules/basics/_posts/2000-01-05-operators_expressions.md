@@ -44,7 +44,7 @@ De volgorde van de bewerkingen in een berekening is gelijk aan de voorrang die i
 
 Voorbeeld:
 
-(a + b) x (c + d) is verschillend van a + b x c + d
+(a + b) * (c + d) is verschillend van a + b * c + d
 
 ## Increment en decrement operatoren
 
@@ -159,7 +159,7 @@ De operator levert volgende waarheidstabellen op voor verschillende waarden van 
 
 Waarheidstabel: voorwaarde1 \|\| voorwaarde2
 
-| voorwaarde1 | voorwaarde2  | voorwaarde1 && voorwaarde2 |
+| voorwaarde1 | voorwaarde2  | voorwaarde1 \|\| voorwaarde2 |
 | ----------- |------------- | -------------------------- |
 | false       | false        | false                      |
 | true        | false        | true                       |
