@@ -224,7 +224,7 @@ Een expressie is opgebouwd uit operatoren en operanden.
 Voorbeelden:
 
 ```csharp
-int a;              //Operatoren int en ; /operand: a
+int a;              //Operator int /operand: a
 
 Console.ReadLine(); //Operator: ReadLine() / operand: Console
 
