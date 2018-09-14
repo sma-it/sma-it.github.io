@@ -184,7 +184,7 @@ De operator levert volgende waarheidstabellen op voor verschillende waarden van 
 | --------- |---------------|------------------|
 | -3        | true  | false | true             |
 | 49        | false | false | false            |
-| 110       | false | true  | false            |
+| 110       | false | true  | true             |
 {:.tableBorder}
 
 `!` De NOT-operator inverteert het resultaat van een booleaanse vergelijking. De operator geeft `true` als resultaat als de booleaanse vergelijking `false` is. Indien de vergelijking `false` is, geeft deze operator `true` als resultaat.
@@ -193,7 +193,7 @@ Waarheidstabel: !(voorwaarde)
 
 | voorwaarde  | !(voorwaarde)| 
 | ----------- |------------- |
-| false       | false        | 
+| false       | true         | 
 | true        | false        | 
 {:.tableBorder}
 
