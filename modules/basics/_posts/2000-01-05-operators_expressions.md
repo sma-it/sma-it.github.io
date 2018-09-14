@@ -254,7 +254,7 @@ naam=Console.ReadLine();
 //Statement 4: de volledige if-else structuur vormt 1 conditionele statement,
 //bestaande uit verschillende instructies
 
-if(int a == 10)
+if(a == 10)
 {
     Console.WriteLine("Het ingegeven getal is 10.");
 }
