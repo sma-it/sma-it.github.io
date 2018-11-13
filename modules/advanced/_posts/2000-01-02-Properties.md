@@ -290,3 +290,6 @@ public class Square {
 ```
 Je kan ook combinaties maken. `Set` en `Get` moeten niet dezelfde schrijfwijze volgen.
 
+<div class="note oefening">
+<p>Open het project <a href="https://github.com/sma-it/oefening-properties-1">oefening-properties-1</a> en maak de oefeningen.</p>
+</div>
