@@ -98,7 +98,7 @@ PrintPerson(person2);
 ```
 
 <div class="note oefening">
-<p>Open het project **Oefening_Classes1** (TODO: link toevoegen) via github en maak oefenreeks 1.</p>
+<p>Open het project <a href="https://github.com/sma-it/oefening-classes-1">oefening-classes-1</a> via github en maak oefening 1.</p>
 </div>
 
 ## Functies in een class
@@ -219,5 +219,5 @@ class Point
 ```
 
 <div class="note oefening">
-<p>Open het project [Oefening Classes](https://github.com/sma-it/oefening-classes-1) en maak oefenreeks 3.</p>
+<p>Open het project <a href="https://github.com/sma-it/oefening-classes-1">oefening-classes-1</a> en maak de overige oefeningen.</p>
 </div>
