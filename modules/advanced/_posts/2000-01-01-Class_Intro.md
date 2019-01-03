@@ -6,7 +6,7 @@ title: Classes
 
 Een `class` is een verzameling van data en functies die conceptueel bij mekaar horen. In de vorige hoofdstukken maakte je al kennis met classes in C#. `Console` is bijvoorbeeld een class, maar ook `String` en `DateTime` zijn classes. En zelfs de `Main` functie in een programma maakt deel uit van een class.
 
-Neem bijvoorbeeld de class `DateTime`. Deze class heeft properties, zoals `Day`, `Minute`, `Year`, `DayOfWeek`, enzovoort. En daarnaast voorziet de class of functies, zoals `AddDays()`, `CompareTo()` en `ToLocalTime()`. Als we zeggen dat deze functies en properties conceptueel bij mekaar horen, dan bedoelen we dat ze allemaal met het concept *tijd* te maken. Die samenhang is heel belangrijk om een programma of een software library overzichtelijk te houden: als iets niet duidelijk verwant is, dan plaatsen we het niet in dezelfde class.
+Neem bijvoorbeeld de class `DateTime`. Deze class heeft properties, zoals `Day`, `Minute`, `Year`, `DayOfWeek`, enzovoort. En daarnaast voorziet de class functies, zoals `AddDays()`, `CompareTo()` en `ToLocalTime()`. Als we zeggen dat deze functies en properties conceptueel bij mekaar horen, dan bedoelen we dat ze allemaal met het concept *tijd* te maken hebben. Die samenhang is heel belangrijk om een programma of een software library overzichtelijk te houden: als iets niet duidelijk verwant is, dan plaatsen we het niet in dezelfde class.
 
 ## Een class maken
 
@@ -79,7 +79,7 @@ class Program
 
 ```
 
-Jammer genoeg toont dit programma niets niets op het scherm. Daarom voegen we aan de Program class een `PrintPerson` functie toe die de eigenschappen van de persoon toont. Dat kan door een object van het type `Person` als functieargument te gebruiken.
+Jammer genoeg toont dit programma niets op het scherm. Daarom voegen we aan de Program class een `PrintPerson` functie toe die de eigenschappen van de persoon toont. Dat kan door een object van het type `Person` als functieargument te gebruiken.
 
 ```csharp
 static void PrintPerson(Person person)
