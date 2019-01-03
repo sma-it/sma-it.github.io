@@ -168,7 +168,7 @@ Zoals je ziet werkt dit bijna zoals een _readonly_ property. Maar waar komt de v
 _WriteOnly_ properties laten we voorlopig even met rust, want die zal je voorlopig niet veel nodig hebben. Maar over _readOnly_ properties zijn we nog niet uitgepraat. Er zijn verschillende scenario's denkbaar.
 
 ### Preventie
-Soms is het echt niet de bedoeling om een variabele van buitenaf aan te passen. Dat zagen we al in het vorige voorbeeld: door `Connected` te wijzigen wist je niet meer of je nu wel of niet een verbinding had. Het is best mogelijk dat je programma crashed omdat je iets wil downloaden terwijl je eigenlijk geen verbinding hebt.
+Soms is het echt niet de bedoeling om een variabele van buitenaf aan te passen. Dat zagen we al in het vorige voorbeeld: door `Connected` te wijzigen wist je niet meer of je nu wel of niet een verbinding had. Het is best mogelijk dat je programma crasht omdat je iets wil downloaden terwijl je eigenlijk geen verbinding hebt.
 
 **Preventie** betekent dat we `set` weglaten om fouten te voorkomen.
 
@@ -206,7 +206,7 @@ public class Rectangle {
 ```
 Het bovenstaande voorbeeld bevat nog een kleine nieuwigheid. Als je get property uit meer dan 1 statement bestaat, dan kan je de eerder gebruikte schrijfwijze met het pijltje niet gebruiken. In zo'n geval werk je je statements uit zoals in een normale functie. En gebruik je return om het resultaat aan te duiden. _(In dit geval hadden we de berekening natuurlijk ook makkelijk in een enkel statement kunnen doen.)_
 
-Wat als je hier een `set` property zou toevoegen. Afgezien van het feit dat je hier geen echte variabele hebt waarin je het oppervlak zou kunnen opslaan, zou dat beteken dat de breedte en hoogte niet meer kloppen. Dat zou dus een HEEL slecht idee zijn.
+Wat als je hier een `set` property zou toevoegen. Afgezien van het feit dat je hier geen echte variabele hebt waarin je het oppervlak zou kunnen opslaan, zou dat betekenen dat de breedte en hoogte niet meer kloppen. Dat zou dus een HEEL slecht idee zijn.
 
 **Berekening** betekent dat je een get property gebruikt voor een eenvoudige berekening. Ook hier zou een `set` property aan toevoegen compleet onzinnig zijn, want er is geen variabele verbonden met deze property.
 
