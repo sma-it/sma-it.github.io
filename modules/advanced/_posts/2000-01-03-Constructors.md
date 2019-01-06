@@ -96,7 +96,7 @@ Door de compiler te laten weten dat we twee integers als argument verwachten bij
 var Ranged10_20 = new RangedNumber();
 ```
 
-Nu je weet wat een constructor is, is het eigenlijk vooral vreemd dat in de eerste versie van deze class _wel_ werkte. Het is nu duidelijk dat we `RangedNumber(10, 20)` kunnen gebruiken omdat we een constructor schreven met precies die naam en argumenten. Maar we hebben nooit een constructor in de vorm `RangedNumber()` geschreven.
+Nu je weet wat een constructor is, is het eigenlijk vooral vreemd dat de eerste versie van deze class _wel_ werkte. Het is nu duidelijk dat we `RangedNumber(10, 20)` kunnen gebruiken omdat we een constructor schreven met precies die naam en argumenten. Maar we hebben nooit een constructor in de vorm `RangedNumber()` geschreven.
 
 Dit is de reden: wanneer de compiler je code compileert, en je schreef geen constructor, dan voegt de compiler er zelf een toe. Dit noemen we de _default constructor_. Deze constructor heeft geen argumenten doet niets bijzonders, maar is nodig om een object te kunnen maken van een class.
 
@@ -187,7 +187,7 @@ public class Person {
 }
 ```
 
-Ook hier zie je voordelen van een constructor in actie. Je kan onmogelijk vergeten om de persoon een naam te geven. Ook kan je zijn naam achteraf niet meer wijzigen. _(Dat laatste zou waarschijnlijk een geen goed idee zijn in een echt programma. Wat als iemand een typefout maakte bij de registratie?)_
+Ook hier zie je voordelen van een constructor in actie. Je kan onmogelijk vergeten om de persoon een naam te geven. Ook kan je zijn naam achteraf niet meer wijzigen. _(Dat laatste zou waarschijnlijk geen goed idee zijn in een echt programma. Wat als iemand een typefout maakte bij de registratie?)_
 
 Ook is het duidelijk dat een default constructor in dit geval geen goed idee is. Welke naam zou je kiezen? Wat je ook als default kiest, het is ongetwijfeld niet de juiste naam.
 
