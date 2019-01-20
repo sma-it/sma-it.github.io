@@ -137,7 +137,7 @@ Soms wil je een willekeurige enum waarde toekennen aan een variabele. Je zou het
 
 ```csharp
 var generator = new Random();
-var value = Random.Next(Values.End); \\ <-- Compiler geeft een fout
+var value = Random.Next(Values.End); // <-- Compiler geeft een fout
 ```
 
 Ook al is een enum eigenlijk een getal, de functie Next wil echt een integer zien. Dit los je op door
@@ -145,7 +145,7 @@ de enum hier te converteren naar een integer:
 
 ```csharp
 var generator = new Random();
-var value = Random.Next((int)Values.End); \\ <-- Compiler geeft GEEN fout
+var value = Random.Next((int)Values.End); // <-- Compiler geeft GEEN fout
 ```
 
 ## Oefeningen
@@ -169,8 +169,8 @@ Het resultaat zou de naam van de class zijn:
 Dit is een BankAccount
 ```
 
-Je kan die functie ook _overschrijven_. Je zegt dat aan de compiler 'Wanneer iemand om de functie `ToString()` vraagt, gebruik dan deze
-versie in plaats van de standaard versie. Je doet dat door de functie te voorzien van het keyword `override`. De functienaam, argumenten en
+Je kan die functie ook _overschrijven_. Je zegt dat aan de compiler "Wanneer iemand om de functie `ToString()` vraagt, gebruik dan deze
+versie in plaats van de standaard versie." Je doet dat door de functie te voorzien van het keyword `override`. De functienaam, argumenten en
 resultaat moeten wel gelijk zijn aan de oorspronkelijke functie. Maar de compiler helpt je daarbij. Wanneer je override typt in een class, dan
 zal de compiler je de functies tonen die je kan overschrijven. Je selecteert dan de functie die je wil overschrijven. 
 
@@ -189,7 +189,7 @@ account.Name = "one";
 account.Balance = 1000;
 Console.WriteLine(account);
 ```
-Het resultaat zou de naam van de class zijn:
+Het resultaat is nu:
 ```
 Account one has a balance of 1000 Euro
 ```
