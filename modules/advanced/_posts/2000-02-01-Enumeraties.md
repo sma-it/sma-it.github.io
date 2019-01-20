@@ -118,3 +118,82 @@ public void Main() {
     Console.WriteLine("Day " + day1.dayInMonth + " is a " + day1.dayInWeek);
 }
 ```
+
+## In the Loop
+
+Je kan enums ook eenvoudig in een loop gebruiken. Uiteindelijk is een enum niet meer dan een reeks getallen met een naam. De loop variabele kan dus ook een enum zijn. Wat niet zo eenvoudig is, is het bepalen van de grootste waarde. Dat kan je oplossen door die expliciet in je enum te declareren.:
+
+```csharp
+enum Values { one, two, tree, End }
+
+for (Values i = 0; i < Values.End; i++) {
+  Console.WriteLine(i);
+}
+```
+
+## Een random Enum waarde
+
+Soms wil je een willekeurige enum waarde toekennen aan een variabele. Je zou het volgende kunnen proberen:
+
+```csharp
+var generator = new Random();
+var value = Random.Next(Values.End); \\ <-- Compiler geeft een fout
+```
+
+Ook al is een enum eigenlijk een getal, de functie Next wil echt een integer zien. Dit los je op door
+de enum hier te converteren naar een integer:
+
+```csharp
+var generator = new Random();
+var value = Random.Next((int)Values.End); \\ <-- Compiler geeft GEEN fout
+```
+
+## Oefeningen
+
+In deze oefenreeks gebruiken we nog iets nieuws: Overrides.
+
+Elke class die je maakt is afgeleid van een andere class: `Object`. Deze class heeft onder meer functie `ToString()`. Daardoor kan je
+elke class die je maakt rechtstreeks gebruiken met `Console.WriteLine()`. Bijvoorbeeld zo:
+
+```csharp
+class BankAccount {
+    public string Name { get; set; }
+    public int Balance { get; set; }
+}
+
+var account = new BankAccount();
+Console.WriteLine("Dit is een " + account);
+```
+Het resultaat zou de naam van de class zijn:
+```
+Dit is een BankAccount
+```
+
+Je kan die functie ook _overschrijven_. Je zegt dat aan de compiler 'Wanneer iemand om de functie `ToString()` vraagt, gebruik dan deze
+versie in plaats van de standaard versie. Je doet dat door de functie te voorzien van het keyword `override`. De functienaam, argumenten en
+resultaat moeten wel gelijk zijn aan de oorspronkelijke functie. Maar de compiler helpt je daarbij. Wanneer je override typt in een class, dan
+zal de compiler je de functies tonen die je kan overschrijven. Je selecteert dan de functie die je wil overschrijven. 
+
+```csharp
+class BankAccount {
+    public string Name { get; set; }
+    public int Balance { get; set; }
+
+    public override string ToString() {
+        return "Account " + Name + " has a balance of " + Balance + "Euro";
+    }
+}
+
+var account = new BankAccount();
+account.Name = "one";
+account.Balance = 1000;
+Console.WriteLine(account);
+```
+Het resultaat zou de naam van de class zijn:
+```
+Account one has a balance of 1000 Euro
+```
+
+<div class="note oefening">
+    <p>Open het project <a href="https://github.com/sma-it/oefening-enum-1">oefening-enum-1</a> en maak de oefeningenreeks</p>
+</div>

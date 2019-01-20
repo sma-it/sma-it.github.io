@@ -191,3 +191,6 @@ Ook hier zie je voordelen van een constructor in actie. Je kan onmogelijk verget
 
 Ook is het duidelijk dat een default constructor in dit geval geen goed idee is. Welke naam zou je kiezen? Wat je ook als default kiest, het is ongetwijfeld niet de juiste naam.
 
+<div class="note oefening">
+    <p>Open het project <a href="https://github.com/sma-it/oefening-constructors-1">oefening-constructors-1</a> en maak de oefeningenreeks</p>
+</div>
