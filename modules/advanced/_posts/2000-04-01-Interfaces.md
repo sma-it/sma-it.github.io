@@ -271,4 +271,3 @@ Beide opties doen hetzelfde. Welke je gebruikt hangt enkel af van je persoonlijk
 <div class="note oefening">
 <p>Open het project <a href="https://github.com/sma-it/oefening-interface-1">oefening-interface-1</a> en maak de oefeningen.</p>
 </div>
-https://github.com/sma-it/oefening-interface-1
