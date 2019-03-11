@@ -1,3 +1,0 @@
----
-title: Wat is WPF?
----
