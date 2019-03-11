@@ -2,7 +2,7 @@
 title: Wat is MonoGame?
 ---
 
-#Libraries
+# Libraries
 
 Tot nu toe schreven we programma's die tekst tonen in een console. Dat is goed om de basics onder de knie te krijgen, maar uiteindelijk is dat meestal niet het soort programma dat je wil maken. C# is een programmeertaal die voor zowat alles bruikbaar is. Je kan er gewone windows desktop programma's mee maken, maar ook mobile apps, interactieve websites en games. Ook bestaat er het Mono project, dat je toelaat om C# code zo te compileren dat je programma ook op linux (en macOS) laat werken.
 
@@ -42,6 +42,8 @@ Monogame installeren is behoorlijk eenvoudig. Je opent de website monogame.net, 
 # Je Eerste Project
 
 ## Een MonoGame app maken
+
+Nadat je Monogame geinstalleerd hebt, kan je een een nieuw project maken. In de categorie `Visual C#` vind je nu een subcategorie `MonoGame`. Daarin staan verschillende mogelijkheden. Om het eenvoudig te houden kies je voor `MonoGame Windows Project`.
 
 ## De code lezen
 
@@ -138,3 +140,97 @@ In de `Update()` functie wordt alvast gecontroleerd of de escape key ingedrukt w
 }
 ```
 Tot slot is er de `Draw()` functie, die alle objecten op het scherm tekent. De eerste regel (`Clear`) maakt het scherm leeg. Daarbij moet je aangeven in welke kleur dat dat moet gebeuren. Die kleur is dus metteen de achtergrond van je nieuwe scherm. Net zoals bij Initialize en Update moet je hier op het eind van de functie ook de gelijknamige functie van de base class oproepen.
+
+## Afbeelding tonen
+
+MonoGame laat je afbeeldingen op het scherm tonen. Je moet de afbeelding wel eerst toevoegen aan je project. Dat doe je door de MonoGame Pipeline tool te openen. Je opent daarvoor de folder `Content` in je project en klikt op `Content.mgcb`. _Indien de Pipeline dan niet opent, dan kan je rechts klikken en voor `Open With...` kiezen.
+
+Kies in de toolbar voor `Add Existing Item` en voeg een afbeelding toe. Voor het beste resultaat gebruik je afbeeldingen met een transparente achtergrond, die niet al te groot zijn. Een afbeelding voor een avatar is bijvoorbeeld zelden groter dan 512x512 pixels. Wanneer je afbeelding te groot is, dan moet je programma de afbeelding voortdurend schalen. Dat maakt je programma trager. Ook neemt een grote afbeelding veel meer geheugen in beslag.
+
+Als je een afbeelding gekozen hebt, dan kies je voor `Copy the file to the directory`. Daarna kan je de Pipeline tool sluiten.
+
+Om deze afbeelding te tonen maken we een nieuwe class `Player`.  Die ziet er zo uit:
+
+```csharp
+namespace MyGame
+{
+    class Player
+    {
+        private Texture2D texture;
+
+        public Player(ContentManager contentManager)
+        {
+            texture = contentManager.Load<Texture2D>("balloon");
+        }
+
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Draw(texture, new Rectangle(new Point(200,200), new Point(100, 100)), Color.White);
+        }
+    }
+}
+```
+
+Deze class bevat eerst een `Texture2D` object. Elke afbeelding teken je als een texture. Via de constructor laden we die afbeelding. Maar daar hebben we de een `ContentManager` voor nodig. Onze class heeft geen contentManager, maar de game class heeft die wel. We zorgen dus dat we die contentManager kunnen doorgeven via de constructor. 
+
+We hebben ook een functie nodig om de player te tekenen. Dat is de Draw functie. Tekenen gebeurt via de `SpriteBatch` class. Ook die zit in de game class. We gebruiken dus weeral een functie argument om de SpriteBatch te kunnen gebruiken. Via de `Draw` functie van spriteBatch geven we door wat er getekend moet worden, en waar. We geven dus eerst de texture door, gevolgd door een rechthoek en een kleur. De kleur is normaalgezien wit, wat betekent dat je de afbeelding gewoon toont zoals ze is. 
+
+De rechthoek bepaalt waar je de afbeelding plaatst, en hoe groot die is. Het eerste punt is de linkerbovenhoek van de rechthoek, en bepaalt hoe ver die van de linkerbovenhoek van het scherm staat. Het tweede punt is de grootte van de rechthoek.
+
+In de game class kunnen we nu een object maken van de class `Player`. Die voeg je bovenaan in de class toe, bij de andere definities:
+
+```csharp
+    GraphicsDeviceManager graphics;
+    SpriteBatch spriteBatch;
+    Player player; // deze regel voeg je toe
+```
+
+In de functie `LoadContent()` maak je je object:
+
+```csharp
+protected override void LoadContent()
+{
+    // Create a new SpriteBatch, which can be used to draw textures.
+    spriteBatch = new SpriteBatch(GraphicsDevice);
+
+    // TODO: use this.Content to load your game content here
+    player = new Player(this.Content);
+}
+```
+
+Tot slot teken je je player in de `Draw` functie. Alle sprites dienen getekend te worden tussen `spriteBatch.Begin()` en `spriteBatch.End()`. Zoals eerder vermeld geven we de `spriteBatch` door aan de `Draw` functie van `Player`.
+
+```csharp
+protected override void Draw(GameTime gameTime)
+{
+    GraphicsDevice.Clear(Color.CornflowerBlue);
+
+    // TODO: Add your drawing code here
+    spriteBatch.Begin();
+    player.Draw(spriteBatch);
+    spriteBatch.End();
+
+    base.Draw(gameTime);
+}
+```
+
+## Oefeningen
+
+1. Neem even de tijd om te experimenteren met de kleur, positie en schaal van je afbeelding. Wat gebeurt er wanneer je een andere kleur kiest? Hoe groot is je scherm? Wat als je de schaal(tweede punt van de rechthoek) een negatieve waarde geeft? En wat als je enkel de x of y waarde negatief maakt?
+2. Zorg voor een extra constructor argument zodat je ook de positie van de player kan ingeven in je game. In je game zou je dit moeten kunnen gebruiken:
+
+```csharp
+player = new Player(this.Content, new Point(100, 100));
+```
+
+3. Een game waarin niets beweegt is maar niets. Je kan de `Player` class een Update functie geven:
+
+```csharp
+public void Update()
+{
+    if (Keyboard.GetState().IsKeyDown(Keys.Right)) position.X++; 
+}
+```
+
+Zorg eerst dat deze functie uitgevoerd wordt in de `Update` functie van je game. Voeg daarna ook andere toetsen toe.
+
