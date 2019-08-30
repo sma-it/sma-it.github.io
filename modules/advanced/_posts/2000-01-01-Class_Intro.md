@@ -133,7 +133,7 @@ person2.Print();
 ```
 
 <div class="note oefening">
-<p>Open het project **Oefening_Classes1** en maak oefenreeks 2.</p>
+<p>Open het project <a href="https://github.com/sma-it/oefening-classes-1">oefening-classes-1</a> en maak oefenreeks 2.</p>
 </div>
 
 ## Voorbeeld: class Point
