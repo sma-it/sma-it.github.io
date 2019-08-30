@@ -175,7 +175,7 @@ int score = 0;
 bool gameOver = false;
 ```
 
-In de `Update` functie zullen we nu eerst controleren of het spel wel bezig is. Indien niet, dan controleren we ook of de spatiebalk ingedrukt is om dan een nieuw spel te starten. Is het spel niet bezig, dan beeindigen we de functie. Tot slot zullen we ook controleren of er meer dan 5 koeien in het spel zijn. In dat geval ben je een slechte koeienvanger en is het spel gedaan.
+In de `Update` functie zullen we nu eerst controleren of het spel wel bezig is. Indien niet, dan controleren we ook of de spatiebalk ingedrukt is om dan een nieuw spel te starten. Is het spel niet bezig, dan beëindigen we de functie. Tot slot zullen we ook controleren of er meer dan 5 koeien in het spel zijn. In dat geval ben je een slechte koeienvanger en is het spel gedaan.
 
 ```csharp
 if (gameOver && Keyboard.GetState().IsKeyDown(Keys.Space))
