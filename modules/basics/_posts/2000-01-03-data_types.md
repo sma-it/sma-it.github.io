@@ -31,7 +31,7 @@ Naast een naam, krijgt een variabele ook een data type. Dit gegevenstype bepaalt
 
 # Declaratie van een variabele
 
-Onder declaratie van een variabele verstaan we maken van de variabele. Dit houdt in dat er een naam en een data type aan de variabele toegekend worden.
+Onder declaratie van een variabele verstaan we het maken van de variabele. Dit houdt in dat er een naam en een data type aan de variabele toegekend worden.
 
 Kies telkens een betekenisvolle naam voor je variabele en gebruik het correcte data type.
 
@@ -208,16 +208,22 @@ De waarde van y: 10.99
 De waarde van x: 11
 ```
 
-Zoals je ziet heeft de method `Convert.ToInt32()` de waarde van y afgerond op nul decimalen in x geplaatst. Dit is noodzakelijk omdat de integer x geen kommagetal kan bevatten. Het afronden gebeurt op een rekenkundige manier.
+Zoals je ziet heeft de method `Convert.ToInt32()` de waarde van y eerst afgerond op nul decimalen en daarna in x geplaatst. Dit is noodzakelijk omdat de integer x geen kommagetal kan bevatten. Het afronden gebeurt op een rekenkundige manier.
 
 ## Van char naar string
-De conversie van een char naar een string is minder vanzelfsprekend. Dat komt omdat je een char, zoals 'a', ook als een cijfer in de ASCII tabel kan zien. De conversie Convert.ToString(a), zal de char omzetten naar een string. Wat ook werkt is de functie `.ToString()` van de char. Maar wanneer je twee chars optelt, en het resultaat is groter dan 127, dan wordt het resultaat vanzelf een integer. 
+De conversie van een char naar een string is minder vanzelfsprekend. Dat komt omdat je een char, zoals 'a', ook als een cijfer in de ASCII tabel kan zien. 
+
+Er zijn twee manieren om een char om te zetten naar string:
+* Conversie d.m.v. `Convert.ToString(a)`: dit zal de char omzetten naar een string. Zie voorbeeld string s1 hieronder.
+* De functie `.ToString()` toepassen op de variabele van het type `char`. Zie voorbeeld string s2 hieronder.
+
+Let op! Wanneer je twee chars optelt, en het resultaat is groter dan 127, dan wordt het resultaat vanzelf een `integer`. De letter a heeft in de ASCII tabel de waarde 97. Als je zoals in het voorbeeld met string s3 binnen de functiehaken van ToString eerst de twee character optelt, dan geeft dit de waarde 194. Aangezien dit groter is dan 127, zal het resultaat een `integer` zijn. Het is op deze integere waarde dat daarna de `Convert.ToString()` functie toegepast wordt, met als gevolg dat het resultaat een `string` met waarde "194" zal zijn, en niet zoals we zouden verwachten "aa".
 
 ```
 char teken = 'a';
-string s1 = Convert.ToString(teken + teken); // s1 = "196"
-string s2 = Convert.ToString(teken) + Convert.ToString(teken); // s2 = "aa"
-string s3 = teken.ToString() + teken.ToString(); // s3 = "aa"
+string s1 = Convert.ToString(teken) + Convert.ToString(teken); // s1 = "aa"
+string s2 = teken.ToString() + teken.ToString(); // s2 = "aa"
+string s3 = Convert.ToString(teken + teken); // s3 = "194"
 ```
 
 # Een variabele op het scherm tonen
