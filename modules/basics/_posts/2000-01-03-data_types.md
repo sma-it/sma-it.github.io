@@ -61,7 +61,7 @@ Het initialiseren van een variabele houdt in dat je de variabele een waarde geef
 ```csharp
 
 // Declaratie  
-int minimum;           
+int x;           
 string name;     
 float price; 
 double averageSpeed;
@@ -112,8 +112,8 @@ result = x + y; // result wordt geïnitialiseerd op het resultaat van de bewerki
  Hetzelfde voorbeeld maar dan toegepast in een functie:
 
  ```csharp
-// Declaratie van x en y in de argumentenlijst.
-// Initialisatie gebeurt bij de aanroep van de functie.
+// Declaratie van de variabelen a en b in de argumentenlijst. Deze variabelen bestaan enkel binnen de functie.
+// Initialisatie van a en b gebeurt bij de aanroep van de functie.
 public static int calcSum(int a, int b)   
 {
   int result;
