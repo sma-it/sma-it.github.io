@@ -243,7 +243,7 @@ Console.WriteLine("De prijs is: " + price + " euro");
 # Opmerking i.v.m. het maken van oefeningen
 
 In de stap hieronder start je met de eerste oefening. In de uitvoer van het project krijg je al een eerste indicatie dat je de oefening correct uitgewerkt hebt doordat telkens jouw bekomen resultaat vergeleken wordt met het verwachte resultaat.
-Er zijn echter nog extra NUnit tests voorzien, die je code grondiger met andere en soms met meerdere waarden testen. Je kan deze tests starten via het Test Explorer venster. Indien dit venster niet openstaat, kan je het steeds terug zichtbaar zetten via het menu Test - Window - Test Explorer.
+Er zijn echter nog extra NUnit tests voorzien, die je code grondiger met andere en soms met meerdere waarden testen. Je kan deze tests starten via het Test Explorer venster. Indien dit venster niet openstaat, kan je het steeds terug zichtbaar zetten via het menu Test - Window - Test Explorer. Merk op dat de tests pas in het Test Explorer venster zichtbaar komen te staan nadat je je code uitgevoerd hebt.
 
 <div class="note protip">
 <p>Test steeds je oefeningen met de extra NUnit tests en zorg ervoor dat elke test correct werkt.</p>
