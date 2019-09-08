@@ -240,6 +240,16 @@ Console.WriteLine(y);
 Console.WriteLine("De prijs is: " + price + " euro");   
 ```
 
+# Opmerking i.v.m. het maken van oefeningen
+
+In de stap hieronder start je met de eerste oefening. In de uitvoer van het project krijg je al een eerste indicatie dat je de oefening correct uitgewerkt hebt doordat telkens jouw bekomen resultaat vergeleken wordt met het verwachte resultaat.
+Er zijn echter nog extra NUnit tests voorzien, die je code grondiger met andere en soms met meerdere waarden testen. Je kan deze tests starten via het Test Explorer venster. Indien dit venster niet openstaat, kan je het steeds terug zichtbaar zetten via het menu Test - Window - Test Explorer.
+
+<div class="note protip">
+<p>Test steeds je oefeningen met de extra NUnit tests en zorg ervoor dat elke test correct werkt.</p>
+</div>
+
+
 <div class="note oefening">
 <p>Open het project <a href="https://github.com/sma-it/oefening-datatypes-1">oefening-datatypes-1</a> en maak de oefeningenreeks</p>
 </div>
