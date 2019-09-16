@@ -52,7 +52,14 @@ De parameters tussen haakjes zijn:
     * We kunnen het verloop van de for-lus dus als volgt beschrijven: de teller i wordt geïnitialiseerd op 0 en gaat in stappen van 1 omhoog. Als i de waarde 10 bereikt stopt de for-lus en wordt het instructieblok niet meer uitgevoerd.
 Het instructieblok toont de waarde van de teller i, bijgevolg verschijnen de getallen 0 tot en met 9 op het scherm.
 Het getal 10 verschijnt niet omdat het instructieblok niet uitgevoerd wordt van zodra de teller i de waarde 10 bereikt heeft.
-Als de for-lus afgelopen is, vervolgt het programma met de code die na de lus komt.
+Als de for-lus afgelopen is, vervolgt het programma met de code die na de lus komt. In dit voorbeeld is dit de tekst '\nFirst instruction after the for loop". 
+
+Opmerkingen: 
+* Bij de instructie Console.WriteLine wordt gebruik gemaakt van `\n`. Dit genereert een enter in de uitvoer. De zin "First instruction after the for loop" verschijnt dus op een nieuwe regel.
+* Verklaring syntax Console.Write("{0} ", i): De inhoud van de variabele i wordt op de plaats van {0} ingevuld. 
+Er kunnen meerdere parameters gebruikt worden, de nummering is oplopend {0}, {1}, {2}, ... Voor elke parameter moet een variabele voorzien worden.
+
+Opmerking
 
 ## Voorbeeld 2: For-lus met char teller
 
