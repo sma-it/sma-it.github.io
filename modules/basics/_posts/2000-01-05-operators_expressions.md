@@ -51,7 +51,7 @@ Voorbeeld:
 | Operator  | Bewerking         | Hoe gebruiken? | Volledige schrijfwijze |
 | --------- |-------------      | -------------- | ---------------------- |
 | ++        | verhoog met 1     | i++;           | i = i + 1;             |
-| -\-       | verminder met 1   | i--;           | i = i - 1;             |
+| -\-       | verminder met 1   | i-\-;           | i = i - 1;             |
 {:.tableBorder}
 
 Onderstaande voorbeelden tonen aan hoe deze operatoren gebruikt worden:
@@ -172,7 +172,8 @@ Voorbeeld:
 ```csharp
 int x; 
 
-if (x < 1 || 100 < x) // De vergelijking test of x niet tussen 1 en 100 ligt, grenzen inbegrepen.
+if (x < 1 || 100 < x) // De vergelijking test of x niet tussen 1 en 100 ligt, grenzen 
+                      //inbegrepen.
 {
 
 }
@@ -228,7 +229,7 @@ int a;              //Operator int /operand: a
 
 Console.ReadLine(); //Operator: ReadLine() / operand: Console
 
-(a > b)               //Operator: > / operanden: a en b
+(a > b)             //Operator: > / operanden: a en b
 ```
 
 # Statements
