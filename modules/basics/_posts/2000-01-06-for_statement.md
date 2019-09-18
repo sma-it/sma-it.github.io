@@ -130,8 +130,8 @@ for (int i = 0; i < 10; i++)
         Console.WriteLine("\nWe make the loop end at number 5!");
         break;
     }
-    Console.WriteLine("First instruction after the for loop");
 }
+Console.WriteLine("First instruction after the for loop");
 
 /* Output
 0 1 2 3 4 5
