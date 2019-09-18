@@ -266,7 +266,7 @@ else
 ```
 
 <div class="note waarschuwing">
-<p>Bouw je programma steeds op uit volledige statemens.</p>
+<p>Bouw je programma steeds op uit volledige statements.</p>
 </div>
 
 
