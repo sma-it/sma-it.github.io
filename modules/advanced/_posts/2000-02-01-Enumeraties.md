@@ -20,7 +20,7 @@ public class Day {
         dayInWeek = inWeek;
     }
 
-    public bool IsWeekend { get => dayInWeek < 5; }
+    public bool IsWeekend { get => dayInWeek >= 5; }
     
     public string WeekdayToString() {
         if(dayInWeek == 0) return "Monday";
@@ -36,7 +36,7 @@ public void Main() {
 }
 ```
 
-In het bovenstaande voorbeeld staat een class `Day` waarmee je een dag in een maand kan onthouden, samen met welke dag in de week dat is. Maar je gaat er van uit dat iedereen als eerste dag maandag zal kiezen en dan een 0 ingeeft. Niet alleen kan je je daar makkelijk in vergissen, en bijvoorbeeld 1 ingeven voor maandag omdat je even vergeet dat programmeurs vanaf 0 beginnen tellen. In de VS zijn er christelijke programmeurs die vinden dat zondag de eerste dag van de week moet zijn. Die zouden de nummering dus bij zondag beginnen. _(Vreemd genoeg gaan ze voorbij aan het feit dat zondag zo dag 0 wordt, en maandag nog steeds de eerste dag is!)_
+In het bovenstaande voorbeeld staat een class `Day` waarmee je een dag in een maand kan onthouden, samen met welke dag in de week dat is. Maar je gaat er van uit dat iedereen als eerste dag maandag zal kiezen en dan een 0 ingeeft. Je kan je daar makkelijk in vergissen, en bijvoorbeeld 1 ingeven voor maandag omdat je even vergeet dat programmeurs vanaf 0 beginnen tellen. Of je kan de week misschien op zondag laten beginnen i.p.v. op maandag.
 
 ## Zo moet het ook niet
 
