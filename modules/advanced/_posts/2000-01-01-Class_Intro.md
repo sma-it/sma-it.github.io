@@ -98,7 +98,7 @@ PrintPerson(person2);
 ```
 
 <div class="note oefening">
-<p>Open het project <a href="https://github.com/sma-it/oefening-classes-1">oefening-classes-1</a> via github en maak oefening 1.</p>
+<p>Open het project <a href="https://github.com/sma-it/oefening-classes-1">oefening-classes-1</a> via github en maak oefening 1a.</p>
 </div>
 
 ## Functies in een class
@@ -133,7 +133,7 @@ person2.Print();
 ```
 
 <div class="note oefening">
-<p>Open het project <a href="https://github.com/sma-it/oefening-classes-1">oefening-classes-1</a> en maak oefenreeks 2.</p>
+<p>Open het project <a href="https://github.com/sma-it/oefening-classes-1">oefening-classes-1</a> en maak oefening 1b.</p>
 </div>
 
 ## Voorbeeld: class Point
