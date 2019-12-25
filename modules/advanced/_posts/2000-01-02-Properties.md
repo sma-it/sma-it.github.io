@@ -206,7 +206,7 @@ public class Rectangle {
 ```
 Het bovenstaande voorbeeld bevat nog een kleine nieuwigheid. Als je get property uit meer dan 1 statement bestaat, dan kan je de eerder gebruikte schrijfwijze met het pijltje niet gebruiken. In zo'n geval werk je je statements uit zoals in een normale functie. En gebruik je return om het resultaat aan te duiden. _(In dit geval hadden we de berekening natuurlijk ook makkelijk in een enkel statement kunnen doen.)_
 
-Wat als je hier een `set` property zou toevoegen. Afgezien van het feit dat je hier geen echte variabele hebt waarin je het oppervlak zou kunnen opslaan, zou dat betekenen dat de breedte en hoogte niet meer kloppen. Dat zou dus een HEEL slecht idee zijn.
+Wat als je hier een `set` property zou toevoegen? Afgezien van het feit dat je hier geen echte variabele hebt waarin je het oppervlak zou kunnen opslaan, zou dat betekenen dat de breedte en hoogte niet meer kloppen. Dat zou dus een HEEL slecht idee zijn.
 
 **Berekening** betekent dat je een get property gebruikt voor een eenvoudige berekening. Ook hier zou een `set` property aan toevoegen compleet onzinnig zijn, want er is geen variabele verbonden met deze property.
 
