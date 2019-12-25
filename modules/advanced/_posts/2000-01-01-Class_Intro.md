@@ -153,8 +153,9 @@ class Point
         X = Y = 0f;
     }
 
-    /* Set-functies: Hieronder vind je 3 functies met de naam Set. Dit type functie wordt gebruikt om één of meerdere properties van 
-     * een object een waarde te geven. In dit voorbeeld krijgen de properties X en Y beiden een waarde via de Set-functie.
+    /* Set-functies: Hieronder vind je 3 functies met de naam Set. Dit type functie wordt 
+     * gebruikt om één of meerdere properties van een object een waarde te geven. In dit 
+     * voorbeeld krijgen de properties X en Y beiden een waarde via de Set-functie.
      */
 
     // De drie Set functies kunnen dezelfde naam hebben omdat de 
@@ -182,8 +183,8 @@ class Point
     /* Einde Set-functies.
     */
 
-    /* Hieronder vind je andere functies die tot de class behoren. Zo zijn er functies die de properties wijzigingen
-     * en functies die andere functionaliteiten hebben.
+    /* Hieronder vind je andere functies die tot de class behoren. Zo zijn er functies die 
+     * de properties wijzigingen en functies die andere functionaliteiten hebben.
      */
 
     // Functies die de properties wijzigen.
@@ -220,8 +221,8 @@ class Point
         return result;
     }
 
-    // Deze functie berekent de afstand tussen 2 punten. De functie wordt toegepast op het ene punt
-    // en het tweede punt wordt als argument meegegeven.
+    // Deze functie berekent de afstand tussen 2 punten. De functie wordt toegepast op 
+    // het ene punt en het tweede punt wordt als argument meegegeven.
     // De afstand tussen 2 punten wordt berekend met de volgende wiskunde bewerking:
     // afstand = vierkantswortel(((x2-x1)^2 + (y2-y1)^2))
     public double Distance(Point other)
