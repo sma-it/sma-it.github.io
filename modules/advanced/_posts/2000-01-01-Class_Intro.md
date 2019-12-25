@@ -153,8 +153,12 @@ class Point
         X = Y = 0f;
     }
 
+    /* Set-functies: Hieronder vind je 3 functies met de naam Set. Dit type functie wordt gebruikt om één of meerdere properties van 
+     * een object een waarde te geven. In dit voorbeeld krijgen de properties X en Y beiden een waarde via de Set-functie.
+     */
+
     // De drie Set functies kunnen dezelfde naam hebben omdat de 
-    // argumenten verschillend zijn.
+    // argumenten verschillend zijn. (function overloading)
     public void Set(float value)
     {
         X = Y = value;
@@ -175,9 +179,14 @@ class Point
         Y = other.Y;
     }
 
-    // Deze functies lijken sterk op de Set functies. In dit geval
-    // maken we een som. Je zou eenvoudig ook andere wiskundige 
-    // bewerkingen kunnen toevoegen aan deze class.
+    /* Einde Set-functies.
+    */
+
+    /* Hieronder vind je andere functies die tot de class behoren. Zo zijn er functies die de properties wijzigingen
+     * en functies die andere functionaliteiten hebben.
+     */
+
+    // Functies die de properties wijzigen.
     public void Add(float value)
     {
         X += value;
@@ -194,6 +203,7 @@ class Point
         X += other.X; Y += other.Y;
     }
 
+    // Functie die het gemiddelde van de X en Y-coördinaat berekent.
     public float Average()
     {
         return (X + Y) / 2F;
@@ -201,7 +211,8 @@ class Point
 
     // Deze functie gebruikt de class Point als resultaat. In de 
     // functie wordt een nieuw punt gemaakt dat dan als resultaat
-    // van de functie gebruikt wordt.
+    // van de functie gebruikt wordt. Dit nieuwe punt heeft de omgekeerde
+    // coördinaten van het punt waarop de functie toegepast werd.
     public Point Reversed()
     {
         Point result = new Point();
@@ -209,6 +220,10 @@ class Point
         return result;
     }
 
+    // Deze functie berekent de afstand tussen 2 punten. De functie wordt toegepast op het ene punt
+    // en het tweede punt wordt als argument meegegeven.
+    // De afstand tussen 2 punten wordt berekend met de volgende wiskunde bewerking:
+    // afstand = vierkantswortel(((x2-x1)^2 + (y2-y1)^2))
     public double Distance(Point other)
     {
         return Math.Sqrt(
