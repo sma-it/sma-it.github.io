@@ -22,7 +22,7 @@ void Func() {
         + person.LastName);
 }
 ```
-We gebruiken properties een beetje zoals variabelen. Het zijn de publiek toegankelijke variabelen van een class. Maar een gewone variabele zou je intuitief zo schrijven:
+We gebruiken properties een beetje zoals variabelen. Het zijn de publiek toegankelijke variabelen van een class. Maar een gewone variabele zou je intuïtief zo schrijven:
 
 ```csharp
 public class Person {
