@@ -183,7 +183,7 @@ public class Person {
 }
 ```
 
-Het kan handig zijn dat je de hele naam in 1 keer kan opvragen, in plaats van zelf altijd de twee namen te moeten samenvoegen tot een string. Maar wat zou een `set` property in dit geval moeten doen? De naam opsplitsen en verdelen over `FirstName` en `LastName`? Dat gaat vroeg of laat fout, bijvoorbeeld als iemands voornaam uit twee delen bestaat. Het is veel veiliger om het instellen afzonderlijk te doen.
+Het kan handig zijn dat je de hele naam in 1 keer kan opvragen, in plaats van zelf altijd de twee namen te moeten samenvoegen tot een string. Maar wat zouden we met een `set` property die de volledige naam bevat in dit geval moeten doen? De naam opsplitsen en verdelen over `FirstName` en `LastName`, zodat we ook deze twee gegevens hebben? Dat gaat vroeg of laat fout, bijvoorbeeld als iemands voornaam uit twee delen bestaat. Het is veel veiliger om het instellen afzonderlijk te doen.
 
 **Utility** betekent dat we een get property toevoegen om iets eenvoudiger te maken. Maar omdat het eigenlijk niet om een afzonderlijke variabele gaat, is een bijhorende `set` niet van toepassing.
 
