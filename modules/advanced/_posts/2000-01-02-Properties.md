@@ -55,22 +55,31 @@ In het onderstaande voorbeeld zie je hoe dat zou kunnen werken:
 
 ```csharp
 public class Connection {
+    // De property Connected geeft aan of we verbonden zijn of niet 
+    // (true=verbonden; false=niet verbonden).
     public bool Connected { get; set; }
 
+    //De property Connected wordt geïnitialiseerd d.m.v. de onderstaande 
+    //functie Connect().
     public void Connect() {
-        if(TryToConnectToTheInternet() == true) {
-            Connected = true; 
-        } else {
-            Connected = false;
+        if(TryToConnectToTheInternet() = true) {  //TryToConnectToTheInternet() is 
+            Connected = true;                   //een fictieve functie die nagaat 
+        } else {                                //of de connectie met het internet lukt.
+            Connected = false;                  //De functie geeft true als resultaat indien de 
+                                                //connectie lukt.
+                                                //Afhankelijk hiervan wordt de property  
+                                                //Connected geïnitialiseerd op true of false.
         }
     }
 }
 
 public static void Program() {
-    var conn = new Connection();
-    conn.Connect();
-    if(conn.Connected) {
-        // download my file
+    var conn = new Connection(); //Er wordt een instantie van de class Connection gemaakt.
+    conn.Connect();              //De functie Connect() wordt toegepast op deze instantie.
+                                 //De property Connected van het object conn wordt hierdoor 
+                                 //geïnitialiseerd.
+    if(conn.Connected) {         //Indien de property Connected van het object conn true is, zal 
+        // download my file      //de download starten.
     }
 }
 ```
@@ -92,7 +101,7 @@ public bool Connected { get; }
 Maar dit schept een nieuw probleem. Als de waarde niet aangepast kan worden, hoe kan class zelf dat dan doen? Deze code zal niet meer werken:
 
 ```csharp
-if(TryToConnectToTheInternet() == true) {
+if(TryToConnectToTheInternet() = true) {
     Connected = true; // connected is readonly!!!
 } else {
     Connected = false; // connected is readonly!!!
@@ -103,12 +112,13 @@ De oplossing bestaat erin een extra variabele te gebruiken. Die mag niet zichtba
 
 ```csharp
 public class Connection {
-    private bool connected = false;
-    public bool Connected { get => connected; }
+    private bool connected = false; // de interne variabele.
+    public bool Connected { get => connected; } //de property Connected haalt zijn waarde uit
+                                                //de interne variabele connected.
 
     public void Connect() {
-        if(TryToConnectToTheInternet() == true) {
-            connected = true; 
+        if(TryToConnectToTheInternet() = true) {
+            connected = true; //de interne variabele wordt geïnitialiseerd.
         } else {
             connected = false;
         }
@@ -154,15 +164,16 @@ public class Connection {
 
 public static void Program() {
     var conn = new Connection();
-    conn.Password = "secret";
+    conn.Password = "secret"; // de writeonly property krijgt een waarde
     conn.Connect();
     if(conn.Connected) {
-        Console.Writeline("You are connected with password: " + conn.Password); // Dit werkt gelukkig niet!
+        // Omdat Password writeonly is werkt onderstaande code gelukkig niet!
+        Console.Writeline("You are connected with password: " + conn.Password); 
     }
 }
 ```
 
-Zoals je ziet werkt dit bijna zoals een _readonly_ property. Maar waar komt de variabele `value` vandaan? We hebben die nergens gedeclareerd. Wel, die wordt altijd impliciet voorzien wanneer je  `set` gebruikt. `value` bevat steeds de waarde die van buitenaf wordt doorgegeven.
+Zoals je ziet werkt dit bijna zoals een _readonly_ property. Maar waar komt de variabele `value` vandaan? We hebben die nergens gedeclareerd. Wel, die wordt altijd impliciet voorzien wanneer je `set` gebruikt. `value` bevat steeds de waarde die van buitenaf wordt doorgegeven.
 
 ## Wanneer gebruik je _ReadOnly_?
 _WriteOnly_ properties laten we voorlopig even met rust, want die zal je voorlopig niet veel nodig hebben. Maar over _readOnly_ properties zijn we nog niet uitgepraat. Er zijn verschillende scenario's denkbaar.
