@@ -251,5 +251,5 @@ Er zijn echter nog extra NUnit tests voorzien, die je code grondiger met andere 
 
 
 <div class="note oefening">
-<p>Open het project <a href="https://github.com/sma-it/oefening-datatypes-1">oefening-datatypes-1</a> en maak de oefeningenreeks</p>
+<p>Open het project <a href="https://github.com/sma-it/oefening-datatypes-1" target="_blank">oefening-datatypes-1</a> en maak de oefeningenreeks</p>
 </div>
