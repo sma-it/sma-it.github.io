@@ -30,21 +30,21 @@ public class Rectangle : ISurface {
 
 }
 ```
-Visual Studio zal dadelijk opmerken dat je object de interface niet uitgewerkt hebt, en stelt zelfs voor om de interface te implementeren. Als je daar mee akoord gaat, dan ziet je class er zo uit:
+Visual Studio zal dadelijk opmerken dat je de interface niet uitgewerkt hebt, en stelt zelfs voor om de interface te implementeren. Als je daar mee akkoord gaat, dan ziet je class er zo uit:
 
 ```csharp
 public class Rectangle : ISurface
 {
-    public float Perimeter => throw new NotImplementedException();
+    public float Perimeter => throw new NotImplementedException(); // Opvangen fout
 
     public float Area()
     {
-        throw new NotImplementedException();
+        throw new NotImplementedException(); // Opvangen fout
     }
 }
 ```
 
-Je ziet dat de foutmelding weg is, maar je code zal wel een fout geven wanneer je ze uitvoert. Het is de bedoeling dat je de niet geimplementeerde delen zelf verder uitwerkt. De class rechthoek zou er uiteindelijk zo kunnen uitzien:
+Je ziet dat de foutmelding weg is, maar je code zal wel een fout geven wanneer je ze uitvoert. Het is de bedoeling dat je de niet geïmplementeerde delen zelf verder uitwerkt. De class rechthoek zou er uiteindelijk zo kunnen uitzien:
 
 ```csharp
 public class Rectangle : ISurface
@@ -119,7 +119,7 @@ Surfaces.Add(new Circle(3));
 Surfaces.Add(new Rectangle(4, 5));
 ```
 
-Aangezien zowel `Circle` als `Rectangle` de interface `ISurface` implementeren kan je ze zonder problemen toevoegen aan de bovenstaande `List<ISurface>`. Let wel op: alhoewel de list aangeeft elementen van met een `ISurface` op te slaan, kan je van de interface zelf geen object maken. Dit werkt dus niet:
+Aangezien zowel `Circle` als `Rectangle` de interface `ISurface` implementeren kan je ze zonder problemen toevoegen aan de bovenstaande `List<ISurface>`. Let wel op: alhoewel de list aangeeft elementen van het type `ISurface` op te slaan, kan je van de interface zelf geen object maken. Dit werkt dus niet:
 
 ```csharp
 Surfaces.Add(new ISurface()); // ISurface is geen class!
@@ -162,7 +162,7 @@ public float TotalRadius() {
 }
 ```
 
-## Use Interface as Class
+## Gebruik 'Interface as Class'
 
 Toch is het soms handig als je ook andere functies van een object kan gebruiken, zelfs al _zie_ je enkel de interface. Hier ga je best niet mee overdrijven, maar als het aantal classes dat in je list zit, beperkt is, dan zou je de volgende functie kunnen toevoegen aan de `Surfaces` class hierboven:
 
@@ -187,12 +187,12 @@ Hierboven maken we eerst een nieuwe variabele met `surface as Circle`. We vertel
 Enkel wanneer de variabele naar iets verwijst, met andere woorden wanneer een Circle achter de interface zat, dan vragen we naar de `Radius` property.
 
 <div class="note waarschuwing">
-<p>Wanneer je de controle met null overslaat en je element blijkt geen cirkel te zijn, dan crashed je programma.</p>
+<p>Wanneer je de controle met null overslaat en je element blijkt geen cirkel te zijn, dan crasht je programma.</p>
 </div>
 
 ## Interfaces Combineren
 
-Je hoeft je ook niet te beperken tot een enkele interface. hieronder voegen we een extra interface toe, die toelaat informatie over het object op het scherm te tonen.
+Je hoeft je ook niet te beperken tot een enkele interface. Hieronder voegen we een extra interface toe, die toelaat informatie over het object op het scherm te tonen.
 
 ```csharp
 public interface IPrintable
