@@ -62,7 +62,7 @@ public class Connection {
     //De property Connected wordt geïnitialiseerd d.m.v. de onderstaande 
     //functie Connect().
     public void Connect() {
-        if(TryToConnectToTheInternet() = true) {  //TryToConnectToTheInternet() is 
+        if(TryToConnectToTheInternet() == true) {  //TryToConnectToTheInternet() is 
             Connected = true;                   //een fictieve functie die nagaat 
         } else {                                //of de connectie met het internet lukt.
             Connected = false;                  //De functie geeft true als resultaat indien de 
@@ -101,7 +101,7 @@ public bool Connected { get; }
 Maar dit schept een nieuw probleem. Als de waarde niet aangepast kan worden, hoe kan class zelf dat dan doen? Deze code zal niet meer werken:
 
 ```csharp
-if(TryToConnectToTheInternet() = true) {
+if(TryToConnectToTheInternet() == true) {
     Connected = true; // connected is readonly!!!
 } else {
     Connected = false; // connected is readonly!!!
@@ -117,7 +117,7 @@ public class Connection {
                                                 //de interne variabele connected.
 
     public void Connect() {
-        if(TryToConnectToTheInternet() = true) {
+        if(TryToConnectToTheInternet() == true) {
             connected = true; //de interne variabele wordt geïnitialiseerd.
         } else {
             connected = false;
