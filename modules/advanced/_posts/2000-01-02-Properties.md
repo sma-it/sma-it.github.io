@@ -140,7 +140,7 @@ Op deze manier werkt de code zoals het hoort. Let zeker hier op:
 - De property `Connected` verwijst nu naar de interne variabele wanneer we ze opvragen. De `set` optie laten we gewoon weg.
 - We kunnen bijna dezelfde naam gebruiken. Het is de gewoonte dat je in dit geval de interne variabele met een kleine letter schrijft, en de property met een hoofdletter. Dat houdt je code overzichtelijk.
 - Binnen de class, bijvoorbeeld in de functie `Connect()` kan je de interne variabele gebruiken.
-- In het programma zelf is enkel de property `Connected` bruikbaar.
+- In het programma (dit is buiten de class) zelf is enkel de property `Connected` bruikbaar.
 
 ### WriteOnly Properties
 Heel soms heb je een property nodig waar je wel naar kan schrijven, maar niet lezen. In eenvoudige classes zal je dit niet snel tegenkomen, maar het kan wel. Als voorbeeld zullen we de class voor een internetverbinding aanpassen zodat die een wachtwoord nodig heeft. Om te voorkomen dat de niet oplettende GUI programmeur het ingegeven wachtwoord gewoon op het scherm toont, zullen we deze property _writeonly_ maken.
