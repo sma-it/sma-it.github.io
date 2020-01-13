@@ -48,6 +48,9 @@ De gewenste functionaliteit kunnen we aangeven met een combinatie van `set` en `
 ### ReadWrite Properties
 Meestal zal je de waarde van een property willen lezen en kunnen aanpassen. Leestoegang geef je met `get`, schrijftoegang geef je met `set`. Er bestaat dan ook een shortcut voor dit soort properties, zoals uitgelegd in het vorige hoofdstuk. Het voorbeeld bovenaan dit hoofdstuk is een voorbeeld met _ReadWrite_ properties.
 
+### WriteOnly properties
+_WriteOnly_ properties laten we voorlopig even met rust, want die zal je voorlopig niet veel nodig hebben.
+
 ### ReadOnly Properties
 Soms is het niet de bedoeling dat je kan schrijven naar een property, maar enkel dat je de waarde kan lezen. Dan gebruik je enkel `get`. Maar dat gaat niet vanzelf. Stel je voor dat je een class hebt die een verbinding met het internet maakt. Je hebt een functie `Connect()`, maar hoe kan je nu op elk moment te weten komen of je nu wel of niet verbonden bent? Door een property te gebruiken!
 
@@ -142,41 +145,10 @@ Op deze manier werkt de code zoals het hoort. Let zeker hier op:
 - Binnen de class, bijvoorbeeld in de functie `Connect()` kan je de interne variabele gebruiken.
 - In het programma (dit is buiten de class) zelf is enkel de property `Connected` bruikbaar.
 
-### WriteOnly Properties
-Heel soms heb je een property nodig waar je wel naar kan schrijven, maar niet lezen. In eenvoudige classes zal je dit niet snel tegenkomen, maar het kan wel. Als voorbeeld zullen we de class voor een internetverbinding aanpassen zodat die een wachtwoord nodig heeft. Om te voorkomen dat de niet oplettende GUI programmeur het ingegeven wachtwoord gewoon op het scherm toont, zullen we deze property _writeonly_ maken.
 
-```csharp
-public class Connection {
-    private bool connected = false;
-    public bool Connected { get => connected; }
-
-    private string password;
-    public string Password { set => password = value; }
-
-    public void Connect() {
-        if(TryToConnectToTheInternet(password) == true) {
-            connected = true; 
-        } else {
-            connected = false;
-        }
-    }
-}
-
-public static void Program() {
-    var conn = new Connection();
-    conn.Password = "secret"; // de writeonly property krijgt een waarde
-    conn.Connect();
-    if(conn.Connected) {
-        // Omdat Password writeonly is werkt onderstaande code gelukkig niet!
-        Console.Writeline("You are connected with password: " + conn.Password); 
-    }
-}
-```
-
-Zoals je ziet werkt dit bijna zoals een _readonly_ property. Maar waar komt de variabele `value` vandaan? We hebben die nergens gedeclareerd. Wel, die wordt altijd impliciet voorzien wanneer je `set` gebruikt. `value` bevat steeds de waarde die van buitenaf wordt doorgegeven.
 
 ## Wanneer gebruik je _ReadOnly_?
-_WriteOnly_ properties laten we voorlopig even met rust, want die zal je voorlopig niet veel nodig hebben. Maar over _readOnly_ properties zijn we nog niet uitgepraat. Er zijn verschillende scenario's denkbaar.
+Er zijn verschillende scenario's denkbaar.
 
 ### Preventie
 Soms is het echt niet de bedoeling om een variabele van buitenaf aan te passen. Dat zagen we al in het vorige voorbeeld: door `Connected` te wijzigen wist je niet meer of je nu wel of niet een verbinding had. Het is best mogelijk dat je programma crasht omdat je iets wil downloaden terwijl je eigenlijk geen verbinding hebt.
