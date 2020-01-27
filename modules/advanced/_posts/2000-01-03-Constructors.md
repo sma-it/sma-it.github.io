@@ -2,164 +2,96 @@
 title: Constructors
 ---
 
-# Constructors
+# Inleiding
 
-Wanneer je een object maakt van een class, dan wil je meestal zeker zijn van de waarden waar je mee werkt. In het volgende voorbeeld is dat niet zo duidelijk.
-
-De class RangedNumber uit het voorbeeld bevat een public integer Number die d.m.v. de functie `set` binnen de grenzen minimum en maximum gehouden wordt. Deze grenzen worden in de class voorzien d.m.v. twee private integer variabelen minimum en maximum.
-De class levert dus een object af met een property Number die binnen bepaalde grenzen blijft.
+In het hoofdstuk over classes, in het voorbeeld van de class Point, werd er op volgende manier een nieuw object van de class Point gemaakt:
 
 ```csharp
-public class RangedNumber {
-    private int minimum;
-    private int maximum;
-
-    private int number;
-    public int Number {
-        get => number;
-        set {
-            if (value > maximum) number = maximum;
-            else if (value < minimum) number = minimum;
-            else number = value;
-        }
-    }
-}
+    Point point1 = new Point();
 ```
 
-Wat zijn de waarden van `minimum` en `maximum`? Wel, de default waarde van een `int` is altijd 0. Voor het minimum is dat geen probleem, maar dat het maximum ook nul is, dat is minder geslaagd aangezien de property Number dan steeds 0 zal zijn. 
-Gelukkig kunnen we de waarden aanpassen:
+Als we dit even goed analyseren, dan merken we op dat deze instructie eindigt met een functieaanroep, namelijk `Point()`.
+Als we de class Point, die in het voorbeeld uitgewerkt is, overlopen vinden we echter nergens een functie met de naam Point. Aangezien Point een naam is die we zelf kozen voor de class, kan deze functie ook geen ingebouwde functie van C# zijn.
 
-```csharp
-public class RangedNumber {
-    private int minimum = 0;
-    private int maximum = 100;
+Wat is het dan wel? 
 
-    private int number;
-    public int Number {
-        get => number;
-        set {
-            if (value > maximum) number = maximum;
-            else if (value < minimum) number = minimum;
-            else number = value;
-        }
-    }
-}
-```
+De functie `Point()` is de __default constructor__ van de class Point. Je leest hieronder wat een __default constructor__ en een (non-default) __constructor__ is.
 
-Toch is deze class nog ver van ideaal. We kunnen de class nu enkel gebruiken met de range 0-100. Het zou beter zijn dat de range instelbaar is. Dat kan door van `minimum` en `maximum` properties te maken. Maar dat zou betekenen dat de range op elk moment aanpasbaar is. Dat is misschien geen goed idee, want iedereen maakt fouten:
-
-```csharp
-public class RangedNumber {
-    public int Minimum;   // Minimum en Maximum zijn nu properties.
-    public int Maximum;
-
-    private int number;
-    public int Number {
-        get => number;
-        set {
-            if (value > Maximum) number = Maximum;
-            else if (value < Minimum) number = Minimum;
-            else number = value;
-        }
-    }
-}
-
-// Ergens in het programma wordt de waarde voor de properties Minimum en Maximum ingesteld
-var Ranged10_20 = new RangedNumber();
-Ranged10_20.Minimum = 10;
-Ranged10_20.Maximum = 20;
-
-// Ergens anders in het programma
-Ranged10_20.Maximum = 100; // Ik lette niet op en wilde Number aanpassen
-                           // -> Maximum is per ongeluk gewijzigd.
-```
-
-Na lang zoeken zal je de fout wel vinden, maar zou het niet veel beter zijn als het niet mogelijk was om deze fout te maken? En wat als je zou vergeten om de range in te stellen? Dan zijn minimum en maximum beiden nul, een situatie die we willen voorkomen.
 
 ## Wat is een constructor?
-Een constructor is een speciale functie die enkel uitgevoerd wordt op het moment dat je een object van je class maakt. Deze functie heeft __de naam van de class__ en heeft __geen resultaat__. Het aantal argumenten kan je wel zelf kiezen. Bovendien moet de constructor __public__ zijn. De class `RangedNumber` zou wel een constructor kunnen gebruiken:
+Een constructor is een speciale functie die enkel uitgevoerd wordt __op het moment dat je een object van je class maakt__. Deze functie heeft __de naam van de class__ en heeft __geen resultaat__ (dus geen returntype, zelfs geen void). Bovendien moet de constructor __public__ zijn.
 
-```csharp
-public class RangedNumber {
-    // We werken terug met private variabelen voor minimum en maximum i.p.v. properties
-    private int minimum;
-    private int maximum;
+We kunnen twee soorten constructors onderscheiden:
 
-    // De constructor
-    public RangedNumber(int minimum, int maximum) {
-        this.minimum = minimum; //Merk op: gebruik van this bij identieke namen voor
-        this.maximum = maximum; //argumenten en variabelen.
-    }
+### De default constructor
+Wanneer de compiler je code compileert, en je schreef zelf geen constructor (zie verder), dan voegt de compiler op de achtergrond zelf een toe. Dit noemen we de _default constructor_. Deze constructor heeft geen argumenten doet niets bijzonders, maar is nodig om een object te kunnen maken van een class.
 
-    private int number;
-    public int Number {
-        get => number;
-        set {
-            if (value > maximum) number = maximum;
-            else if (value < minimum) number = minimum;
-            else number = value;
-        }
-    }
-}
-```
-
-Nu kan je zo een object maken:
-
-```csharp
-var Ranged10_20 = new RangedNumber(10, 20);
-```
-De range van het object is achteraf niet meer aanpasbaar. Dat voorkomt in dit geval fouten. Bovendien vraagt het minder typewerk en kan je niet vergeten de range te initialiseren. 
-
-Omdat er in het voorbeeld dezelfde namen gebruikt zijn voor de argumenten als voor de private variabelen van de class, is het noodzakelijk om d.m.v. het keyword `this` onderscheid te maken tussen beide. Als er voor een naam `this` geplaatst wordt, gekoppeld door een punt, dan wordt er op die manier aangeduid dat dit de variabele van de class is. Op die manier is het voor de constructor duidelijk dat de class-variabele moet geïnitialiseerd worden op het argument (en niet omgekeerd).
-
-Dat is dadelijk de belangrijkste reden voor het gebruik van constructors: je voorkomt dat er achteraf fouten gemaakt worden. In dit geval zijn er slechts twee variabelen die je moet instellen, maar wat als dat er meer worden? De kans dat je een property over het hoofd ziet wordt dan steeds groter.
-
-## Default Constructors
-Door de compiler te laten weten dat we twee integers als argument verwachten bij het declareren van een object, is het niet meer mogelijk om dit object zonder argumenten te maken. Dit werkt niet meer:
-
-```csharp
-var Ranged10_20 = new RangedNumber();
-```
-
-Nu je weet wat een constructor is, is het eigenlijk vooral vreemd dat de eerste versie van deze class _wel_ werkte. Het is nu duidelijk dat we `RangedNumber(10, 20)` kunnen gebruiken omdat we een constructor schreven met precies die naam en argumenten. Maar we hebben nooit de constructor in de vorm `RangedNumber()` geschreven die bij de eerste versie gebruikt wordt om een object te maken.
-
-Dit is de reden: wanneer de compiler je code compileert, en je schreef geen constructor, dan voegt de compiler er zelf een toe. Dit noemen we de _default constructor_. Deze constructor heeft geen argumenten doet niets bijzonders, maar is nodig om een object te kunnen maken van een class.
-
-Waarom doet de compiler dit? Om het jou gemakkelijk te maken. De code voor een default constructor zou er zo uit zien:
-
+De algemene syntax van een default constructor ziet er als volgt uit:
 ```csharp
 public NameOfClass() {}
 ```
 
-Dat kan de compiler dus perfect zelf verzinnen. En het bespaart je wat typewerk wanneer je geen andere constructor nodig hebt. Maar op het moment dat je zelf een constructor toevoegt, zoals in de class  `RangedNumber` hierboven, dan kan de compiler niet meer weten of je ook een object wil kunnen maken zonder die argumenten. Dus voegt de compiler geen default constructor meer toe.
+Toegepast op de class Point wordt dit:
+```csharp
+public Point() {}
+```
 
-Als je toch een default constructor wil, dan moet je die dus zelf toevoegen. Bijvoorbeeld zo:
+Je kan dus een class maken zonder een constructor te voorzien. Toch kan een constructor handig zijn. We kunnen deze functie immers gebruiken om een object bij het maken al te initialiseren. Om dit te doen schrijf je een (non-default) constructor. Vanaf nu gebruiken we voor deze non-default constructor gewoon de naam constructor en laten we de non-default weg.
+
+### Een constructor
+Indien we bij het maken van een nieuw object van de class Point de properties X en Y reeds willen initialiseren, kunnen we hiervoor een constructor schrijven. Deze constructor plaatsen we in de class Point en ziet er als volgt uit: 
 
 ```csharp
-public class RangedNumber {
-    private int minimum;
-    private int maximum;
+class Point
+{
+    //Properties
+    public float X { get; set; }
+    public float Y { get; set; }
+
+    
+    // De constructor
+    public Point(int X, int Y) {
+        this.X = X; //Merk op: gebruik van this bij identieke namen voor
+        this.Y = Y; //argumenten en variabelen.
+    }
+
+    ....
+}
+```
+
+Nu kan je op de volgende manier een nieuw object van de class Point maken:
+
+```csharp
+Point punt = new Point(10, 20);
+```
+
+De property punt.X krijgt hier de waarde 10 en de property punt.Y krijgt de waarde 20.
+
+Opmerking: het keyword `this`:
+Omdat er in het voorbeeld dezelfde namen gebruikt zijn voor de argumenten als voor de properties van de class, is het noodzakelijk om d.m.v. het keyword `this` onderscheid te maken tussen beide. Als er voor een naam `this` geplaatst wordt, gekoppeld door een punt, dan wordt er op die manier aangeduid dat dit de property van de class is. Op die manier is het voor de constructor duidelijk dat de class-variabele moet geïnitialiseerd worden op het argument (en niet omgekeerd).
+
+## Combinatie van default constructors en eigen constructor
+Van zodra je een eigen constructor in de class plaatst, zal de default constructor niet meer werken.
+Toegepast op het voorbeeld van de class Point kunnen we zeggen dat, van zodra we de constructor toevoegen aan onze class, het niet meer zal lukken om op onderstaande manier een niet-geïnitialiseerd object te maken. Omdat we een constructor met 2 argumenten gemaakt hebben en de default constructor zonder argumenten hierdoor vervalt, is het dus niet meer mogelijk dit niet-geïnitialiseerde object te maken.
+
+```csharp
+Point point1 = new Point();
+```
+
+Oplossing: indien het toch nodig zou zijn om een niet-geïnitialiseerd object van de class te maken, voegen we de default constructor als extra constructor aan de class toe.
+
+```csharp
+public class Point {
+    Public int X;
+    Public int Y;
 
     // Default constructor
-    public RangedNumber() {
-        this.minimum = 0;
-        this.maximum = 10;
-    }
+    public Point() {}
 
-    // Specific constructor met argumenten
-    public RangedNumber(int minimum, int maximum) {
-        this.minimum = minimum;
-        this.maximum = maximum;
-    }
-
-    private int number;
-    public int Number {
-        get => number;
-        set {
-            if (value > maximum) number = maximum;
-            else if (value < minimum) number = minimum;
-            else number = value;
-        }
+    // Eigen constructor met argumenten
+    public Point(int X, int Y) {
+        this.X = X;
+        this.Y = Y;
     }
 }
 ```
@@ -167,39 +99,68 @@ public class RangedNumber {
 Op die manier kan je beide constructors gebruiken:
 
 ```csharp
-var n1 = new RangedNumber(); // default constructor
-var n2 = new RangedNumber(3, 30); // specific constructor
+Point point1 = new Point(); // default constructor
+Point point2 = new Point(3, 30); // Eigen constructor
 ```
 
-Je kan trouwens ook meerdere eigen constructors schrijven:
+## Andere vormen van constructors
+
+### Een constructor met slechts 1 argument
+
+De onderstaande constructor maakt een nieuw object van de class Point, hierbij wordt X geïnitialiseerd op het argument, Y krijgt steeds de waarde 0.
 
 ```csharp
-// specific constructor met enkel voor maximum een argument
-public RangedNumber(int maximum) {
-    this.minimum = 0;
-    this.maximum = maximum;
-}
-
-// of:
-// constructor met optionele argumenten (er zijn default waarden voorzien)
-public RangedNumber(int maximum = 100, int minimum = 0) {
-    this.minimum = minimum;
-    this.maximum = maximum;
-}
+public Point(int X) {
+        this.X = X;
+        this.Y = 0;
+    }
 ```
 
-Merk op dat bij de constructor met optionele argumenten het maximum voor het minimum staat in de argumentenlijst. Bij deze constructor is het immers niet noodzakelijk om twee waarden mee te geven vanwege de default argumenten. Aangezien het onlogisch is om enkel het minimum in te willen stellen (het maximum blijft dan 0), zal het bij het oproepen van de constructor met één argument de bedoeling zijn om deze waarde in het maximum te plaatsen. Omdat de meegegeven waarden in volgorde ingevuld worden in de argumentenlijst, is het dus noodzakelijk om het maximum eerst te plaatsen. Bij het oproepen van de constructor met één waarde, wordt deze waarde in maximum geplaatst, het minimum krijgt dan de voorziene default waarde 0.
-Bij die laatste versie moet je wel uitkijken. In het hoofdstuk functies heb je geleerd wat optionele argumenten zijn. In dit geval zijn alle argumenten optioneel, dus de functie is ook bruikbaar als default constructor. Je kan dus niet ook nog eens een lege constructor toevoegen. Met deze laatste constructor zou je een object kunnen declareren op verschillende manieren:
+### Een constructor met default argumenten
+
+De onderstaande constructor initialiseert X en Y op de argumenten indien er hiervoor waarden meegegeven worden. Indien de waarden niet meegegeven worden, initialiseert de constructor beide properties op 0.
 
 ```csharp
-var n1 = new RangedNumber(); // 0 - 100
-var n2 = new RangedNumber(60); // 0 - 60
-var n3 = new RangedNumber(20, 10); // 10 - 20, maar niet handig omdat het maximum eerst moet
-var n4 = new RangedNumber(minimum: 10, maximum: 20); // beter leesbaar vanwege named parameters
+public Point(int X=0, int Y=0) {
+        this.X = X;
+        this.Y = Y;
+    }
+```
+Met bovenstaande constructor is het mogelijk om objecten op de volgende manier te maken:
+
+```csharp
+Point point1 = new Point(); // X en Y krijgen beide de waarde 0
+Point point2 = new Point(3, 30); // X krijgt de waarde 3, Y krijgt de waarde 30
+Point point3 = new Point(3); // X krijgt de waarde 3, Y krijgt de waarde 0
 ```
 
-## Voorbeeld: Person
-Hier een voorbeeld met een andere class: Person. Deze class bevat onder meer de naam en de voornaam van een persoon. Daarnaast zijn er nog andere eigenschappen, maar we willen nu zeker zijn dat de persoon zeker een naam heeft. Dat kunnen we doen via een constructor:
+Opgepast! 
+Bovenstaande constructor is eveneens een __default constructor__ omdat hij zonder argumenten kan opgeroepen worden. Naast deze constructor nog een 'gewone' default constructor in de class voorzien, geeft een foutmelding. Er bestaan dan immers 2 functies met dezelfde naam en die beiden zonder argumenten opgeroepen kunnen worden. Zoals je gezien hebt bij functie overloading, is dit niet toegelaten.
+
+De onderstaande code is dus __fout__!
+
+```csharp
+public class Point
+{
+...
+// Default constructor
+public Point() {}
+
+// Nog een constructor die als default gebruikt kan worden -> dubbelzinnigheid -> fout!!!
+public Point(int X=0, int Y=0) {
+        this.X = X;
+        this.Y = Y;
+    }
+...
+```
+
+
+## Properties verplicht initialiseren bij het maken van een nieuw object.
+Indien we geen default constructor in een class voorzien, kunnen objecten enkel gemaakt worden door een eigen constructor met argumenten. Deze manier van werken maakt het mogelijk om te verplichten dat alle, of een aantal, properties van het object geïnitialiseerd worden bij het maken van het object.
+
+Voorbeeld:
+Hieronder vinden we de class Person. Deze class bevat 2 properties: FirstName en LastName. Er werd gekozen om deze properties ReadOnly te maken via bijbehorende private variabelen. 
+Door enkel een eigen (niet-default) constructor met argumenten te voorzien, kan er enkel een nieuw object gemaakt worden als er zowel voor FirstName en LastName een waarde opgegeven wordt. Merk op dat de constructor de private variabelen initialiseert en niet de ReadOnly properties.
 
 ```csharp
 public class Person {
@@ -215,10 +176,6 @@ public class Person {
     }
 }
 ```
-
-Ook hier zie je voordelen van een constructor in actie. Je kan onmogelijk vergeten om de persoon een naam te geven. Ook kan je zijn naam achteraf niet meer wijzigen. _(Dat laatste zou waarschijnlijk geen goed idee zijn in een echt programma. Wat als iemand een typefout maakte bij de registratie?)_
-
-Ook is het duidelijk dat een default constructor in dit geval geen goed idee is. Welke naam zou je kiezen? Wat je ook als default kiest, het is ongetwijfeld niet de juiste naam.
 
 <div class="note oefening">
     <p>Open het project <a href="https://github.com/sma-it/oefening-constructors-1" target="_blank">oefening-constructors-1</a> en maak de oefeningenreeks</p>
