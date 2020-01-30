@@ -6,7 +6,10 @@ title: Enumeraties
 
 Om je uit te leggen wat enumeraties zijn, en welke voordelen ze bieden, beginnen we met een voorbeeld dat geen enumeraties gebruikt.
 
-In het onderstaande voorbeeld staat een class `Day` waarmee je een dag in een maand kan onthouden, samen met welke dag in de week dat is. De property DayInWeek houdt bij de hoeveelste dag van de week het is, de property DayInMonth houdt bij over de hoeveelste dag in de maand het gaat. Bijgevolg kan DayInWeek gebruikt worden om na te gaan op welke weekdag deze dag valt (maandag, dinsdag, ...). Aan de hand van de property DayInWeek zullen we deze weekdag via een functie op het scherm tonen.
+In het onderstaande voorbeeld staat een class `Day` waarmee je een dag in een maand kan onthouden, samen met welke dag in de week dat is. 
+De property DayInWeek houdt bij de hoeveelste dag van de week het is. Hierbij wordt de afspraak gemaakt dat maandag de waarde 0 krijgt, dinsdag de waarde 1, enz.
+De property DayInMonth houdt bij over de hoeveelste dag in de maand het gaat. 
+Aan de hand van de property DayInWeek wordt via de functie WeekdayToString() de numerieke waarde omgezet naar de bijhordende dag in stringformaat. Deze kan dan achteraf op het scherm getoond worden.
 
 ```csharp
 public class Day {
@@ -17,13 +20,17 @@ public class Day {
     private int dayInMonth;
     public int DayInMonth { get => dayInMonth; }
 
+    // Constructor
     public Day(int inMonth, int inWeek) {
         dayInMonth = inMonth;
         dayInWeek = inWeek;
     }
 
+    // De utility IsWeekend test of de dag in het weekend valt.
     public bool IsWeekend { get => dayInWeek >= 5; }
     
+    // De functie WeekDayToString() zet de integer dayInWeek om naar de bijhorende
+    // dag in stringformaat.
     public string WeekdayToString() {
         if(dayInWeek == 0) return "Monday";
         if(dayInWeek == 1) return "Tuesday";
@@ -38,7 +45,7 @@ public void Main() {
 }
 ```
 
- Je gaat er bij deze werkwijze van uit dat iedereen als eerste dag maandag zal kiezen en dan een 0 ingeeft voor DayInWeek, Je kan je daar makkelijk in vergissen, en bijvoorbeeld 1 ingeven voor maandag omdat je even vergeet dat programmeurs vanaf 0 beginnen tellen. Of je kan de week misschien op zondag laten beginnen i.p.v. op maandag en dan zal je 0 ingeven voor zondag.
+ Je gaat er bij deze werkwijze van uit dat iedereen zich aan de afspreek houdt en als eerste dag maandag zal kiezen en dan een 0 ingeeft voor DayInWeek. Je kan je daar makkelijk in vergissen, en bijvoorbeeld 1 ingeven voor maandag omdat je even vergeet dat programmeurs vanaf 0 beginnen tellen. Of je kan de week misschien op zondag laten beginnen i.p.v. op maandag en dan zal je 0 ingeven voor zondag. Of misschien is er iemand niet op de hoogte van de afspraak en is het bijgevolg niet gekend dat maandag de waarde 0 moet krijgen.
  Het is dus duidelijk dat deze werkwijze snel tot foutieve ingave kan leiden en dat dit dus geen goede oplossing is.
 
 ## Zo moet het ook niet
@@ -54,24 +61,28 @@ public class Day {
     private int dayInMonth;
     public int DayInMonth { get => dayInMonth; }
 
+    // Constructor
     public Day(int inMonth, string inWeek) {
         dayInMonth = inMonth;
         dayInWeek = inWeek;
     }
 
+    // De utility IsWeekend test of de dag in het weekend valt.
     public bool IsWeekend { get => dayInWeek.Equals("Saturday") || dayInWeek.Equals("Sunday"); }
 }
 ```
 
-de functie `WeekdayToString` wordt zo zelfs overbodig. En om te bepalen of een dag in het weekend valt vergelijken we de string met de dagen in het weekend. Maar daar zit een nieuw probleem. Niet alleen kan een computer veel sneller controleren of een getal kleiner dan 5 is, er is ook een kans dat we typfouten maken bij de invoer. Of we schrijven bijvoorbeeld `saturday`, zonder hoofdletter.
+de functie `WeekdayToString` wordt zo zelfs overbodig. En om te bepalen of een dag in het weekend valt vergelijken we de string met de dagen in het weekend. Maar daar zit een nieuw probleem. Niet alleen kan een computer veel sneller controleren of een getal kleiner dan 5 is, er is ook een kans dat we typfouten maken bij de invoer. Of we schrijven bijvoorbeeld `saturday`, zonder hoofdletter. Aangezien de functie Equals in het voorbeeld hoofdlettergevoelig werkt, zal `saturday` dus niet aanzien worden als een dag in het weekend. Fout, dus!
 
 ## Lang Leve de Enum
 
-Ook deze oplossing is dus niet ideaal. En daarom gebruiken we enumeraties. Dan ziet deze class er zo uit.
+Ook deze oplossing is dus niet ideaal. En daarom gebruiken we __enumeraties__. 
+Afzonderlijk van de `class Day` declareren we nu een `enum WeekDay`. Die bevat een oplijsting van alle dagen in de week. De computer ziet deze lijst als een lijst van nummers, waarin `Monday` eigenlijk gelijk staat aan 0, `Tuesday` aan 1, enzovoort. We moeten dit nu zelf niet onthouden.
+De enumeratie en de class Day zien er nu zo uit:
 
 ```csharp
 
-// Declaratie enumeratie
+// Declaratie van de enumeratie
 public enum Weekday {
     Monday,
     Tuesday,
@@ -91,16 +102,23 @@ public class Day {
     private int dayInMonth;
     public int DayInMonth { get => dayInMonth; }
 
+    // Constructor
     public Day(int inMonth, Weekday inWeek) {
         dayInMonth = inMonth;
         dayInWeek = inWeek;
     }
 
-    public bool IsWeekend { get => dayInWeek > WeekDay.Friday; }
+    // De utility IsWeekend test of de dag in het weekend valt.
+    // Aangezien de computer de enumeratie als integers bekijkt, kunnen we gebruik
+    // maken van de test dayInWeek >= WeekDay.Friday.
+    // De computer ziet het item WeekDay.Friday als 4.
+    // Aangezien alle weekdagen voor Friday in de enumeratie opgesomd zijn, hebben
+    // ze allemaal een waarde kleiner dan 4 (Monday = 0, enz.).
+    public bool IsWeekend { get => dayInWeek >= WeekDay.Friday; }
 }
 ```
 
-Afzonderlijk van de `class Day` declareren we nu een `enum WeekDay`. Die bevat een oplijsting van alle dagen in de week. De computer ziet deze lijst als een lijst van nummers, waarin `Monday` eigenlijk gelijk staat aan 0, `Tuesday` aan 1, enzovoort. Dat moeten we echter zelf niet onthouden. We kunnen de enum op de volgende manier gebruiken bij het meegeven van de argumenten voor de constructor.
+We kunnen de enum op de volgende manier gebruiken bij het meegeven van de argumenten voor de constructor.
 
 ```csharp
 public void Main() {
@@ -110,7 +128,7 @@ public void Main() {
 }
 ```
 
-Niet alleen kunnen we ons nu niet van dag vergissen, spellingsfouten worden dadelijk opgemerkt door de compiler. Bovendien zal Visual Studio ons na het typen van `Weekday.` dadelijk tonen wat de mogelijke dagen zijn. En de computer zelf zal nummers gebruiken voor deze dagen. Vandaar dat we in de functie `IsWeekend` de dag van de week met vrijdag kunnen vergelijken.
+Niet alleen kunnen we ons nu niet van dag vergissen, spellingsfouten worden dadelijk opgemerkt door de compiler. Bovendien zal Visual Studio ons na het typen van `Weekday.` dadelijk tonen wat de mogelijke dagen zijn. En de computer zelf zal nummers gebruiken voor deze dagen. Vandaar dat we in de utility `IsWeekend` de dag van de week met vrijdag kunnen vergelijken, zoals je in de commentaar kan terugvinden.
 
 En er is nog een voordeel: elke enum bevat automatisch een functie `ToString()` die de tekstuele representatie van de waarde geeft. De dag van de week als string tonen gaat dus vanzelf:
 
@@ -129,11 +147,13 @@ public void Main() {
 
 ## In the Loop
 
-Je kan enums ook eenvoudig in een loop gebruiken. Uiteindelijk is een enum niet meer dan een reeks getallen met een naam. De loop variabele kan dus ook een enum zijn. Wat niet zo eenvoudig is, is het bepalen van de grootste waarde. Dat kan je oplossen door die expliciet in je enum te declareren. In het voorbeeld gebruiken we hiervoor de waarde End. Het is op die manier duidelijk welke waarde we als bovengrens voor de `for` moeten gebruiken.:
+Je kan enums ook eenvoudig in een loop gebruiken. Uiteindelijk is een enum niet meer dan een reeks getallen met een naam. De loop variabele kan dus ook een enum zijn. 
+Wat niet zo eenvoudig is, is het bepalen van de grootste waarde. Dat kan je oplossen door die expliciet in je enum te declareren. 
+In het voorbeeld gebruiken we hiervoor de waarde End. Het is op die manier duidelijk welke waarde we als bovengrens voor de `for` moeten gebruiken.:
 
 ```csharp
 // Declaratie enumeratie
-enum Values { one, two, tree, End }
+enum Values { one, two, three, End }
 
 // Doorlopen van de enum d.m.v. for
 for (Values i = 0; i < Values.End; i++) {
