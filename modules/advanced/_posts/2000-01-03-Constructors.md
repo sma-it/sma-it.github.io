@@ -82,8 +82,8 @@ Oplossing: indien het toch nodig zou zijn om een niet-geïnitialiseerd object va
 
 ```csharp
 public class Point {
-    Public int X;
-    Public int Y;
+    public float X { get; set; }
+    public float Y { get; set; }
 
     // Default constructor
     public Point() {}
@@ -165,10 +165,10 @@ Door enkel een eigen (niet-default) constructor met argumenten te voorzien, kan 
 ```csharp
 public class Person {
     private string firstName;
-    public string FirstName => firstName;
+    public string FirstName { get => firstName; }
 
     private string lastName;
-    public string LastName => lastName;
+    public string LastName { get => lastName; }
 
     public Person(string firstName, string lastName) {
         this.firstName = firstName;
