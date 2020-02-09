@@ -6,7 +6,17 @@ title: Interfaces
 
 Dikwijls wil je elementen in een verzameling plaatsen, zoals een `List`. Dat maakt het bijvoorbeeld veel eenvoudiger om een bepaalde functie uit te voeren voor alle elementen in die verzameling. Maar een `List` kan geen objecten van verschillende classen bevatten. Als je bijvoorbeeld cirkels en rechthoeken wil gebruiken, dan zal je daar 2 verschillende verzamelingen voor moeten maken.
 
-...Tenzij je Interfaces gebruikt! Met een interface geef je aan welke functies en properties een class moet implementeren. Zo kunnen we bijvoorbeeld een interface voor een vlak aangeven:
+Tenzij je Interfaces gebruikt! Door een interface te gebruiken kunnen de elementen van de verschillende classes via deze interface aangesproken worden. De interface geef aan welke functies en properties hiervoor in de classes moeten voorzien zijn. Via de functies en properties die in de interface staan, kunnen dan de elementen van de verschillende classes en hun respectievelijke functies en properties aangesproken worden. 
+
+Enkele zaken om te onthouden:
+
+- Het is de gewoonte om elke interface naam met een hoofdletter `I` te beginnen. Zo zie je achteraf duidelijk dat het een interface is.
+- Interfaces kunnen functies en properties bevatten. Ze zijn automatisch `public`, dus dat moet je niet toevoegen.
+- Interfaces bevatten enkel declaraties. Je werkt de functies van de interface dus nooit uit.
+
+# Het principe van werken met een interface
+
+Voorbeeld: We maken volgende interface voor een vlak:
 
 ```csharp
 public interface ISurface {
@@ -15,11 +25,14 @@ public interface ISurface {
 }
 ```
 
-De bovenstaande interface bevat twee functies, `Perimeter()` en `Area()`. Met andere woorden: deze interface vereist een omtrek en een oppervlak. Enkele zaken om te onthouden:
+De bovenstaande interface bevat twee functies, `Perimeter()` en `Area()`. 
+Indien we via deze interface gebruik willen maken van verschillende classes dan moeten in deze classes de property Perimeter en de functie Area() uitgewerkt zijn.
 
-- Het is de gewoonte om elke interface naam met een hoofdletter `I` te beginnen. Zo zie je achteraf duidelijk dat het een interface is.
-- Interfaces kunnen functies en properties bevatten. Ze zijn automatisch `public`, dus dat moet je niet toevoegen.
-- Interfaces bevatten enkel declaraties. Je werkt de functies van de interface dus nooit uit.
+Veronderstel dat we de volgende twee classes via deze interface willen aanspreken: Rectangle en Circle. Zowel in de class Rectangle als in de class Circle moet er een property Perimeter en een functie Area() zijn.
+
+We maken dan een List van het type ISurface (de naam van de interface) en vullen die met Rectangle objecten en Circle objecten. Deze list kunnen we nu doorlopen en de property naam opvragen van het actieve element of er de functie Area() op toepassen. De interface zal zelf bepalen tot welke class het actieve element behoort en zal automatisch de property of functie oproepen. Voor een Circle object zal dat dus de Area() functie uit de class Circle zijn, voor een Rectangle object wordt dit de Area() functie uit de Rectangle class.
+
+Besluit: Door zowel in de interface, als in de classes waaraan de interface toegevoegd werd functionaliteiten (properties, functies) met dezelfde naam toe te voegen, kunnen we via deze interface objecten van deze verschillende classes als één geheel aanspreken. Dit is het voordeel van werken met interfaces.
 
 ## Een Interface aan een Class toevoegen
 
@@ -94,7 +107,7 @@ public class Circle : ISurface
 }
 ```
 
-Ook `Circle` heeft nu een functie `Area()` en een property `Perimeter`. Merk op dat Circle ook een eigen constructor en een property `Radius` heeft. Een interface is tevreden wanneer de gevraagde functies implementeert. Wat er verder nog in de class staat, dat maakt niet uit.
+Ook `Circle` heeft nu een functie `Area()` en een property `Perimeter`. Merk op dat Circle ook een eigen constructor en een property `Radius` heeft. Een interface is tevreden wanneer je de gevraagde functies implementeert. Wat er verder nog in de class staat, dat maakt niet uit.
 
 ## Objecten met een Interface maken
 
@@ -137,6 +150,9 @@ public class Surfaces
         list.Add(surface);
     }
 
+    // Als voorbeeld voegen we een functie TotalArea() toe die de totale
+    // oppervlakte van alle elementen uit de List berekent en als
+    // resultaat geeft.
     public float TotalArea()
     {
         float area = 0;
@@ -154,9 +170,11 @@ Wat ook niet kan, is properties of functies van de class gebruiken die niet tot 
 ```csharp
 public float TotalRadius() {
     float radius = 0;
-    foreach(var circle in list) {
-        // !!! the list might contain rectangles !!!
-        radius += circle.Radius; // will not work !!!
+    foreach(var circle in list) {   // Ook al vermelden we hier circle bij var,
+                                    // dit is gewoon een variabelenaam en de rectangles
+                                    // zullen nog steeds mee doorlopen worden.
+        radius += circle.Radius;    // Dit zal niet werken! De rectangle elementen
+                                    //bevatten immers geen property Radius.
     }
     return radius;
 }
@@ -164,7 +182,8 @@ public float TotalRadius() {
 
 ## Gebruik 'Interface as Class'
 
-Toch is het soms handig als je ook andere functies van een object kan gebruiken, zelfs al _zie_ je enkel de interface. Hier ga je best niet mee overdrijven, maar als het aantal classes dat in je list zit, beperkt is, dan zou je de volgende functie kunnen toevoegen aan de `Surfaces` class hierboven:
+Toch is het soms handig als je ook de andere functies van een object kan gebruiken (die niet in de interface zitten), zelfs al _zie_ je enkel de interface. Hier ga je best niet mee overdrijven, maar als het aantal classes dat in je list zit, beperkt is, dan zou je de volgende functie kunnen toevoegen aan de `Surfaces` class hierboven.
+De functie TotalRadius() berekent de som van de stralen (Radius) van alle circle-elementen uit de List. Het ligt voor de hand dat we een voorziening moeten inbouwen die de rectangles eruit filtert. Rectangles elementen hebben immers geen Radius property.
 
 ```csharp
 public float TotalRadius()
@@ -172,9 +191,13 @@ public float TotalRadius()
     float radius = 0;
     foreach(var surface in list)
     {
-        var element = surface as Circle;
-        if(element != null)
-        {
+        var element = surface as Circle; // Met deze lijn code geven we aan dat we
+                                            // de variabele surface als een Circle willen
+                                            // behandelen. Indien het element een Rectangle is
+                                            // zal element op null geïnitialiseerd worden.
+
+        if(element != null) // Enkel indien element niet null is, tellen we de Radius bij het totaal op.
+        {                   // Element is niet null indien element een Circle is (zie uitleg hierboven).
             radius += element.Radius;
         }
     }
