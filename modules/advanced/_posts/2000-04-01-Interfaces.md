@@ -30,7 +30,7 @@ Indien we via deze interface gebruik willen maken van verschillende classes dan 
 
 Veronderstel dat we de volgende twee classes via deze interface willen aanspreken: Rectangle en Circle. Zowel in de class Rectangle als in de class Circle moet er een property Perimeter en een functie Area() zijn.
 
-We maken dan een List van het type ISurface (de naam van de interface) en vullen die met Rectangle objecten en Circle objecten. Deze list kunnen we nu doorlopen en de property naam opvragen van het actieve element of er de functie Area() op toepassen. De interface zal zelf bepalen tot welke class het actieve element behoort en zal automatisch de property of functie oproepen. Voor een Circle object zal dat dus de Area() functie uit de class Circle zijn, voor een Rectangle object wordt dit de Area() functie uit de Rectangle class.
+We maken dan een List van het type ISurface (de naam van de interface) en vullen die met Rectangle objecten en Circle objecten. Deze list kunnen we nu doorlopen en de property naam opvragen van het actieve element of er de functie Area() op toepassen. De interface zal zelf bepalen tot welke class het actieve element behoort en zal automatisch de property of functie uit die class oproepen. Voor een Circle object zal dat dus de Area() functie uit de class Circle zijn, voor een Rectangle object wordt dit de Area() functie uit de Rectangle class.
 
 Besluit: Door zowel in de interface, als in de classes waaraan de interface toegevoegd werd functionaliteiten (properties, functies) met dezelfde naam toe te voegen, kunnen we via deze interface objecten van deze verschillende classes als één geheel aanspreken. Dit is het voordeel van werken met interfaces.
 
