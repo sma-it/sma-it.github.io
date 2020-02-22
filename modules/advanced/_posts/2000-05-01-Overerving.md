@@ -169,7 +169,7 @@ Hieronder het volledig uitgewerkte voorbeeld.
             Console.WriteLine(vogel.AsText());
 
             // De functie Talk() uit de klasse Bird wordt op het
-            // object hond toegepast.
+            // object vogel toegepast.
             Console.WriteLine(vogel.Talk());
 
             Console.ReadKey();
