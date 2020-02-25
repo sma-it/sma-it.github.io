@@ -47,7 +47,7 @@ Nadat je Monogame geïnstalleerd hebt, kan je een een nieuw project maken. In de
 
 ## De code lezen
 
-Wanneer je een nieuw MonoGame project maakt, dan start je met twee bestanden waarin je al C# code vindt. Het eerste bestand is `Program.cs`. Daarin wordt het eigenlijke programma gestart. Indien we een project maakten met de naam `Game1` is de code die dat doet deze:
+Wanneer je een nieuw MonoGame project maakt, dan start je met twee bestanden waarin je al C# code vindt. Het eerste bestand is `Program.cs`. Daarin wordt het eigenlijke programma gestart.
 
 ```csharp
 static void Main()
@@ -58,9 +58,9 @@ static void Main()
 }                                   // De Run-functie start het eigenlijke game.
 ```
 
-De code hierboven maakt een object van de de class `Game1` en voert dan de `Run()` functie van die class uit. De naam `Game1` is afhankelijk van de naam van je project. Als je een project maakte met de naam `SpaceInvaders` dan zal dat ook de naam van de class zijn.
+De code hierboven maakt een object van de de class `Game1` en voert dan de `Run()` functie van die class uit. De class `Game1` is voorzien in elk nieuw project dat je maakt.
 
-Het tweede bestand heeft de naam van je project. Bijvoorbeeld `Game1.cs` of `SpaceInvaders.cs`. Dit bestand is het echte vertrekpunt voor je game. Het is belangrijk dat je weet wat er in dit bestand gebeurt.
+Het tweede bestand is `Game1.cs`. Dit bestand is het echte vertrekpunt voor je game. Het is belangrijk dat je weet wat er in dit bestand gebeurt.
 
 Zowat elke game engine werkt op dezelfde manier:
 - De `Run()` functie uit het eerst bestand zal eerst de game engine initialiseren. Daarna wordt de content van je game geladen. Dit zijn bijvoorbeeld afbeeldingen, geluiden en andere bestanden zoals game levels en dergelijke.
