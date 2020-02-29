@@ -128,7 +128,7 @@ public void Main() {
 }
 ```
 
-Niet alleen kunnen we ons nu niet van dag vergissen, spellingsfouten worden dadelijk opgemerkt door de compiler. Bovendien zal Visual Studio ons na het typen van `Weekday.` dadelijk tonen wat de mogelijke dagen zijn. En de computer zelf zal nummers gebruiken voor deze dagen. Vandaar dat we in de utility `IsWeekend` de dag van de week met vrijdag kunnen vergelijken, zoals je in de commentaar kan terugvinden.
+Niet alleen kunnen we ons nu niet van dag vergissen, spellingsfouten worden dadelijk opgemerkt door de compiler. Bovendien zal Visual Studio ons na het typen van `Weekday.` dadelijk tonen wat de mogelijke opties uit de enumeratie zijn (de verschillende dagen, dus). En de computer zelf zal nummers gebruiken voor deze dagen. Vandaar dat we in de utility `IsWeekend` de dag van de week met vrijdag kunnen vergelijken, zoals je in de commentaar kan terugvinden.
 
 En er is nog een voordeel: elke enum bevat automatisch een functie `ToString()` die de tekstuele representatie van de waarde geeft. De dag van de week als string tonen gaat dus vanzelf:
 
@@ -148,8 +148,9 @@ public void Main() {
 ## In the Loop
 
 Je kan enums ook eenvoudig in een loop gebruiken. Uiteindelijk is een enum niet meer dan een reeks getallen met een naam. De loop variabele kan dus ook een enum zijn. 
-Wat niet zo eenvoudig is, is het bepalen van de grootste waarde. Dat kan je oplossen door die expliciet in je enum te declareren. 
-In het voorbeeld gebruiken we hiervoor de waarde End. Het is op die manier duidelijk welke waarde we als bovengrens voor de `for` moeten gebruiken.:
+Wat niet zo eenvoudig is, is het bepalen van de grootste waarde. Dat kan je oplossen door die expliciet in je enum te declareren.
+
+In het onderstaande voorbeeld gebruiken we hiervoor de waarde End. Het is op die manier duidelijk welke waarde we als bovengrens voor de `for` moeten gebruiken.:
 
 ```csharp
 // Declaratie enumeratie
@@ -163,11 +164,18 @@ for (Values i = 0; i < Values.End; i++) {
 
 ## Een random Enum waarde
 
-Soms wil je een willekeurige enum waarde toekennen aan een variabele. Je zou het volgende kunnen proberen:
+Soms wil je een willekeurige enum waarde toekennen aan een variabele. Hiervoor kan je gebruik maken van de random number generator. Je gebruikt deze als volgt:
+- Je start de generator ergens in je code met de instructie `var generator = new Random();`
+- Daarna kan je een random nummer genereren d.m.v. de instructie `var value = random.Next(100);`
+De 100 is de bovengrens die je meegeeft, het nummer dat zal gegenereerd worden ligt in dit voorbeeld tussen 0 en 100.
+
+Je zou dus het onderstaande kunnen proberen om een random Enum waarde te verkrijgen:
 
 ```csharp
-var generator = new Random();
-var value = random.Next(Values.End); // <-- Compiler geeft een fout
+var generator = new Random(); //Initialisatie random number generator 
+                              
+var value = random.Next(Values.End); // <-- Compiler geeft een fout bij het genereren
+                                     //van de random waarde.
 ```
 
 Ook al is een enum eigenlijk een getal, de functie Next wil echt een integer zien. Dit los je op door
@@ -183,7 +191,7 @@ var value = Random.Next((int)Values.End); // <-- Compiler geeft GEEN fout
 In deze oefenreeks gebruiken we nog iets nieuws: Overrides.
 
 Elke class die je maakt is afgeleid van een andere class: `Object`. Deze class heeft onder meer de functie `ToString()`. Daardoor kan je
-elke class die je maakt rechtstreeks gebruiken met `Console.WriteLine()`. Het resultaat van `Console.WriteLine()` is de naam van de class. Bijvoorbeeld zo:
+elke class die je maakt rechtstreeks gebruiken met `Console.WriteLine()`. Het resultaat van `Console.WriteLine()` is de __naam van de class__. Bijvoorbeeld zo:
 
 ```csharp
 class BankAccount {
@@ -194,16 +202,14 @@ class BankAccount {
 var account = new BankAccount();
 Console.WriteLine("Dit is een " + account);
 ```
-Het resultaat zou de naam van de class zijn:
-```
-Dit is een BankAccount
+Het resultaat van Console.WriteLine is in dit geval:
+
+```csharp
+Dit is een BankAccount.
 ```
 
-Je kan die functie ook _overschrijven_. Je zegt dat aan de compiler "Wanneer iemand om de functie `ToString()` vraagt, gebruik dan deze
-versie in plaats van de standaard versie". Je doet dat door de functie te voorzien van het keyword `override`. De functienaam, argumenten en
-resultaat moeten wel gelijk zijn aan de oorspronkelijke functie. Maar de compiler helpt je daarbij. Wanneer je override typt in een class, dan
-zal de compiler je de functies tonen die je kan overschrijven. Je selecteert dan de functie die je wil overschrijven.
-In het voorbeeld hieronder maken we een `override` voor de functie `ToString()` zodat niet de naam van de class gegeven wordt, maar de properties getoond worden.
+Je kan die functie ook _overschrijven_. Je zegt dan aan de compiler __"Wanneer iemand om de functie `ToString()` vraagt, gebruik dan deze versie in plaats van de standaard versie"__. Je doet dat door de functie te voorzien van het keyword `override`. De functienaam, argumenten en resultaat moeten wel gelijk zijn aan de oorspronkelijke functie. Maar de compiler helpt je daarbij. Wanneer je override typt in een class, dan zal de compiler je de functies tonen die je kan overschrijven. Je selecteert dan de functie die je wil overschrijven.
+In het voorbeeld hieronder maken we een `override` voor de functie `ToString()` __zodat niet de naam van de class gegeven wordt, maar de properties getoond worden.__
 
 ```csharp
 class BankAccount {
@@ -222,7 +228,7 @@ account.Balance = 1000;
 Console.WriteLine(account);
 ```
 Het resultaat is nu:
-```
+```csharp
 Account one has a balance of 1000 Euro
 ```
 
