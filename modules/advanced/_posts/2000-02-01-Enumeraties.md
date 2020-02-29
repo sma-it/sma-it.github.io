@@ -167,7 +167,7 @@ Soms wil je een willekeurige enum waarde toekennen aan een variabele. Je zou het
 
 ```csharp
 var generator = new Random();
-var value = Random.Next(Values.End); // <-- Compiler geeft een fout
+var value = random.Next(Values.End); // <-- Compiler geeft een fout
 ```
 
 Ook al is een enum eigenlijk een getal, de functie Next wil echt een integer zien. Dit los je op door
