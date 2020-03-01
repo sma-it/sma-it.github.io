@@ -176,7 +176,29 @@ Hieronder het volledig uitgewerkte voorbeeld.
         }
     }
 ```
-<div class="note oefening">
-<p>Open het project <a href="https://github.com/sma-it/oefening-inheritance-1">oefening-inheritance-1</a> en maak de oefeningen.</p>
+
+De uitvoer van dit programma is:
+
+```
+-----------------------------------------------
+Info over het object dier van de klasse Animal:
+-----------------------------------------------
+This animal has 0 legs and cannot fly.
+
+-----------------------------------------------
+Info over het object hond van de klasse Dog:
+-----------------------------------------------
+This animal has 4 legs and cannot fly.
+Bark! Bark!
+
+-----------------------------------------------
+Info over het object vogel van de klasse Bird:
+-----------------------------------------------
+This animal has 2 legs and can fly.
+Tsjilp! Tsjilp!
+```
+
+<div class="note protip">
+<p>Indien je een project uitwerkt, is het bepalen van de classes die je nodig hebt, een belangrijke eerste stap. Gebruik hierbij overerving waar mogelijk.</p>
 </div>
 
