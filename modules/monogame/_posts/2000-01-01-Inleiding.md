@@ -47,7 +47,9 @@ Nadat je Monogame geïnstalleerd hebt, kan je een een nieuw project maken. In de
 
 ## De code lezen
 
-Wanneer je een nieuw MonoGame project maakt, dan start je met twee bestanden waarin je al C# code vindt. Het eerste bestand is `Program.cs`. Daarin wordt het eigenlijke programma gestart.
+Wanneer je een nieuw MonoGame project maakt, dan start je met twee bestanden waarin je al C# code vindt:
+
+- Het eerste bestand is `Program.cs`. Daarin wordt het eigenlijke programma gestart.
 
 ```csharp
 static void Main()
@@ -58,25 +60,32 @@ static void Main()
 }                                   // De Run-functie start het eigenlijke game.
 ```
 
-De code hierboven maakt een object van de de class `Game1` en voert dan de `Run()` functie van die class uit. De class `Game1` is voorzien in elk nieuw project dat je maakt.
+De code hierboven maakt een object van de de class `Game1` en voert dan de `Run()` functie van die class uit. De class `Game1` is voorzien in elk nieuw project dat je maakt, zoals je in het volgende punt kan lezen.
 
-Het tweede bestand is `Game1.cs`. Dit bestand is het echte vertrekpunt voor je game. Het is belangrijk dat je weet wat er in dit bestand gebeurt.
+- Het tweede bestand is `Game1.cs`. Dit bestand is het echte vertrekpunt voor je game. Het is belangrijk dat je weet wat er in dit bestand gebeurt. Dit wordt verder in dit hoofdstuk uitgelegd.
 
-Zowat elke game engine werkt op dezelfde manier:
-- De `Run()` functie uit het eerst bestand zal eerst de game engine initialiseren. Daarna wordt de content van je game geladen. Dit zijn bijvoorbeeld afbeeldingen, geluiden en andere bestanden zoals game levels en dergelijke.
-- Nu komt het belangrijkste deel: de game loop (het 'lopen' van het spel). Die bestaat uit twee delen: `Update` en `Draw`. Je programma zal voortdurend deze twee delen afwisselen.
-- Tot slot is er nog een functie om de geladen content terug vrij te geven. Die wordt uitgevoerd wanneer je het programma sluit.
+Zowat elke game engine werkt op dezelfde manier, de volgende stappen worden bij het starten en runnen van het game doorlopen:
 
-Zoals hierboven vermeld zijn `Update` en `Draw` het belangrijkste deel van je game. Deze onderdelen hebben volgende functie binnen een game:
+Stap 1: Initialiseren van het game: De `Run()` functie uit het eerst bestand (in het geval van Monogame Program.cs zoals we hierboven zagen) zal eerst de game engine initialiseren.
+
+Stap 2: In stap 1 wordt het spel opgestart door een object van de class `Game1`te 'runnen'. In het spelverloop komen nu volgende zaken aan bod: 
+- de __content__ van je game wordt geladen. Dit zijn bijvoorbeeld afbeeldingen, geluiden en andere bestanden zoals game levels en dergelijke. In de volgende hoofdstukken zal je leren hoe je content voorziet en in je game gebruikt.
+- Nu komt het belangrijkste deel: de __game loop__ (het 'lopen' van het spel). Die bestaat uit twee delen: `Update` en `Draw`. Je programma zal voortdurend deze twee delen afwisselen. (Zie hieronder) In de volgende hoofdstukken zal je leren hoe je d.m.v. instructies in deze functies een game maakt.
+
+Stap 3: Tot slot is er nog een functie om de geladen content terug vrij te geven. Die wordt uitgevoerd wanneer je het programma sluit.
+
+Zoals hierboven vermeld zijn `Update` en `Draw` het belangrijkste deel van je game. Deze onderdelen hebben volgende functie binnen het game:
 - In `Update` hoor je alle berekeningen te doen, zoals aanpassen van posities, controleren of een toets ingedrukt werd, reageren op een mouse click etc. Ook informatie die via het netwerk binnenkomt kan hier verwerkt worden. 
 - In `Draw` wordt al die informatie gebruikt om objecten op het scherm te tekenen.
-Door `Update` en `Draw` dus voortdurend af te wisselen tijdens de game loop worden dus telkens a.h.v. nieuwe gegevens uit de `Update` functie, uitvoer getoond door de `Draw` functie.
+Door `Update` en `Draw` dus voortdurend af te wisselen tijdens de game loop wordt dus telkens a.h.v. nieuwe gegevens uit de `Update` functie, uitvoer getoond door de `Draw` functie.
 
 _Meestal zullen `Update` en `Draw` mekaar gewoon afwisselen. Maar het kan gebeuren dat je computer te traag blijkt, bijvoorbeeld omdat er andere programma's op de achtergrond plots veel werk hebben. In dat geval kan de game engine beslissen om een aantal `Draw` instructies over te slaan. Update wordt dan wel uitgevoerd, zodat de berekeningen accuraat blijven. Er zijn gewoon minder screen updates. Daarom is het belangrijk dat je het onderscheid maakt tussen deze twee functies. Ook al kan je in theorie positie updates en dergelijke ook in de `Draw` functie uitvoeren, het is een heel slecht idee om dat te doen._
 
 ## Beschrijving van de code van een nieuw, leeg programma 
 
-Als je een nieuw project met Monogame maakt, bevat je project reeds een deel code. Een beschrijving van deze code vind je hieronder.
+Als je een nieuw project met Monogame maakt, bevat je project reeds een deel code. Het bestand `Program.cs` bespraken we hierboven al en dient om het spel te starten.
+
+`Game1.cs` is het bestand waarin we zaken zullen toevoegen. Een beschrijving van de code die bij een nieuw, leeg project reeds in `Game1.cs` aanwezig is, vind je hieronder.
 
 ### Monogame laden
 
@@ -87,7 +96,9 @@ using Microsoft.Xna.Framework.Input;
 ```
 In dit eerste deel wordt MonoGame geladen. Het lijkt alsof het niet MonoGame, maar Xna Framework is dat geladen wordt. Dat komt omdat MonoGame een volledige vervanging is van Xna Framework. Je kan dus ook Xna installeren in plaats van MonoGame en je programma compileren zonder dat je iets moet aanpassen. Maar dan werkt het wel enkel met Windows.
 
-### Objecten i.v.m. het grafisch gedeelte + constructor
+Opm.: Afhankelijk van wat je in je programma gebruikt, zal je hier nog extra zaken moeten laden. Zo zal bijvoorbeeld het gebruik van een `List` object in je game nog steeds vereisen dat je `using System.Collections.Generic;` laadt.
+
+### Start van de class en declaratie van objecten i.v.m. het grafisch gedeelte + constructor met initialisatie van reeds voorziene objecten
 
 ```csharp
 namespace Game1
@@ -104,9 +115,18 @@ namespace Game1
             Content.RootDirectory = "Content";
         }
 ```
-In het deel hierboven wordt de class `Game1` gedeclareerd. Wanneer je een nieuw project maakt, dan zal dat project steeds een class bevatten met de naam van je project, met de class `Game` als base class (volgens het principe van overerving). 
-De class bevat alvast twee objecten: `GraphicsDeviceManager` en `SpriteBatch`. Deze twee objecten worden gebruikt om zaken op het scherm te tekenen. Daarover leer je later meer. 
-Verder is er nog de constructor van je class. Daarin initialiseer je de objecten van de class. Je geeft er ook aan in welke folder de content van je project zich bevindt. Dit is de directory waar je later je afbeeldingen plaatst.
+- In het deel hierboven wordt de class `Game1` gedeclareerd. Wanneer je een nieuw project maakt, dan zal dat project steeds een class bevatten met de naam `Game1` en de class `Game` als base class (volgens het principe van overerving). 
+
+- De class bevat alvast twee objecten die gebruikt worden voor het grafisch aspect van het game. In de volgende hoofdstukken zal je deze objecten gebruiken, maar hier vind je alvast een korte omschrijving van hun functie: 
+
+    - Het object __graphics__ is een object van de `GraphicsDeviceManager` class. Deze class bevat properties, methods, ... i.v.m. het beheer van het graphic device. Voorbeelden hiervan zijn hoogte en breedte van het game window, indicatie van fullscreen mode, ... 
+
+    - Het object spriteBatch is een object van de `SpriteBatch` class. Via dit object kunnen `Sprites` op het scherm getekend worden. Een `Sprite` is een 2D-element dat gebruikt wordt om een figuur op het scherm te tonen.
+
+- Verder is er nog de constructor van je class die alvast het volgende doet:
+
+    - De objecten graphics en spriteBatch worden geïnitialiseerd. 
+    - Er wordt aangegeven in welke folder de content van het project zich bevindt. Even opfrissen: de content van een project zijn bijvoorbeeld afbeeldingen, geluiden, e.d. Dit is dus de directory waar je later je afbeeldingen, e.d. in plaatst.
 
 ### De functie Initialize()
 
@@ -117,7 +137,7 @@ Verder is er nog de constructor van je class. Daarin initialiseer je de objecten
         }
 ```
 
-In de functie initialize voeg je later code toe die geïnitialiseerd moet worden. Je zal hier bijvoorbeeld een netwerkverbinding starten.
+In de functie initialize voeg je later code toe die geïnitialiseerd moet worden. Deze functie wordt eenmalig uitgevoerd na het uitvoeren van de constructor, maar voor het starten van de game loop. Je zal hier niet-grafisch gerelateerde content laden zoals bijvoorbeeld het starten van een netwerkverbinding.
 
 ### De functie LoadContent()
 
@@ -128,7 +148,9 @@ In de functie initialize voeg je later code toe die geïnitialiseerd moet worden
         }
 ```
 
-`LoadContent()` is de functie waarin je de inhoud van je game laadt. In de vorige functie ging het om het initialiseren van netwerkverbindingen of databases. Hier gaat het om het laden van afbeeldingen en geluid.
+`LoadContent()` is de functie waarin je de content van je game laadt. In de vorige functie ging het om het initialiseren van netwerkverbindingen of databases. Hier gaat het om het laden van afbeeldingen en geluid. De functie wordt eenmalig uitgevoerd na de Initialize functie, maar voor de game loop.
+
+Het object spriteBatch dat bovenaan de class reeds voorzien werd, wordt hier gemaakt. Het object spriteBatch kan gebruikt worden om afbeeldingen op het scherm te tonen.
 
 ### De functie UnloadContent()
 
@@ -150,7 +172,11 @@ In de functie initialize voeg je later code toe die geïnitialiseerd moet worden
             base.Update(gameTime);
         }
 ```
-In de `Update()` functie wordt alvast gecontroleerd of de escape key ingedrukt werd. Als dat zo is dan beëindig je de game. Je ziet dat de functie ook een argument heeft: `gameTime`. Daar gaan we later verder op in.
+De `Update` functie is de eerste functie van de game loop en zal dus afwisselend met de `Draw` functie uitgevoerd worden zolang het game loop. 
+
+In de `Update()` functie wordt alvast gecontroleerd of de escape key ingedrukt werd (of de knop back op een gamepad). Als dat zo is dan wordt het game beëindigd d.m.v. `Exit()`. 
+
+Je ziet dat de functie ook een argument heeft: `gameTime`. Daar gaan we later verder op in.
 
 ### De functie Draw()
 
@@ -165,24 +191,39 @@ In de `Update()` functie wordt alvast gecontroleerd of de escape key ingedrukt w
 ```
 Tot slot is er de `Draw()` functie, die alle objecten op het scherm tekent. De eerste regel (`Clear`) maakt het scherm leeg. Daarbij moet je aangeven in welke kleur dat dat moet gebeuren. Die kleur is dus meteen de achtergrond van je nieuwe scherm. Net zoals bij Initialize en Update moet je hier op het eind van de functie ook de gelijknamige functie van de base class oproepen.
 
-## Afbeelding tonen
+## Een eerste voorbeeld: een afbeelding tonen
 
-MonoGame laat je afbeeldingen op het scherm tonen. Je moet de afbeelding wel eerst toevoegen aan je project. Dat doe je door de MonoGame Pipeline tool te openen. Je opent daarvoor de folder `Content` in je project en klikt op `Content.mgcb`. _Indien de Pipeline dan niet opent, dan kan je rechts klikken en voor `Open With MonoGame Pipeline Tool` kiezen.
+MonoGame laat je afbeeldingen op het scherm tonen. In dit voorbeeld wordt getoond hoe je de afbeelding eerst toevoegt aan de `Content` van je project, hoe je ze in een `Texture2D` object laadt en hoe je dit object toont in het game window.
+
+We werken het voorbeeld in 3 stappen uit:
+- Stap1: Een afbeelding toevoegen aan de Content van je project.
+- Stap 2: Uitwerken van een class Player met de nodige functionaliteiten om Texture2D objecten vlot op het scherm te kunnen tonen.
+- Stap 3: Een object van de class Player gebruiken in de Game1 class.
+
+
+### Stap 1: Een afbeelding toevoegen aan de Content van je project
+
+Items die je in je game kan gebruiken, laad je in de `Content`. Dit kan je vergelijken met een 'verzameling' van afbeeldingen, geluid, fonts, ... waaruit je kan kiezen bij de opbouw van je game.
+
+Je voegt iets toe aan de `Content` door de __MonoGame Pipeline tool__ te openen. Je opent daarvoor de folder `Content` in je project en klikt op `Content.mgcb`. Indien de Pipeline tool dan niet opent, kan je rechts klikken en `Open With MonoGame Pipeline Tool` kiezen uit het snelmenu.
 
 Kies in de toolbar voor `Add Existing Item` en voeg een afbeelding toe. Voor het beste resultaat gebruik je afbeeldingen met een transparente achtergrond, die niet al te groot zijn. Een afbeelding voor een avatar is bijvoorbeeld zelden groter dan 512x512 pixels. Wanneer je afbeelding te groot is, dan moet je programma de afbeelding voortdurend schalen. Dat maakt je programma trager. Ook neemt een grote afbeelding veel meer geheugen in beslag.
 
-Als je een afbeelding gekozen hebt, dan kies je voor `Copy the file to the directory`. Merk op dat je de afbeelding (met heel wat extra informatie) ziet verschijnen in het gedeelte `Content`. Je kan nu de Pipeline tool sluiten.
+Als je een afbeelding gekozen hebt, dan kies je voor `Copy the file to the directory`. Merk op dat je de afbeelding (met heel wat extra informatie) ziet verschijnen in het gedeelte `Content`. Je afbeelding zit nu in de `Content`. Je kan de Pipeline tool nu sluiten.
 
-Om deze afbeelding te tonen maken we een nieuwe class `Player`.  In deze class maken we gebruik van de class ContentManager. We voegen deze namespace hiervoor bovenaan toe. De class `Player` en de bijbehorende namespaces zien er zo uit:
+### Stap 2: Uitwerken van de Player class
+
+In Monogame kan je via het `Texture2D` gegevenstype met afbeeldingen werken. Je maakt een object van dit type, via de `ContentManager` haal je de gewenste afbeelding uit de `Content` van je project en je laadt deze afbeelding in het `Texture2D` object.
+
+Opmerking: De `ContentManager` class doet wat zijn naam aangeeft: het beheren van de Content van je game. Deze class is voorzien in Monogame. Om in je programma van deze `ContentManager` class gebruik te kunnen maken moet je bovenaan een extra namespace laden, namelijk `Microsoft.Xna.Framework.Content;`.
+
+Voeg aan je project een nieuwe class `Player` toe en voorzie onderstaande code.
 
 ```csharp
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Content;  // De extra namespace om met de
+                                        // ContentManager class te kunnen werken.
 
 namespace MyGame
 {
@@ -193,7 +234,7 @@ namespace MyGame
         //Constructor
         public Player(ContentManager contentManager) //ContentManager van game class
         {                                            //wordt als argument doorgegeven.
-            //texture wordt a.h.v. de contentManager geladen met de afbeelding.
+            //texture wordt a.h.v. de contentManager geïnitialiseerd met de afbeelding.
             texture = contentManager.Load<Texture2D>("balloon");
         }
 
@@ -207,14 +248,52 @@ namespace MyGame
 }
 ```
 
-Deze class bevat eerst een `Texture2D` object. __Elke afbeelding teken je als een texture__. Via de constructor laden we die afbeelding in het player object. Maar daar hebben we een `ContentManager` voor nodig, die o.a. als functie heeft de beschikbare content te laden. Onze class heeft geen contentManager, maar de Game class heeft die wel. We zorgen dus dat we die contentManager kunnen doorgeven via de constructor. Deze contentManager maakt het mogelijk de content die we reeds voorzien hebben (in ons geval de afbeelding van hierboven) te laden.
-Opm.: Om gebruik te kunnen maken van `ContentManager` voegen we bovenaan een extra instructie toe: 
+Verklaring van de onderdelen:
 
-We hebben ook een functie nodig om de player te tekenen. Dat is de Draw functie. Tekenen gebeurt via de `SpriteBatch` class. Ook die zit in de Game class. We gebruiken dus weeral een functie argument om de SpriteBatch te kunnen gebruiken. Via de `Draw` functie van spriteBatch geven we door wat er getekend moet worden, en waar. We geven dus eerst de texture door, gevolgd door een rechthoek en een kleur. De kleur is normaal gezien wit, wat betekent dat je de afbeelding gewoon toont zoals ze is. 
+__Onderdeel 1: Declaratie van het Texture2D object waarin we de afbeelding zullen laden__
 
-De rechthoek bepaalt waar je de afbeelding plaatst, en hoe groot die is. Het eerste punt is de linkerbovenhoek van de rechthoek, en bepaalt hoe ver die van de linkerbovenhoek van het scherm staat. Het tweede punt is de grootte van de rechthoek.
+```csharp
+private Texture2D texture; 
+```
 
-Nu we de Player class uitgewerkt hebben, kunnen we een Player object aan het game toevoegen. We doen dit door in de Game class een object te maken van de class `Player`. Die voeg je bovenaan in de class toe, bij de andere definities:
+De class `Player` heeft een property van het type `Texture2D`. Hierin komt de afbeelding die het Player object zal voorstellen in het game window.
+
+__Onderdeel 2: De constructor__
+
+```csharp
+public Player(ContentManager contentManager)
+{
+    texture = contentManager.Load<Texture2D>("balloon");
+}
+```
+
+Via de constructor laden we de afbeelding in het `Texture2D` object. Zoals reeds aangehaald werd in dit hoofdstuk, hebben we een `ContentManager` nodig om de beschikbare content te laden. Herinner dat we daarnet onze afbeelding via de Pipeline Tool in de content geladen hebben, we moeten deze nu terug aanspreken via de `ContentManager`. Onze class `Player` heeft geen contentManager, maar de `Game` class heeft die wel. We zorgen dus dat we die `ContentManager` kunnen doorgeven via de constructor. We doen dit door de constructor een argument van het type `ContentManager` te geven. Via dit argument heeft de constructor van de `Player` class dus wel een `ContentManager` beschikbaar.
+
+Opm.: Om gebruik te kunnen maken van `ContentManager` voegen we bovenaan een extra namespace toe: 
+
+`using Microsoft.Xna.Framework.Content`.
+
+__Onderdeel 3: De functie Draw om het `Player` object te tekenen__
+
+```csharp
+public void Draw(SpriteBatch spriteBatch)
+        {                                         
+            spriteBatch.Draw(texture, new Rectangle(new Point(200,200), new Point(100, 100)), Color.White);
+        }
+```
+
+We hebben ook een functie nodig om de player te tekenen. Dat is de Draw functie. Tekenen gebeurt via de `SpriteBatch` class, die de voorzieningen biedt om zaken op het scherm weer te geven. Aangezien `SpriteBatch` niet voorzien is in onze eigen `Player`class zullen we ook hier weer hetzelfde principe toepassen als bij de constructor en `ContentManager`. We geven de `Draw` functie van de `Player` class een functieargument van het type `SpriteBatch` en op die manier kunnen we binnen deze de `Draw` functie van de functionaliteiten van de `SpriteBatch` class gebruik maken.
+
+De functionaliteit van de `SpriteBatch` class die we in de `Draw` functie van `Player` zullen gebruiken is de method `Draw`. Via de `Draw` method van `SpriteBatch` geven we door wat er getekend moet worden, en waar. Let erop dat je goed het verschil inziet tussen de `Draw` functie van `Player` en de method `Draw` van de `SpriteBatch` class.
+
+Welke argumenten heeft de method `Draw` van de `SpriteBatch` class nodig (je vindt deze tussen de ronde haakjes)? 
+- We geven eerst de texture property door. Aangezien deze reeds door de constructor geïnitialiseerd is op een afbeelding, wordt er op deze manier aangegeven welke afbeelding getoond moet worden. 
+- Daarna volgt er een rechthoek. Deze rechthoek bepaalt waar de afbeelding geplaatst moet worden en hoe groot de afbeelding getoond moet worden. Het eerste punt dat bij de `new Rectangle` meegegeven wordt, is de linkerbovenhoek van de rechthoek, en bepaalt hoe ver die van de linkerbovenhoek van het scherm staat (aantal pixels van de linkerrand en van de bovenrand). Het tweede punt is de grootte van de rechthoek (in het voorbeeld 100 pixels op 100 pixels groot). Indien de gekozen afbeelding niet in de rechthoek past, zal deze geschaald worden zodat ze passend is (te vermijden want dit vraagt resources).
+- Als laatste geven we een kleur mee. De kleur is normaal gezien wit, wat betekent dat je de afbeelding gewoon toont zoals ze is. 
+
+### Stap 3: Een object van de class Player gebruiken in de Game1 class
+
+Nu we de Player class uitgewerkt hebben, kunnen we een Player object aan het game toevoegen. We doen dit door in de `Game1` class een object te maken van de class `Player`. Die voeg je bovenaan in de class toe, bij de andere definities:
 
 ```csharp
     GraphicsDeviceManager graphics;
@@ -222,7 +301,7 @@ Nu we de Player class uitgewerkt hebben, kunnen we een Player object aan het gam
     Player player; // deze regel voeg je toe
 ```
 
-In de functie `LoadContent()` maak je je object:
+In de functie `LoadContent()` van de class `Game1` maak je je object. Door __new Player__ wordt de constructor uit de class `Player` opgeroepen. Het Player object wordt gemaakt en door de constructor geladen met de voorziene content (in ons voorbeeld: de figuur die in de constructor vermeld staat).
 
 ```csharp
 protected override void LoadContent()
@@ -237,7 +316,7 @@ protected override void LoadContent()
 }                                       
 ```                                     
 
-Tot slot teken je je player in de `Draw` functie. Alle sprites dienen getekend te worden tussen `spriteBatch.Begin()` en `spriteBatch.End()`. Zoals eerder vermeld geven we de `spriteBatch` door aan de `Draw` functie van `Player`.
+Tot slot teken je je player in de `Draw` functie van de class `Game1`. Alle sprites dienen getekend te worden tussen `spriteBatch.Begin()` en `spriteBatch.End()`. We geven de `spriteBatch` door aan de `Draw` functie van `Player`. 
 
 ```csharp
 protected override void Draw(GameTime gameTime)
@@ -246,7 +325,7 @@ protected override void Draw(GameTime gameTime)
 
     // TODO: Add your drawing code here
     spriteBatch.Begin();
-    player.Draw(spriteBatch); //De spriteBatch wordt gebruikt om de texture te tonen.
+    player.Draw(spriteBatch);
     spriteBatch.End();
 
     base.Draw(gameTime);
