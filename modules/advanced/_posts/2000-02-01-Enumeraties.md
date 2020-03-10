@@ -45,7 +45,7 @@ public void Main() {
 }
 ```
 
- Je gaat er bij deze werkwijze van uit dat iedereen zich aan de afspreek houdt en als eerste dag maandag zal kiezen en dan een 0 ingeeft voor DayInWeek. Je kan je daar makkelijk in vergissen, en bijvoorbeeld 1 ingeven voor maandag omdat je even vergeet dat programmeurs vanaf 0 beginnen tellen. Of je kan de week misschien op zondag laten beginnen i.p.v. op maandag en dan zal je 0 ingeven voor zondag. Of misschien is er iemand niet op de hoogte van de afspraak en is het bijgevolg niet gekend dat maandag de waarde 0 moet krijgen.
+ Je gaat er bij deze werkwijze van uit dat iedereen zich aan de afspraak houdt en als eerste dag maandag zal kiezen en dan een 0 ingeeft voor DayInWeek. Je kan je daar makkelijk in vergissen, en bijvoorbeeld 1 ingeven voor maandag omdat je even vergeet dat programmeurs vanaf 0 beginnen tellen. Of je kan de week misschien op zondag laten beginnen i.p.v. op maandag en dan zal je 0 ingeven voor zondag. Of misschien is er iemand niet op de hoogte van de afspraak en is het bijgevolg niet gekend dat maandag de waarde 0 moet krijgen.
  Het is dus duidelijk dat deze werkwijze snel tot foutieve ingave kan leiden en dat dit dus geen goede oplossing is.
 
 ## Zo moet het ook niet
@@ -56,7 +56,7 @@ De reden voor deze mogelijke fouten ligt in het probleem dat mensen niet zo goed
 public class Day {
 
     private string dayInWeek;
-    public string DayInWeek { get => dayInWeek; }
+    public string DayInWeek { get => dayInWeek; } //Nu string i.p.v. int.
 
     private int dayInMonth;
     public int DayInMonth { get => dayInMonth; }
@@ -72,12 +72,13 @@ public class Day {
 }
 ```
 
-de functie `WeekdayToString` wordt zo zelfs overbodig. En om te bepalen of een dag in het weekend valt vergelijken we de string met de dagen in het weekend. Maar daar zit een nieuw probleem. Niet alleen kan een computer veel sneller controleren of een getal kleiner dan 5 is, er is ook een kans dat we typfouten maken bij de invoer. Of we schrijven bijvoorbeeld `saturday`, zonder hoofdletter. Aangezien de functie Equals in het voorbeeld hoofdlettergevoelig werkt, zal `saturday` dus niet aanzien worden als een dag in het weekend. Fout, dus!
+De functie `WeekdayToString` wordt zo zelfs overbodig, want de naam van de dag is nu beschikbaar via de string DayInWeek. En om te bepalen of een dag in het weekend valt vergelijken we de string met de namen van de dagen in het weekend. Maar daar zit een nieuw probleem. Niet alleen kan een computer veel sneller met nummers werken en zal hij dus sneller kunnen controleren of een getal kleiner is dan 5 t.o.v. namen met elkaar te vergelijken. Er is ook een kans dat we typfouten maken bij de invoer van de namen van de dagen. Of we schrijven bijvoorbeeld `saturday`, zonder hoofdletter. Aangezien de functie Equals in het voorbeeld hoofdlettergevoelig werkt, zal `saturday` dus niet aanzien worden als een dag in het weekend. Fout, dus!
 
 ## Lang Leve de Enum
 
-Ook deze oplossing is dus niet ideaal. En daarom gebruiken we __enumeraties__. 
-Afzonderlijk van de `class Day` declareren we nu een `enum WeekDay`. Die bevat een oplijsting van alle dagen in de week. De computer ziet deze lijst als een lijst van nummers, waarin `Monday` eigenlijk gelijk staat aan 0, `Tuesday` aan 1, enzovoort. We moeten dit nu zelf niet onthouden.
+Ook deze oplossing is dus niet ideaal. En daarom gebruiken we __enumeraties__.
+
+Afzonderlijk van de `class Day` declareren we een `enum WeekDay`. Die bevat een oplijsting van alle dagen in de week. De computer ziet deze lijst als een lijst van nummers, waarin `Monday` eigenlijk gelijk staat aan 0, `Tuesday` aan 1, enzovoort. We moeten dit nu zelf niet onthouden.
 De enumeratie en de class Day zien er nu zo uit:
 
 ```csharp
@@ -113,8 +114,10 @@ public class Day {
     // maken van de test dayInWeek >= WeekDay.Friday.
     // De computer ziet het item WeekDay.Friday als 4.
     // Aangezien alle weekdagen voor Friday in de enumeratie opgesomd zijn, hebben
-    // ze allemaal een waarde kleiner dan 4 (Monday = 0, enz.).
-    public bool IsWeekend { get => dayInWeek >= WeekDay.Friday; }
+    // ze allemaal een waarde kleiner dan 4 (Monday = 0, enz.). We testen dus nu niet
+    // meer of de dag een zaterdag of zondag is, maar we testen dat de dag na vrijdag 
+    // in de enumeratie staat.
+    public bool IsWeekend { get => dayInWeek > WeekDay.Friday; }
 }
 ```
 
@@ -174,7 +177,7 @@ Je zou dus het onderstaande kunnen proberen om een random Enum waarde te verkrij
 ```csharp
 var generator = new Random(); //Initialisatie random number generator 
                               
-var value = random.Next(Values.End); // <-- Compiler geeft een fout bij het genereren
+var value = Random.Next(Values.End); // <-- Compiler geeft een fout bij het genereren
                                      //van de random waarde.
 ```
 
