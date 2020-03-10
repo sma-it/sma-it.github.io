@@ -177,7 +177,7 @@ Je zou dus het onderstaande kunnen proberen om een random Enum waarde te verkrij
 ```csharp
 var generator = new Random(); //Initialisatie random number generator 
                               
-var value = Random.Next(Values.End); // <-- Compiler geeft een fout bij het genereren
+var value = generator.Next(Values.End); // <-- Compiler geeft een fout bij het genereren
                                      //van de random waarde.
 ```
 
@@ -186,7 +186,7 @@ de enum hier te converteren naar een integer:
 
 ```csharp
 var generator = new Random();
-var value = Random.Next((int)Values.End); // <-- Compiler geeft GEEN fout
+var value = generator.Next((int)Values.End); // <-- Compiler geeft GEEN fout
 ```
 
 ## Oefeningen
