@@ -188,6 +188,102 @@ de enum hier te converteren naar een integer:
 var generator = new Random();
 var value = generator.Next((int)Values.End); // <-- Compiler geeft GEEN fout
 ```
+In bovenstaand voorbeeld plaatsen we de random waarde die we genereren in value, waar we als type `var` meegeven. Soms zal het echter nodig zijn om de random enum waarde in een reeds gedeclareerde waarde van een bepaald type te plaatsen. In dat geval moet er opnieuw een conversie gebeuren naar het juiste type. (Zie onderstaand voorbeeld)
+
+In het onderstaande voorbeeld worden objecten van de class `Circle` gemaakt. Elk object heeft een straal en een kleur. De kleur wordt via een random waarde uit de enum Color gekozen.
+
+We voorzien in dit voorbeeld 3 bestanden:
+- Enum.cs met de enum met kleuren.
+- Circle.cs met de beschrijving van de class Circle.
+- Program.cs met daarin de Main-functie die door Visual Studio voor elk project automatisch voorzien wordt. In deze Main-functie maken we de Circle-objecten en tonen we ze op het scherm.
+
+Belangrijke opmerking i.v.m. het starten van de `Random` generator: het is belangrijk om dit slechts éénmalig in je programma te voorzien. De `Random` generator werkt intern als volgt: bij het opstarten bepaalt hij een lijst van random waarden a.h.v. een `seed`. Standaard is deze `seed` de systeemtijd. Eens de `Random` generator gestart is, kunnen we door `Next` op de generator toe te passen telkens de volgende waarde uit de interne lijst opvragen. Zo krijgen we dus random waarden. Indien we echter telkens opnieuw de generator zouden starten op heel korte tijd en dan telkens een random waarde opvragen, dan kan dit als gevolg hebben dat we steeds dezelfde waarde als resultaat krijgen. De generator zal in die korte tijd immers vaak intern steeds dezelfde lijst genereren a.h.v. de seed en uit deze lijst vragen we dan steeds de eerste waarde op. Gevolg: de kans is groot dat we steeds dezelfde waarde krijgen.
+Door de `Random` generator slechts eenmalig op te starten, vermijden we dit probleem en wordt via `Next` de lijst met random waarden steeds verder afgegaan. Gevolg: we krijgen nu wel verschillende resultaten.
+
+Enum.cs
+
+```csharp
+public enum Color
+{
+    Red,
+    Green,
+    Blue,
+    Orange,
+    Yellow,
+    Purple,
+    Lime,
+    End
+};
+```
+
+Circle.cs
+
+```csharp
+public class Circle
+    {
+
+        private Color color;
+        public Color Color { get => color; }
+
+        private int radius;
+        public int Radius { get => radius; }
+
+        // Constructor: het argument color wordt in 
+        // de Main-functie a.h.v. Random geïnitialiseerd
+        // op een random waarde uit de enum Color.
+        public Circle(int radius, Color color)
+        {
+            this.radius = radius;
+            this.color = color;
+        }
+
+        public override string ToString()
+        {
+            return "The circle has a radius of " + radius + " and its color is " + color + ".";
+        }
+    }
+```
+
+Program.cs
+```csharp
+class Program
+    {
+        static void Main(string[] args)
+        {
+            // Eenmalig starten van de Random generator.
+            var generator = new Random();
+
+            // Declaratie variabele voor opslaan Random color.
+            Color color;
+
+            // Circle c1 wordt gemaakt.
+            // Eerst krijgt de variabele color een waarde via
+            // de Random generator.
+            // De variabele wordt dan gebruikt als argument voor
+            // de constructor.
+            color = (Color)generator.Next((int)Color.End);
+            Circle c1=new Circle(1,color);
+
+            // Circle c2 wordt gemaakt.
+            // De variabele color krijgt eerst een andere random
+            // waarde.
+            color = (Color)generator.Next((int)Color.End);
+            Circle c2 = new Circle(3, color);
+
+            // Circle c3 wordt gemaakt.
+            // De variabele color krijgt eerst een andere random
+            // waarde.
+            color = (Color)generator.Next((int)Color.End);
+            Circle c3 = new Circle(8, color);
+
+            // Uitvoer van de drie Circle objecten.
+            Console.WriteLine(c1);
+            Console.WriteLine(c2);
+            Console.WriteLine(c3);
+            Console.ReadKey();
+        }
+    }
+```
 
 ## Oefeningen
 
