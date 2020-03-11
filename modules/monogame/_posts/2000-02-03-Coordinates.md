@@ -5,12 +5,13 @@ title: Coordinates
 
 # Coordinate System
 
-In het vorige deel leerde je textures op het scherm zetten. Maar je kon ook zien dat er een probleem is: de positie van de textures wijzigt niet met de grootte van je window. Ook zou de y-as beter omgekeerd werken en kunnen we objecten beter schalen met de positie in het centrum. Dat komt allemaal omdat we de default _pixel space_ gebruiken.
+In het vorige deel leerde je textures op het scherm zetten. Maar je kon ook zien dat er een probleem is: de positie van de textures wijzigt niet met de grootte van je window, wat bijvoorbeeld als probleem kan geven dat textures verdwijnen als je van fullscreen naar windowed mode overschakelt. Ook zou de y-as beter omgekeerd werken omdat dit het gebruik van de pijltoetsen meer intuïtief maakt. Verder kunnen we objecten beter schalen met het snijpunt van de assen in het centrum. 
+De reden van deze problemen is dat we de default _pixel space_ gebruiken.
 
-Die _pixel space_ is de meest primitieve manier om met coordinaten om te gaan. Omdat niet elk coordinaten systeem het meest geschikt is voor eender welke game, gebruikt monogame de _pixel space_. Het is aan jou om daar op verder te bouwen. In dit voorbeeld stellen we vier eisen:
+Die _pixel space_ is de meest primitieve manier om met coördinaten om te gaan. Omdat niet elk coördinaten systeem het meest geschikt is voor eender welke game, gebruikt monogame de _pixel space_. Het is aan jou om daar op verder te bouwen. In dit voorbeeld stellen we vier eisen:
 - De y-as moet omgekeerd werken.
-- De coordinaten mogen niet afhankelijk zijn van het aantal pixels.
-- Het midden van het scherm wordt het nulpunt.
+- De coördinaten mogen niet afhankelijk zijn van het aantal pixels.
+- Het midden van het scherm wordt het nulpunt van het XY-assenstelsel.
 - De hoogte van het scherm schalen we tussen -1 en 1. De breedte is dan afhankelijk van de hoogte.
 
 Dat laatste punt zorgt er voor dat we de Textures nu met veel kleinere afmetingen moeten maken.  We zullen dus eerst het laden van de textures aanpassen:
