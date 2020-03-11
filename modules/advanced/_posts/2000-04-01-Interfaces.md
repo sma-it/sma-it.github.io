@@ -31,11 +31,11 @@ public interface ISurface {
 ```
 
 De bovenstaande interface bevat een property `Perimeter()`, een functie `Area()` en een functie `AsText()`. 
-Indien we via deze interface gebruik willen maken van verschillende classes dan moeten in deze classes de property Perimeter en de functie Area() uitgewerkt zijn.
+Indien we via deze interface gebruik willen maken van verschillende classes dan moeten in deze classes de property Perimeter, de functie Area() en de functie AsText() uitgewerkt zijn.
 
-Veronderstel dat we de volgende twee classes via deze interface willen aanspreken: `Rectangle` en `Circle`. Zowel in de class Rectangle als in de class Circle moet er een property `Perimeter` en een functie `Area()` zijn.
+Veronderstel dat we de volgende twee classes via deze interface willen aanspreken: `Rectangle` en `Circle`. Zowel in de class Rectangle als in de class Circle moet er een property `Perimeter`, een functie `Area()` en een functie `AsText()` zijn.
 
-We maken dan een List van het type ISurface (de naam van de interface) en vullen die met Rectangle objecten en Circle objecten. Deze list kunnen we nu doorlopen en van het actieve element telkens bijvoorbeeld er de functie Area() op toepassen. De interface zal zelf bepalen tot welke class het actieve element behoort en zal automatisch de functie Area() uit die class oproepen. Voor een Circle object zal dat dus de Area() functie uit de class Circle zijn, voor een Rectangle object wordt dit de Area() functie uit de Rectangle class.
+We maken dan een List van het type ISurface (de naam van de interface) en vullen die met Rectangle objecten en Circle objecten. Deze list kunnen we nu doorlopen en op het actieve element telkens bijvoorbeeld de functie Area() toepassen. De interface zal zelf bepalen tot welke class het actieve element behoort en zal automatisch de functie Area() uit die class oproepen. Voor een Circle object zal dat dus de Area() functie uit de class Circle zijn, voor een Rectangle object wordt dit de Area() functie uit de Rectangle class.
 
 __Besluit: Door zowel in de interface, als in de classes waaraan de interface toegevoegd werd, functionaliteiten (properties, functies) met dezelfde naam toe te voegen, kunnen we via deze interface objecten van deze verschillende classes via een List als één geheel aanspreken. Dit is het voordeel van werken met interfaces.__
 
@@ -67,7 +67,7 @@ public class Rectangle : ISurface
 }
 ```
 
-Je ziet dat de foutmelding i.v.m. het niet uitgewerkt zijn van de interface nu weg is, maar je code zal wel een fout geven wanneer je ze uitvoert. Zoals je ziet staat er momenteel nog 'throw new NotImplementedException()' bij de property en de functie. Het is nu de bedoeling dat je de niet geïmplementeerde delen nu eerst zelf nog verder uitwerkt en je deze 'throw new NotImplementedException()' dus vervangt door je eigen code. 
+Je ziet dat de foutmelding i.v.m. het niet uitgewerkt zijn van de interface nu weg is, maar je code zal wel een fout geven wanneer je ze uitvoert. Zoals je ziet staat er momenteel nog 'throw new NotImplementedException()' bij de property en de functie. Het is de bedoeling dat je de niet geïmplementeerde delen nu eerst zelf nog verder uitwerkt en je deze 'throw new NotImplementedException()' dus vervangt door je eigen code. 
 
 De class `Rectangle` zou er uiteindelijk zo kunnen uitzien:
 
@@ -129,7 +129,9 @@ public class Circle : ISurface
 }
 ```
 
-Ook `Circle` heeft nu een functie `Area()` en een property `Perimeter`. Merk op dat Circle ook een eigen constructor en een property `Radius` heeft. Een interface is tevreden wanneer je de gevraagde functies implementeert. Wat er verder nog in de class staat, dat maakt voor de interface niet uit.
+Ook `Circle` heeft nu een functie `Area()` en een property `Perimeter`. 
+
+Opmerking: Buiten de zaken die in de interface zitten heeft Circle ook een eigen constructor en een property `Radius`. De class Rectangle heeft nog de extra properties width en height en ook een eigen constructor. Een interface is tevreden wanneer je de gevraagde functies uit de interface implementeert. Wat er verder nog in de class staat, dat maakt voor de interface niet uit. Extra properties, een constructor, extra functies, ... zijn dus mogelijk naast de items die deel uitmaken van de interface.
 
 ## Objecten maken die interface elementen bevatten
 
@@ -153,9 +155,9 @@ Surfaces.Add(new ISurface()); // Dit lukt niet! ISurface is geen class!
 
 Op de list kunnen we nu de functionaliteiten die in de interface voorzien zijn toepassen. In onderstaand voorbeeld wordt het volgende uitgevoerd:
 - Er wordt een list die ISurface objecten kan bevatten gedeclareerd.
-- Er worden twee elementen aan de list toegevoegd: een `Circle` en een `Rectangle`. (Opm. dit mogen er natuurlijk meerdere zijn.
+- Er worden twee elementen aan de list toegevoegd: een `Circle` en een `Rectangle`. (Opm. dit mogen er natuurlijk meerdere zijn.)
 - De functie `AsText()` wordt op de list toegepast. Bij het doorlopen van de lijst zal telkens nagegaan worden van welk type het object surface is en zal de AsText() functie uit die respectievelijke class uitgevoerd worden.
-- De oppervlaktes (area) van alle objecten uit de list wordt opgeteld en op het scherm getoond.
+- De oppervlaktes (area) van alle objecten uit de list worden opgeteld en op het scherm getoond.
 
 Het bovenstaande uitgewerkt in de Main functie van Program.cs ziet er als volgt uit:
 
