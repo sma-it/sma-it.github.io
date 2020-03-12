@@ -169,7 +169,7 @@ for (Values i = 0; i < Values.End; i++) {
 
 Soms wil je een willekeurige enum waarde toekennen aan een variabele. Hiervoor kan je gebruik maken van de random number generator. Je gebruikt deze als volgt:
 - Je start de generator ergens in je code met de instructie `var generator = new Random();`
-- Daarna kan je een random nummer genereren d.m.v. de instructie `var value = random.Next(100);`
+- Daarna kan je een random nummer genereren d.m.v. de instructie `var value = generator.Next(100);`
 De 100 is de bovengrens die je meegeeft, het nummer dat zal gegenereerd worden ligt in dit voorbeeld tussen 0 en 100.
 
 Je zou dus het onderstaande kunnen proberen om een random Enum waarde te verkrijgen:
