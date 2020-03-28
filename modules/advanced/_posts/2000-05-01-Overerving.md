@@ -473,5 +473,5 @@ class Program
 ```
 
 <div class="note oefening">
-<p>Open het project <a href="">oefening-overerving-1</a> en maak de oefeningen.</p>
+<p>Open het project <a href="https://github.com/sma-it/oefening-overerving-1">oefening-overerving-1</a> en maak de oefeningen.</p>
 </div>
