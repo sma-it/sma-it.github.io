@@ -137,7 +137,7 @@ Point point3 = new Point(3); // X krijgt de waarde 3, Y krijgt de waarde 0
 Opgepast! 
 Bovenstaande constructor is eveneens een __default constructor__ omdat hij zonder argumenten kan opgeroepen worden. Naast deze constructor nog een 'gewone' default constructor in de class voorzien, geeft een foutmelding. Er bestaan dan immers 2 functies met dezelfde naam en die beiden zonder argumenten opgeroepen kunnen worden. Zoals je gezien hebt bij functie overloading, is dit niet toegelaten.
 
-De onderstaande code is dus __fout__!
+De onderstaande code is dus __fout__! 
 
 ```csharp
 public class Point
@@ -152,6 +152,38 @@ public Point(int X=0, int Y=0) {
         this.Y = Y;
     }
 ...
+```
+
+Hoe kan de fout in bovenstaande code opgelost worden en kan er toch voor gezorgd worden om dezelfde functionaliteiten te behouden? Er zijn twee mogelijkheden.
+
+- Mogelijkheid 1: Geen default argumenten bij de tweede constructor. We behouden in dit geval nog beide constructors. Aangezien er nu twee functies met dezelfde naam zijn in de class, gebruiken we het principe van overloading, meer bepaald `Constructor overloading`. Om de functionaliteit van de tweede constructor uit de foutieve code te behouden bij het maken van een leeg object, namelijk X en Y op 0 initialiseren, wordt deze initialisatie van X en Y toegevoegd aan de argumentloze constructor.
+
+```csharp
+public class Point
+{
+...
+// Default constructor
+public Point() {
+        X = 0;
+        Y = 0;
+}
+
+// Constructor met argumenten
+public Point(int X, int Y) {
+        this.X = X;
+        this.Y = Y;
+    }
+...
+```
+
+- Mogelijkheid 2: Enkel de constructor met default argumenten wordt voorzien.
+
+```csharp
+// Constructor met default argumenten
+public Point(int X=0, int Y=0) {
+        this.X = X;
+        this.Y = Y;
+    }
 ```
 
 
