@@ -21,23 +21,27 @@ We willen het 'aantal poten', het 'kunnen vliegen' en de 'levensverwachting' op 
   - aantal poten
   - kan het vliegen
   - de levensverwachting 
+  
   Tevens willen we deze drie properties voor alle dieren naar string-formaat kunnen omzetten zodat we ze via Console.WriteLine() op het scherm kunnen tonen.
+  
   Deze drie properties en de functie om de drie properties naar string-formaat te kunnen omzetten zijn de __gemeenschappelijke delen__ voor zowel honden als volgels.
   Deze __gemeenschappelijke delen__ zonderen we af en zetten we ineen aparte `basisklasse`. Deze `basisklasse` geven we een algemene naam, bijvoorbeeld __Animal__.
 
 - __Wat zit er in de afgeleide klassen?__
 
-Nu de gemeenschappelijke delen afgezonderd zijn, kijken we wat er nog ontbreekt om al de gevraagde informatie en functionaliteit te kunnen implementeren in het programma. De volgende zaken ontbreken nog:
-- het ras van de hond
-- de kleurencombinatie van de vogel
-- het tonen van het geluid van de hond (Bark! Bark!)
-- het tonen van het geluid van de vogel (Tsjilp! Tsjilp!)
+    Nu de gemeenschappelijke delen afgezonderd zijn, kijken we wat er nog ontbreekt om al de gevraagde informatie en functionaliteit te kunnen implementeren in het programma. De volgende zaken ontbreken nog:
+    - het ras van de hond
+    - de kleurencombinatie van de vogel
+    - het tonen van het geluid van de hond (Bark! Bark!)
+    - het tonen van het geluid van de vogel (Tsjilp! Tsjilp!)
 
-Dit zijn de gegevens die we in de `afgeleide klassen` zullen moeten opnemen om het gevraagde uit de situatieschets volledig kunnen uit te werken. Concreet houdt dit het volgende in:
-- de afgeleide klasse Dog zal een eigen property 'Breed' hebben en een functie Talk() die 'Bark! Bark' op het scherm toont.
-- de afgeleide klasse Bird zal een eigen property 'Color' hebben en een functie Talk() die 'Tsjilp! Tsjilp!' op het scherm toont.
+    Dit zijn de gegevens die we in de `afgeleide klassen` zullen moeten opnemen om het gevraagde uit de situatieschets volledig kunnen uit te werken. Concreet houdt dit het volgende in:
+    - de afgeleide klasse Dog zal een eigen property 'Breed' hebben en een functie Talk() die 'Bark! Bark' op het scherm toont.
+    - de afgeleide klasse Bird zal een eigen property 'Color' hebben en een functie Talk() die 'Tsjilp! Tsjilp!' op het scherm toont.
 
-Naast deze eigen properties en een eigen functie Talk() beschikken de afgeleide klassen ook over alle properties en functies uit de basisklasse.
+    Naast deze eigen properties en een eigen functie Talk() beschikken de afgeleide klassen ook over alle properties en functies uit de basisklasse.
+
+## Uitwerking
 
 De syntax om een klasse af te leiden van een andere klasse is:
 
