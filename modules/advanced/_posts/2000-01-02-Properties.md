@@ -156,7 +156,7 @@ Soms is het echt niet de bedoeling om een variabele van buitenaf aan te passen. 
 **Preventie** betekent dat we `set` weglaten om fouten te voorkomen.
 
 ### Utility
-Je kan ook _readonly_ properties maken die het gebruik van je class vereenvoudigen. Als voorbeeld terug even de class `Person`:
+Je kan ook _readonly_ utilities maken die het gebruik van je class vereenvoudigen. Als voorbeeld terug even de class `Person`:
 
 ```csharp
 public class Person {
@@ -171,7 +171,7 @@ Het kan handig zijn dat je de hele naam in 1 keer kan opvragen, in plaats van ze
 **Utility** betekent dat we een get property toevoegen om iets eenvoudiger te maken. Maar omdat het eigenlijk niet om een afzonderlijke variabele gaat, is een bijhorende `set` niet van toepassing.
 
 ### Berekening
-Je kan ook _readonly_ properties maken voor eenvoudige berekeningen. Zo bijvoorbeeld het oppervlak van een rechthoek:
+Je kan ook _readonly_ utilities maken voor eenvoudige berekeningen. Zo bijvoorbeeld het oppervlak van een rechthoek:
 
 ```csharp 
 public class Rectangle {
