@@ -45,7 +45,7 @@ We willen het 'aantal poten', het 'kunnen vliegen' en de 'levensverwachting' op 
 
 De syntax om een klasse af te leiden van een andere klasse is:
 
-```
+```csharp
 class Dog : Animal   // Na het dubbelpunt wordt de basisklasse vermeld.
 {                      // Dit zorgt ervoor dat Dog een afgeleide klasse van Animal is.
     // Hier wordt de class Dog uitgewerkt.
