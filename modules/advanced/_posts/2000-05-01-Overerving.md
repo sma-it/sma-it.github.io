@@ -9,7 +9,7 @@ Een krachtig aspect van object georiënteerd programmeren is __overerving__. Ove
 # Voorbeeld
 We verklaren het principe van overerving aan de hand van een voorbeeld:
 
-## Sitatieschets
+## Situatieschets
 Veronderstel dat je volgende gegevens wil bijhouden over dieren: 'aantal poten', 'kan het dier vliegen' en de 'levensverwachting'. Voor honden willen we ook het 'ras' bijhouden en voor vogels de 'kleurencombinatie' van de veren.
 
 We willen het 'aantal poten', het 'kunnen vliegen' en de 'levensverwachting' op het scherm kunnen tonen. Ook het geluid dat de hond (Bark! Bark!) en de vogel (Tsjilp! Tsjilp!) maken, willen we op het scherm tonen.
