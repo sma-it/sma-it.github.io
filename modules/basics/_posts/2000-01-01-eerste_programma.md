@@ -2,17 +2,21 @@
 title: Je Eerste Programma
 ---
 
-# Je Eerste Programma
+<div class="header1" markdown = "1"># Je Eerste Programma
+</div>
 
-## Visual Studio Installeren
+<div class="header2" markdown = "1">## Visual Studio Installeren
+</div>
 
-Wanneer je een tekst wil schrijven, dan kan je dat doen met eender welk programma waar je in kan typen. Notepad is al voldoende. Toch zal je werk wellicht vlotter gaan als je een programma gebruikt dat specifiek bedoeld is voor het schrijven van teksten, zoals OpenOffice of Microsoft Word.
+Wanneer je een tekst wil schrijven, dan kan je dat doen met eender welk programma waar je in kan typen. Notepad is al voldoende. Toch zal je werk wellicht vlotter gaan als je een programma gebruikt dat specifiek bedoeld is voor het schrijven van teksten, zoals OpenOffice Writer of Microsoft Word.
 
-Ook programmeren kan simpelweg in Notepad, maar ook hier geldt dat je het jezelf een stuk makkelijker maakt met een programma dat speciaal gemaakt is voor programmeurs. En voor de programmeertaal die je gebruikt. In deze cursus gebruiken we C# om te leren programmeren. Daarom gebruiken we ook een editor die zeer geschikt is voor C#: Microsoft Visual Studio. _Omdat we software ontwikkelen, noemen we dit ook wel een 'ontwikkelomgeving'._
+Ook programmeren kan simpelweg in Notepad, maar ook hier geldt dat je het jezelf een stuk makkelijker maakt met een programma dat speciaal gemaakt is voor programmeurs en voor de programmeertaal die je gebruikt. In deze cursus gebruiken we C# om te leren programmeren. Daarom gebruiken we ook een editor die zeer geschikt is voor C#: Microsoft Visual Studio. _Omdat we software ontwikkelen, noemen we dit ook wel een 'ontwikkelomgeving'._
 
-## Download & Installatie
+<div class="header2" markdown = "1">## Download & Installatie 
+</div>
 
-Indien Visual Studio nog niet op je computer staat, dan moet je dit programma eerst downloaden. Ga naar de [Visual Studio Website](https://visualstudio.microsoft.com/vs/community/) en download VS Community 2017. 
+
+Indien Visual Studio nog niet op je computer staat, dan moet je dit programma eerst downloaden. Ga naar de <a href="https://visualstudio.microsoft.com/vs/community/" target="_blank">Visual Studio website</a> en download de meest recente versie van Visual Studio. 
 
 Eens gedownload moet je het installatieprogramma uitvoeren. Je kan akkoord gaan met de standaard opties bij het installeren. Kies zeker voor de community versie: de professional en enterprise versies heb je echt niet nodig, en bovendien zijn die niet gratis.
 
@@ -24,9 +28,10 @@ Na het installeren kan je visual studio starten. De eerste keer zal je moeten in
 
 ### Problemen?
 
-Zit je vast met de installatie. Bekijk dan [deze video](https://www.youtube.com/watch?v=EF5YDkGu5Lk). De eerste drie minuten tonen je hoe je Visual Studio installeert. _De rest van de video is niet van toepassing op deze cursus._
+Zit je vast met de installatie. Bekijk dan <a href="https://www.youtube.com/watch?v=EF5YDkGu5Lk" target="_blank">deze video</a>. De eerste drie minuten tonen je hoe je Visual Studio installeert. _De rest van de video is niet van toepassing op deze cursus._
 
-## Een Project Maken
+<div class="header2" markdown = "1">## Een Project Maken
+</div>
 
 Om code te kunnen schrijven heb je een project nodig. Afhankelijk van het soort applicatie dat je maakt, kies je een project type. In het eerste deel van deze cursus werk je uitsluitend met console projecten.
 

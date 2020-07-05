@@ -1,14 +1,17 @@
 ---
 title: Het for Statement
 ---
-
-# Gebruik van het for statement
+<div class="header1" markdown = "1"># Het for Statement
+</div>
+<div class="header2" markdown = "1">## Gebruik van het for statement
+</div>
 
 Het `for` statement wordt gebruikt om een instructieblok meerdere keren uit te voeren.
 
 Een programmeerstructuur die een stuk code meerdere keren uitvoert, noemt met een lus (loop). Daarom wordt er vaak de naam for-lus of for-loop gebruikt. Een andere naam voor de for-lus is 'iteratie'.
 
-# De syntax van het for statement
+<div class="header2" markdown = "1">## De syntax van het for statement
+</div>
 
 De algemene syntax van een for-lus ziet er als volgt uit:
 
@@ -27,9 +30,10 @@ Bespreking:
   - Stap: de teller wordt met deze stap gewijzigd.
 * Net zoals bij het `if-else` statement plaatsen we ook bij het `for` statement accolades rond het bijbehorende instructieblok. Indien dit instructieblok slechts uit één instructie bestaat, zijn de accolades optioneel. We maken echter de afspraak ze altijd te plaatsen.
 
-# Voorbeelden
+<div class="header2" markdown = "1">## Voorbeelden
+</div>
 
-## Voorbeeld 1: For-lus toont de getallen 0 tot en met 9 op het scherm.
+### Voorbeeld 1: For-lus toont de getallen 0 tot en met 9 op het scherm.
 
 ```csharp
 for (int i = 0; i < 10; i++)
@@ -61,7 +65,7 @@ Er kunnen meerdere parameters gebruikt worden, de nummering is oplopend {0}, {1}
 
 Opmerking
 
-## Voorbeeld 2: For-lus met char teller
+### Voorbeeld 2: For-lus met char teller
 
 ```csharp
 for (char c = 'a'; c <= 'z'; c++)
@@ -81,7 +85,7 @@ Bespreking:
 * Zoals je in het voorbeeld ziet, kan er in C# met char-variabelen geteld worden. Telkens de char-variabele met 1 verhoogt schuift hij een waarde op in de ASCII-tabel. Aangezien het alfabet in opeenvolgende posities in de ASCII-tabel zit, wordt op deze manier het volledige alfabet doorlopen.
 * Ook tellers van het type float en double zijn mogelijk.
 
-## Voorbeeld 3: Beginwaarde teller verschillend van 0 en stapgrootte verschillend van 1
+### Voorbeeld 3: Beginwaarde teller verschillend van 0 en stapgrootte verschillend van 1
 
 ```csharp
 for (int i = 10; i < 100; i += 2)
@@ -100,7 +104,7 @@ Bespreking:
 * Vaak zal je de teller van de for-lus laten start van 0 of 1, toch is een andere beginwaarde mogelijk zoals je in het voorbeeld ziet.
 * Ook voor de stapgrootte kan er afgeweken worden van de waarde 1. In het voorbeeld gaat de teller met 2 omhoog. Let goed op dat je een volledige instructie gebruikt voor de derde parameter. Voluit schrijven van `i+=2` geeft `i=i+2`. Maak niet de fout om `i+2` bij de derde paramater te plaatsen. Dit wijzigt de teller niet en de for-lus werkt niet correct.
 
-## Voorbeeld 4: Variabele in de voorwaarde
+### Voorbeeld 4: Variabele in de voorwaarde
 
 ```csharp
 int max = 40;
@@ -119,7 +123,7 @@ First instruction after the for loop
 Bespreking:
 In de voorwaarde wordt er gebruik gemaakt van de variabele max. Vanzelfsprekend kan ook bij de initialisatie een variabele gebruikt worden.
 
-## Voorbeeld 5: Break statement
+### Voorbeeld 5: Break statement
 
 ```csharp
 for (int i = 0; i < 10; i++)
@@ -145,7 +149,7 @@ Bespreking:
     * Er wordt een boodschap getoond: "We make de loop end at number 5!"
     * Er wordt een `break` gegeven. Het `break` statement zal de lus volledig stoppen en zorgt ervoor dat het programma naar de eerste instructie na de for-lus springt. Dus ook al heeft de teller de bovengrens nog niet bereikt, de for-lus eindigt toch.
 
-## Voorbeeld 6: Continue statement
+### Voorbeeld 6: Continue statement
 
 ```csharp
 for (int i = 0; i < 10; i++)

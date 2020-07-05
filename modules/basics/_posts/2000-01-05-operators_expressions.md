@@ -1,12 +1,14 @@
 ---
 title: Operators, Expressies en Statements
 ---
-
-# Operators
+<div class="header1" markdown = "1"># Operators, Expressies en Statements
+</div>
+<div class="header2" markdown = "1">## Operators
+</div>
 
 Operatoren zijn de bouwstenen waarmee code kan opgebouwd worden. Ze worden gebruikt om een actie uit te voeren op operanden. In C# zijn een groot aantal operatoren voorgedefinieerd. In wat volgt worden veelgebruikte operatoren besproken.
 
-## Wiskundige operatoren
+### Wiskundige operators
 
 Onderstaande tabel geeft een overzicht van enkele veelgebruikte wiskundige operatoren:
 
@@ -38,7 +40,7 @@ De berekening van deze waarde gaat als volgt:
 16 - 15 = 1 -> De rest na deling van 16 door 3 is 1
 
 
-## Volgorde van bewerkingen
+### Volgorde van bewerkingen
 
 De volgorde van de bewerkingen in een berekening is gelijk aan de voorrang die in wiskunde gebruikt wordt. D.m.v. ronde haakjes kan je een andere volgorde van bewerkingen opgeven.
 
@@ -46,7 +48,7 @@ Voorbeeld:
 
 (a + b) * (c + d) is verschillend van a + b * c + d
 
-## Increment en decrement operatoren
+### Increment en decrement operators
 
 | Operator  | Bewerking         | Hoe gebruiken? | Volledige schrijfwijze |
 | --------- |-------------      | -------------- | ---------------------- |
@@ -54,7 +56,7 @@ Voorbeeld:
 | -\-       | verminder met 1   | i-\-;           | i = i - 1;             |
 {:.tableBorder}
 
-Onderstaande voorbeelden tonen aan hoe deze operatoren gebruikt worden:
+Onderstaande voorbeelden tonen aan hoe deze operators gebruikt worden:
 
 `++`  Verhoogt de waarde van de operand waarop hij toegepast wordt met 1.
 
@@ -70,7 +72,7 @@ x = 10;
 x--; // x is nu gelijk aan 9.
 ```
 
-## Toekenningsoperator
+### Toekenningsoperator
 
 In onderstaande statements
 
@@ -81,7 +83,7 @@ a = b * 10;
 
 is het gelijkheidsteken (`=`) de toekenningsoperator.
 
-Verder bestaan er toekenningsoperatoren die eigenlijk verkorte schrijfwijzen van een bewerking zijn. Onderstaande tabel geeft een overzicht. Het getal 2 dat in de voorbeelden gebruikt wordt, kan vervangen worden door een willekeurig getal of een variabele.
+Verder bestaan er toekenningsoperators die eigenlijk verkorte schrijfwijzen van een bewerking zijn. Onderstaande tabel geeft een overzicht. Het getal 2 dat in de voorbeelden gebruikt wordt, kan vervangen worden door een willekeurig getal of een variabele.
 
 | Operator  | Hoe gebruiken?| Volledige schrijfwijze  |
 | --------- |---------------|------------------------ |
@@ -91,9 +93,9 @@ Verder bestaan er toekenningsoperatoren die eigenlijk verkorte schrijfwijzen van
 | /=        | a /= 2;       | a = a / 2;              |
 {:.tableBorder}
 
-## Vergelijkingsoperatoren
+### Vergelijkingsoperators
 
-Onderstaande tabel geeft een overzicht van de vergelijkinsoperatoren. Een vergelijkingsoperator zal steeds `true` of `false` als resultaat geven.
+Onderstaande tabel geeft een overzicht van de vergelijkinsoperators. Een vergelijkingsoperator zal steeds `true` of `false` als resultaat geven.
 
 | Operator   | Betekenis         |
 | ---------  |-------------      |
@@ -110,7 +112,7 @@ Onderstaande tabel geeft een overzicht van de vergelijkinsoperatoren. Een vergel
 Zorg ervoor dat je in vergelijkingen steeds de vergelijkingsoperator gebruikt.</p>
 </div>
 
-## Logische operatoren
+### Logische operatoren
 
 Onderstaande tabel geeft een overzicht van de logische operatoren. Een logische operator gebruik je om voorwaarden samen te voegen. Het resultaat van het geheel zal steeds `true` of `false` zijn.  
 
@@ -218,7 +220,8 @@ De operator levert volgende waarheidstabellen op voor verschillende waarden van 
 | 1000      | false  | true    | true                  | false                  |
 {:.tableBorder}
 
-# Expressies
+<div class="header2" markdown = "1">## Expressies
+</div>
 
 Een expressie is opgebouwd uit operatoren en operanden.
 
@@ -232,7 +235,8 @@ Console.ReadLine(); //Operator: ReadLine() / operand: Console
 (a > b)             //Operator: > / operanden: a en b
 ```
 
-# Statements
+<div class="header2" markdown = "1">## Statements
+</div>
 
 Een statement is een volledige instructie, meestal afgesloten met een puntkomma. Een statement is opgebouwd uit één of meerdere expressies.
 

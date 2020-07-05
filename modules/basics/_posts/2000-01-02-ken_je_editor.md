@@ -1,11 +1,13 @@
 ---
 title: Ken Je Editor
 ---
+<div class="header1" markdown = "1"># Ken je editor
+</div>
 
 In dit hoofdstuk overlopen we enkele belangrijke functies van Visual Studio. Daarnaast leer je ook hoe je je taken en testen voor dit vak maakt.
 
-
-## Views
+<div class="header2" markdown = "1">## Views
+</div>
 Views zijn windows binnen een programma. Eenvoudige programma's tonen dikwijls maar een view op elk moment. Maar Visual Studio bevat heel wat __Views__, en je kan er verschillende tegelijk tonen. Een view kan in het midden van je scherm staan, links, rechts of onderaan. En elke view kan je verplaatsen, sluiten en opnieuw openen. Vele views heb je alleen nodig voor heel specifieke doeleinden die op dit moment nog niet relevant zijn. Maar er zijn ook views die je nu al kan gebruiken.
 
 Een overzicht van mogelijke Views vind je in het menu ``View``. Onderaan de lijst met beschikbare views vind je ook nog een uitklapmenu ``Other Windows`` met nog meer mogelijkheden.
@@ -63,7 +65,8 @@ Hieronder zie je een heel korte demo. Later in de cursus zullen we C# Interactiv
 
 ![Interactive](/img/basics/ken_je_editor/interactive.gif)
 
-## De Code Editor
+<div class="header2" markdown = "1">## De Code Editor
+</div>
 
 Het ingeven van code in Visual Studio is vrij vanzelfsprekend. Er zijn echter een aantal punten die het werken met de editor en het debuggen van je programma makkelijker kunnen maken.
 
@@ -197,7 +200,8 @@ Ook voor collega's waarmee je samenwerkt aan een project of die later aanpassing
 <p>Voorzie je code van commentaar. Je maakt het jezelf en je collega's makkelijker door dit te doen.</p>
 </div>
 
-## Breakpoints
+<div class="header2" markdown = "1">## Breakpoints
+</div>
 
 Soms werkt je code, maar geeft die niet het gewenste resultaat. Je kan zeker goed naar je code kijken om te zien wat er scheelt, maar ook hier kan de code editor je helpen: Je kan ``breakpoints`` toevoegen aan je code om het programma te pauseren waar je wil, door te dubbelklikken in de marge. Dat laat je toe de waarde van elke variabele te controleren.
 
@@ -207,7 +211,8 @@ Hieronder verwacht ik als resultaat van een deling 25, maar het programma toont 
 
 ![Breakpoints](/img/basics/ken_je_editor/breakpoint.gif)
 
-## Een Project Downloaden via Github
+<div class="header2" markdown = "1">## Een Project Downloaden via Github
+</div>
 
 Github is een website waar softwareontwikkelaars samen aan code kunnen werken. Een belangrijke functie van Github is dat iedereen die code ook kan downloaden. Elke oefenreeks in deze cursus is een Github project. Wanneer je een oefening wil maken, dan volg je een link in de cursus naar het bijhorende Github project. [Dit](https://github.com/sma-it/oefening-datatypes-1) is bijvoorbeeld een link naar de oefenreeks bij het volgende hoofdstuk.
 
@@ -223,7 +228,8 @@ Nu je een lokale kopie van de oefenreeks hebt, kan je de ``solution``, met daari
 
 ![Open](/img/basics/ken_je_editor/open_solution.gif)
 
-## Je werk opslaan
+<div class="header2" markdown = "1">## Je werk opslaan
+</div>
 
 Telkens je je project probeert uit te voeren, of het nu fouten bevat of niet, zal Visual Studio je wijzigingen opslaan. Zolang je dus regelmatig test, zal je je werk dus niet verliezen. Maar wat als je je werk mee naar huis wil nemen, bijvoorbeeld door het hele project te mailen naar jezelf of door het op te slaan op een USB stick?
 
