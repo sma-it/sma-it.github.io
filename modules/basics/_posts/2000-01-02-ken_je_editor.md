@@ -1,7 +1,7 @@
 ---
 title: Ken Je Editor
 ---
-<div class="header1" markdown = "1"># Ken je editor
+<div class="header1" id="top" markdown = "1"># Ken je editor
 </div>
 
 In dit hoofdstuk overlopen we enkele belangrijke functies van Visual Studio. Daarnaast leer je ook hoe je je taken en testen voor dit vak maakt.
@@ -244,3 +244,5 @@ Daarna kan je de projectlocatie openen in de file explorer. Ook dat kan eenvoudi
 ![Zip](/img/basics/ken_je_editor/zip.gif)
 
 _Bij een klein project, zoals deze oefenreeksen, kan je ook enkel de ``.cs`` bestanden selecteren en bewaren. Je kan dan achteraf het project opnieuw downloaden via Github en de ``.cs`` bestanden vervangen._
+
+<div class="toTop"><a href="#top">Omhoog</a></div>

@@ -1,7 +1,7 @@
 ---
 title: Het for Statement
 ---
-<div class="header1" markdown = "1"># Het for Statement
+<div class="header1" id="top" markdown = "1"># Het for Statement
 </div>
 <div class="header2" markdown = "1">## Gebruik van het for statement
 </div>
@@ -178,3 +178,5 @@ Bespreking:
 <div class="note oefening">
     <p>Open het project <a href="https://github.com/sma-it/oefening-for-1" target="_blank">oefening-for-1</a> en maak de oefeningenreeks</p>
 </div>
+
+<div class="toTop"><a href="#top">Omhoog</a></div>

@@ -2,7 +2,7 @@
 title: Data Types en Variabelen
 published: true
 ---
-<div class="header1" markdown = "1"># Data types en variabelen
+<div class="header1" id="top" markdown = "1"># Data types en variabelen
 </div>
 
 <div class="header2" markdown = "1">## Wat is een data type?
@@ -274,3 +274,6 @@ Er zijn echter nog extra NUnit tests voorzien, die je code grondiger met andere 
 <div class="note oefening">
 <p>Open het project <a href="https://github.com/sma-it/oefening-datatypes-1" target="_blank">oefening-datatypes-1</a> en maak de oefeningenreeks</p>
 </div>
+
+<div class="toTop"><a href="#top">Omhoog</a></div>
+

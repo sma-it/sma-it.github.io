@@ -1,7 +1,7 @@
 ---
 title: Operators, Expressies en Statements
 ---
-<div class="header1" markdown = "1"># Operators, Expressies en Statements
+<div class="header1" id="top" markdown = "1"># Operators, Expressies en Statements
 </div>
 <div class="header2" markdown = "1">## Operators
 </div>
@@ -273,6 +273,7 @@ else
 <p>Bouw je programma steeds op uit volledige statements.</p>
 </div>
 
+<div class="toTop"><a href="#top">Omhoog</a></div>
 
 
 

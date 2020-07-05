@@ -2,7 +2,7 @@
 title: Je Eerste Programma
 ---
 
-<div class="header1" markdown = "1"># Je Eerste Programma
+<div class="header1" id="top" markdown = "1"># Je Eerste Programma
 </div>
 
 <div class="header2" markdown = "1">## Visual Studio Installeren
@@ -83,4 +83,7 @@ namespace MijnProgramma
 <div class="note oefening">
 <p>Pas de tekst 'Hello World' aan en start het programma opnieuw.</p>
 </div>
+
+<div class="toTop"><a href="#top">Omhoog</a></div>
+
 
