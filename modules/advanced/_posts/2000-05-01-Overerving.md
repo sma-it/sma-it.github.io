@@ -2,19 +2,24 @@
 title: Overerving
 ---
 
-# Wat is overerving?
+<div class="header1" id="top" markdown = "1"># Overerving
+</div>
+
+<div class="header2" markdown = "1">## Wat is overerving?
+</div>
 
 Een krachtig aspect van object georiënteerd programmeren is __overerving__. Overerving laat toe een aantal gemeenschappelijke zaken (properties en functies) in een `basisklasse` te zetten. Van deze `basisklasse` kunnen dan `afgeleide klassen` gemaakt worden. Deze `afgeleide klassen` bevatten dankzij de overerving, naast hun eigen properties en functies, ook alle properties en functies van de `basisklasse`.
 
-# Voorbeeld
+<div class="header2" markdown = "1">## Voorbeeld
+</div>
 We verklaren het principe van overerving aan de hand van een voorbeeld:
 
-## Situatieschets
+### Situatieschets
 Veronderstel dat je volgende gegevens wil bijhouden over dieren: 'aantal poten', 'kan het dier vliegen' en de 'levensverwachting'. Voor honden willen we ook het 'ras' bijhouden en voor vogels de 'kleurencombinatie' van de veren.
 
 We willen het 'aantal poten', het 'kunnen vliegen' en de 'levensverwachting' op het scherm kunnen tonen. Ook het geluid dat de hond (Bark! Bark!) en de vogel (Tsjilp! Tsjilp!) maken, willen we op het scherm tonen.
 
-## Opsplitsing in basisklasse en afgeleide klassen
+### Opsplitsing in basisklasse en afgeleide klassen
 - __Hoe bepalen we wat tot de basisklasse behoort?__
 
   Dit doen we door de gemeenschappelijke delen (properties en functies) af te zonderen. Uit de situatieschets kunnen we afleiden dat we voor elk dier de volgende properties willen bijhouden:
@@ -41,7 +46,7 @@ We willen het 'aantal poten', het 'kunnen vliegen' en de 'levensverwachting' op 
 
     Naast deze eigen properties en een eigen functie Talk() beschikken de afgeleide klassen ook over alle properties en functies uit de basisklasse.
 
-## Uitwerking
+### Uitwerking
 
 De syntax om een klasse af te leiden van een andere klasse is:
 
@@ -206,7 +211,8 @@ Tsjilp! Tsjilp!
 <p>Indien je een project uitwerkt, is het bepalen van de classes die je nodig hebt, een belangrijke eerste stap. Gebruik hierbij overerving waar mogelijk.</p>
 </div>
 
-# Gebruik van constructors bij overerving
+<div class="header2" markdown = "1">## Gebruik van constructors bij overerving
+</div>
 
 In het voorbeeld dat hierboven besproken wordt, heeft de basisklasse geen eigen constructor (buiten de default constructor die door C# zelf voorzien wordt). De properties die tot de basisklasse behoren worden geïnitialiseerd in de constructor van de afgeleide klassen.
 
@@ -216,7 +222,7 @@ We onderscheiden dus twee mogelijkheden:
 - De basisklasse heeft een default constructor.
 - De basisklasse heeft geen default constructor.
 
-## De basisklasse heeft geen eigen constructor
+### De basisklasse heeft geen eigen constructor
 
 Dit hoofdstuk startte met een voorbeeld waarbij de basisklasse geen default constructor heeft. De constructor in de afgeleide klassen ziet er als volgt uit (bv. de class dog):
 
@@ -231,7 +237,7 @@ public Bird(int lifeExpectancy, string color)
 ```
 De properties Legs en CanFly behoren tot de basisklasse, maar worden door de constructor van de afgeleide klasse geïnitialiseerd.
 
-## De basisklasse heeft een eigen constructor
+### De basisklasse heeft een eigen constructor
 
 Indien we de basisklasse Animal uit het voorbeeld wel voorzien van een constructor dan ziet het voorbeeld er als volgt uit:
 
@@ -349,7 +355,8 @@ class Program
 }
 }
 ```
-# Hergebruik van functies bij overerving
+<div class="header2" markdown = "1">## Hergebruik van functies bij overerving
+</div>
 
 De mogelijkheid om functies uit de basisklasse te hergebruiken in de afgeleide klassen zorgt ervoor dat de code zo efficiënt mogelijk gehouden wordt.
 Om dit te illustreren passen we het voorbeeld van hierboven als volgt aan:
@@ -479,3 +486,5 @@ class Program
 <div class="note oefening">
 <p>Open het project <a href="https://github.com/sma-it/oefening-overerving-1">oefening-overerving-1</a> en maak de oefeningen.</p>
 </div>
+
+<div class="toTop"><a href="#top">Omhoog</a></div>

@@ -2,7 +2,11 @@
 title: Constructors
 ---
 
-# Inleiding
+<div class="header1" id="top" markdown = "1"># Constructors
+</div>
+
+<div class="header2" markdown = "1">## Wat is een constructor?
+</div>
 
 In het hoofdstuk over classes, in het voorbeeld van de class Point, werd er op volgende manier een nieuw object van de class Point gemaakt:
 
@@ -17,8 +21,6 @@ Wat is het dan wel?
 
 De functie `Point()` is de __default constructor__ van de class Point. Je leest hieronder wat een __default constructor__ en een (non-default) __constructor__ is.
 
-
-## Wat is een constructor?
 Een constructor is een speciale functie die enkel uitgevoerd wordt __op het moment dat je een object van je class maakt__. Deze functie heeft __de naam van de class__ en heeft __geen resultaat__ (dus geen returntype, zelfs geen void). Bovendien moet de constructor __public__ zijn.
 
 We kunnen twee soorten constructors onderscheiden:
@@ -38,7 +40,7 @@ public Point() {}
 
 Je kan dus een class maken zonder een constructor te voorzien. Toch kan een constructor handig zijn. We kunnen deze functie immers gebruiken om een object bij het maken al te initialiseren. Om dit te doen schrijf je een (non-default) constructor. Vanaf nu gebruiken we voor deze non-default constructor gewoon de naam constructor en laten we de non-default weg.
 
-### Een constructor
+### De (niet-default, maar zelf-geschreven) constructor
 Indien we bij het maken van een nieuw object van de class Point de properties X en Y reeds willen initialiseren, kunnen we hiervoor een constructor schrijven. Deze constructor plaatsen we in de class Point en ziet er als volgt uit: 
 
 ```csharp
@@ -70,7 +72,8 @@ De property punt.X krijgt hier de waarde 10 en de property punt.Y krijgt de waar
 Opmerking: het keyword `this`:
 Omdat er in het voorbeeld dezelfde namen gebruikt zijn voor de argumenten als voor de properties van de class, is het noodzakelijk om d.m.v. het keyword `this` onderscheid te maken tussen beide. Als er voor een naam `this` geplaatst wordt, gekoppeld door een punt, dan wordt er op die manier aangeduid dat dit de property van de class is. Op die manier is het voor de constructor duidelijk dat de class-variabele moet geïnitialiseerd worden op het argument (en niet omgekeerd).
 
-## Combinatie van default constructors en eigen constructor
+<div class="header2" markdown = "1">## Combinatie van default constructors en eigen constructor
+</div>
 Van zodra je een eigen constructor in de class plaatst, zal de default constructor niet meer werken.
 Toegepast op het voorbeeld van de class Point kunnen we zeggen dat, van zodra we de constructor toevoegen aan onze class, het niet meer zal lukken om op onderstaande manier een niet-geïnitialiseerd object te maken. Omdat we een constructor met 2 argumenten gemaakt hebben en de default constructor zonder argumenten hierdoor vervalt, is het dus niet meer mogelijk dit niet-geïnitialiseerde object te maken.
 
@@ -103,7 +106,8 @@ Point point1 = new Point(); // default constructor
 Point point2 = new Point(3, 30); // Eigen constructor
 ```
 
-## Andere vormen van constructors
+<div class="header2" markdown = "1">## Andere vormen van constructors
+</div>
 
 ### Een constructor met slechts 1 argument
 
@@ -187,7 +191,8 @@ public Point(int X=0, int Y=0) {
 ```
 
 
-## Properties verplicht initialiseren bij het maken van een nieuw object.
+<div class="header2" markdown = "1">## Properties verplicht initialiseren bij het maken van een nieuw object.
+</div>
 Indien we geen default constructor in een class voorzien, kunnen objecten enkel gemaakt worden door een eigen constructor met argumenten. Deze manier van werken maakt het mogelijk om te verplichten dat alle, of een aantal, properties van het object geïnitialiseerd worden bij het maken van het object.
 
 Voorbeeld:
@@ -212,3 +217,5 @@ public class Person {
 <div class="note oefening">
     <p>Open het project <a href="https://github.com/sma-it/oefening-constructors-1" target="_blank">oefening-constructors-1</a> en maak de oefeningenreeks</p>
 </div>
+
+<div class="toTop"><a href="#top">Omhoog</a></div>

@@ -1,8 +1,12 @@
 ---
 title: Enumeraties
 ---
-# Enumeraties
-## Hoe het niet moet
+<div class="header1" id="top" markdown = "1"># Enumeraties
+</div>
+
+
+<div class="header2" markdown = "1">## Hoe het niet moet
+</div>
 
 Om je uit te leggen wat enumeraties zijn, en welke voordelen ze bieden, beginnen we met een voorbeeld dat geen enumeraties gebruikt.
 
@@ -48,7 +52,8 @@ public void Main() {
  Je gaat er bij deze werkwijze van uit dat iedereen zich aan de afspraak houdt en als eerste dag maandag zal kiezen en dan een 0 ingeeft voor DayInWeek. Je kan je daar makkelijk in vergissen, en bijvoorbeeld 1 ingeven voor maandag omdat je even vergeet dat programmeurs vanaf 0 beginnen tellen. Of je kan de week misschien op zondag laten beginnen i.p.v. op maandag en dan zal je 0 ingeven voor zondag. Of misschien is er iemand niet op de hoogte van de afspraak en is het bijgevolg niet gekend dat maandag de waarde 0 moet krijgen.
  Het is dus duidelijk dat deze werkwijze snel tot foutieve ingave kan leiden en dat dit dus geen goede oplossing is.
 
-## Zo moet het ook niet
+<div class="header2" markdown = "1">## Zo moet het ook niet
+</div>
 
 De reden voor deze mogelijke fouten ligt in het probleem dat mensen niet zo goed zijn met cijfers en dus vroeg of laat een fout maken. Met woorden zien we veel duidelijker wat de bedoeling is. Een mogelijke oplossing voor dit probleem ligt dus voor de hand: gebruik een string in plaats van een nummer voor de property DayInWeek:
 
@@ -74,7 +79,8 @@ public class Day {
 
 De functie `WeekdayToString` wordt zo zelfs overbodig, want de naam van de dag is nu beschikbaar via de string DayInWeek. En om te bepalen of een dag in het weekend valt vergelijken we de string met de namen van de dagen in het weekend. Maar daar zit een nieuw probleem. Niet alleen kan een computer veel sneller met nummers werken en zal hij dus sneller kunnen controleren of een getal kleiner is dan 5 t.o.v. namen met elkaar te vergelijken. Er is ook een kans dat we typfouten maken bij de invoer van de namen van de dagen. Of we schrijven bijvoorbeeld `saturday`, zonder hoofdletter. Aangezien de functie Equals in het voorbeeld hoofdlettergevoelig werkt, zal `saturday` dus niet aanzien worden als een dag in het weekend. Fout, dus!
 
-## Lang Leve de Enum
+<div class="header2" markdown = "1">## Lang Leve de Enum
+</div>
 
 Ook deze oplossing is dus niet ideaal. En daarom gebruiken we __enumeraties__.
 
@@ -148,7 +154,8 @@ public void Main() {
 }
 ```
 
-## In the Loop
+<div class="header2" markdown = "1">## Enums doorlopen d.m.v. een for-lus
+</div>
 
 Je kan enums ook eenvoudig in een loop gebruiken. Uiteindelijk is een enum niet meer dan een reeks getallen met een naam. De loop variabele kan dus ook een enum zijn. 
 Wat niet zo eenvoudig is, is het bepalen van de grootste waarde. Dat kan je oplossen door die expliciet in je enum te declareren.
@@ -165,7 +172,8 @@ for (Values i = 0; i < Values.End; i++) {
 }
 ```
 
-## Een random Enum waarde
+<div class="header2" markdown = "1">## Een random Enum waarde
+</div>
 
 Soms wil je een willekeurige enum waarde toekennen aan een variabele. Hiervoor kan je gebruik maken van de random number generator. Je gebruikt deze als volgt:
 - Je start de generator ergens in je code met de instructie `var generator = new Random();`
@@ -286,52 +294,14 @@ class Program
     }
 ```
 
-## Oefeningen
+<div class="header2" markdown = "1">## Opmerking i.v.m. de oefeningen
+</div>
 
-In deze oefenreeks gebruiken we nog iets nieuws: Overrides.
+In deze oefenreeks gebruiken we nog iets nieuws: Overrides. Je vindt de uitleg hierover in het hoofdstuk Details onder het puntje Override. Lees eerst dit onderdeel van het hoofdstuk Details voordat je de oefeningen maakt.
 
-Elke class die je maakt is afgeleid van een andere class: `Object`. Deze class heeft onder meer de functie `ToString()`. Daardoor kan je
-elke class die je maakt rechtstreeks gebruiken met `Console.WriteLine()`. Het resultaat van `Console.WriteLine()` is de __naam van de class__. Bijvoorbeeld zo:
-
-```csharp
-class BankAccount {
-    public string Name { get; set; }
-    public int Balance { get; set; }
-}
-
-var account = new BankAccount();
-Console.WriteLine("Dit is een " + account);
-```
-Het resultaat van Console.WriteLine is in dit geval:
-
-```csharp
-Dit is een BankAccount.
-```
-
-Je kan die functie ook _overschrijven_. Je zegt dan aan de compiler __"Wanneer iemand om de functie `ToString()` vraagt, gebruik dan deze versie in plaats van de standaard versie"__. Je doet dat door de functie te voorzien van het keyword `override`. De functienaam, argumenten en resultaat moeten wel gelijk zijn aan de oorspronkelijke functie. Maar de compiler helpt je daarbij. Wanneer je override typt in een class, dan zal de compiler je de functies tonen die je kan overschrijven. Je selecteert dan de functie die je wil overschrijven.
-In het voorbeeld hieronder maken we een `override` voor de functie `ToString()` __zodat niet de naam van de class gegeven wordt, maar de properties getoond worden.__
-
-```csharp
-class BankAccount {
-    public string Name { get; set; }
-    public int Balance { get; set; }
-
-    // Override voor de ToSTring() functie
-    public override string ToString() {
-        return "Account " + Name + " has a balance of " + Balance + "Euro";
-    }
-}
-
-var account = new BankAccount();
-account.Name = "one";
-account.Balance = 1000;
-Console.WriteLine(account);
-```
-Het resultaat is nu:
-```csharp
-Account one has a balance of 1000 Euro
-```
 
 <div class="note oefening">
     <p>Open het project <a href="https://github.com/sma-it/oefening-enum-1" target="_blank">oefening-enum-1</a> en maak de oefeningenreeks</p>
 </div>
+
+<div class="toTop"><a href="#top">Omhoog</a></div>

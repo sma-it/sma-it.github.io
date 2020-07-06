@@ -2,7 +2,8 @@
 title: Properties
 ---
 
-# Properties
+<div class="header1" id="top" markdown = "1"># Properties
+</div>
 
 In het vorige hoofdstuk leerde je al dat *Properties* een belangrijk onderdeel van classes vormen. Kijk nog even naar deze class:
 
@@ -44,7 +45,8 @@ Deze manier van werken leidt vaak tot fouten. Daarom is het beter direct aan te 
 
 De gewenste functionaliteit kunnen we aangeven met een combinatie van `set` en `get`. En op dat moment worden het _properties_.
 
-## De Mogelijkheden
+<div class="header2" markdown = "1">## De Mogelijkheden
+</div>
 ### ReadWrite Properties
 Meestal zal je de waarde van een property willen lezen en kunnen aanpassen. Leestoegang geef je met `get`, schrijftoegang geef je met `set`. Er bestaat dan ook een shortcut voor dit soort properties, zoals uitgelegd in het vorige hoofdstuk. Het voorbeeld bovenaan dit hoofdstuk is een voorbeeld met _ReadWrite_ properties.
 
@@ -147,7 +149,8 @@ Op deze manier werkt de code zoals het hoort. Let zeker hier op:
 
 
 
-## Wanneer gebruik je _ReadOnly_?
+<div class="header2" markdown = "1">## Wanneer gebruik je _ReadOnly_?
+</div>
 Er zijn verschillende scenario's denkbaar.
 
 ### Preventie
@@ -193,7 +196,8 @@ Wat als je hier een `set` property zou toevoegen? Afgezien van het feit dat je h
 
 **Berekening** betekent dat je een get property gebruikt voor een eenvoudige berekening. Ook hier zou een `set` property aan toevoegen compleet onzinnig zijn, want er is geen variabele verbonden met deze property.
 
-## Wanneer gebruik je _geen_ property?
+<div class="header2" markdown = "1">## Wanneer gebruik je _geen_ property?
+</div>
 Met de bovenstaande informatie zou je heel wat functies kunnen omzetten naar properties. Elke niet-void functie zonder argumenten zou een `get` property kunnen worden. En elke void functie met 1 argument zou een `set` functie kunnen zijn. Toch is dat niet de bedoeling. 
 
 ### Acties
@@ -208,7 +212,8 @@ Als je een berekening gebruikt in een property, dan hoort dat een eenvoudige ber
 
 Het meest pragmatische argument op dit vlak is misschien wel de debugger. Wanneer je tijdens het debuggen over een property hovert met je muis, dan krijg je zijn waarde te zien. Maar dat gaat mis wanneer de berekening achter een property te complex is. Dan kan Visual Studio heel traag worden, of kan zelfs je debug sessie in sommige gevallen crashen. Niet doen dus.
 
-## Schrijfwijzen
+<div class="header2" markdown = "1">## Schrijfwijzen
+</div>
 Je hebt ondertussen wel gemerkt dat je properties op verschillende manieren kan noteren. Een enkele correcte manier bestaat dikwijls niet, als is de meeste eenvoudige notatie wel afhankelijk van de situatie.
 
 ### Meest Eenvoudig
@@ -276,3 +281,5 @@ Je kan ook combinaties maken. `Set` en `Get` moeten niet dezelfde schrijfwijze v
 <div class="note oefening">
 <p>Open het project <a href="https://github.com/sma-it/oefening-properties-1" target="_blank">oefening-properties-1</a> en maak de oefeningen.</p>
 </div>
+
+<div class="toTop"><a href="#top">Omhoog</a></div>

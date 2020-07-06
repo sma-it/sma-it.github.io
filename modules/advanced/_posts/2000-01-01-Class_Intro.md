@@ -1,14 +1,15 @@
 ---
 title: Classes
 ---
-
-# Classes
+<div class="header1" id="top" markdown = "1"># Classes
+</div>
 
 Een `class` is een verzameling van data en functies die conceptueel bij mekaar horen. In de vorige hoofdstukken maakte je al kennis met classes in C#. `Console` is bijvoorbeeld een class, maar ook `String` en `DateTime` zijn classes. En zelfs de `Main` functie in een programma maakt deel uit van een class.
 
 Neem bijvoorbeeld de class `DateTime`. Deze class heeft properties, zoals `Day`, `Minute`, `Year`, `DayOfWeek`, enzovoort. En daarnaast voorziet de class functies, zoals `AddDays()`, `CompareTo()` en `ToLocalTime()`. Als we zeggen dat deze functies en properties conceptueel bij mekaar horen, dan bedoelen we dat ze allemaal met het concept *tijd* te maken hebben. Die samenhang is heel belangrijk om een programma of een software library overzichtelijk te houden: als iets niet duidelijk verwant is, dan plaatsen we het niet in dezelfde class.
 
-## Een class maken
+<div class="header2" markdown = "1">## Een class maken
+</div>
 
 Bij het maken van een class zal je twee zaken aan de class toevoegen: properties en functies.
 
@@ -76,7 +77,8 @@ public class Person
 </div>
 
 
-## Een class gebruiken
+<div class="header2" markdown = "1">## Een class gebruiken
+</div>
 
 Eens je de code voor de class geschreven hebt, kan je deze gebruiken. Je kan objecten van de class maken en hierop de functies van de class toepassen.
 
@@ -140,7 +142,8 @@ public class Program
 </div>
 
 
-## Een tweede voorbeeld: class Point
+<div class="header2" markdown = "1">## Een tweede voorbeeld: class Point
+</div>
 
 Je leert natuurlijk pas goed met classes werken wanneer je er vaak mee in aanraking komt. Het vorige voorbeeld was zeer concreet: je weet wat een persoon is en je kan er je wel wat eigenschappen bij voorstellen. Maar zo eenvoudig is het niet altijd. Dikwijls representeert een class iets wat meer abstract is. Zo bevat C# classes die een internetverbinding voorstellen, een databaseverbinding, enzovoort.
 
@@ -292,3 +295,5 @@ public class Program
 <div class="note oefening">
 <p>Open het project <a href="https://github.com/sma-it/oefening-classes-1" target="_blank">oefening-classes-1</a> en maak de overige oefeningen.</p>
 </div>
+
+<div class="toTop"><a href="#top">Omhoog</a></div>

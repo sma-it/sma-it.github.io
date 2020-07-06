@@ -2,7 +2,11 @@
 title: Interfaces
 ---
 
-# Interfaces
+<div class="header1" id="top" markdown = "1"># Interfaces
+</div>
+
+<div class="header2" markdown = "1">## Waarom een interface?
+</div>
 
 Dikwijls wil je elementen in een verzameling plaatsen, zoals een `List`. Dat maakt het bijvoorbeeld veel eenvoudiger om een bepaalde functie uit te voeren voor alle elementen in die verzameling. Maar een `List` kan geen objecten van verschillende classen bevatten. Als je bijvoorbeeld cirkels en rechthoeken wil gebruiken, dan zal je daar 2 verschillende verzamelingen voor moeten maken.
 
@@ -14,7 +18,8 @@ Enkele zaken om te onthouden:
 - Interfaces kunnen functies en properties bevatten. Ze zijn automatisch `public`, dus dat moet je niet toevoegen.
 - Interfaces bevatten enkel declaraties. Je werkt de functies van de interface dus nooit uit, dit doe je in de classes die je via de interface wil aanspreken.
 
-# Het principe van werken met een interface
+<div class="header2" markdown = "1">## Het principe van werken met een interface
+</div>
 
 Voorbeeld: We maken volgende interface voor een vlak. Van het vlak voorzien we in de interface de omtrek (Perimeter) en de oppervlakte (Area).
 
@@ -39,7 +44,8 @@ We maken dan een List van het type ISurface (de naam van de interface) en vullen
 
 __Besluit: Door zowel in de interface, als in de classes waaraan de interface toegevoegd werd, functionaliteiten (properties, functies) met dezelfde naam toe te voegen, kunnen we via deze interface objecten van deze verschillende classes via een List als één geheel aanspreken. Dit is het voordeel van werken met interfaces.__
 
-## Een Interface aan een Class toevoegen
+<div class="header2" markdown = "1">## Een Interface aan een Class toevoegen
+</div>
 
 Eens je een interface hebt, kan je een class declareren die de interface implementeert. Dat doe je door ze toe te voegen aan een class definitie:
 
@@ -133,7 +139,8 @@ Ook `Circle` heeft nu een functie `Area()` en een property `Perimeter`.
 
 Opmerking: Buiten de zaken die in de interface zitten heeft Circle ook een eigen constructor en een property `Radius`. De class Rectangle heeft nog de extra properties width en height en ook een eigen constructor. Een interface is tevreden wanneer je de gevraagde functies uit de interface implementeert. Wat er verder nog in de class staat, dat maakt voor de interface niet uit. Extra properties, een constructor, extra functies, ... zijn dus mogelijk naast de items die deel uitmaken van de interface.
 
-## Objecten maken die interface elementen bevatten
+<div class="header2" markdown = "1">## Objecten maken die interface elementen bevatten
+</div>
 
 We kunnen deze classes nu gebruiken door er objecten van te maken. Dat gaat hetzelfde dan bij een gewone class die geen interface elementen bevat.
 
@@ -143,7 +150,8 @@ Circle c = new Circle(3);
 Rectangle r = new Rectangle(4, 5);
 ```
 
-## Objecten via de interface aan een List toevoegen
+<div class="header2" markdown = "1">## Objecten via de interface aan een List toevoegen
+</div>
 
 Maar hoe steek je ze nu in een list? Een list met cirkels kan immers geen rechthoeken bevatten en omgekeerd. Wel, we kunnen nu een list maken met objecten die de interface `ISurface` implementeren. Aangezien zowel `Circle` als `Rectangle` de interface `ISurface` implementeren kan je ze zonder problemen toevoegen aan de `List<ISurface>`. 
 
@@ -264,9 +272,10 @@ class Program
 }
 ```
 
-# Gebruik 'Interface as Class'
+<div class="header2" markdown = "1">## Gebruik 'Interface as Class'
+</div>
 
-## Wat kan er niet?
+### Wat kan er niet?
 
 Wat niet kan, is properties of functies van de class gebruiken die niet tot de interface behoren. Zo heeft de class `Circle` ook een property `Radius`. Toch kan je die niet gebruiken, want die behoort niet tot de interface.
 
@@ -285,7 +294,7 @@ public float TotalRadius() {
 }
 ```
 
-## Hoe los je dit op?
+### Hoe los je dit op?
 
 Toch is het soms handig als je ook de andere functies van een object kan gebruiken (die niet in de interface zitten), zelfs al _zie_ je enkel de interface. Hier ga je best niet mee overdrijven, maar als het aantal classes dat in je list zit, beperkt is, dan zou je bijvoorbeeld de volgende functie kunnen toevoegen aan de `Surfaces` management class hierboven.
 De functie TotalRadius() berekent de som van de stralen (Radius) van alle circle-elementen uit de List. Het ligt voor de hand dat we een voorziening moeten inbouwen die de rectangles eruit filtert. Rectangles elementen hebben immers geen Radius property.
@@ -335,7 +344,8 @@ The total area is: 48,27433
 The total of radiuses of the circle objects is: 3
 ```
 
-# Interfaces Combineren
+<div class="header2" markdown = "1">## Interfaces Combineren
+</div>
 
 Je hoeft je ook niet te beperken tot een enkele interface. Hieronder voegen we een extra interface toe, die toelaat informatie over het object op het scherm te tonen.
 
@@ -416,3 +426,5 @@ Beide opties doen hetzelfde. Welke je gebruikt hangt enkel af van je persoonlijk
 <div class="note oefening">
 <p>Open het project <a href="https://github.com/sma-it/oefening-interface-1">oefening-interface-1</a> en maak de oefeningen.</p>
 </div>
+
+<div class="toTop"><a href="#top">Omhoog</a></div>
