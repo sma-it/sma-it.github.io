@@ -142,7 +142,7 @@ Voorbeeld:
 ```csharp
 int x; 
 
-if (1 <= x && x <= 100) // De vergelijking test of x tussen 1 en 100 ligt, grenzen inbegrepen.
+if (x >= 1 && x <= 100) // De vergelijking test of x tussen 1 en 100 ligt, grenzen inbegrepen.
 {
 
 }
@@ -150,7 +150,7 @@ if (1 <= x && x <= 100) // De vergelijking test of x tussen 1 en 100 ligt, grenz
 
 De operator levert volgende waarheidstabellen op voor verschillende waarden van x:
 
-| Waarde x  | 1 <= x  | x <= 100| (1 <= x && x <= 100) |
+| Waarde x  | x >= 1  | x <= 100| (x >= 1 && x <= 100) |
 | --------- |---------|-----|------------------|
 | -3        | false | true  | false            |
 | 49        | true  | true  | true             |
@@ -174,7 +174,7 @@ Voorbeeld:
 ```csharp
 int x; 
 
-if (x < 1 || 100 < x) // De vergelijking test of x niet tussen 1 en 100 ligt, grenzen 
+if (x < 1 || x > 100) // De vergelijking test of x niet tussen 1 en 100 ligt, grenzen 
                       //inbegrepen.
 {
 
@@ -183,7 +183,7 @@ if (x < 1 || 100 < x) // De vergelijking test of x niet tussen 1 en 100 ligt, gr
 
 De operator levert volgende waarheidstabellen op voor verschillende waarden van x:
 
-| Waarde x  | x < 1   | 100 < x | (x < 1 \|\| 100 < x) |
+| Waarde x  | x < 1   | x > 100 | (x < 1 \|\| x > 100) |
 | --------- |---------------|------------------|
 | -3        | true  | false | true             |
 | 49        | false | false | false            |

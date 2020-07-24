@@ -10,7 +10,7 @@ title: Je Eerste Programma
 
 Wanneer je een tekst wil schrijven, dan kan je dat doen met eender welk programma waar je in kan typen. Notepad is al voldoende. Toch zal je werk wellicht vlotter gaan als je een programma gebruikt dat specifiek bedoeld is voor het schrijven van teksten, zoals OpenOffice Writer of Microsoft Word.
 
-Ook programmeren kan simpelweg in Notepad, maar ook hier geldt dat je het jezelf een stuk makkelijker maakt met een programma dat speciaal gemaakt is voor programmeurs en voor de programmeertaal die je gebruikt. In deze cursus gebruiken we C# om te leren programmeren. Daarom gebruiken we ook een editor die zeer geschikt is voor C#: Microsoft Visual Studio. _Omdat we software ontwikkelen, noemen we dit ook wel een 'ontwikkelomgeving'._
+Ook programmeren kan simpelweg in Notepad, maar ook hier geldt dat je het jezelf een stuk makkelijker maakt met een programma dat speciaal gemaakt is voor programmeurs en voor de programmeertaal die je gebruikt. In deze cursus gebruiken we C# om te leren programmeren. Daarom gebruiken we ook een editor die zeer geschikt is voor C#: **Microsoft Visual Studio**. Omdat we software ontwikkelen, noemen we dit ook wel een **ontwikkelomgeving**.
 
 <div class="header2" markdown = "1">## Download & Installatie 
 </div>
