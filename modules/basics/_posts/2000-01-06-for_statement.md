@@ -82,7 +82,7 @@ First instruction after the for loop
 Bespreking:
 * De teller van een for-lus moet niet noodzakelijk van het type int zijn (al zal dit vaak wel het geval zijn). In het voorbeeld wordt een char-teller gebruikt om het alfabet op het scherm te tonen.
 * Als teller van een for-lus wordt vaak een variabele met de naam i gebruikt. Zoals je in het voorbeeld kan zien, is de naam van de teller vrij te kiezen.
-* Zoals je in het voorbeeld ziet, kan er in C# met char-variabelen geteld worden. Telkens de char-variabele met 1 verhoogt schuift hij een waarde op in de ASCII-tabel. Aangezien het alfabet in opeenvolgende posities in de ASCII-tabel zit, wordt op deze manier het volledige alfabet doorlopen.
+* Zoals je in het voorbeeld ziet, kan er in C# met char-variabelen geteld worden. Telkens de char-variabele met 1 verhoogt schuift hij een waarde op in de ASCII-tabel. Aangezien het alfabet in opeenvolgende posities in de ASCII-tabel zit, wordt op deze manier het volledige alfabet doorlopen. Er is een opeenvolgende range voor hoofdletters en een opeenvolgende range voor kleine letters.
 * Ook tellers van het type float en double zijn mogelijk.
 
 ### Voorbeeld 3: Beginwaarde teller verschillend van 0 en stapgrootte verschillend van 1
@@ -121,7 +121,24 @@ First instruction after the for loop
 ```
 
 Bespreking:
-In de voorwaarde wordt er gebruik gemaakt van de variabele max. Vanzelfsprekend kan ook bij de initialisatie een variabele gebruikt worden.
+In de voorwaarde wordt er gebruik gemaakt van de variabele max. 
+
+Vanzelfsprekend kan ook bij de initialisatie van de teller i een variabele gebruikt worden, zoals onderstaand voorbeeld aantoont.
+
+```csharp
+int min = 30
+int max = 40;
+for (int i = min; i < max; i += 2)
+{
+    Console.Write("{0} ", i);
+}
+Console.WriteLine("\nFirst instruction after the for loop");
+
+/* Output
+30 32 34 36 38
+First instruction after the for loop
+*/
+```
 
 ### Voorbeeld 5: Break statement
 
@@ -147,7 +164,7 @@ Bespreking:
 * In de for-lus zit een selectie. Bij elke lus wordt er getest of de teller de waarde 5 heeft. Indien dit niet het geval is, wordt het bijbehorende instructieblok niet uitgevoerd en loopt de lus door. Indien de teller i echter 5 is wordt het instructieblok van de selectie uitgevoerd.
 * In het instructieblok van de selectie doet het volgende:
     * Er wordt een boodschap getoond: "We make de loop end at number 5!"
-    * Er wordt een `break` gegeven. Het `break` statement zal de lus volledig stoppen en zorgt ervoor dat het programma naar de eerste instructie na de for-lus springt. Dus ook al heeft de teller de bovengrens nog niet bereikt, de for-lus eindigt toch.
+    * Er wordt een `break` gegeven. Het `break` statement zal de lus **volledig stoppen** en zorgt ervoor dat het programma naar de eerste instructie na de for-lus springt. Dus ook al heeft de teller de bovengrens nog niet bereikt, de for-lus eindigt toch.
 
 ### Voorbeeld 6: Continue statement
 
@@ -173,7 +190,7 @@ First instruction after the for loop
 
 Bespreking:
 * In de for-lus zit een selectie. Indien de teller kleiner is dan 8 wordt het `continue` statement uitgevoerd. Van zodra de teller i een waarde 9 of hoger krijgt, wordt het `continue` statement niet meer uitgevoerd.
-* Het `continue` statement stopt de huidige iteratie van de lus. Dit betekent dat alle instructies binnen de lus die volgen op `continue` niet meer uitgevoerd worden. De lus stopt echter niet volledig, de teller wordt met de stapgrootte verhoogd en de volgende iteratie van de lus start.
+* Het `continue` statement stopt de huidige iteratie van de lus. Dit betekent dat alle instructies binnen de lus die volgen op `continue` **niet meer uitgevoerd worden**. De lus **stopt echter niet volledig**, de teller wordt met de stapgrootte verhoogd en de volgende iteratie van de lus start.
 
 <div class="note oefening">
     <p>Open het project <a href="https://github.com/sma-it/oefening-for-1" target="_blank">oefening-for-1</a> en maak de oefeningenreeks</p>
