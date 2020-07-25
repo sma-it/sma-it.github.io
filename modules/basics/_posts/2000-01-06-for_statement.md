@@ -22,12 +22,17 @@ for (initialisatie; voorwaarde; stap)
 }
 ```
 
+Grafisch kunnen we dit met onderstaande flowchart voorstellen:
+
+![image](/img/basics/for_statement/for_flowchart_algemeen.PNG)
+
 Bespreking:
 
 * De betekenis van de parameters tussen de ronde haakjes bij for:
   - Initialisatie: de teller wordt op een beginwaarde geïnitialiseerd.
   - Voorwaarde: zolang aan deze voorwaarde voldaan is, wordt de for-lus uitgevoerd.
   - Stap: de teller wordt met deze stap gewijzigd.
+  De werking hiervan wordt verduidelijkt a.h.v. de voorbeelden hieronder.
 * Net zoals bij het `if-else` statement plaatsen we ook bij het `for` statement accolades rond het bijbehorende instructieblok. Indien dit instructieblok slechts uit één instructie bestaat, zijn de accolades optioneel. We maken echter de afspraak ze altijd te plaatsen.
 
 <div class="header2" markdown = "1">## Voorbeelden
@@ -47,6 +52,11 @@ Console.WriteLine("\nFirst instruction after the for loop");
 First instruction after the for loop
 */
 ```
+
+Grafisch kunnen we dit met onderstaande flowchart voorstellen:
+
+![image](/img/basics/for_statement/for_flowchart_voorbeeld.PNG)
+
 Bespreking:
 De parameters tussen haakjes zijn:
 * Initialisatie: int i = 0
