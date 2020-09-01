@@ -24,7 +24,7 @@ Wanneer de installatie gestart is, kan je _Workloads_ kiezen. Voorlopig heb je e
 
 ### Launch
 
-Na het installeren kan je visual studio starten. De eerste keer zal je moeten inloggen. _(Je kan dat de eerste maand overslaan, maar daarna niet meer. Dus maak je beter dadelijk een account.)_  Inloggen moet gebeuren met een Microsoft Account. Als je al een Microsoft account hebt, dan kan je daar mee inloggen. Heb je er geen en wil je geen persoonlijk account, dan kan je je school account gebruiken: `loginnaam@smaschool.be`.
+Na het installeren kan je visual studio starten. De eerste keer zal je moeten inloggen. _(Je kan dat de eerste maand overslaan, maar daarna niet meer. Dus maak je beter dadelijk een account.)_  Inloggen moet gebeuren met een Microsoft Account. Als je al een Microsoft account hebt, dan kan je daar mee inloggen. Heb je er geen en wil je geen persoonlijk account, dan kan je je school account gebruiken: `voornaam.naam@arcadiascholen.be`.
 
 ### Problemen?
 
