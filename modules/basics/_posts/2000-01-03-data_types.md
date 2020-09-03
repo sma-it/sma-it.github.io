@@ -36,7 +36,7 @@ Een grafisch principe van de werking van een variabele vind je in onderstaande f
 
 In deze figuur wordt het geheugen voorgesteld als een opeenvolging van bytes. Elke byte heeft een adres.
 
-![image](/img/basics/data_types/voorstellingComputergeheugen.jpg)
+![image](/img/basics/data_types/voorstellingComputergeheugen.JPG)
 
 Zonder variabele zouden we de geheugenplaats met bijvoorbeeld het hexadecimale adres moeten aanspreken (FFFFFFFB), met een variabele kunnen we diezelfde geheugenplaats aanspreken met de naam getal1. Onnodig te zeggen dat het makkelijker te werken is met de naam dan met het hexadecimale adres.
 
@@ -184,7 +184,7 @@ De string literal wordt tussen dubbele aanhalingstekens geplaatst. Dit duidt ero
 In onderstaand voorbeeld worden twee string literals en een variabele met de operator + tot 1 geheel samengevoegd. Dit geheel wordt via `Console.WriteLine()` op het scherm getoond.
 
 ```csharp
-Console.WriteLine("De prijs is: " + price + " euro.");  
+Console.WriteLine("De prijs is " + price + " euro.");  
 ```
 
 Indien we veronderstellen dat de variabele price de waarde 7.99 heeft, is de uitvoer van deze lijn code:
