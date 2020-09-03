@@ -207,10 +207,6 @@ This animal has 2 legs and can fly.
 Tsjilp! Tsjilp!
 ```
 
-<div class="note protip">
-<p>Indien je een project uitwerkt, is het bepalen van de classes die je nodig hebt, een belangrijke eerste stap. Gebruik hierbij overerving waar mogelijk.</p>
-</div>
-
 <div class="header2" markdown = "1">## Gebruik van constructors bij overerving
 </div>
 
