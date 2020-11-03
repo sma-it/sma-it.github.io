@@ -178,7 +178,7 @@ Indien we veronderstellen dat de variabele y de waarde 100 heeft, is de uitvoer 
 
 Er zijn twee manieren om string literals en variabelen gecombineerd op het scherm te tonen d.m.v. de functie `Console.WriteLine()`. Je bent vrij om te kiezen welke je methode je gebruikt, maar zorg dat je beide werkwijzen begrijpt.
 
-#### Methode 1: Gebruik van de operator +
+#### Methode 1: String concatenation (Gebruik van de operator +)
 
 De string literal wordt tussen dubbele aanhalingstekens geplaatst. Dit duidt erop dat deze tekst letterlijk moet weergegeven worden. De variabele staat niet tussen de dubbele aanhalingstekens, wat ervoor zorgt dat de inhoud van deze variabele op het scherm getoond wordt. Beide onderdelen worden met de operator + aan elkaar gekoppeld.
 In onderstaand voorbeeld worden twee string literals en een variabele met de operator + tot 1 geheel samengevoegd. Dit geheel wordt via `Console.WriteLine()` op het scherm getoond.
@@ -195,9 +195,10 @@ De prijs is 7.99 euro.
 
 Merk op dat er binnen de dubbele aanhalingstekens de nodige spaties voorzien zijn zodat er een spatie staat tussen de prijs en de woorden "is" en "euro". De spaties tussen de dubbele aanhalingstekens worden immers letterlijk overgenomen en op het scherm getoond.
 
-#### Methode 2: Gebruik van parameters
+#### Methode 2: String interpolation (Gebruik van placeholders)
 
-Net zoals bij methode 1 geldt hier nog steeds dat de string literal tussen dubbele aanhalingstekens geplaatst wordt en de variabele niet. Bij de opbouw van de uitvoer, wordt er hier echter gebruik gemaakt van parameters. Onderstaand voorbeeld toont de werking van deze parameters aan:
+##### Variant 1:
+Net zoals bij concatenatie geldt hier nog steeds dat de string literal tussen dubbele aanhalingstekens geplaatst wordt en de variabele niet. Bij de opbouw van de uitvoer, wordt er hier echter gebruik gemaakt van placeholders onder de vorm van nummers. Onderstaand voorbeeld toont de werking van deze placehoders aan:
 
 ```csharp
 Console.WriteLine("Er zijn {0} honden en {1} katten.", dogCount, catCount);  
@@ -209,7 +210,20 @@ Indien we veronderstellen dat de variabele dogCount de waarde 3 heeft en catCoun
 Er zijn 3 honden en 5 katten.
 ```
 
-Zoals je ziet wordt de inhoud van de variabelen, die achteraan staan, in volgorde op de plaats van de parameters (de getallen tussen accolades) ingevuld.
+Zoals je ziet wordt de inhoud van de variabelen, die achteraan staan, in volgorde op de plaats van de placeholders (de getallen tussen accolades) ingevuld.
+
+##### Variant 2:
+De namen van de variabelen kunnen eveneens als placeholder gebruikt worden indien er voor de string een $-teken geplaatst wordt. Bij deze variant moeten de variabelen niet meer op het einde opgesomd worden, zoals bij variant 1 het geval was.
+
+```csharp
+Console.WriteLine($"Er zijn {dogCount} honden en {catCount} katten.");  
+```
+
+Indien we veronderstellen dat de variabele dogCount de waarde 3 heeft en catCount de waarde 5, is de uitvoer van deze lijn code:
+
+```csharp
+Er zijn 3 honden en 5 katten.
+```
 
 <div class="header2" markdown = "1">## Automatische conversie tussen data types
 </div>
