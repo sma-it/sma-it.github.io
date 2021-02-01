@@ -43,7 +43,7 @@ public class Person
 ```
 
 Een property bestaat dus uit de volgende onderdelen:
-* **public:** Hiermee geef je aan dat de property publiek is. Zonder _public_ zal je de waarde van een property niet kunnen raadplegen. 
+* **public:** Hiermee geef je aan dat de property publiek is. Deze instelling heeft te maken met hoe een property een waarde kan krijgen en geraadpleegd kan worden. Je leert hierover meer in het volgende hoofdstuk. 
 * **type:** Het type van de property, zoals int, float of string. Maar je zal later zien dat dit ook een andere class kan zijn.
 * **naam:** De naam van de property zal je later gebruiken om de waarde op te vragen, net zoals je dat bij een gewone variabele doet.
 * **{ get; set; }** Hier komen we in het volgende hoofdstuk over properties op terug. De vermelding van `get` EN `set` zorgt er voor dat je de waarde van de property kan opvragen EN wijzigen.
