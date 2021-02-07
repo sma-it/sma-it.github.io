@@ -11,167 +11,159 @@ In het vorige hoofdstuk leerde je al dat *Properties* een belangrijk onderdeel v
 public class Person {
     public string FirstName { get; set; }
     public string LastName { get; set; }
-}
-
-void Func() {
-    var person = new Person();
-    person.FirstName = "Barack";
-    person.LastName = "Obama";
-    Console.WriteLine(
-        "Deze persoon heet " 
-        + person.FirstName + " " 
-        + person.LastName);
+    ...
 }
 ```
-We gebruiken properties een beetje zoals variabelen. Het zijn de publiek toegankelijke variabelen van een class. Maar een gewone variabele zou je intuïtief zo schrijven:
+Van een object van deze class kunnen we de FirstName en de LastName in stringformaat bijhouden. We gebruiken properties dus een beetje zoals variabelen. 
+Als we het voorbeeld van hierboven bekijken zien we echter een aantal verschillen met de variabelen die we tot nu toe gebruikten:
 
-```csharp
-public class Person {
-    public string FirstName;
-    public string LastName;
-}
-```
-Bovenstaand voorbeeld zal zelfs gewoon werken. In andere programmeertalen is dit soms zelfs de gangbare manier van werken. In C# niet. Alhoewel de code niet echt fout is, zal Visual Studio je voorstellen om dat aan te passen. 
+- Er staat een extra woord vooraan, namelijk `public`. Dit wordt in dit hoofdstuk besproken in het puntje Access modifiers.
+- Achteraan is er een stukje tussen accolades bijgekomen. Dit bespreken in dit hoofdstuk bij het puntje Getters en Setters.
+
+<div class="header2" markdown = "1">## Access modifiers
+</div>
+
+Een access modifier geeft aan in welke mate een property toegankelijk is. Een volledig lijst van deze access modifiers vind je onder volgende [link](https://msdn.microsoft.com/en-us/library/system.datetime(v=vs.110).aspx)
+
+We beperken ons voorlopig tot twee modifiers die veel gebruikt worden, namelijk `public` en `private`.
+
+- `public`: een property die `public` als modifier meekreeg is van overal toegankelijk. Dus de property kan rechtstreeks uitgelezen worden of rechtstreeks een waarde krijgen in de class zelf, maar ook van buitenaf (bv. in Main of vanuit een andere class).
+- `private`: een property die `private` als modifier meekreeg is enkel toegankelijk vanuit de class waartoe hij behoort. Vanuit Main of vanuit andere classes kan deze property niet rechtstreeks aangesproken worden.
+
+Door gebruik te maken van `public`en `private`kan je dus bepalen waar een property rechtstreeks aangesproken kan worden en waar niet.
+
+<div class="header2" markdown = "1">## Getters en setters
+</div>
+
+Voor properties zijn er volgende combinaties van toegankelijkheid mogelijk:
+- ReadWrite property: de waarde van de property kan gelezen en aangepast worden. Leestoegang geef je met `get`, schrijftoegang geef je met `set`. 
+- WriteOnly property: dit type property behandelen we niet omdat het enkel in specifieke situaties gebruikt wordt.
+- ReadOnly property: je kan de waarde van de property lezen. In dit geval gebruik je enkel `get`. 
+
+De keywords `get`en `set` verwijzen naar de getters en setters die voor de property gemaakt worden. Getters en setters zijn methods met een heel specifieke functie: het uitlezen van de property (getter) of de property een waarde geven (setter). In sommige programmeertalen moet je deze getters en setters zelf schrijven. In C# worden ze automatisch gecreëerd door `get`en/of `set` aan de property toe te voegen.
 
 <div class="note waarschuwing">
-<p>In de oefeningen, taken en testen die je in deze les maakt stellen we niets voor, we rekenen het gewoon als fout aan!</p>
+<p>In de voorbeelden,oefeningen, taken en testen zullen we steeds gebruik maken van de 'public' access modifier voor een property. De reden hiervoor is dat C# over een handige manier beschikt om via access modifiers bij de getters en setters de mogelijke toegang tot een property in te stellen.
+In andere programmeertalen is deze handige manier van werken vaak niet voorzien. Je zal in de toekomst dus merken dat properties heel vaak private als access modifier krijgen en dat je de toegang moet bepalen door het al of niet voorzien van een getter en ee setter voor een property.</p>
 </div>
 
-Deze manier van werken leidt vaak tot fouten. Daarom is het beter direct aan te duiden dat wat je van plan bent met de variabele. En dan zijn er drie opties:
-
-- Je kan er naar schrijven en de waarde uitlezen _(readwrite)_
-- Je kan er enkel naar schrijven _(writeonly)_
-- Je kan enkel de waarde uitlezen _(readonly)_
-
-De gewenste functionaliteit kunnen we aangeven met een combinatie van `set` en `get`. En op dat moment worden het _properties_.
-
-<div class="header2" markdown = "1">## De Mogelijkheden
+<div class="header2" markdown = "1">## Het gebruik van ReadWrite properties
 </div>
-### ReadWrite Properties
-Meestal zal je de waarde van een property willen lezen en kunnen aanpassen. Leestoegang geef je met `get`, schrijftoegang geef je met `set`. Er bestaat dan ook een shortcut voor dit soort properties, zoals uitgelegd in het vorige hoofdstuk. Het voorbeeld bovenaan dit hoofdstuk is een voorbeeld met _ReadWrite_ properties.
+### Voorbeeld 1: ReadWrite Properties - geen access modifiers bij get en set
 
-### WriteOnly properties
-_WriteOnly_ properties laten we voorlopig even met rust, want die zal je voorlopig niet veel nodig hebben.
-
-### ReadOnly Properties
-Soms is het niet de bedoeling dat je kan schrijven naar een property, maar enkel dat je de waarde kan lezen. Dan gebruik je enkel `get`. Maar dat gaat niet vanzelf. Stel je voor dat je een class hebt die een verbinding met het internet maakt. Je hebt een functie `Connect()`, maar hoe kan je nu op elk moment te weten komen of je nu wel of niet verbonden bent? Door een property te gebruiken!
-
-In het onderstaande voorbeeld zie je hoe dat zou kunnen werken:
+De class Person heeft twee ReadWrite properties en een functie Print() die deze properties op het scherm toont. Aangezien er geen access modifiers bij get en set staan worden deze verondersteld `public` te zijn en zijn de properties dus rechtstreeks toegankelijk vanuit Main.
 
 ```csharp
-public class Connection {
-    // De property Connected geeft aan of we verbonden zijn of niet 
-    // (true=verbonden; false=niet verbonden).
-    public bool Connected { get; set; }
-
-    //De property Connected wordt geïnitialiseerd d.m.v. de onderstaande 
-    //functie Connect().
-    public void Connect() {
-        if(TryToConnectToTheInternet() == true) {  //TryToConnectToTheInternet() is 
-            Connected = true;                   //een fictieve functie die nagaat 
-        } else {                                //of de connectie met het internet lukt.
-            Connected = false;                  //De functie geeft true als resultaat indien de 
-                                                //connectie lukt.
-                                                //Afhankelijk hiervan wordt de property  
-                                                //Connected geïnitialiseerd op true of false.
-        }
-    }
-}
-
-public static void Program() {
-    var conn = new Connection(); //Er wordt een instantie van de class Connection gemaakt.
-    conn.Connect();              //De functie Connect() wordt toegepast op deze instantie.
-                                 //De property Connected van het object conn wordt hierdoor 
-                                 //geïnitialiseerd.
-    if(conn.Connected) {         //Indien de property Connected van het object conn true is, zal 
-        // download my file      //de download starten.
-    }
-}
-```
-Maar wat als iemand die class verkeerd gebruikt, en het op deze manier probeert?
-```csharp
-public static void Program() {
-    var conn = new Connection();
-    conn.Connected = true; // Hoera! We zijn verbonden.
-}
-```
-De property `Connected` had de bedoeling ons te vertellen of we verbonden waren. Maar nu hebben we de waarde zelf op `true` gezet. Zo lijkt het wel of we een verbinding hebben, maar dat is natuurlijk niet zo.
-
-Deze fout kunnen we voorkomen door `set` weg te laten bij de declaratie van de property:
-
-```csharp
-public bool Connected { get; }
-```
-
-Maar dit schept een nieuw probleem. Als de waarde niet aangepast kan worden, hoe kan class zelf dat dan doen? Deze code zal niet meer werken:
-
-```csharp
-if(TryToConnectToTheInternet() == true) {
-    Connected = true; // connected is readonly!!!
-} else {
-    Connected = false; // connected is readonly!!!
-}
-```
-
-De oplossing bestaat erin een extra variabele te gebruiken. Die mag niet zichtbaar zijn wanneer je de class gebruikt, maar kan intern wel aangepast worden. De `Connected` property zal dan via zijn `get` functie de waarde van die interne variabele doorgeven.
-
-```csharp
-public class Connection {
-    private bool connected = false; // de interne variabele.
-    public bool Connected { get => connected; } //de property Connected haalt zijn waarde uit
-                                                //de interne variabele connected.
-
-    public void Connect() {
-        if(TryToConnectToTheInternet() == true) {
-            connected = true; //de interne variabele wordt geïnitialiseerd.
-        } else {
-            connected = false;
-        }
-    }
-}
-
-public static void Program() {
-    var conn = new Connection();
-    conn.Connect();
-    if(conn.Connected) {
-        // download my file
-    }
-}
-```
-
-Op deze manier werkt de code zoals het hoort. Let zeker hier op:
-- De extra variabele `connected` is _private_. Je leert hier later meer over, maar het betekent dat je geen toegang hebt tot deze variabele wanneer je een object maakt van je class.
-- We geven die interne variabele `connected` dadelijk een waarde. We starten immers zonder een verbinding.
-- De property `Connected` verwijst nu naar de interne variabele wanneer we ze opvragen. De `set` optie laten we gewoon weg.
-- We kunnen bijna dezelfde naam gebruiken. Het is de gewoonte dat je in dit geval de interne variabele met een kleine letter schrijft, en de property met een hoofdletter. Dat houdt je code overzichtelijk.
-- Binnen de class, bijvoorbeeld in de functie `Connect()` kan je de interne variabele gebruiken.
-- In het programma (dit is buiten de class) zelf is enkel de property `Connected` bruikbaar.
-
-
-
-<div class="header2" markdown = "1">## Wanneer gebruik je _ReadOnly_?
-</div>
-Er zijn verschillende scenario's denkbaar.
-
-### Preventie
-Soms is het echt niet de bedoeling om een variabele van buitenaf aan te passen. Dat zagen we al in het vorige voorbeeld: door `Connected` te wijzigen wist je niet meer of je nu wel of niet een verbinding had. Het is best mogelijk dat je programma crasht omdat je iets wil downloaden terwijl je eigenlijk geen verbinding hebt.
-
-**Preventie** betekent dat we `set` weglaten om fouten te voorkomen.
-
-### Utility
-Je kan ook _readonly_ utilities maken die het gebruik van je class vereenvoudigen. Als voorbeeld terug even de class `Person`:
-
-```csharp
-public class Person {
+public class Person 
+{
     public string FirstName { get; set; }
     public string LastName { get; set; }
-    public string Name { get => FirstName + " " + LastName; }
+
+    public void Print()
+    {
+        Console.WriteLine("Voornaam: {0}", FirstName);
+        Console.WriteLine("Achternaam: {0}", LastName);
+    }
 }
 ```
 
-Het kan handig zijn dat je de hele naam in 1 keer kan opvragen, in plaats van zelf altijd de twee namen te moeten samenvoegen tot een string. Maar wat zouden we met een `set` property die de volledige naam bevat in dit geval moeten doen? De naam opsplitsen en verdelen over `FirstName` en `LastName`, zodat we ook deze twee gegevens hebben? Dat gaat vroeg of laat fout, bijvoorbeeld als iemands voornaam uit twee delen bestaat. Het is veel veiliger om het instellen afzonderlijk te doen.
+In Main kunnen we de properties als volgt aanspreken en op het scherm tonen:
 
-**Utility** betekent dat we een get property toevoegen om iets eenvoudiger te maken. Maar omdat het eigenlijk niet om een afzonderlijke variabele gaat, is een bijhorende `set` niet van toepassing.
+```csharp
+public  static void Main()
+{
+    var person = new Person();      // Er wordt een nieuw object van de class person gemaakt.
+    person.FirstName = "Steve";     // De ReadWrite property FirstName wordt d.m.v. de setter 
+                                    // geïnitialiseerd.
+    person.LastName = "Jobs";       // De ReadWrite property LastName wordt d.m.v. de setter 
+                                    // geïnitialiseerd.
+
+    person.Print();                 // De Print-functie toont de properties op het scherm.
+
+    Console.ReadKey();
+}
+
+```
+
+### Voorbeeld 2: ReadWrite Properties - een 'private' access modifier bij set
+
+We willen vermijden dat de property LastName gewijzigd kan worden buiten de class. We kunnen niet zomaar het keyword `set` weg laten want dan wordt deze property ReadOnly en kan hij ook binnen de class Person zelf geen waarde meer krijgen. En natuurlijk moet het nog altijd mogelijk zijn om binnen de class zelf een property een waarde te geven, bijvoorbeeld d.m.v. een functie met een gepast argument.
+De manier om een property nog wel binnen zijn class zelf Writable te houden en daarbuiten ReadOnly te maken is het keyword `private` voor `set`toe te voegen.
+
+```csharp
+public class Person 
+{
+    public string FirstName { get; set; }
+    public string LastName { get; private set; }    // LastName is nu ReadOnly voor de 
+                                                    // buitenwereld.
+
+    public void Print()
+    {
+        Console.WriteLine("Voornaam: {0}", FirstName);
+        Console.WriteLine("Achternaam: {0}", LastName);
+    }
+
+    // We voorzien een functie ChangeLastName die public is en dus in Main opgeroepen
+    // kan worden.
+    // Deze functie behoort tot de class Person en heeft dus wel toegang tot de 
+    // property LastName.
+    // Via deze functie kunnen we LastName dus nog steeds vanuit Main een waarde geven.
+    // Voor properties die we dus heel gecontroleerd willen initialiseren, kunnen we 
+    // dus gebruik maken van ReadOnly access en kunnen we indien, nodig een functie 
+    // voorzien die de property initialiseert.
+
+    public void ChangeLastName(string name)
+    {
+        LastName = name;
+    }
+}
+```
+
+In Main kunnen we de properties als volgt aanspreken en op het scherm tonen:
+
+```csharp
+static void Main(string[] args)
+{
+    var person = new Person();      // Er wordt een nieuw object van de class person gemaakt.
+    person.FirstName = "Steve";     // De ReadWrite property FirstName wordt d.m.v. de setter 
+                                    // geïnitialiseerd.
+    // person.LastName = "Jobs";    // Deze lijn code geeft nu een fout, LastName is immers een 
+                                    // ReadOnly property geworden.
+
+    person.ChangeLastName("Jobs");  // De functie ChangeLastName heeft toegang tot de ReadOnly
+                                    // property omdat de functie deel uitmaakt van de class 
+                                    //Person.
+
+    person.Print();                 // De Print-functie toont de properties op het scherm. Dit 
+                                    // geeft geen foutmelding omdat de print-functie in de
+                                    // Person class zit en daarom nog wel toegang heeft tot de
+                                    // property LastName.
+    Console.ReadKey();
+}
+```
+
+<div class="header2" markdown = "1">## Het gebruik van ReadOnly properties
+</div>
+
+Wanneer gebruik je ReadOnly properties? Er zijn verschillende scenario's denkbaar:
+
+### Preventie
+Soms is het echt niet de bedoeling om een variabele aan te passen. 
+Preventie betekent dat we `set` weglaten om fouten te voorkomen. De property kan door het ontbreken van `set` niet meer gewijzigd worden.
+
+### Utility
+Je kan ook _readonly_ utilities maken die het gebruik van je class vereenvoudigen. Als voorbeeld nemen we terug even de class Person. Veronderstel dat we heel vaak de volledige naam van een persoon in ons programma nodig hebben. We kunnen dan steeds de twee properties (FirstName en LastName) gaan opvragen en ze tonen met een spatie ertussen. Maar, we kunnen hier ook een handige utility voor maken. In het onderstaande voorbeeld zie je de utility Name. De utility is ReadOnly, want er is enkel een getter voorzien (enkel het keyword `get` staat vermeld bij de utility). Maar, er is meer aan de hand. Na het keyword `get` geven we aan wat er moet uitgelezen worden als de utility Name opgevraagd wordt. In dit geval zal het opvragen van Name dus de volledige naam als resultaat geven. Handig!
+
+```csharp
+public class Person 
+{
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+    public string Name { get => FirstName + " " + LastName; }  // De utility combineert 
+                                                               // FirstName en LastName en 
+                                                               // zet er een spatie tussen.
+}
+```
 
 ### Berekening
 Je kan ook _readonly_ utilities maken voor eenvoudige berekeningen. Zo bijvoorbeeld het oppervlak van een rechthoek:
@@ -190,96 +182,30 @@ public class Rectangle {
     }
 }
 ```
-Het bovenstaande voorbeeld bevat nog een kleine nieuwigheid. Als je get property uit meer dan 1 statement bestaat, dan kan je de eerder gebruikte schrijfwijze met het pijltje niet gebruiken. In zo'n geval werk je je statements uit zoals in een normale functie. En gebruik je return om het resultaat aan te duiden. _(In dit geval hadden we de berekening natuurlijk ook makkelijk in een enkel statement kunnen doen.)_
+Het bovenstaande voorbeeld bevat nog een kleine nieuwigheid. Als je get property uit meer dan 1 statement bestaat, dan kan je de eerder gebruikte schrijfwijze met het pijltje niet gebruiken. In zo'n geval werk je je statements uit zoals in een normale functie. En gebruik je return om het resultaat aan te duiden. _(In dit geval hadden we de berekening natuurlijk ook makkelijk in een enkel statement kunnen doen, maar bij wijze van voorbeeld gebruiken we een wat langere schrijfwijze.)_
 
-Wat als je hier een `set` property zou toevoegen? Afgezien van het feit dat je hier geen echte variabele hebt waarin je het oppervlak zou kunnen opslaan, zou dat betekenen dat de breedte en hoogte niet meer kloppen. Dat zou dus een HEEL slecht idee zijn.
+<div class="note protip">
+<p>Een simpele manier om het onderscheid te maken tussen een property en een utility is de volgende: Als je een property verwijdert uit de class, dan verlies je data. Als je een utility verwijdert uit je class, dan behoud je nog wel alle data.
+Kijk maar naar het voorbeeld hierboven. We kunnen de utility Name probleemloos verwijderen en de volledige naam van de persoon zit nog steeds in de properties FirstName en LastName. Maar, als we de property FirstName verwijderen, dan kennen we de hele naam van de persoon niet meer. We zijn dus data kwijt. Hetzelfde geldt voor de property LastName.</p>
+</div>
 
-**Berekening** betekent dat je een get property gebruikt voor een eenvoudige berekening. Ook hier zou een `set` property aan toevoegen compleet onzinnig zijn, want er is geen variabele verbonden met deze property.
-
-<div class="header2" markdown = "1">## Wanneer gebruik je _geen_ property?
+<div class="header2" markdown = "1">## Wanneer gebruik je _geen_ property maar een functie?
 </div>
 Met de bovenstaande informatie zou je heel wat functies kunnen omzetten naar properties. Elke niet-void functie zonder argumenten zou een `get` property kunnen worden. En elke void functie met 1 argument zou een `set` functie kunnen zijn. Toch is dat niet de bedoeling. 
 
 ### Acties
-Het woord _property_ betekent _eigenschap_. In het algemeen kan je stellen dat je van acties nooit een property maakt. Daarom wordt `ConnectToTheInternet` een functie, terwijl `Connected` een property is. Al is er natuurlijk altijd ruimte voor interpretatie. Zo hadden we in de class `Rectangle` hierboven in plaats van de property `Area` ook een functie  `CalculateArea()` kunnen toevoegen. Dat is ook helemaal niet fout, maar gebruik dan ook een duidelijke naam die naar een actie verwijst. Dan is het voor de gebruiker van je functie of property ook duidelijk of er haakjes na de naam verwacht worden of niet.
+Het woord _property_ betekent _eigenschap_. In het algemeen kan je stellen dat je van acties nooit een property maakt. 
 
 ### Complexe berekeningen
 Als je een berekening gebruikt in een property, dan hoort dat een eenvoudige berekening te zijn. Maar wanneer is een berekening te complex? Dat is voor interpretatie vatbaar, maar je kan de volgende regels gebruiken:
 
 - Wanneer een berekening andere variabelen in de class gaat __aanpassen__, dan hoort het geen property te zijn.
 - Wanneer een berekening __extra variabelen__ moet declareren, dan is ze te complex. Een enkel primitive type, zoals een int of float, dat kan nog. Maar instanties van classes maken, of een nieuwe array declareren, dat hoort niet thuis in een property.
-- Wanneer je in je berekening __andere functies__ van je class oproept, dan maak je beter een functie.
+- Wanneer je in je berekening __andere functies__ van je class oproept, dan maak je ook beter een functie.
 
-Het meest pragmatische argument op dit vlak is misschien wel de debugger. Wanneer je tijdens het debuggen over een property hovert met je muis, dan krijg je zijn waarde te zien. Maar dat gaat mis wanneer de berekening achter een property te complex is. Dan kan Visual Studio heel traag worden, of kan zelfs je debug sessie in sommige gevallen crashen. Niet doen dus.
-
-<div class="header2" markdown = "1">## Schrijfwijzen
-</div>
-Je hebt ondertussen wel gemerkt dat je properties op verschillende manieren kan noteren. Een enkele correcte manier bestaat dikwijls niet, als is de meeste eenvoudige notatie wel afhankelijk van de situatie.
-
-### Meest Eenvoudig
-```csharp
-public int MyProperty { get; set; }
-```
-Dit gebruik je wanneer een property _readwrite_ is, en er geen extra berekening nodig is.
-
-### Set of Get
-```csharp
-private int myProperty;
-public int MyProperty { get => myProperty; }
-
-private int myOtherProperty;
-public int MyOtherProperty { set => myProperty = value; }
-```
-Deze notatie gebruik je bij _readonly_ of _writeonly_ properties, zonder extra berekeningen.
-
-### 1 statement
-```csharp
-private int value;
-public int PowerOfTwo { get => value * value; }
-```
-Dit is gelijk aan het vorige voorbeeld, maar het kan dus ook met een berekening.
-
-```csharp
-private string name;
-public string Name { set => name = value.ToUpper(); }
-```
-Ook dit is gelijk aan het vorige voorbeeld, maar nu met een eenvoudige functie.
-
-### Meerdere statements
-```csharp
-public class Square {
-    public float Side { get; set; }
-    public float Perimeter {
-        get {
-            var p = Side * 4;
-            return p;
-        }
-        set {
-            var s = value / 4;
-            Side = s;
-        }
-    }
-}
-```
-Dit is niet echt de meest logische manier om met een vierkant om te gaan, maar het is een voorbeeld van een _readwrite_ property met meerdere statements.
-
-### Combinaties
-```csharp
-public class Square {
-    public float Side { get; set; }
-    public float Perimeter {
-        get => Side * 4;
-        set {
-            var s = value / 4;
-            Side = s;
-        }
-    }
-}
-```
-Je kan ook combinaties maken. `Set` en `Get` moeten niet dezelfde schrijfwijze volgen.
 
 <div class="note oefening">
-<p>Open het project <a href="https://github.com/sma-it/oefening-properties-1" target="_blank">oefening-properties-1</a> en maak de oefeningen.</p>
+<p>Maak de taak over classes en properties die je op Smartschool vindt.</p>
 </div>
 
 <div class="toTop"><a href="#top">Omhoog</a></div>
