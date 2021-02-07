@@ -189,18 +189,18 @@ Het bovenstaande voorbeeld bevat nog een kleine nieuwigheid. Als je get property
 Kijk maar naar het voorbeeld hierboven. We kunnen de utility Name probleemloos verwijderen en de volledige naam van de persoon zit nog steeds in de properties FirstName en LastName. Maar, als we de property FirstName verwijderen, dan kennen we de hele naam van de persoon niet meer. We zijn dus data kwijt. Hetzelfde geldt voor de property LastName.</p>
 </div>
 
-<div class="header2" markdown = "1">## Wanneer gebruik je _geen_ property maar een functie?
+<div class="header2" markdown = "1">## Wanneer gebruik je _geen_ utility maar een functie?
 </div>
-Met de bovenstaande informatie zou je heel wat functies kunnen omzetten naar properties. Elke niet-void functie zonder argumenten zou een `get` property kunnen worden. En elke void functie met 1 argument zou een `set` functie kunnen zijn. Toch is dat niet de bedoeling. 
+Met de bovenstaande informatie zou je heel wat functies kunnen omzetten naar utilities. Elke niet-void functie zonder argumenten zou een `get` utility kunnen worden. En elke void functie met 1 argument zou een `set` functie kunnen zijn. Toch is dat niet de bedoeling. 
 
 ### Acties
-Het woord _property_ betekent _eigenschap_. In het algemeen kan je stellen dat je van acties nooit een property maakt. 
+In het algemeen kan je stellen dat je van acties nooit een utility maakt. 
 
 ### Complexe berekeningen
-Als je een berekening gebruikt in een property, dan hoort dat een eenvoudige berekening te zijn. Maar wanneer is een berekening te complex? Dat is voor interpretatie vatbaar, maar je kan de volgende regels gebruiken:
+Als je een berekening gebruikt in een utility, dan hoort dat een eenvoudige berekening te zijn. Maar wanneer is een berekening te complex? Dat is voor interpretatie vatbaar, maar je kan de volgende regels gebruiken:
 
-- Wanneer een berekening andere variabelen in de class gaat __aanpassen__, dan hoort het geen property te zijn.
-- Wanneer een berekening __extra variabelen__ moet declareren, dan is ze te complex. Een enkel primitive type, zoals een int of float, dat kan nog. Maar instanties van classes maken, of een nieuwe array declareren, dat hoort niet thuis in een property.
+- Wanneer een berekening andere variabelen in de class gaat __aanpassen__, dan hoort het geen utility te zijn.
+- Wanneer een berekening __extra variabelen__ moet declareren, dan is ze te complex. Een enkel primitive type, zoals een int of float, dat kan nog. Maar instanties van classes maken, of een nieuwe array declareren, dat hoort niet thuis in een utility.
 - Wanneer je in je berekening __andere functies__ van je class oproept, dan maak je ook beter een functie.
 
 
