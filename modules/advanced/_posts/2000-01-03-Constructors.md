@@ -196,20 +196,18 @@ public Point(int X=0, int Y=0) {
 Indien we geen default constructor in een class voorzien, kunnen objecten enkel gemaakt worden door een eigen constructor met argumenten. Deze manier van werken maakt het mogelijk om te verplichten dat alle, of een aantal, properties van het object geïnitialiseerd worden bij het maken van het object.
 
 Voorbeeld:
-Hieronder vinden we de class Person. Deze class bevat 2 properties: FirstName en LastName. Er werd gekozen om deze properties ReadOnly te maken via bijbehorende private variabelen. 
-Door enkel een eigen (niet-default) constructor met argumenten te voorzien, kan er enkel een nieuw object gemaakt worden als er zowel voor FirstName en LastName een waarde opgegeven wordt. Merk op dat de constructor de private variabelen initialiseert en niet de ReadOnly properties.
+Hieronder vinden we de class Person. Deze class bevat 2 properties: FirstName en LastName.
+Door enkel een eigen (niet-default) constructor met argumenten te voorzien, kan er enkel een nieuw object gemaakt worden als er zowel voor FirstName en LastName een waarde opgegeven wordt.
 
 ```csharp
 public class Person {
-    private string firstName;
-    public string FirstName { get => firstName; }
+    public string FirstName { get; private set;}
 
-    private string lastName;
-    public string LastName { get => lastName; }
+    public string LastName { get; private set;}
 
     public Person(string firstName, string lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+        FirstName = firstName;
+        LastName = lastName;
     }
 }
 ```
