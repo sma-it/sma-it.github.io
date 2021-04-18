@@ -4,88 +4,155 @@ title: Enumeraties
 <div class="header1" id="top" markdown = "1"># Enumeraties
 </div>
 
-
-<div class="header2" markdown = "1">## Hoe het niet moet
+<div class="header2" markdown = "1">## Wat is een enumeratie?
 </div>
+Een enumeratie is een opsomming. In een aantal programmeertalen kan je een enumeratie als datatype gebruiken. Variabelen van dit datatype kunnen dan slechts de waarden aannemen die in de enumeratie opgegeven zijn.
 
-Om je uit te leggen wat enumeraties zijn, en welke voordelen ze bieden, beginnen we met een voorbeeld dat geen enumeraties gebruikt.
+Voorbeeld:
 
-In het onderstaande voorbeeld staat een class `Day` waarmee je een dag in een maand kan onthouden, samen met welke dag in de week dat is. 
-De property DayInWeek houdt bij de hoeveelste dag van de week het is. Hierbij wordt de afspraak gemaakt dat maandag de waarde 0 krijgt, dinsdag de waarde 1, enz.
-De property DayInMonth houdt bij over de hoeveelste dag in de maand het gaat. 
-Aan de hand van de property DayInWeek wordt via de functie WeekdayToString() de numerieke waarde omgezet naar de bijhordende dag in stringformaat. Deze kan dan achteraf op het scherm getoond worden.
+In onderstaand voorbeeld zie je een enumeratie met de naam Color die een aantal kleuren bevat. Vaak zullen de enumeraties die in een project gebruikt worden in een aparte codefile binnen het project geplaatst worden.
+
+```csharp
+public enum Color
+{
+    green,
+    blue,
+    red,
+    yellow,
+    orange,
+    pink
+}
+```
+
+Eens de enumeratie binnen het project bestaat kunnen we ze als datatype bij variabelen gebruiken, zoals in onderstaande Main-functie gebeurt. Een variable met de naam c1 krijgt als datatype `Color`. Merk op hoe de initialisatie van deze variabele gebeurt: een waarde uit de enumeratie wordt aangesproken door gebruik te maken van de naam van de enumeratie d.m.v. een punt gekoppeld aan een waarde van de enumeratie. In onderstaand voorbeeld wordt c1 dus geïnitialiseerd op de waarde green.
+
+```csharp
+static void Main(string[] args)
+{
+    Color c1 = Color.green; // Let op de syntax van initialisatie:
+                            // naamEnumeratie.waardeUitEnumeratie
+
+            
+    Console.WriteLine("The first color is {0}.", c1);
+}
+```
+
+Let op! Als we een enumeratie als datatype voor een variabele gebruiken, dan kan deze variabele enkel nog waarden uit de enumeratie krijgen. Het volgende kan dus niet meer:
+
+```csharp
+static void Main(string[] args)
+{
+    Color c1 = Color.green; 
+    Color c2 = "cyan";      // FOUT! Een variabele met 
+                            // een enumeratie als type
+                            // kan enkel waarden uit de
+                            // enumeratie krijgen.
+
+    Console.WriteLine("The first color is {0}.", c1);
+    Console.WriteLine("The second color is {0}.", c2);
+
+        }
+```
+
+<div class="header2" markdown = "1">## Waarom zouden we enumeraties gebruiken?
+</div>
+Om het nut van enumeraties aan te tonen, volgen hieronder enkele voorbeelden van problemen die zich kunnen voordoen en hoe ze opgelost worden door het gebruik van een enumeratie.
+
+**<u>Voorbeeld 1</u>**
+
+In het onderstaande voorbeeld staat een class `Day` waarmee je een dag in een maand kan onthouden, samen met welke dag in de week dat is. (bv. de 21ste dag van de maand en de 4de dag van de week)
+
+We vinden in deze class volgende zaken terug:
+* Properties:
+    - DayInWeek: deze property houdt bij de hoeveelste dag van de week het is. Hierbij wordt de afspraak gemaakt dat maandag de waarde 0 krijgt, dinsdag de waarde 1, enz.
+    - DayInMonth: deze property houdt bij over de hoeveelste dag in de maand het gaat.
+
+* Utility:
+    - IsWeekend: deze utility geeft true als het object een dag in het weekend bevat, m.a.w. als het om een zaterdag of zondag gaat. We kunnen dit testen a.h.v. de property DayInWeek. Omdat we de afspraak hadden dat maandag de waarde 0 krijgt, zal zaterdag dus 5 zijn en zondag 6. We initialiseren de utility IsWeekend dus op dayInWeek >=5.
+
+* Een constructor die een Day-object op de meegegeven argumenten initialiseert.
+
+* Functie:
+    - WeekdayToString(): aan de hand van de property DayInWeek wordt door de functie WeekdayToString() de numerieke waarde DayInWeek omgezet naar de bijhordende dag in stringformaat. Deze kan dan achteraf op het scherm getoond worden. 
+    Voorbeeld:
+        Als DayInWeek de waarde 2 heeft, dan zal de functie WeekdayToString() het woord "woensdag" als resultaat returnen.
 
 ```csharp
 public class Day {
 
-    private int dayInWeek;
-    public int DayInWeek { get => dayInWeek; }
+    public int DayInWeek { get; private set;}
+    public int DayInMonth { get; private set; }
 
-    private int dayInMonth;
-    public int DayInMonth { get => dayInMonth; }
-
-    // Constructor
+    //De utility IsWeekend test of de dag in het weekend valt.
+    public bool IsWeekend { get => dayInWeek >= 5; }
+    
+    //Constructor
     public Day(int inMonth, int inWeek) {
         dayInMonth = inMonth;
         dayInWeek = inWeek;
     }
-
-    // De utility IsWeekend test of de dag in het weekend valt.
-    public bool IsWeekend { get => dayInWeek >= 5; }
-    
-    // De functie WeekDayToString() zet de integer dayInWeek om naar de bijhorende
-    // dag in stringformaat.
+   
+    //De functie WeekDayToString() zet de integer dayInWeek om naar de bijhorende
+    //dag in stringformaat.
     public string WeekdayToString() {
         if(dayInWeek == 0) return "Monday";
         if(dayInWeek == 1) return "Tuesday";
-        // ... and so on
+        //... en zo verder tot Sunday.
     }
 } 
 
 public void Main() {
-    var day1 = new Day(21, 0); // monday the 21st
-    var day2 = new Day(5, 6); // sunday the 5th
-    var day3 = new Day(13, 4); // friday the 13th
+    var day1 = new Day(21, 0); // maandag de 21ste
+    var day2 = new Day(5, 6); // zondag de 5de
+    var day3 = new Day(13, 4); // vrijdag de 13de
 }
 ```
 
- Je gaat er bij deze werkwijze van uit dat iedereen zich aan de afspraak houdt en als eerste dag maandag zal kiezen en dan een 0 ingeeft voor DayInWeek. Je kan je daar makkelijk in vergissen, en bijvoorbeeld 1 ingeven voor maandag omdat je even vergeet dat programmeurs vanaf 0 beginnen tellen. Of je kan de week misschien op zondag laten beginnen i.p.v. op maandag en dan zal je 0 ingeven voor zondag. Of misschien is er iemand niet op de hoogte van de afspraak en is het bijgevolg niet gekend dat maandag de waarde 0 moet krijgen.
- Het is dus duidelijk dat deze werkwijze snel tot foutieve ingave kan leiden en dat dit dus geen goede oplossing is.
+ **Wat is het probleem met deze manier van werken?**
 
-<div class="header2" markdown = "1">## Zo moet het ook niet
-</div>
+ Deze werkwijze lijkt logisch, maar het kan snel fout lopen. Je gaat er bij deze werkwijze van uit dat iedereen zich aan de afspraak houdt en als eerste dag maandag zal kiezen en dan een 0 ingeeft voor DayInWeek. Je kan je daar makkelijk in vergissen, en bijvoorbeeld 1 ingeven voor maandag omdat je even vergeet dat programmeurs vanaf 0 beginnen tellen. Of je kan de week misschien op zondag laten beginnen i.p.v. op maandag en dan zal je 0 ingeven voor zondag. Of misschien is er iemand gewoon niet op de hoogte van de afspraak en is het bijgevolg niet gekend dat maandag de waarde 0 moet krijgen. **Het is dus duidelijk dat deze werkwijze snel tot foutieve ingave kan leiden en dat dit dus geen goede oplossing is.**
 
-De reden voor deze mogelijke fouten ligt in het probleem dat mensen niet zo goed zijn met cijfers en dus vroeg of laat een fout maken. Met woorden zien we veel duidelijker wat de bedoeling is. Een mogelijke oplossing voor dit probleem ligt dus voor de hand: gebruik een string in plaats van een nummer voor de property DayInWeek:
+**<u>Voorbeeld 2</u>**
+
+In voorbeeld 1 zagen we reeds dat er mogelijke foute waarden ingegeven kunnen worden omdat mensen niet zo goed zijn met cijfers en dus vroeg of laat een fout maken. Met woorden zien we veel duidelijker wat de bedoeling is. Een mogelijke oplossing voor het probleem van voorbeeld 1 ligt dus voor de hand: gebruik een string in plaats van een nummer voor de property DayInWeek. 
+
+In onderstaand voorbeeld is dit toegepast. Omdat DayInWeek nu een string-variabele is, zal ook de utility IsWeekend anders geïnitialiseerd moeten worden. Je kan deze werkwijze terugvinden in de commentaarlijnen bij de utility zelf.
 
 ```csharp
 public class Day {
 
-    private string dayInWeek;
-    public string DayInWeek { get => dayInWeek; } //Nu string i.p.v. int.
+    public string DayInWeek { get; private set;}  //Nu een string in plaats van een integer.
+    public int DayInMonth { get; private set; }
 
-    private int dayInMonth;
-    public int DayInMonth { get => dayInMonth; }
+    //De utility IsWeekend test of de dag in het weekend valt. Hierbij wordt gebruik gemaakt van 
+    //de functie Equals die nagaat of een string-variabele gelijk is aan de waarde tussen 
+    //de haakjes. Er wordt bij het initialiseren van IsWeekend dus getest of dayInWeek gelijk is
+    //aan "Saturday" of aan "Sunday".
+    public bool IsWeekend { get => dayInWeek.Equals("Saturday") || dayInWeek.Equals("Sunday"); }
 
-    // Constructor
+    //Constructor
     public Day(int inMonth, string inWeek) {
         dayInMonth = inMonth;
         dayInWeek = inWeek;
     }
-
-    // De utility IsWeekend test of de dag in het weekend valt.
-    public bool IsWeekend { get => dayInWeek.Equals("Saturday") || dayInWeek.Equals("Sunday"); }
 }
 ```
 
-De functie `WeekdayToString` wordt zo zelfs overbodig, want de naam van de dag is nu beschikbaar via de string DayInWeek. En om te bepalen of een dag in het weekend valt vergelijken we de string met de namen van de dagen in het weekend. Maar daar zit een nieuw probleem. Niet alleen kan een computer veel sneller met nummers werken en zal hij dus sneller kunnen controleren of een getal kleiner is dan 5 t.o.v. namen met elkaar te vergelijken. Er is ook een kans dat we typfouten maken bij de invoer van de namen van de dagen. Of we schrijven bijvoorbeeld `saturday`, zonder hoofdletter. Aangezien de functie Equals in het voorbeeld hoofdlettergevoelig werkt, zal `saturday` dus niet aanzien worden als een dag in het weekend. Fout, dus!
+De functie `WeekdayToString` wordt nu zelfs overbodig, want de naam van de dag is nu beschikbaar via de string DayInWeek. 
 
-<div class="header2" markdown = "1">## Lang Leve de Enum
+Zoals je in het voorbeeld kan zien, bepalen we of een dag in het weekend valt door de string-variabele te vergelijken met de namen van de dagen in het weekend. **En daar zit een nieuw probleem.** 
+* Enerzijds kan een computer veel sneller met nummers werken dan met strings. Hij zal dus sneller kunnen controleren of een getal groter dan of gelijk is aan 5 dan dat hij namen (strings) met elkaar kan vergelijken. Dit voorbeeld werkt dus trager dan het eerste voorbeeld waar we enkel met integers werkten.
+* Daarnaast is er ook een kans dat we typfouten maken bij de invoer van de namen van de dagen. Of we schrijven bijvoorbeeld `saturday`, zonder hoofdletter. Aangezien de functie Equals in het voorbeeld hoofdlettergevoelig werkt, zal `saturday` dus niet aanzien worden als een dag in het weekend. Fout, dus!
+
+
+<div class="header2" markdown = "1">## De oplossing: een enumeratie
 </div>
 
-Ook deze oplossing is dus niet ideaal. En daarom gebruiken we __enumeraties__.
+Problemen, zoals beschreven in bovenstaande voorbeelden, kunnen we vermijden door gebruik te maken van een __enumeratie__.
 
-Afzonderlijk van de `class Day` declareren we een `enum WeekDay`. Die bevat een oplijsting van alle dagen in de week. De computer ziet deze lijst als een lijst van nummers, waarin `Monday` eigenlijk gelijk staat aan 0, `Tuesday` aan 1, enzovoort. We moeten dit nu zelf niet onthouden.
-De enumeratie en de class Day zien er nu zo uit:
+Afzonderlijk van de `class Day` declareren we een `enum WeekDay`. Die bevat een oplijsting van alle dagen in de week. **De computer ziet deze lijst als een lijst van nummers, waarin `Monday` eigenlijk gelijk staat aan 0, `Tuesday` aan 1, enzovoort**. We moeten dit nu zelf niet onthouden.
+
+Deze enumeratie ziet er als volgt uit:
 
 ```csharp
 
@@ -99,15 +166,19 @@ public enum Weekday {
     Saturday,
     Sunday,
 };
+```
+We kunnen deze enumeratie nu als datatype gebruiken. In de class Day gebruiken we de enumeratie als datatype voor de property DayInWeek.
 
-// De class Day
+Ook voor de utility IsWeekend heeft het gebruik van de enumeratie gevolgen, zoals je in de commentaar bij de utility kan lezen.
+
+```csharp
+
 public class Day {
 
-    private Weekday dayInWeek;
-    public Weekday DayInWeek { get => dayInWeek; }
+    public Weekday DayInWeek { get; private set;}  //We gebruiken hier de naam van de 
+                                                   //enumeratie als gegevenstype.
+    public int DayInMonth { get; private set; }
 
-    private int dayInMonth;
-    public int DayInMonth { get => dayInMonth; }
 
     // Constructor
     public Day(int inMonth, Weekday inWeek) {
@@ -120,9 +191,11 @@ public class Day {
     // maken van de test dayInWeek >= WeekDay.Friday.
     // De computer ziet het item WeekDay.Friday als 4.
     // Aangezien alle weekdagen voor Friday in de enumeratie opgesomd zijn, hebben
-    // ze allemaal een waarde kleiner dan 4 (Monday = 0, enz.). We testen dus nu niet
-    // meer of de dag een zaterdag of zondag is, maar we testen dat de dag na vrijdag 
-    // in de enumeratie staat.
+    // de weekdagen (maandag tot en met vrijdag) allemaal een waarde kleiner dan 4 
+    // (Monday = 0, enz.). 
+    // Er wordt dus getest dat de dag na vrijdag in de enumeratie 
+    // staat. En, ook al gebruiken we woorden
+    // in de enumeratie, de computer zal met nummers werken -> sneller!
     public bool IsWeekend { get => dayInWeek > WeekDay.Friday; }
 }
 ```
@@ -131,23 +204,27 @@ We kunnen de enum op de volgende manier gebruiken bij het meegeven van de argume
 
 ```csharp
 public void Main() {
-    var day1 = new Day(21, Weekday.Monday); // monday the 21st
-    var day2 = new Day( 5, Weekday.Sunday); // sunday the 5th
-    var day3 = new Day(13, Weekday.Friday); // friday the 13th
+    var day1 = new Day(21, Weekday.Monday); // maandag de 21ste
+    var day2 = new Day( 5, Weekday.Sunday); // zondag de 5de
+    var day3 = new Day(13, Weekday.Friday); // vrijdag de 13de
 }
 ```
 
-Niet alleen kunnen we ons nu niet van dag vergissen, spellingsfouten worden dadelijk opgemerkt door de compiler. Bovendien zal Visual Studio ons na het typen van `Weekday.` dadelijk tonen wat de mogelijke opties uit de enumeratie zijn (de verschillende dagen, dus). En de computer zelf zal nummers gebruiken voor deze dagen. Vandaar dat we in de utility `IsWeekend` de dag van de week met vrijdag kunnen vergelijken, zoals je in de commentaar kan terugvinden.
+Niet alleen kunnen we ons nu niet van nummer van de de dag vergissen (zoals in voorbeeld 1), spellingsfouten worden dadelijk opgemerkt door de compiler. Bovendien zal Visual Studio ons na het typen van `Weekday.` dadelijk tonen wat de mogelijke opties uit de enumeratie zijn (de verschillende dagen, dus). En de computer zelf zal nummers gebruiken voor deze dagen. Vandaar dat we in de utility `IsWeekend` de dag van de week met vrijdag kunnen vergelijken, zoals je in de commentaar kan terugvinden.
+
+**Het is dus duidelijk dat de enumeratie hier een groot aantal voordelen heeft.**
 
 En er is nog een voordeel: elke enum bevat automatisch een functie `ToString()` die de tekstuele representatie van de waarde geeft. De dag van de week als string tonen gaat dus vanzelf:
 
 ```csharp
 public void Main() {
-    var day1 = new Day(21, Weekday.Monday); // monday the 21st
+    var day1 = new Day(21, Weekday.Monday); // maandag de 21ste
     
+    // Mogelijkheid 1: 
     // gebruik van de ToString() functie die automatisch voorzien is bij de enumeratie.
     string result = day1.DayInWeek.ToString();
 
+    // Mogelijkheid 2: 
     // console.WriteLine maakt deze conversie naar string zelfs automatisch, zonder
     // dat de ToString() functie toegepast wordt op DayInWeek.
     Console.WriteLine("Day " + day1.DayInMonth + " is a " + day1.DayInWeek);
@@ -171,6 +248,12 @@ for (Values i = 0; i < Values.End; i++) {
   Console.WriteLine(i);
 }
 ```
+
+Opmerking: Een enum kan eveneens doorlopen worden met een `foreach`-lus, maar aangezien deze syntax minder eenvoudig is, beperken we ons in deze cursus tot de for-lus.
+
+<div class="note oefening">
+    <p>Maak de oefeningenreeks Enumeraties die je op Smartschool vindt.</p>
+</div>
 
 <div class="header2" markdown = "1">## Een random Enum waarde
 </div>
@@ -196,7 +279,7 @@ de enum hier te converteren naar een integer:
 var generator = new Random();
 var value = generator.Next((int)Values.End); // <-- Compiler geeft GEEN fout
 ```
-In bovenstaand voorbeeld plaatsen we de random waarde die we genereren in value, waar we als type `var` meegeven. Soms zal het echter nodig zijn om de random enum waarde in een reeds gedeclareerde waarde van een bepaald type te plaatsen. In dat geval moet er opnieuw een conversie gebeuren naar het juiste type. (Zie onderstaand voorbeeld)
+In bovenstaand voorbeeld plaatsen we de random waarde die we genereren in de variabele value, waar we als type `var` meegeven. Soms zal het echter nodig zijn om de random enum waarde in een reeds gedeclareerde waarde van een bepaald type te plaatsen. In dat geval moet er opnieuw een conversie gebeuren naar het juiste type. (Zie onderstaand voorbeeld)
 
 In het onderstaande voorbeeld worden objecten van de class `Circle` gemaakt. Elk object heeft een straal en een kleur. De kleur wordt via een random waarde uit de enum Color gekozen.
 
@@ -231,11 +314,8 @@ Circle.cs
 public class Circle
     {
 
-        private Color color;
-        public Color Color { get => color; }
-
-        private int radius;
-        public int Radius { get => radius; }
+        public Color Color { get; private set;}
+        public int Radius { get; private set; }
 
         // Constructor: het argument color wordt in 
         // de Main-functie a.h.v. Random geïnitialiseerd
