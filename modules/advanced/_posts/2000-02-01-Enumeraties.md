@@ -322,13 +322,13 @@ public class Circle
         // op een random waarde uit de enum Color.
         public Circle(int radius, Color color)
         {
-            this.radius = radius;
-            this.color = color;
+            Radius = radius;
+            Color = color;
         }
 
         public override string ToString()
         {
-            return "The circle has a radius of " + radius + " and its color is " + color + ".";
+            return "The circle has a radius of " + Radius + " and its color is " + Color + ".";
         }
     }
 ```
