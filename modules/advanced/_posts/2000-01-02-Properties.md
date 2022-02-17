@@ -27,7 +27,9 @@ Een access modifier geeft aan in welke mate een property toegankelijk is. Een vo
 
 We beperken ons voorlopig tot twee modifiers die veel gebruikt worden, namelijk `public` en `private`.
 
-- `public`: een property die `public` als modifier meekreeg is van overal toegankelijk. Dus de property kan rechtstreeks uitgelezen worden of rechtstreeks een waarde krijgen in de class zelf, maar ook van buitenaf (bv. in Main of vanuit een andere class).
+- `public`: een property die `public` als modifier meekreeg is van overal toegankelijk. Deze property is als volgt toegankelijk: 
+    - De property kan rechtstreeks uitgelezen worden of rechtstreeks een waarde krijgen in de class zelf.
+    - Van buitenaf (bv. in Main of vanuit een andere class) wordt de toegankelijkheid (ReadWrite, ReadOnly, WriteOnly) bepaald door de access modifiers bij `get`en `set`. (zie verder)
 - `private`: een property die `private` als modifier meekreeg is enkel toegankelijk vanuit de class waartoe hij behoort. Vanuit Main of vanuit andere classes kan deze property niet rechtstreeks aangesproken worden.
 
 Door gebruik te maken van `public`en `private`kan je dus bepalen waar een property rechtstreeks aangesproken kan worden en waar niet.
@@ -169,17 +171,18 @@ public class Person
 Je kan ook _readonly_ utilities maken voor eenvoudige berekeningen. Zo bijvoorbeeld het oppervlak van een rechthoek:
 
 ```csharp 
-public class Rectangle {
+public class Rectangle 
+{
     public double Width { get; set; }
     public double Height { get; set; }
     public double Area { get => Width * Height; }
     public double Perimeter
-	{
+	    {
         get { 
             var sum = Width + Height;
             return 2 * sum;
+            }
         }
-    }
 }
 ```
 Het bovenstaande voorbeeld bevat nog een kleine nieuwigheid. Als je get property uit meer dan 1 statement bestaat, dan kan je de eerder gebruikte schrijfwijze met het pijltje niet gebruiken. In zo'n geval werk je je statements uit zoals in een normale functie. En gebruik je return om het resultaat aan te duiden. _(In dit geval hadden we de berekening natuurlijk ook makkelijk in een enkel statement kunnen doen, maar bij wijze van voorbeeld gebruiken we een wat langere schrijfwijze.)_
