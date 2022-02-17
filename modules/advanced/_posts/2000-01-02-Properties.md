@@ -161,19 +161,15 @@ static void Main(string[] args)
 <div class="header3" markdown = "1">## Het gebruik van ReadOnly properties
 </div>
 
-Wanneer gebruik je ReadOnly properties? Er zijn verschillende scenario's denkbaar:
+Soms is het echt niet de bedoeling om een variabele aan te passen. Door `set` weg te laten is het niet meer mogelijk om de property aan te passen. Men ken dit bijvoorbeeld doen om fouten te voorkomen.
 
-### Preventie
-Soms is het echt niet de bedoeling om een variabele aan te passen. 
-Preventie betekent dat we `set` weglaten om fouten te voorkomen. De property kan door het ontbreken van `set` niet meer gewijzigd worden.
-
-<div class="header2" markdown = "1">Het gebruik van ReadOnly utilities
+<div class="header2" markdown = "1">## Het gebruik van ReadOnly utilities
 </div>
 
-<div class="header3" markdown = "1">Wat is een utility
+<div class="header3" markdown = "1">## Wat is een utility?
 </div>
 
-Je kan  _readonly_ utilities maken die het gebruik van je class vereenvoudigen. 
+Je kan  _readonly_ utilities maken die het gebruik van je class vereenvoudigen. Onderstaande voorbeelden verduidelijken dit.
 
 ### Voorbeeld 1: properties combineren
 Als voorbeeld nemen we terug even de class Person. Veronderstel dat we heel vaak de volledige naam van een persoon in ons programma nodig hebben. We kunnen dan steeds de twee properties (FirstName en LastName) gaan opvragen en ze tonen met een spatie ertussen. Maar, we kunnen hier ook een handige utility voor maken. In het onderstaande voorbeeld zie je de utility Name. De utility is ReadOnly, want er is enkel een getter voorzien (enkel het keyword `get` staat vermeld bij de utility). Maar, er is meer aan de hand. Na het keyword `get` geven we aan wat er moet uitgelezen worden als de utility Name opgevraagd wordt. In dit geval zal het opvragen van Name dus de volledige naam als resultaat geven. Handig!
