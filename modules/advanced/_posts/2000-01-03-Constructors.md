@@ -213,7 +213,7 @@ public class Person {
 ```
 
 <div class="note oefening">
-    <p>Open het project <a href="https://github.com/sma-it/oefening-constructors-1" target="_blank">oefening-constructors-1</a> en maak de oefeningenreeks</p>
+    <p>Maak de oefeningen en de herhalingsoefeningen op constructors die je op Smartschool vindt.</p>
 </div>
 
 <div class="toTop"><a href="#top">Omhoog</a></div>
