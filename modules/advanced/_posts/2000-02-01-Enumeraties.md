@@ -88,23 +88,23 @@ public class Day {
     
     //Constructor
     public Day(int inMonth, int inWeek) {
-        dayInMonth = inMonth;
-        dayInWeek = inWeek;
+        DayInMonth = inMonth;
+        DayInWeek = inWeek;
     }
    
     //De functie WeekDayToString() zet de integer dayInWeek om naar de bijhorende
     //dag in stringformaat.
     public string WeekdayToString() {
-        if(dayInWeek == 0) return "Monday";
-        if(dayInWeek == 1) return "Tuesday";
+        if(DayInWeek == 0) return "Monday";
+        if(DayInWeek == 1) return "Tuesday";
         //... en zo verder tot Sunday.
     }
 } 
 
 public void Main() {
-    var day1 = new Day(21, 0); // maandag de 21ste
-    var day2 = new Day(5, 6); // zondag de 5de
-    var day3 = new Day(13, 4); // vrijdag de 13de
+    Day day1 = new Day(21, 0); // maandag de 21ste
+    Day day2 = new Day(5, 6); // zondag de 5de
+    Day day3 = new Day(13, 4); // vrijdag de 13de
 }
 ```
 
@@ -128,12 +128,12 @@ public class Day {
     //de functie Equals die nagaat of een string-variabele gelijk is aan de waarde tussen 
     //de haakjes. Er wordt bij het initialiseren van IsWeekend dus getest of dayInWeek gelijk is
     //aan "Saturday" of aan "Sunday".
-    public bool IsWeekend { get => dayInWeek.Equals("Saturday") || dayInWeek.Equals("Sunday"); }
+    public bool IsWeekend { get => DayInWeek.Equals("Saturday") || DayInWeek.Equals("Sunday"); }
 
     //Constructor
     public Day(int inMonth, string inWeek) {
-        dayInMonth = inMonth;
-        dayInWeek = inWeek;
+        DayInMonth = inMonth;
+        DayInWeek = inWeek;
     }
 }
 ```
@@ -182,8 +182,8 @@ public class Day {
 
     // Constructor
     public Day(int inMonth, Weekday inWeek) {
-        dayInMonth = inMonth;
-        dayInWeek = inWeek;
+        DayInMonth = inMonth;
+        DayInWeek = inWeek;
     }
 
     // De utility IsWeekend test of de dag in het weekend valt.
@@ -196,7 +196,7 @@ public class Day {
     // Er wordt dus getest dat de dag na vrijdag in de enumeratie 
     // staat. En, ook al gebruiken we woorden
     // in de enumeratie, de computer zal met nummers werken -> sneller!
-    public bool IsWeekend { get => dayInWeek > WeekDay.Friday; }
+    public bool IsWeekend { get => DayInWeek > WeekDay.Friday; }
 }
 ```
 
@@ -204,9 +204,9 @@ We kunnen de enum op de volgende manier gebruiken bij het meegeven van de argume
 
 ```csharp
 public void Main() {
-    var day1 = new Day(21, Weekday.Monday); // maandag de 21ste
-    var day2 = new Day( 5, Weekday.Sunday); // zondag de 5de
-    var day3 = new Day(13, Weekday.Friday); // vrijdag de 13de
+    Day day1 = new Day(21, Weekday.Monday); // maandag de 21ste
+    Day day2 = new Day( 5, Weekday.Sunday); // zondag de 5de
+    Day day3 = new Day(13, Weekday.Friday); // vrijdag de 13de
 }
 ```
 
@@ -218,7 +218,7 @@ En er is nog een voordeel: elke enum bevat automatisch een functie `ToString()` 
 
 ```csharp
 public void Main() {
-    var day1 = new Day(21, Weekday.Monday); // maandag de 21ste
+    Day day1 = new Day(21, Weekday.Monday); // maandag de 21ste
     
     // Mogelijkheid 1: 
     // gebruik van de ToString() functie die automatisch voorzien is bij de enumeratie.
