@@ -10,7 +10,7 @@ title: Interfaces
 
 Dikwijls wil je elementen in een verzameling plaatsen, zoals een `List`. Dat maakt het bijvoorbeeld veel eenvoudiger om een bepaalde functie uit te voeren voor alle elementen in die verzameling. Maar een `List` kan geen objecten van verschillende classen bevatten. Als je bijvoorbeeld cirkels en rechthoeken wil gebruiken, dan zal je daar 2 verschillende verzamelingen voor moeten maken.
 
-Tenzij je Interfaces gebruikt! Door een interface te gebruiken kunnen de elementen van de verschillende classes via deze interface aangesproken worden. De interface geef aan welke functies en properties hiervoor in de classes moeten voorzien zijn. Via de functies en properties die in de interface staan, kunnen dan de elementen van de verschillende classes en hun respectievelijke functies en properties aangesproken worden. 
+Tenzij je Interfaces gebruikt! Door een interface te gebruiken kunnen de elementen van de verschillende classes via deze interface aangesproken worden. De interface geeft aan welke functies en properties hiervoor in de classes moeten voorzien zijn. Via de functies en properties die in de interface staan, kunnen dan de elementen van de verschillende classes en hun respectievelijke functies en properties aangesproken worden. 
 
 Enkele zaken om te onthouden:
 
@@ -21,24 +21,30 @@ Enkele zaken om te onthouden:
 <div class="header2" markdown = "1">## Het principe van werken met een interface
 </div>
 
-Voorbeeld: We maken volgende interface voor een vlak. Van het vlak voorzien we in de interface de omtrek (Perimeter) en de oppervlakte (Area).
+Voorbeeld: We maken volgende interface voor een vlak. Van het vlak voorzien we in de interface de property Perimeter en de functies Area en AsText().
+
+Grafisch kunnen we de werking als volgt voorstellen:
+
+![image](/img/advanced/interfaces/interface1.JPG)
+![image](/img/advanced/interfaces/interface2.JPG)
 
 Een nieuwe interface maak je door in de Solution Explorer rechts op je project te klikken en via 'Add -> New item' voor 'Interface' te kiezen. Je geeft in dit venster de interface de gewenste naam. In ons voorbeeld wordt dit `ISurface`.
 
 Deze nieuwe interface werken we als volgt uit:
 
 ```csharp
-public interface ISurface {
+public interface ISurface 
+{
     float Perimeter { get; }
     float Area();
     string AsText();
 }
 ```
 
-De bovenstaande interface bevat een property `Perimeter()`, een functie `Area()` en een functie `AsText()`. 
+De bovenstaande interface bevat een property `Perimeter`, een functie `Area()` en een functie `AsText()`. 
 Indien we via deze interface gebruik willen maken van verschillende classes dan moeten in deze classes de property Perimeter, de functie Area() en de functie AsText() uitgewerkt zijn.
 
-Veronderstel dat we de volgende twee classes via deze interface willen aanspreken: `Rectangle` en `Circle`. Zowel in de class Rectangle als in de class Circle moet er een property `Perimeter`, een functie `Area()` en een functie `AsText()` zijn.
+Veronderstel dat we de volgende twee classes via deze interface willen aanspreken: `Rectangle` en `Circle`. Zowel in de class Rectangle als in de class Circle moet een property `Perimeter`, een functie `Area()` en een functie `AsText()` zijn. 
 
 We maken dan een List van het type ISurface (de naam van de interface) en vullen die met Rectangle objecten en Circle objecten. Deze list kunnen we nu doorlopen en op het actieve element telkens bijvoorbeeld de functie Area() toepassen. De interface zal zelf bepalen tot welke class het actieve element behoort en zal automatisch de functie Area() uit die class oproepen. Voor een Circle object zal dat dus de Area() functie uit de class Circle zijn, voor een Rectangle object wordt dit de Area() functie uit de Rectangle class.
 
@@ -50,11 +56,16 @@ __Besluit: Door zowel in de interface, als in de classes waaraan de interface to
 Eens je een interface hebt, kan je een class declareren die de interface implementeert. Dat doe je door ze toe te voegen aan een class definitie:
 
 ```csharp
-public class Rectangle : ISurface {
+public class Rectangle : ISurface 
+{
 
 }
 ```
-Visual Studio zal dadelijk opmerken dat je de interface nog niet uitgewerkt hebt in deze class en onderlijnt de interface met een rode, squiggly lijn. Je kan ervoor kiezen om Visual Studio de basis voor de interface zelf te laten implementeren. Hover met de muis over de rood onderlijnde naam van de interface, klik op het gele lampje dat verschijnt en kies uit het menu dat nu verschijnt 'Implement interface'. Je class ziet er nu zo uit:
+<div class="note protip">
+Visual Studio zal dadelijk opmerken dat je de interface nog niet uitgewerkt hebt in deze class en onderlijnt de interface met een rode, squiggly lijn. Je kan ervoor kiezen om Visual Studio de basis voor de interface zelf te laten implementeren. Hover met de muis over de rood onderlijnde naam van de interface, klik op het gele lampje dat verschijnt en kies uit het menu dat nu verschijnt 'Implement interface'.
+</div>
+
+Als je dit doet ziet je class er nu zo uit:
 
 ```csharp
 public class Rectangle : ISurface
@@ -73,19 +84,18 @@ public class Rectangle : ISurface
 }
 ```
 
-Je ziet dat de foutmelding i.v.m. het niet uitgewerkt zijn van de interface nu weg is, maar je code zal wel een fout geven wanneer je ze uitvoert. Zoals je ziet staat er momenteel nog 'throw new NotImplementedException()' bij de property en de functie. Het is de bedoeling dat je de niet geïmplementeerde delen nu eerst zelf nog verder uitwerkt en je deze 'throw new NotImplementedException()' dus vervangt door je eigen code. 
+Je ziet dat de foutmelding i.v.m. het niet uitgewerkt zijn van de interface nu weg is, maar je code zal wel een fout geven wanneer je ze uitvoert. Zoals je ziet staat er momenteel nog throw `new NotImplementedException()` bij de property en de functie. Het is de bedoeling dat je de niet geïmplementeerde delen nu eerst zelf nog verder uitwerkt en je deze `throw new NotImplementedException()` dus vervangt door je eigen code. 
 
-De class `Rectangle` zou er uiteindelijk zo kunnen uitzien:
+De class `Rectangle` zou er uiteindelijk kunnen uitzien zoals de code hieronder. Merk hierbij op dat de property perimeter in de constructor een waarde krijgt a.h.v. de properties width en height. Tevens is het noodzakelijk om bij de property Perimeter de access modifier `public` expliciet te voorzien om de interface te kunnen implementeren.
 
 ```csharp
 public class Rectangle : ISurface
 {
-    float width;
-    float height;
+    float width {get; set;}
+    float height {get; set;}
 
-    float perimeter;
-    public float Perimeter => perimeter;
-
+    public float Perimeter {get; set;}
+    
     public Rectangle(float width, float height)
     {
         this.width = width;
@@ -111,16 +121,14 @@ Om de voordelen van interfaces uit te leggen, implementeren we deze interface nu
 ```csharp
 public class Circle : ISurface
 {
-    float radius;
-    public float Radius => radius;
-
-    float perimeter;
-    public float Perimeter => perimeter;
-
+    float radius {get; set;}
+    
+    public float Perimeter {get; set;}
+    
     public Circle(float radius)
     {
         this.radius = radius;
-        this.perimeter = 2 * (float)Math.PI * radius;
+        this.Perimeter = 2 * (float)Math.PI * radius;
     }
 
     public float Area()
