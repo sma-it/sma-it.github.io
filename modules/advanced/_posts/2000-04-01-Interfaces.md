@@ -209,6 +209,11 @@ This is a rectangle with an area of 20
 The total area is: 48,27433
 ```
 
+<div class="note oefening">
+<p>Maak de oefening die je op Smartschool vindt.</p>
+</div>
+
+
 # Een management class voor een interface
 
 Om op een handige manier met een interface te werken kan je hiervoor een aparte management class voorzien. In deze class voorzie je de nodige functionaliteiten om snel met de list van objecten van het interface type te werken.
