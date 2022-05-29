@@ -209,11 +209,6 @@ This is a rectangle with an area of 20
 The total area is: 48,27433
 ```
 
-<div class="note oefening">
-<p>Maak de oefening die je op Smartschool vindt.</p>
-</div>
-
-
 # Een management class voor een interface
 
 Om op een handige manier met een interface te werken kan je hiervoor een aparte management class voorzien. In deze class voorzie je de nodige functionaliteiten om snel met de list van objecten van het interface type te werken.
@@ -284,6 +279,10 @@ class Program
     }
 }
 ```
+
+<div class="note oefening">
+<p>Maak de oefeningen (deel 1) die je op Smartschool vindt.</p>
+</div>
 
 <div class="header2" markdown = "1">## Gebruik 'Interface as Class'
 </div>
@@ -356,6 +355,10 @@ This is a rectangle with an area of 20
 The total area is: 48,27433
 The total of radiuses of the circle objects is: 3
 ```
+
+<div class="note oefening">
+<p>Open op Smartschool het startproject van oefeningen interfaces deel 2. Hierin vind je de derde oefening van de oefeningen van deel 1 met een management class. Voorzie het nodige zodat bij de uitvoer eveneens de totale laadruimte van de vrachtwagens getoond wordt. Werk dit uit volgens het principe dat hierboven beschreven is en gebruik dus de interface.</p>
+</div>
 
 <div class="header2" markdown = "1">## Interfaces Combineren
 </div>
@@ -437,7 +440,7 @@ public void PrintAll()
 Beide opties doen hetzelfde. Welke je gebruikt hangt enkel af van je persoonlijke voorkeur.
 
 <div class="note oefening">
-<p>Open het project <a href="https://github.com/sma-it/oefening-interface-1">oefening-interface-1</a> en maak de oefeningen.</p>
+<p>Maak oefeningen interfaces deel 3 die je op Smartschool vindt.</p>
 </div>
 
 <div class="toTop"><a href="#top">Omhoog</a></div>
