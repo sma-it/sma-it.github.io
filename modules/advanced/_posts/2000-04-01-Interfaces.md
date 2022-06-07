@@ -35,7 +35,7 @@ Deze nieuwe interface werken we als volgt uit:
 ```csharp
 public interface ISurface 
 {
-    float Perimeter { get; }
+    float Perimeter { get; set; }
     float Area();
     string AsText();
 }
@@ -381,8 +381,7 @@ public class Triangle : ISurface, IPrintable
     float side2;
     float bottom;
 
-    float perimeter;
-    public float Perimeter => perimeter;
+    public float Perimeter {get; set;};
 
     public Triangle(float side1, float side2, float bottom)
     {
