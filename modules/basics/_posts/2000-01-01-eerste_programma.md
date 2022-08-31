@@ -16,11 +16,15 @@ Ook programmeren kan simpelweg in Notepad, maar ook hier geldt dat je het jezelf
 </div>
 
 
-Indien Visual Studio nog niet op je computer staat, dan moet je dit programma eerst downloaden. Ga naar de <a href="https://visualstudio.microsoft.com/vs/community/" target="_blank">Visual Studio website</a> en download de meest recente versie van Visual Studio. 
+Indien Visual Studio nog niet op je computer staat, dan moet je dit programma eerst downloaden. Ga naar de <a href="https://visualstudio.microsoft.com/vs/community/" target="_blank">Visual Studio website</a> en download de meest recente versie van Visual Studio.
+
+Tijdens de installatie krijg je onderstaand scherm. Vergeet hierbij niet de workload aan te vinken die je zal toelaten om console programma's in C# uit te voeren. Deze workload is `.net Desktop Development`. Vink dit aan en ga verder met de installatie.
 
 Eens gedownload moet je het installatieprogramma uitvoeren. Je kan akkoord gaan met de standaard opties bij het installeren. Kies zeker voor de community versie: de professional en enterprise versies heb je echt niet nodig, en bovendien zijn die niet gratis.
 
 Wanneer de installatie gestart is, kan je _Workloads_ kiezen. Voorlopig heb je enkel de _.NET Desktop development_ workload nodig. Later in de cursus gebruiken we ook andere workloads, maar op dat moment is het eenvoudig om die toe te voegen.
+
+![image](/img/basics/eerste_programma/netWorkload.JPG)
 
 ### Launch
 
