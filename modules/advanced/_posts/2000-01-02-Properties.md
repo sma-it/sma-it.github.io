@@ -89,12 +89,12 @@ In Main kunnen we de properties als volgt aanspreken en op het scherm tonen:
 ```csharp
 public  static void Main()
 {
-    var person = new Person();      // Er wordt een nieuw object van de class person gemaakt.
-    person.FirstName = "Steve";     // Omdat er geen private bij set staat, kunnen we de property
-                                    // rechtstreeks een waarde geven in Main.
-    person.LastName = "Jobs";       // Idem FirstName.
+    var person = new Person();   // Er wordt een nieuw object van de class person gemaakt.
+    person.FirstName = "Steve";  // Omdat er geen private bij set staat, kunnen we de property
+                                 // rechtstreeks een waarde geven in Main.
+    person.LastName = "Jobs";    // Idem FirstName.
 
-    person.Print();                 // De Print-functie toont de properties op het scherm.
+    person.Print();              // De Print-functie toont de properties op het scherm.
 
     Console.ReadKey();
 }
@@ -110,8 +110,10 @@ De manier om een property nog wel binnen zijn class zelf Writable te houden en d
 public class Person 
 {
     public string FirstName { get; set; }
-    public string LastName { get; private set; }    // LastName is nu ReadOnly voor de 
-                                                    // buitenwereld.
+    public string LastName { get; private set; } // LastName is 
+                                                 // nu ReadOnly 
+                                                 // voor de 
+                                                 // buitenwereld.
 
     public void Print()
     {
@@ -119,14 +121,15 @@ public class Person
         Console.WriteLine("Achternaam: {0}", LastName);
     }
 
-    // We voorzien een functie ChangeLastName die public is en dus in Main opgeroepen
-    // kan worden.
-    // Deze functie behoort tot de class Person en heeft dus wel toegang tot de 
-    // property LastName.
-    // Via deze functie kunnen we LastName dus nog steeds vanuit Main een waarde geven.
-    // Voor properties die we dus heel gecontroleerd willen initialiseren, kunnen we 
-    // dus gebruik maken van ReadOnly access en kunnen we indien, nodig een functie 
-    // voorzien die de property initialiseert.
+    // We voorzien een functie ChangeLastName die public is en 
+    // dus in Main opgeroepen kan worden.
+    // Deze functie behoort tot de class Person en heeft dus 
+    // wel toegang tot de property LastName.
+    // Via deze functie kunnen we LastName dus nog steeds vanuit 
+    // Main een waarde geven. Voor properties die we dus heel 
+    // gecontroleerd willen initialiseren, kunnen we 
+    // dus gebruik maken van ReadOnly access en kunnen we indien 
+    // nodig een functie voorzien die de property initialiseert.
 
     public void ChangeLastName(string name)
     {
@@ -140,20 +143,23 @@ In Main kunnen we de properties als volgt aanspreken en op het scherm tonen:
 ```csharp
 static void Main(string[] args)
 {
-    var person = new Person();      // Er wordt een nieuw object van de class person gemaakt.
-    person.FirstName = "Steve";     // De ReadWrite property FirstName wordt d.m.v. de setter 
-                                    // geïnitialiseerd.
-    // person.LastName = "Jobs";    // Deze lijn code geeft nu een fout, LastName is immers een 
-                                    // ReadOnly property geworden.
+    var person = new Person();      // Er wordt een nieuw object van de
+                                    // class person gemaakt.
+    person.FirstName = "Steve";     // De ReadWrite property FirstName wordt 
+                                    // d.m.v. de setter geïnitialiseerd.
+    // person.LastName = "Jobs";    // Deze lijn code geeft nu een fout, 
+                                    // LastName is immers een ReadOnly property 
+                                    // geworden.
 
-    person.ChangeLastName("Jobs");  // De functie ChangeLastName heeft toegang tot de ReadOnly
-                                    // property omdat de functie deel uitmaakt van de class 
-                                    //Person.
+    person.ChangeLastName("Jobs");  // De functie ChangeLastName heeft toegang
+                                    // tot de ReadOnly property omdat de functie 
+                                    // deel uitmaakt van de class Person.
 
-    person.Print();                 // De Print-functie toont de properties op het scherm. Dit 
-                                    // geeft geen foutmelding omdat de print-functie in de
-                                    // Person class zit en daarom nog wel toegang heeft tot de
-                                    // property LastName.
+    person.Print();                 // De Print-functie toont de properties op 
+                                    // het scherm. Dit geeft geen foutmelding 
+                                    // omdat de print-functie in de
+                                    // Person class zit en daarom nog wel 
+                                    // toegang heeft tot de property LastName.
     Console.ReadKey();
 }
 ```
