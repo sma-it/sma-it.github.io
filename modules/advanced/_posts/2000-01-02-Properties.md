@@ -90,8 +90,8 @@ In Main kunnen we de properties als volgt aanspreken en op het scherm tonen:
 public  static void Main()
 {
     var person = new Person();   // Er wordt een nieuw object van de class person gemaakt.
-    person.FirstName = "Steve";  // Omdat er geen private bij set staat, kunnen we de property
-                                 // rechtstreeks een waarde geven in Main.
+    person.FirstName = "Steve";  // Omdat er geen private bij set staat, kunnen we de 
+                                 // property rechtstreeks een waarde geven in Main.
     person.LastName = "Jobs";    // Idem FirstName.
 
     person.Print();              // De Print-functie toont de properties op het scherm.
