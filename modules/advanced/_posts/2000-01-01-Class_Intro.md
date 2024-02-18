@@ -117,14 +117,14 @@ public class Program
         Person person2 = new Person();
 
         //Initialisatie object person1
-        person1.FirstName = "Bilbo";
-        person1.Name = "Baggins";
-        person1.Age = 111;
+        person1.FirstName = "Steve";
+        person1.Name = "Jobs";
+        person1.Age = 56;
 
         //Initialisatie object person2
-        person2.FirstName = "Legolas";
-        person2.Name = "Greenleaf";
-        person2.Age = 2387;
+        person2.FirstName = "Bill";
+        person2.Name = "Gates";
+        person2.Age = 68;
 
         //De objecten person1 en person2 op het scherm tonen d.m.v. 
         //de functie Print() van de class Person
