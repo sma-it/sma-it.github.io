@@ -351,7 +351,7 @@ public static int calcSum(int a, int b)
 }
 ```
 
-Als je een progamma start, wordt steeds de functie `Main` gestart. Vanuit `Main` kan je de functie `calcSum`als volgt aanroepen:
+Als je een progamma start, wordt steeds de functie `Main` gestart. Deze functie bevat de instructies die uitgevoerd zullen worden. Vanuit `Main` kan je de functie `calcSum`als volgt aanroepen:
 
 ```csharp
 static void Main(string[] args)
