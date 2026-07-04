@@ -19,6 +19,7 @@ C# maakt gebruik van data types, of gegevenstypes, om met deze verschillende soo
 | int           | gehele getallen van -2147483648 tot 2147483647   |
 | float         | kommagetallen van -3.402823e38 tot 3.402823e38        |
 | double        | kommagetallen van -1.79769313486232e308 tot 1.79769313486232e308       |
+| decimal       | kommagetallen met hoge nauwkeurigheid, vooral gebruikt voor geldbedragen en financiële berekeningen|
 | char          | één karakter |
 | string        | een tekenreeks  |
 {:.tableBorder}
@@ -60,10 +61,11 @@ Niet alle karakters kunnen gebruikt worden om een naam van een variabele samen t
 Enkele voorbeelden van declaraties:
 ```csharp
 
-int x;               // Inhoud: een geheel getal, bv. 10
+int leeftijd;               // Inhoud: een geheel getal, bv. 10
 string name;         // Inhoud: een tekenreeks, bv. Dit is een test.
-float price;         // Inhoud: een kommagetal, bv. 10.99
+float percentage;         // Inhoud: een kommagetal, bv. 10.99
 double averageSpeed; // Inhoud: een kommagetal, bv. 15.8
+decimal price;    // Inhoud: een kommagetal, bv. 9.99
 char c;              // Inhoud: 1 karakter, bv. a
 
  ```
@@ -83,10 +85,11 @@ Het initialiseren van een variabele houdt in dat je de variabele een waarde geef
 ```csharp
 
 // Declaratie van variabelen van verschillende gegevenstypes.
-int x;           
+int leeftijd;           
 string name;     
-float price; 
+float percentage; 
 double averageSpeed;
+decimal price;
 char c;
 
 // Initialisatie van de bovenstaande variabelen op een gepaste waarde.
@@ -94,11 +97,11 @@ x = 7;
 
 name = "voorbeeld";   // Tekst plaats je tussen dubbele aanhalingstekens.
 
-price = 2.99F;        // Gebruik een punt bij het kommagetal. Bij een float variabele laat 
-                      // je het getal volgen door de letter F.
+percentage = 2.99f;        // Gebruik een punt bij het kommagetal. Bij een float variabele laat 
+                      // je het getal volgen door de letter f.
 
 averageSpeed = 52.36; // Let op! Je geeft kommagetallen in met een punt en niet met een komma.
-
+price = 19.95m;     // Gebruik een punt bij het kommagetal. Bij een decimal variabele laat je het getal volgen door de letter m.
 c = 'A';              // Het karakter plaats je tussen enkele aanhalingstekens
 ```
 
@@ -119,7 +122,7 @@ number = Convert.ToInt32(Console.ReadLine()); // Let op de omzetting naar int
 
 Gegevens die ingevoerd worden via het toetsenbord hebben steeds het gegevenstype `string`. Om deze invoer in variabelen met een ander gegevenstype te plaatsen is er een omzetting (conversie) nodig. In het bovenstaande voorbeeld wordt de omzetting van string naar int gedaan d.m.v. `Convert.ToInt32()`.
 
-Voor de andere data types bestaan er eveneens methods om deze conversie te doen: `Convert.ToSingle()` (dit doet een conversie naar float), `Convert.ToDouble()`, `Convert.ToBoolean()`, `Convert.ToChar()`.
+Voor de andere data types bestaan er eveneens methods om deze conversie te doen: `Convert.ToSingle()` (dit doet een conversie naar float), `Convert.ToDouble()`, `Convert.ToDecimal()`, `Convert.ToBoolean()`, `Convert.ToChar()`.
 
 
 ### De variabele gelijk stellen aan het resultaat van een bewerking
@@ -235,6 +238,8 @@ Soms is het nodig om de inhoud van een variabele of invoer van het toetsenbord n
 * int (laagste)
 
 Conversie van een lager gegevenstype naar een hoger gebeurt automatisch. Probeer je, zonder bijkomende conversie, een variabele van een lager gegevenstype gelijk te stellen aan een hoger data type dan krijg je een foutmelding.
+
+Conversie naar decimal zal nooit automatisch gebeuren. Hiervoor is de `Convert.ToDecimal()` functie steeds nodig.
 
 Enkele voorbeelden:
 
