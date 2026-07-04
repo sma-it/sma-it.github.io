@@ -61,11 +61,11 @@ Niet alle karakters kunnen gebruikt worden om een naam van een variabele samen t
 Enkele voorbeelden van declaraties:
 ```csharp
 
-int leeftijd;               // Inhoud: een geheel getal, bv. 10
+int leeftijd;        // Inhoud: een geheel getal, bv. 10
 string name;         // Inhoud: een tekenreeks, bv. Dit is een test.
-float percentage;         // Inhoud: een kommagetal, bv. 10.99
+float percentage;    // Inhoud: een kommagetal, bv. 10.99
 double averageSpeed; // Inhoud: een kommagetal, bv. 15.8
-decimal price;    // Inhoud: een kommagetal, bv. 9.99
+decimal price;       // Inhoud: een kommagetal, bv. 9.99
 char c;              // Inhoud: 1 karakter, bv. a
 
  ```
@@ -97,11 +97,12 @@ x = 7;
 
 name = "voorbeeld";   // Tekst plaats je tussen dubbele aanhalingstekens.
 
-percentage = 2.99f;        // Gebruik een punt bij het kommagetal. Bij een float variabele laat 
+percentage = 2.99f;   // Gebruik een punt bij het kommagetal. Bij een float variabele laat 
                       // je het getal volgen door de letter f.
 
 averageSpeed = 52.36; // Let op! Je geeft kommagetallen in met een punt en niet met een komma.
-price = 19.95m;     // Gebruik een punt bij het kommagetal. Bij een decimal variabele laat je het getal volgen door de letter m.
+price = 19.95m;       // Gebruik een punt bij het kommagetal. Bij een decimal variabele laat je 
+                      // het getal volgen door de letter m.
 c = 'A';              // Het karakter plaats je tussen enkele aanhalingstekens
 ```
 
@@ -152,7 +153,7 @@ int number2 = 10;
 int sum;
 
 sum = number1 + number2; //number1 kreeg geen waarde en wordt in de bewerking gebruikt 
-                       //-> foutmelding
+                         //-> foutmelding
 ```
 
 Bovenstaande code geeft de foutmelding: `Use of unassigned local variabel number1`. 
