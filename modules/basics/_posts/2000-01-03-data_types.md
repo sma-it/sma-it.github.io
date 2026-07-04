@@ -359,11 +359,13 @@ static void Main(string[] args)
     int x = 10;
     int y = 2;
     int res;
-    // Hieronder wordt de functie calcSum aangeroepen. Het argument a krijgt de waarde van x,
-    // het argument b krijgt de waarde van y. Op die manier kan er binnen de functie met de  
-    // daar gekende variabelen a en b gewerkt worden die dezelfde waarde gekregen hebben 
-    // als x en y (twee variabelen uit Main).
-    // Je leert meer hierover in het hoofdstuk Functies.
+    /* 
+      Hieronder wordt de functie calcSum aangeroepen. Het argument a krijgt de waarde van x,
+       het argument b krijgt de waarde van y. Op die manier kan er binnen de functie met de  
+       daar gekende variabelen a en b gewerkt worden die dezelfde waarde gekregen hebben 
+       als x en y (twee variabelen uit Main).
+       Je leert meer hierover in het hoofdstuk Functies.
+    */
     res = calcSum(x, y); 
     Console.WriteLine("Het resultaat van de berekening is: " + res);
 
