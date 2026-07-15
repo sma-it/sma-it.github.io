@@ -1,16 +1,16 @@
 ---
-title: Data Types en Variabelen
+title: Datatypes en Variabelen
 published: true
 ---
-<div class="header1" id="top" markdown = "1"># Data types en variabelen
+<div class="header1" id="top" markdown = "1"># Datatypes en variabelen
 </div>
 
-<div class="header2" markdown = "1">## Wat is een data type?
+<div class="header2" markdown = "1">## Wat is een datatype?
 </div>
 
 Je programma kan gebruik maken van verschillende soorten gegevens. Zo kan je berekeningen maken met getallen, namen gebruiken, enz.
 
-C# maakt gebruik van data types, of gegevenstypes, om met deze verschillende soorten gegevens te werken. Hieronder vind je een overzicht van de gegevenstypes die in de cursus gebruikt zullen worden. In de eerste kolom vind je de naam van het data type, in de tweede kolom zie je het bereik dat dit data type kan hebben, m.a.w. welke waarden er tot dit data type behoren.
+C# maakt gebruik van datatypes, of gegevenstypes, om met deze verschillende soorten gegevens te werken. Hieronder vind je een overzicht van de gegevenstypes die in de cursus gebruikt zullen worden. In de eerste kolom vind je de naam van het datatype, in de tweede kolom zie je het bereik dat dit datatype kan hebben, m.a.w. welke waarden er tot dit datatype behoren.
 
 
 | Keyword       | Bereik   |
@@ -19,7 +19,7 @@ C# maakt gebruik van data types, of gegevenstypes, om met deze verschillende soo
 | int           | gehele getallen van -2147483648 tot 2147483647   |
 | float         | kommagetallen van -3.402823e38 tot 3.402823e38        |
 | double        | kommagetallen van -1.79769313486232e308 tot 1.79769313486232e308       |
-| decimal       | kommagetallen met hoge nauwkeurigheid, vooral gebruikt voor geldbedragen en financiële berekeningen|
+| decimal       | kommagetallen met hoge nauwkeurigheid, vooral gebruikt voor geldbedragen en financiële berekeningen omdat afrondingsfouten kleiner zijn dan bij float en double|
 | char          | één karakter |
 | string        | een tekenreeks  |
 {:.tableBorder}
@@ -27,11 +27,11 @@ C# maakt gebruik van data types, of gegevenstypes, om met deze verschillende soo
 <div class="header2" markdown = "1">## Wat is een variabele?
 </div>
 
-Tijdens het uitvoeren van een programma zal het vaak nodig zijn om gegevens bij te houden in het geheugen van de computer. Enkele voorbeelden hiervan zijn invoer van de gebruiker of het resultaat van een berekening.
+Tijdens het uitvoeren van een programma zal het vaak nodig zijn om gegevens bij te houden in het geheugen van de computer. Enkele voorbeelden hiervan zijn invoer van de gebruiker of het resultaat van een berekening. Een variabele geeft een naam aan een plaats in het geheugen waar een waarde wordt bijgehouden.
 
 In hun binaire of hexadecimale vorm zijn geheugenadressen niet makkelijk om mee te werken. Om op een handige manier een geheugenplaats aan te kunnen spreken, maken we gebruik van een variabele met een **naam**. Door middel van de naam van de variabele kunnen we gegevens plaatsen in de geheugenplaats en de inhoud ervan terug oproepen zonder dat we de binaire of hexadecimale adressering moeten kennen. De inhoud van de variabele kan tijdens het programma gewijzigd worden.
 
-Naast een naam, krijgt een variabele ook een **data type** (= gegevenstype). Dit gegevenstype bepaalt welk type informatie er in de variabele opgeslagen kan worden en welke bewerkingen er met de variabele kunnen gebeuren. We denken hierbij aan tekst, nummerieke gegevens, ... Tevens bepaalt het gekozen gegevenstype hoeveel ruimte er in het geheugen voorzien zal worden om de data op te slaan. Zo zal er voor een kommagetal bijvoorbeeld meer ruimte voorzien worden dan voor een geheel getal.
+Naast een naam, krijgt een variabele ook een **datatype** (= gegevenstype). Dit gegevenstype bepaalt welk type informatie er in de variabele opgeslagen kan worden en welke bewerkingen er met de variabele kunnen gebeuren. We denken hierbij aan tekst, numerieke gegevens, ... Tevens bepaalt het gekozen gegevenstype, bij de eenvoudige gegevenstypes, hoeveel ruimte er in het geheugen voorzien zal worden om de data op te slaan. Zo zal er voor een kommagetal bijvoorbeeld meer ruimte voorzien worden dan voor een geheel getal.
 
 Een grafisch principe van de werking van een variabele vind je in onderstaande figuur:
 
@@ -39,17 +39,15 @@ In deze figuur wordt het geheugen voorgesteld als een opeenvolging van bytes. El
 
 ![image](/img/basics/data_types/voorstellingComputergeheugen.JPG)
 
-Zonder variabele zouden we de geheugenplaats met bijvoorbeeld het hexadecimale adres moeten aanspreken (FFFFFFFB), met een variabele kunnen we diezelfde geheugenplaats aanspreken met de naam getal1. Onnodig te zeggen dat het makkelijker te werken is met de naam dan met het hexadecimale adres.
-
-Volledigheidshalve even nog dit: in de figuur verwijst de variabele getal1 naar 1 geheugenplaats (= 1 byte). Afhankelijk van het data type van de variabele zal deze in realiteit echter meerdere bytes in het geheugen innemen.
+Zonder variabele zouden we de geheugenplaats met bijvoorbeeld het hexadecimale adres moeten aanspreken (FFFFFFFB), met een variabele kunnen we diezelfde geheugenplaats aanspreken met de naam getal1. Onnodig te zeggen dat het makkelijker te werken is met de naam dan met het hexadecimale adres. Zoals je op de figuur ziet, kan een variabele meerdere geheugenplaatsen innemen afhankelijk van zijn datatype. Zo neemt een integer in C# 4 bytes in, zoals je in de figuur kan zien.
 
 <div class="header2" markdown = "1">## Declaratie van een variabele
 </div>
 
-Onder declaratie van een variabele verstaan we het maken van de variabele. Dit houdt in dat er een **naam** en een **data type** aan de variabele toegekend worden.
+Onder declaratie van een variabele verstaan we het maken van de variabele. Dit houdt in dat er een **naam** en een **datatype** aan de variabele toegekend worden.
 
 <div class="note protip">
-<p>Kies telkens een betekenisvolle naam voor je variabele en gebruik het correcte data type.</p>
+<p>Kies telkens een betekenisvolle naam voor je variabele en gebruik het correcte datatype.</p>
 </div>
 
 Niet alle karakters kunnen gebruikt worden om een naam van een variabele samen te stellen. Een geldige variabelenaam voldoet aan de volgende eisen:
@@ -70,7 +68,7 @@ char c;              // Inhoud: 1 karakter, bv. a
 
  ```
 
-Opmerking: Variabelen van hetzelfde data type kan je ook op 1 lijn declareren. Zo declareert onderstaand voorbeeld 3 variabelen van het type integer:
+Opmerking: Variabelen van hetzelfde datatype kan je ook op 1 lijn declareren. Zo declareert onderstaand voorbeeld 3 variabelen van het type integer:
 ```csharp
 int x, y, z;
 ```
@@ -93,7 +91,7 @@ decimal price;
 char c;
 
 // Initialisatie van de bovenstaande variabelen op een gepaste waarde.
-x = 7;
+leeftijd = 17;
 
 name = "voorbeeld";   // Tekst plaats je tussen dubbele aanhalingstekens.
 
@@ -104,6 +102,13 @@ averageSpeed = 52.36; // Let op! Je geeft kommagetallen in met een punt en niet 
 price = 19.95m;       // Gebruik een punt bij het kommagetal. Bij een decimal variabele laat je 
                       // het getal volgen door de letter m.
 c = 'A';              // Het karakter plaats je tussen enkele aanhalingstekens
+```
+
+Opmerking:
+Het is eveneens mogelijk de declaratie en initialisatie van een variabele gelijktijdig uit te voeren zoals je in het voorbeeld hieronder ziet.
+
+```csharp
+int getal = 5;
 ```
 
 ### De variabele gelijk stellen aan invoer van de gebruiker
@@ -123,7 +128,7 @@ number = Convert.ToInt32(Console.ReadLine()); // Let op de omzetting naar int
 
 Gegevens die ingevoerd worden via het toetsenbord hebben steeds het gegevenstype `string`. Om deze invoer in variabelen met een ander gegevenstype te plaatsen is er een omzetting (conversie) nodig. In het bovenstaande voorbeeld wordt de omzetting van string naar int gedaan d.m.v. `Convert.ToInt32()`.
 
-Voor de andere data types bestaan er eveneens methods om deze conversie te doen: `Convert.ToSingle()` (dit doet een conversie naar float), `Convert.ToDouble()`, `Convert.ToDecimal()`, `Convert.ToBoolean()`, `Convert.ToChar()`.
+Voor de andere datatypes bestaan er eveneens methods om deze conversie te doen: `Convert.ToSingle()` (dit doet een conversie naar float), `Convert.ToDouble()`, `Convert.ToDecimal()`, `Convert.ToBoolean()`, `Convert.ToChar()`.
 
 
 ### De variabele gelijk stellen aan het resultaat van een bewerking
@@ -156,7 +161,7 @@ sum = number1 + number2; //number1 kreeg geen waarde en wordt in de bewerking ge
                          //-> foutmelding
 ```
 
-Bovenstaande code geeft de foutmelding: `Use of unassigned local variabel number1`. 
+Bovenstaande code geeft de foutmelding: `Use of unassigned local variable number1`. 
 
 <div class="header2" markdown = "1">## Een variabele op het scherm tonen
 </div>
@@ -202,7 +207,7 @@ Merk op dat er binnen de dubbele aanhalingstekens de nodige spaties voorzien zij
 #### Methode 2: String interpolation (Gebruik van placeholders)
 
 ##### Variant 1:
-Net zoals bij concatenatie geldt hier nog steeds dat de string literal tussen dubbele aanhalingstekens geplaatst wordt en de variabele niet. Bij de opbouw van de uitvoer, wordt er hier echter gebruik gemaakt van placeholders onder de vorm van nummers. Onderstaand voorbeeld toont de werking van deze placehoders aan:
+Net zoals bij concatenatie geldt hier nog steeds dat de string literal tussen dubbele aanhalingstekens geplaatst wordt en de variabele niet. Bij de opbouw van de uitvoer, wordt er hier echter gebruik gemaakt van placeholders onder de vorm van nummers. Onderstaand voorbeeld toont de werking van deze placeholders aan:
 
 ```csharp
 Console.WriteLine("Er zijn {0} honden en {1} katten.", dogCount, catCount);  
@@ -229,16 +234,16 @@ Indien we veronderstellen dat de variabele dogCount de waarde 3 heeft en catCoun
 Er zijn 3 honden en 5 katten.
 ```
 
-<div class="header2" markdown = "1">## Automatische conversie tussen data types
+<div class="header2" markdown = "1">## Automatische conversie tussen datatypes
 </div>
 
-Soms is het nodig om de inhoud van een variabele of invoer van het toetsenbord naar een ander data type om te zetten. We noemen dit **conversie**. In bepaalde gevallen zal C# zelf de conversie tussen gegevenstypes doen. De numerieke gegevenstypes hebben onderstaande hiërarchie:
+Soms is het nodig om de inhoud van een variabele of invoer van het toetsenbord naar een ander datatype om te zetten. We noemen dit **conversie**. In bepaalde gevallen zal C# zelf de conversie tussen gegevenstypes doen. De numerieke gegevenstypes hebben onderstaande hiërarchie:
 
 * double (hoogste)
 * float
 * int (laagste)
 
-Conversie van een lager gegevenstype naar een hoger gebeurt automatisch. Probeer je, zonder bijkomende conversie, een variabele van een lager gegevenstype gelijk te stellen aan een hoger data type dan krijg je een foutmelding.
+Conversie van een lager gegevenstype naar een hoger gebeurt automatisch. Probeer je, zonder bijkomende conversie, een variabele van een lager gegevenstype gelijk te stellen aan een hoger datatype dan krijg je een foutmelding.
 
 Conversie naar decimal zal nooit automatisch gebeuren. Hiervoor is de `Convert.ToDecimal()` functie steeds nodig.
 
@@ -270,10 +275,10 @@ x = y;  // Automatische conversie van double naar int is niet mogelijk
  
 ```
 
-In bovenstaand voorbeeld wordt er geprobeerd om de inhoud van een variabele met hoger gegevenstype te plaatsen in een variabele van een lager data type. Dit geeft volgende foutmelding: `Cannot implicitly convert type 'double' to 'int'. An explicit conversion exists (are you missing a cast?)`
+In bovenstaand voorbeeld wordt er geprobeerd om de inhoud van een variabele met hoger gegevenstype te plaatsen in een variabele van een lager datatype. Dit geeft volgende foutmelding: `Cannot implicitly convert type 'double' to 'int'. An explicit conversion exists (are you missing a cast?)`
 
 Oplossing:
-Indien automatische conversie tussen data types niet lukt maar er toch een omzetting nodig is, kan je gebruik maken van de Convert methods die in vorige punt aangehaald werden. Merk hierbij op dat dit een wijziging van gegevens tot gevolg kan hebben.
+Indien automatische conversie tussen datatypes niet lukt maar er toch een omzetting nodig is, kan je gebruik maken van de Convert methods die in vorige punt aangehaald werden. Merk hierbij op dat dit een wijziging van gegevens tot gevolg kan hebben.
 
 Indien we de Convert method `Convert.ToInt32()` toepassen om de foutmelding bij het vorige voorbeeld te vermijden dan wordt dit:
 
@@ -297,31 +302,31 @@ De waarde van y: 10.99
 De waarde van x: 11
 ```
 
-Zoals je ziet heeft de method `Convert.ToInt32()` de waarde van y eerst afgerond op nul decimalen en daarna in x geplaatst. Dit is noodzakelijk omdat de integer x geen kommagetal kan bevatten. Het afronden gebeurt op een rekenkundige manier.
+Zoals je ziet heeft de method `Convert.ToInt32()` de waarde van y eerst afgerond naar het dichtsbijzijnde gehele getal en daarna in x geplaatst. Dit is noodzakelijk omdat de integer x geen kommagetal kan bevatten. Het afronden gebeurt op een rekenkundige manier.
 
 ### Van char naar string
 Er zijn twee manieren om een `char` om te zetten naar `string`:
 * Conversie d.m.v. `Convert.ToString(a)`: dit zal de `char` omzetten naar een `string`.
 ```csharp
 char teken = 'a';
-string s1 = Convert.ToString(teken) // s1 = "a"
+string s1 = Convert.ToString(teken); // s1 = "a"
 ```
 
 * De functie `.ToString()` toepassen op de variabele van het type `char`.
 ```csharp
 char teken = 'a';
-string s2 = teken.ToString() // s2 = "a"
+string s2 = teken.ToString(); // s2 = "a"
 ```
 
 Let op!
 
-De conversie van een `char` naar een `string` kan soms onverwachte resultaten geven. Dat komt omdat je een `char`, zoals 'a', ook als een cijfer in de ASCII tabel kan zien. Zoals je in onderstaande ASCII tabel kan terugvinden, komt het karakter 'a' bijvoorbeeld overeen met de decimale waarde 97. Het feit dat voor de computer elk karakter eigenlijk een getal is, is iets waarmee je bij bepaalde conversies rekening moet houden.
+De conversie van een `char` naar een `string` kan soms onverwachte resultaten geven. Dat komt omdat je een `char`, zoals 'a', ook als een cijfer in de Unicode tabel kan zien. Zoals je in onderstaande Unicode tabel kan terugvinden, komt het karakter 'a' bijvoorbeeld overeen met de decimale waarde 97. Het feit dat voor de computer elk karakter eigenlijk een getal is, is iets waarmee je bij bepaalde conversies rekening moet houden.
 
 ![image](/img/basics/data_types/ascii_tabel.png)
 
-Onderstaand voorbeeld toont aan wat er in dat geval kan fout lopen: In het voorbeeld zit de letter a in de `char` variabele teken. We willen nu a.h.v. de variabele teken een nieuwe variabele van het type `string` maken die 2 maal de letter a bevat, dus 2 maal de `char` variabele teken. We kunnen in C# variabelen van het type `char` of `string` 'optellen' met de het + teken. Maar hier hebben we 2 mogelijkheden:
+Onderstaand voorbeeld toont aan wat er in dat geval kan fout lopen: In het voorbeeld zit de letter a in de `char` variabele teken. We willen nu a.h.v. de variabele teken een nieuwe variabele van het type `string` maken die 2 maal de letter a bevat, dus 2 maal de `char` variabele teken. We kunnen in C# variabelen van het type `char` of `string` 'optellen' met het + teken. Maar hier hebben we 2 mogelijkheden:
 
-* We tellen eerst  de `char` variabele a bij zichzelf op en doen dan de conversie naar `string`. Zoals we reeds zagen heeft de letter a in de ASCII tabel de decimale waarde 97. Als we dus de `char` variabele bij zichzelf optellen, dan bekomen we de waarde 194 (97 + 97). Waarden groter dan 127 (laatste decimale waarde uit de ASCII tabel), worden door C# sowieso beschouwd als `integer`. Op deze `integer` de conversie naar `string` toepassen zal het getal zelf in `string` formaat als resultaat geven. In het voorbeeld wordt dus "194" in `string` formaat als resultaat van de `ToString` functie gegeven en niet "aa" zoals we zouden verwachten.
+* We tellen eerst  de `char` variabele a bij zichzelf op en doen dan de conversie naar `string`. Zoals we reeds zagen heeft de letter a in de ASCII tabel de decimale waarde 97. Als we dus de `char` variabele bij zichzelf optellen, dan bekomen we de waarde 194 (97 + 97). Wanneer twee variabelen van het type `char` worden opgeteld, zet C# beide tekens immers eerst om naar hun numerieke Unicode-code. Het resultaat van de optelling is dus een `integer`. Op deze `integer` de conversie naar `string` toepassen zal het getal zelf in `string` formaat als resultaat geven. In het voorbeeld wordt dus "194" in `string` formaat als resultaat van de `ToString` functie gegeven en niet "aa" zoals we zouden verwachten.
 ```csharp
 char teken = 'a';
 string s3 = Convert.ToString(teken + teken); // s3 = "194"
@@ -351,7 +356,7 @@ public static int calcSum(int a, int b)
 }
 ```
 
-Als je een progamma start, wordt steeds de functie `Main` gestart. Deze functie bevat de instructies die uitgevoerd zullen worden. Vanuit `Main` kan je de functie `calcSum`als volgt aanroepen:
+Als je een programma start, wordt steeds de functie `Main` gestart. Deze functie bevat de instructies die uitgevoerd zullen worden. Vanuit `Main` kan je de functie `calcSum` als volgt aanroepen:
 
 ```csharp
 static void Main(string[] args)
