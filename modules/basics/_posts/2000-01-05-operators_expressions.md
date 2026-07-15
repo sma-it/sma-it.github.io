@@ -154,7 +154,8 @@ Voorbeeld:
 ```csharp
 int x; 
 
-if (x >= 1 && x <= 100) // De vergelijking test of x tussen 1 en 100 ligt, grenzen inbegrepen.
+if (x >= 1 && x <= 100) // De vergelijking test of x tussen 1 en 100 ligt, grenzen 
+                        // inbegrepen.
 {
 
 }
@@ -188,8 +189,8 @@ Voorbeeld:
 ```csharp
 int x; 
 
-if (x < 1 || x > 100) // De vergelijking test of x niet tussen 1 en 100 ligt, grenzen 
-                      //inbegrepen.
+if (x < 1 || x > 100) // De vergelijking test of x niet tussen 1 en 100 
+                      // ligt, grenzen inbegrepen.
 {
 
 }
