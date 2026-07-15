@@ -1,14 +1,14 @@
 ---
-title: Het for Statement
+title: De begrensde herhaling - for
 ---
-<div class="header1" id="top" markdown = "1"># Het for Statement
+<div class="header1" id="top" markdown = "1"># De begrensde herhaling - for
 </div>
 <div class="header2" markdown = "1">## Gebruik van het for statement
 </div>
 
 Het `for` statement wordt gebruikt om een instructieblok meerdere keren uit te voeren.
 
-Een programmeerstructuur die een stuk code meerdere keren uitvoert, noemt met een lus (loop). Daarom wordt er vaak de naam for-lus of for-loop gebruikt. Een andere naam voor de for-lus is 'iteratie'.
+Een programmeerstructuur die een stuk code meerdere keren uitvoert, wordt een lus (loop) genoemd. Daarom wordt er vaak de naam for-lus of for-loop gebruikt. Een lus voert meerdere iteraties uit. Een iteratie is 1 doorloop van het instructieblok binnen de lus.
 
 <div class="header2" markdown = "1">## De syntax van het for statement
 </div>
@@ -43,7 +43,7 @@ Bespreking:
 ```csharp
 for (int i = 0; i < 10; i++)
 {
-    Console.Write("{0} ", i);
+    Console.Write($"{i} ");
 }
 Console.WriteLine("\nFirst instruction after the for loop");
 
@@ -63,24 +63,21 @@ De parameters tussen haakjes zijn:
 * Voorwaarde: i < 10
 * Stap: i++
     * Belangrijk: voluit geschreven is dit i = i + 1.
-    * We kunnen het verloop van de for-lus dus als volgt beschrijven: de teller i wordt geïnitialiseerd op 0 en gaat in stappen van 1 omhoog. Als i de waarde 10 bereikt stopt de for-lus en wordt het instructieblok niet meer uitgevoerd.
+    * We kunnen het verloop van de for-lus dus als volgt beschrijven: de teller i wordt geïnitialiseerd op 0 en gaat in stappen van 1 omhoog. Als i de waarde 10 bereikt, wordt de voorwaarde nogmaals gecontroleerd maar zal deze `false` als resultaat geven. Bijgevolg stopt de for-lus en wordt het instructieblok niet meer uitgevoerd.
 Het instructieblok toont de waarde van de teller i, bijgevolg verschijnen de getallen 0 tot en met 9 op het scherm.
 Het getal 10 verschijnt niet omdat het instructieblok niet uitgevoerd wordt van zodra de teller i de waarde 10 bereikt heeft.
 Als de for-lus afgelopen is, vervolgt het programma met de code die na de lus komt. In dit voorbeeld is dit de tekst '\nFirst instruction after the for loop". 
 
-Opmerkingen: 
+Opmerking: 
 * Bij de instructie Console.WriteLine wordt gebruik gemaakt van `\n`. Dit genereert een enter in de uitvoer. De zin "First instruction after the for loop" verschijnt dus op een nieuwe regel.
-* Verklaring syntax Console.Write("{0} ", i): De inhoud van de variabele i wordt op de plaats van {0} ingevuld. 
-Er kunnen meerdere parameters gebruikt worden, de nummering is oplopend {0}, {1}, {2}, ... Voor elke parameter moet een variabele voorzien worden.
-
-Opmerking
+* De teller van een for-lus is meestal van het type int. Andere datatypes zijn technisch mogelijk, maar worden zelden gebruikt. Hieronder bespreken we 1 ander datatype, nl. char.
 
 ### Voorbeeld 2: For-lus met char teller
 
 ```csharp
 for (char c = 'a'; c <= 'z'; c++)
 {
-    Console.Write("{0} ", c);
+    Console.Write("{c} ");
 }
 Console.WriteLine("\nFirst instruction after the for loop");
 
@@ -92,15 +89,14 @@ First instruction after the for loop
 Bespreking:
 * De teller van een for-lus moet niet noodzakelijk van het type int zijn (al zal dit vaak wel het geval zijn). In het voorbeeld wordt een char-teller gebruikt om het alfabet op het scherm te tonen.
 * Als teller van een for-lus wordt vaak een variabele met de naam i gebruikt. Zoals je in het voorbeeld kan zien, is de naam van de teller vrij te kiezen.
-* Zoals je in het voorbeeld ziet, kan er in C# met char-variabelen geteld worden. Telkens de char-variabele met 1 verhoogt schuift hij een waarde op in de ASCII-tabel. Aangezien het alfabet in opeenvolgende posities in de ASCII-tabel zit, wordt op deze manier het volledige alfabet doorlopen. Er is een opeenvolgende range voor hoofdletters en een opeenvolgende range voor kleine letters.
-* Ook tellers van het type float en double zijn mogelijk.
+* Zoals je in het voorbeeld ziet, kan er in C# met char-variabelen geteld worden. Telkens de char-variabele met 1 verhoogt schuift hij een waarde op in de Unicode-tabel. Aangezien het alfabet in opeenvolgende posities in de Unicode-tabel zit, wordt op deze manier het volledige alfabet doorlopen. Er is een opeenvolgende range voor hoofdletters en een opeenvolgende range voor kleine letters.
 
 ### Voorbeeld 3: Beginwaarde teller verschillend van 0 en stapgrootte verschillend van 1
 
 ```csharp
 for (int i = 10; i < 100; i += 2)
 {
-    Console.Write("{0} ", i);
+    Console.Write("{i} ");
 }
 Console.WriteLine("\nFirst instruction after the for loop");
 
@@ -120,7 +116,7 @@ Bespreking:
 int max = 40;
 for (int i = 0; i < max; i += 2)
 {
-    Console.Write("{0} ", i);
+    Console.Write("{i} ");
 }
 Console.WriteLine("\nFirst instruction after the for loop");
 
@@ -136,11 +132,11 @@ In de voorwaarde wordt er gebruik gemaakt van de variabele max.
 Vanzelfsprekend kan ook bij de initialisatie van de teller i een variabele gebruikt worden, zoals onderstaand voorbeeld aantoont.
 
 ```csharp
-int min = 30
+int min = 30;
 int max = 40;
 for (int i = min; i < max; i += 2)
 {
-    Console.Write("{0} ", i);
+    Console.Write("{i} ");
 }
 Console.WriteLine("\nFirst instruction after the for loop");
 
@@ -155,7 +151,7 @@ First instruction after the for loop
 ```csharp
 for (int i = 0; i < 10; i++)
 {
-    Console.Write("{0} ", i);
+    Console.Write("{i} ");
     if (i == 5)
     {
         Console.WriteLine("\nWe make the loop end at number 5!");
@@ -171,7 +167,7 @@ First instruction after the for loop
 */
 ```
 Bespreking:
-* In de for-lus zit een selectie. Bij elke lus wordt er getest of de teller de waarde 5 heeft. Indien dit niet het geval is, wordt het bijbehorende instructieblok niet uitgevoerd en loopt de lus door. Indien de teller i echter 5 is wordt het instructieblok van de selectie uitgevoerd.
+* In de for-lus zit een if-statement. Bij elke iteratie wordt er getest of de teller de waarde 5 heeft. Indien dit niet het geval is, wordt het bijbehorende instructieblok niet uitgevoerd en loopt de lus door. Indien de teller i echter 5 is wordt het instructieblok van de selectie uitgevoerd.
 * In het instructieblok van de selectie doet het volgende:
     * Er wordt een boodschap getoond: "We make de loop end at number 5!"
     * Er wordt een `break` gegeven. Het `break` statement zal de lus **volledig stoppen** en zorgt ervoor dat het programma naar de eerste instructie na de for-lus springt. Dus ook al heeft de teller de bovengrens nog niet bereikt, de for-lus eindigt toch.
@@ -194,13 +190,40 @@ Console.WriteLine("First instruction after the for loop.");
 Output:
 8
 9
-First instruction after the for loop
+First instruction after the for loop.
 */
 ```
 
 Bespreking:
-* In de for-lus zit een selectie. Indien de teller kleiner is dan 8 wordt het `continue` statement uitgevoerd. Van zodra de teller i een waarde 9 of hoger krijgt, wordt het `continue` statement niet meer uitgevoerd.
-* Het `continue` statement stopt de huidige iteratie van de lus. Dit betekent dat alle instructies binnen de lus die volgen op `continue` **niet meer uitgevoerd worden**. De lus **stopt echter niet volledig**, de teller wordt met de stapgrootte verhoogd en de volgende iteratie van de lus start.
+* In de for-lus zit een if-statement. Indien de teller kleiner is dan 8 wordt het `continue` statement uitgevoerd. Van zodra de teller i een waarde 8 of hoger krijgt, wordt het `continue` statement niet meer uitgevoerd.
+* Het `continue` statement stopt de huidige iteratie van de lus. Dit betekent dat alle instructies binnen de lus die volgen op `continue` **niet meer uitgevoerd worden**. De lus **stopt echter niet volledig**, de teller wordt met de stapgrootte verhoogd en de volgende iteratie van de lus start omdat de voorwaarden van de lus nog steeds voldaan zijn.
+
+<div class="header2" markdown = "1">## De oneindige lus!
+</div>
+
+Fouten in de voorwaarden van een for-lus kunnen ervoor zorgen dat het programma in een oneindige lus raakt. Pas hier voor op!
+
+### Voorbeeld 1: Oneindige lus door ontbreken stapgrootte
+
+In onderstaande code is er geen stapgrootte gedeclareerd (argument 3 ontbreekt). Hierdoor zal de teller i nooit wijzigen en zal de lus oneindig blijven doorlopen.
+
+```csharp
+for (int i = 0; i < 10; )  // Oneindige lus!
+{
+    Console.WriteLine(i);
+}
+```
+
+### Voorbeeld 2: Oneindige lus door verkeerde stapgrootte
+
+In onderstaande code start de teller i op 0, maar aangezien de stapgrootte -1 is, zal i altijd kleiner zijn dan 10. Dit genereert een oneindige lus.
+
+```csharp
+for (int i = 0; i < 10; i--)  // Oneindige lus!
+{
+    Console.WriteLine(i);
+}
+```
 
 <div class="note oefening">
     <p>Open het project <a href="https://github.com/sma-it/oefening-for-1" target="_blank">oefening-for-1</a> en maak de oefeningenreeks</p>
