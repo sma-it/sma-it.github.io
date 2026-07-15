@@ -95,13 +95,17 @@ leeftijd = 17;
 
 name = "voorbeeld";   // Tekst plaats je tussen dubbele aanhalingstekens.
 
-percentage = 2.99f;   // Gebruik een punt bij het kommagetal. Bij een float variabele laat 
+percentage = 2.99f;   // Gebruik een punt bij het kommagetal. 
+                      // Bij een float variabele laat 
                       // je het getal volgen door de letter f.
 
-averageSpeed = 52.36; // Let op! Je geeft kommagetallen in met een punt en niet met een komma.
-price = 19.95m;       // Gebruik een punt bij het kommagetal. Bij een decimal variabele laat je 
+averageSpeed = 52.36; // Let op! Je geeft kommagetallen in met 
+                      // een punt en niet met een komma.
+price = 19.95m;       // Gebruik een punt bij het kommagetal. 
+                      // Bij een decimal variabele laat je 
                       // het getal volgen door de letter m.
-c = 'A';              // Het karakter plaats je tussen enkele aanhalingstekens
+c = 'A';              // Het karakter plaats je tussen enkele 
+                      // aanhalingstekens
 ```
 
 Opmerking:
@@ -120,10 +124,12 @@ int number;
      
 // Initialisatie
 Console.WriteLine("Geef je naam: ");
-name = Console.ReadLine(); // name wordt geïnitialiseerd op de invoer van het toetsenbord
+name = Console.ReadLine();      // name wordt geïnitialiseerd op de 
+                                // invoer van het toetsenbord
 
 Console.WriteLine("Geef een getal: ");
-number = Convert.ToInt32(Console.ReadLine()); // Let op de omzetting naar int
+number = Convert.ToInt32(Console.ReadLine()); // Let op de omzetting 
+                                              // naar int
 ```
 
 Gegevens die ingevoerd worden via het toetsenbord hebben steeds het gegevenstype `string`. Om deze invoer in variabelen met een ander gegevenstype te plaatsen is er een omzetting (conversie) nodig. In het bovenstaande voorbeeld wordt de omzetting van string naar int gedaan d.m.v. `Convert.ToInt32()`.
@@ -141,7 +147,8 @@ int x, y, result;
 // Initialisatie
 x = 7;
 y = 10;
-result = x + y; // result wordt geïnitialiseerd op het resultaat van de bewerking.  
+result = x + y; // result wordt geïnitialiseerd op het resultaat 
+                // van de bewerking.  
 ```
 
  
@@ -157,8 +164,8 @@ int number1;
 int number2 = 10;
 int sum;
 
-sum = number1 + number2; //number1 kreeg geen waarde en wordt in de bewerking gebruikt 
-                         //-> foutmelding
+sum = number1 + number2; //number1 kreeg geen waarde en wordt in de  
+                         //bewerking gebruikt -> foutmelding
 ```
 
 Bovenstaande code geeft de foutmelding: `Use of unassigned local variable number1`. 
@@ -288,9 +295,10 @@ int x;
 double y;
 
 y = 10.99;
-x = Convert.ToInt32(y); // De inhoud van y eerst omgezet naar int en in x geplaatst.
-                        // Merk op dat de variabele y hier zelf niet door wijzigt en
-                        // nog steeds 10.99 als waarde behoudt.
+x = Convert.ToInt32(y); // De inhoud van y eerst omgezet naar int en in x 
+                        // geplaatst.
+                        // Merk op dat de variabele y hier zelf niet door
+                        // wijzigt en nog steeds 10.99 als waarde behoudt.
 Console.WriteLine("De waarde van y: " + y);
 Console.WriteLine("De waarde van x: " + x);
  
@@ -345,8 +353,8 @@ Een functie is een klein stukje programma dat opgeroepen kan worden d.m.v. een f
 Hetzelfde voorbeeld maar dan toegepast in een functie:
 
  ```csharp
-// Declaratie van de variabelen a en b in de argumentenlijst. Deze variabelen bestaan enkel 
-// binnen de functie.
+// Declaratie van de variabelen a en b in de argumentenlijst.
+// Deze variabelen bestaan enkel binnen de functie.
 // Initialisatie van a en b gebeurt bij de aanroep van de functie.
 public static int calcSum(int a, int b)   
 {
@@ -364,9 +372,12 @@ static void Main(string[] args)
     int x = 10;
     int y = 2;
     int res;
-    // Hieronder wordt de functie calcSum aangeroepen. Het argument a krijgt de waarde van x,
-    // het argument b krijgt de waarde van y. Op die manier kan er binnen de functie met de  
-    // daar gekende variabelen a en b gewerkt worden die dezelfde waarde gekregen hebben 
+    // Hieronder wordt de functie calcSum aangeroepen. 
+    // Het argument a krijgt de waarde van x,
+    // het argument b krijgt de waarde van y. 
+    // Op die manier kan er binnen de functie met de  
+    // daar gekende variabelen a en b gewerkt worden 
+    // die dezelfde waarde gekregen hebben 
     // als x en y (twee variabelen uit Main).
     // Je leert meer hierover in het hoofdstuk Functies.
     res = calcSum(x, y); 
