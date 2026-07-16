@@ -229,7 +229,7 @@ Er zijn 3 honden en 5 katten.
 Zoals je ziet wordt de inhoud van de variabelen, die achteraan staan, in volgorde op de plaats van de placeholders (de getallen tussen accolades) ingevuld.
 
 ##### Variant 2:
-De namen van de variabelen kunnen eveneens als placeholder gebruikt worden indien er voor de string een $-teken geplaatst wordt. Bij deze variant moeten de variabelen niet meer op het einde opgesomd worden, zoals bij variant 1 het geval was.
+De namen van de variabelen kunnen eveneens als placeholder gebruikt worden indien er voor de string een $-teken geplaatst wordt. Bij deze variant moeten de variabelen niet meer op het einde opgesomd worden, zoals bij variant 1 het geval was. Dit is de syntax die in huidige programma's meestal gebruikt wordt.
 
 ```csharp
 Console.WriteLine($"Er zijn {dogCount} honden en {catCount} katten.");  
@@ -299,8 +299,8 @@ x = Convert.ToInt32(y); // De inhoud van y eerst omgezet naar int en in x
                         // geplaatst.
                         // Merk op dat de variabele y hier zelf niet door
                         // wijzigt en nog steeds 10.99 als waarde behoudt.
-Console.WriteLine("De waarde van y: " + y);
-Console.WriteLine("De waarde van x: " + x);
+Console.WriteLine($"De waarde van y: {y}");
+Console.WriteLine($"De waarde van x: {x}");
  
 ```
 De uitvoer van dit stukje code is:
@@ -381,7 +381,7 @@ static void Main(string[] args)
     // als x en y (twee variabelen uit Main).
     // Je leert meer hierover in het hoofdstuk Functies.
     res = calcSum(x, y); 
-    Console.WriteLine("Het resultaat van de berekening is: " + res);
+    Console.WriteLine($"Het resultaat van de berekening is: {res}");
 
     System.Console.ReadKey();
   }
