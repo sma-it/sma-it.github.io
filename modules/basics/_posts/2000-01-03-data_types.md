@@ -114,6 +114,9 @@ Het is eveneens mogelijk de declaratie en initialisatie van een variabele gelijk
 ```csharp
 int getal = 5;
 ```
+<div class="note oefening">
+<p>Open het project <a href="https://github.com/sma-it/oefening-datatypes-1" target="_blank">oefening-datatypes-1</a> en maak oefeningenreeks Oef1_Initialisatie.cs</p>
+</div>
 
 ### De variabele gelijk stellen aan invoer van de gebruiker
 
@@ -151,8 +154,6 @@ result = x + y; // result wordt geïnitialiseerd op het resultaat
                 // van de bewerking.  
 ```
 
- 
-
 <div class="note waarschuwing">
 <p>Een variabele moet steeds geïnitialiseerd zijn voordat hij gebruikt wordt. Een niet-geïnitialiseerde variabele gebruiken (in bijvoorbeeld een bewerking of uitvoer) kan tot onverwachte en foutieve resultaten leiden.</p>
 </div>
@@ -169,6 +170,10 @@ sum = number1 + number2; //number1 kreeg geen waarde en wordt in de
 ```
 
 Bovenstaande code geeft de foutmelding: `Use of unassigned local variable number1`. 
+
+<div class="note oefening">
+<p>Open het project <a href="https://github.com/sma-it/oefening-datatypes-1" target="_blank">oefening-datatypes-1</a> en maak oefeningenreeks Oef2_Argumenten.cs</p>
+</div> 
 
 <div class="header2" markdown = "1">## Een variabele op het scherm tonen
 </div>
@@ -346,6 +351,10 @@ char teken = 'a';
 string s4 = teken.ToString() + teken.ToString(); // s4 = "aa"
 ```
 
+<div class="note oefening">
+<p>Open het project <a href="https://github.com/sma-it/oefening-datatypes-1" target="_blank">oefening-datatypes-1</a> en maak oefeningenreeks Oef3_Convert.cs</p>
+</div> 
+
 <div class="header2" markdown = "1">## Gebruik van variabelen in functies
 </div>
 Later in de cursus volgt een volledig hoofdstuk over functies. Toch is het belangrijk om nu al enige kennis van functies te hebben aangezien de oefeningen met functies opgebouwd zijn.
@@ -389,7 +398,7 @@ static void Main(string[] args)
 <div class="header2" markdown = "1">## Opmerking i.v.m. het maken van oefeningen
 </div>
 
-In de stap hieronder start je met de eerste oefening. In de uitvoer van het project krijg je al een eerste indicatie dat je de oefening correct uitgewerkt hebt doordat telkens jouw bekomen resultaat vergeleken wordt met het verwachte resultaat.
+In de uitvoer van het project krijg je al een eerste indicatie dat je de oefening correct uitgewerkt hebt doordat telkens jouw bekomen resultaat vergeleken wordt met het verwachte resultaat.
 Er zijn echter nog extra NUnit tests voorzien, die je code grondiger met andere en soms met meerdere waarden testen. Je kan deze tests starten via het Test Explorer venster. Indien dit venster niet openstaat, kan je het steeds terug zichtbaar zetten via het menu Test - Window - Test Explorer. Merk op dat de tests pas in het Test Explorer venster zichtbaar komen te staan nadat je je code uitgevoerd hebt.
 
 <div class="note protip">
@@ -398,7 +407,7 @@ Er zijn echter nog extra NUnit tests voorzien, die je code grondiger met andere 
 
 
 <div class="note oefening">
-<p>Open het project <a href="https://github.com/sma-it/oefening-datatypes-1" target="_blank">oefening-datatypes-1</a> en maak de oefeningenreeks</p>
+<p>Open het project <a href="https://github.com/sma-it/oefening-datatypes-1" target="_blank">oefening-datatypes-1</a> en maak de oefeningenreeks Oef4_Uitdaging</p>
 </div>
 
 <div class="toTop"><a href="#top">Omhoog</a></div>
