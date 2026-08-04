@@ -172,7 +172,7 @@ sum = number1 + number2; //number1 kreeg geen waarde en wordt in de
 Bovenstaande code geeft de foutmelding: `Use of unassigned local variable number1`. 
 
 <div class="note oefening">
-<p>Open het project <a href="https://github.com/sma-it/oefening-datatypes-1" target="_blank">oefening-datatypes-1</a> en maak oefeningenreeks Oef2_Argumenten.cs</p>
+<p>Open het project oefening-datatypes-1 en maak oefeningenreeks Oef2_Argumenten.cs</p>
 </div> 
 
 <div class="header2" markdown = "1">## Een variabele op het scherm tonen
@@ -352,7 +352,7 @@ string s4 = teken.ToString() + teken.ToString(); // s4 = "aa"
 ```
 
 <div class="note oefening">
-<p>Open het project <a href="https://github.com/sma-it/oefening-datatypes-1" target="_blank">oefening-datatypes-1</a> en maak oefeningenreeks Oef3_Convert.cs</p>
+<p>Open het project oefening-datatypes-1 en maak oefeningenreeks Oef3_Convert.cs</p>
 </div> 
 
 <div class="header2" markdown = "1">## Gebruik van variabelen in functies
@@ -407,7 +407,7 @@ Er zijn echter nog extra NUnit tests voorzien, die je code grondiger met andere 
 
 
 <div class="note oefening">
-<p>Open het project <a href="https://github.com/sma-it/oefening-datatypes-1" target="_blank">oefening-datatypes-1</a> en maak de oefeningenreeks Oef4_Uitdaging</p>
+<p>Open het project oefening-datatypes-1 en maak de oefeningenreeks Oef4_Uitdaging</p>
 </div>
 
 <div class="toTop"><a href="#top">Omhoog</a></div>
