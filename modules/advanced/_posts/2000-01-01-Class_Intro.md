@@ -254,10 +254,11 @@ public class Point
         return result;
     }
 
-    // -> Deze functie berekent de afstand tussen 2 punten. 
+    // Deze functie berekent de afstand tussen 2 punten. 
     // De functie wordt toegepast op het ene punt en het tweede punt 
     // wordt als argument meegegeven.
-    // De afstand tussen 2 punten wordt berekend met de volgende wiskunde bewerking:
+    // De afstand tussen 2 punten wordt berekend met de volgende 
+    // wiskunde bewerking:
     // afstand = vierkantswortel(((x2-x1)^2 + (y2-y1)^2))
     public double Distance(Point other)
     {
