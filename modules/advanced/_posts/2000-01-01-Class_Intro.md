@@ -93,9 +93,9 @@ DateTime date = new DateTime();
 Van de class `Person` maken we op dezelfde manier een object:
 
 ```csharp
-Person persoon = new Person();  //Hierin is Person het gegevenstype (de class) en persoon de 
-                                //naam van het object dat gemaakt wordt.
+Person persoon = new Person();  
 ```
+In dit voorbeeld is Person het gegevenstype (de class) en persoon de naam van het object dat gemaakt wordt. Het object persoon heeft een Name, een FirstName en een Age. De functie Print() kan op het object toegepast worden.
 
 Je kan op allerlei plaatsen in je programma op deze manier objecten maken: in andere classes en in de functie Main().
 
@@ -103,7 +103,7 @@ Je kan op allerlei plaatsen in je programma op deze manier objecten maken: in an
 
 Eens we een object hebben, kunnen we de properties van dat object aanpassen. Hieronder vind je een voorbeeld van een functie Main die gebruik maakt van de class Person die in de voorbeelden hierboven uitgewerkt werd.
 In de Main-functie gebeurt het volgende:
-* Er worden twee objecten van de class Person gemaakt. Deze objecten hebben de namen person1 en person2.
+* Er worden twee objecten van de class Person gemaakt. Deze objecten hebben de namen person1 en person2. Beide objecten hebben een eigen Name, een eigen FirstName en een eigen Age.
 * Beide objecten worden afzonderlijk geïnitialiseerd. Dit gebeurt door van elk object elke property apart een waarde te geven. De properties van een object kan je aanspreken met de syntax `objectNaam.propertyNaam`. We merken hierbij dadelijk op dat je in volgende voorbeelden zal zien dat je deze manier van initialiseren zal vervangen door een initialisatie d.m.v. een functie.
 * Beide objecten worden op het scherm getoond door op elk object de functie Print() toe te passen. Let op de syntax, je past een functie als volgt op een object toe: `objectNaam.FunctieNaam()`.
 
@@ -150,7 +150,7 @@ Je leert natuurlijk pas goed met classes werken wanneer je er vaak mee in aanrak
 In dit deel zie je een uitgewerkt voorbeeld van een class voor het werken met posities in 2D. De class heeft enkele properties, maar vooral veel functies die het werken met posities eenvoudiger maken. Geef zeker aandacht aan de verschillende manieren waarop functies met argumenten en resultaten kunnen werken.
 
 ```csharp
-class Point
+public class Point
 {
     //Properties
     public float X { get; set; }
@@ -164,24 +164,17 @@ class Point
         X = Y = 0f;
     }
 
-    /* Begin Set-functies: 
-    */
-    // Hieronder vind je 3 functies met de naam Set. Dit type functie wordt 
-    // gebruikt om één of meerdere properties van een object een waarde te geven via één of 
-    // meerdere functieargumenten. 
-    // In dit voorbeeld worden X en Y geïnitialiseerd a.h.v. de functieargument(en). 
+    /* Begin Set-functies: */
     
-
-    // De drie Set functies kunnen dezelfde naam hebben omdat de 
-    // argumenten verschillend zijn. (function overloading)
-
-    // Set functie versie 1: X en Y krijgen dezelfde waarde via het argument value.
+    // Set versie 1: 
+    // X en Y krijgen dezelfde waarde via het argument value.
     public void Set(float value)
     {
         X = Y = value;
     }
 
-    // Set functie versie 2: X en Y krijgen elk een verschillende waarde. 
+    // Set versie 2:
+    // X en Y krijgen elk een verschillende waarde. 
     // X krijgt de waarde van x en Y krijgt de waarde van y.
     public void Set(float x, float y)
     {
@@ -189,21 +182,25 @@ class Point
         Y = y;
     }
 
-    // Je kan als argument ook een object van de class zelf gebruiken. Zo kan je 
+    // Set versie 3:
+    // Je kan als argument ook een object van de class
+    // zelf gebruiken. Zo kan je 
     // een bestaand object kopiëren in een ander object.
-    // X wordt geïnitialiseerd op de X-property van het object other dat als functieargument
-    // meegegeven wordt. Y wordt geïnitialiseerd op de Y-property van dit object.
+    // X wordt geïnitialiseerd op de X-property van het 
+    // object other dat als functieargument
+    // meegegeven wordt. Y wordt geïnitialiseerd op de 
+    // Y-property van dit object.
     public void Set(Point other)
     {
         X = other.X;
         Y = other.Y;
     }
 
-    /* Einde Set-functies.
-    */
+    /* Einde Set-functies. */
 
-    /* Hieronder vind je andere functies die tot de class behoren. Zo zijn er functies die 
-     * de properties wijzigingen en functies die andere functionaliteiten hebben.
+    /* Hieronder vind je andere functies die tot de class behoren.
+     * Zo zijn er functies die de properties wijzigingen en functies 
+     * die andere functionaliteiten hebben.
      */
 
     // -> Functies die de properties wijzigen.
@@ -224,34 +221,42 @@ class Point
         Y += y;
     }
 
-    // Bij de properties X en Y worden respectievelijk de X-property en de Y-property  
-    // van het object dat als functieargument meegegeven wordt, opgeteld.
+    // Bij de properties X en Y worden respectievelijk de X-property 
+    // en de Y-property van het object dat als functieargument meegegeven 
+    // wordt, opgeteld.
     public void Add(Point other)
     {
         X += other.X; 
         Y += other.Y;
     }
 
-    // -> Functie die het gemiddelde van de X en Y-coördinaat berekent.
+    // Functie die het gemiddelde van de X en Y-coördinaat berekent.
     public float Average()
     {
         return (X + Y) / 2F;
     }
 
-    // -> Deze functie heeft de class Point als functieresultaat. In de 
-    // functie wordt een nieuw tijdelijk punt gemaakt dat dan als functieresultaat
-    // van de functie gebruikt wordt. Dit nieuwe punt heeft de omgekeerde
-    // coördinaten van het punt waarop de functie toegepast wordt.
+    // Deze functie heeft de class Point als functieresultaat. In de 
+    // functie wordt een nieuw tijdelijk punt gemaakt dat dan als 
+    // functieresultaat van de functie gebruikt wordt. Dit nieuwe punt 
+    // heeft de omgekeerde coördinaten van het punt waarop de functie 
+    // toegepast wordt.
     public Point Reversed()
     {
-        Point result = new Point(); // Het nieuwe tijdelijke Point-object wordt gemaakt.
+        // Het nieuwe tijdelijke Point-object wordt gemaakt.
+        Point result = new Point(); 
+
+        // Initialisatie van result.
         result.X = Y; 
         result.Y = X;
+
+        // Result wordt als resultaat teruggestuurd.
         return result;
     }
 
-    // -> Deze functie berekent de afstand tussen 2 punten. De functie wordt toegepast op 
-    // het ene punt en het tweede punt wordt als argument meegegeven.
+    // -> Deze functie berekent de afstand tussen 2 punten. 
+    // De functie wordt toegepast op het ene punt en het tweede punt 
+    // wordt als argument meegegeven.
     // De afstand tussen 2 punten wordt berekend met de volgende wiskunde bewerking:
     // afstand = vierkantswortel(((x2-x1)^2 + (y2-y1)^2))
     public double Distance(Point other)
@@ -279,13 +284,22 @@ public class Program
         //Initialisatie object point2 d.m.v. Set-functie met 2 argumenten
         point2.Set(10,16);
 
-        //Initialisatie van object point3 d.m.v. Set-functie met een Point-argument.
+        //Initialisatie van object point3 d.m.v. Set-functie met een 
+        //Point-argument.
         //We kopiëren hier point1 in point3.
         point3.Set(point1);
 
-        //Initialisatie van object point4 d.m.v. Set-functie die een Point-object als 
-        //returnwaarde geeft.
+        //Initialisatie van object point4 d.m.v. Set-functie die een 
+        //Point-object als returnwaarde geeft.
         point4=point2.Reversed();
+
+        //Bepalen van de afstand tussen point1 en point2.
+        //De functie wordt toegepast op point1 en heeft point2 als 
+        //argument. Het argument other van de functie krijgt dus
+        //point2 als inhoud. X en Y in de functie zijn de 
+        //coördinaten van point1.
+        double afstand = point1.Distance(point2);
+        Console.WriteLine("De afstand is: {0} ", afstand);
 
         Console.ReadKey();
     }
