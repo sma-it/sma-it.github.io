@@ -62,13 +62,13 @@ public class Person
     // Properties
     public string Name { get; set; }
     public string FirstName { get; set; }
-    public int Age { get; set; }
+    public DateTime BirthDate { get; set; }
 
     // De functie Print()
     public void Print()
     {
         Console.WriteLine("Name: {0} {1}", FirstName, Name);
-        Console.WriteLine("Age: {0}", Age);
+        Console.WriteLine("BirthDate: {0}", BirthDate.ToString("dd/MM/yyyy"));
     }
 }
 ```
@@ -119,12 +119,12 @@ public class Program
         //Initialisatie object person1
         person1.FirstName = "Steve";
         person1.Name = "Jobs";
-        person1.Age = 56;
+        person1.BirthDate = new DateTime(1955, 02, 24);
 
         //Initialisatie object person2
         person2.FirstName = "Bill";
         person2.Name = "Gates";
-        person2.Age = 68;
+        person2.BirthDate = new DateTime(1955, 10, 28);
 
         //De objecten person1 en person2 op het scherm tonen d.m.v. 
         //de functie Print() van de class Person
